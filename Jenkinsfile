@@ -1,4 +1,4 @@
-docker.image("cloudbees/java-build-tools").inside {
+docker.image("npm").inside {
     stage "Checkout and build"
         checkout scm
 	sh "npm install"
