@@ -1,4 +1,4 @@
-docker.image("npm").inside {
+docker.image("node").inside {
     stage "Checkout and build"
         checkout scm
 	sh "npm install"
