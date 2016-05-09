@@ -4,5 +4,5 @@ docker.image("cloudbees/java-build-tools").inside {
 	sh "npm install"
 
     stage "Test and validate"	
-    sh "npm run gulp"
+        sh "npm run gulp"
 }
