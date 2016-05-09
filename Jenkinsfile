@@ -1,9 +1,14 @@
 docker.image("node").inside {
-    sh "export HOME=."
+    
+    /* 
+     * - set the HOME so that npm doesn't try to write to root... which is a bit odd of the image.
+     */
+
     stage "Checkout and build"
         checkout scm
-	sh "npm install"
+	sh "HOME=. && npm install"
 
     stage "Test and validate"	
-        sh "npm run gulp"
+        sh "HOME=. && npm run gulp"
 }
+
