@@ -5,6 +5,7 @@ docker.image("node").inside {
      */
 
     stage "Checkout and build"
+    	echo "${pwd}"
         checkout scm
 	sh "HOME=. && npm install"
 
