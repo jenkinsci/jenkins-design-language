@@ -10,6 +10,9 @@ node {
           sh "npm install gulp-cli && ./node_modules/.bin/gulp"
      }
 
+     sh "Cleanup
+     deleteDir()
+
 }
 
 
