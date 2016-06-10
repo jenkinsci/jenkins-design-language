@@ -3,6 +3,7 @@ node {
      stage "Prepare environment"
        deleteDir()
        checkout scm
+     stage "Build container"
        def environment  = docker.build 'cloudbees-node'
 
        environment.inside {
