@@ -8,13 +8,14 @@ node {
         stage "Checkout and build"
           sh "npm install"
 
-         stage "Test and validate"	
-          sh "npm install gulp-cli && ./node_modules/.bin/gulp"
+         stage "Install gulp" 
+          sh 'npm install gulp-cli'
+          
+         stage 'Test' 
+          sh './node_modules/.bin/gulp'
        }
 
      stage "Cleanup"
-     	deleteDir()
+      deleteDir()
 
 }
-
-
