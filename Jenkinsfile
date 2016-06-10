@@ -1,23 +1,20 @@
 node {
 
      stage "Prepare environment"
-       deleteDir()
        checkout scm
-     stage "Build container"
        def environment  = docker.build 'cloudbees-node'
 
        environment.inside {
-        stage "Checkout and Build"
+        stage "Checkout and build"
           sh "npm install"
 
-         stage "Install gulp" 
-          sh 'npm install gulp-cli'
-          
-         stage 'Test' 
-          sh './node_modules/.bin/gulp'
+         stage "Test and validate"	
+	  sh "npm install gulp-cli && ./node_modules/.bin/gulp"
        }
 
      stage "Cleanup"
-      deleteDir()
+     	deleteDir()
 
 }
+
+
