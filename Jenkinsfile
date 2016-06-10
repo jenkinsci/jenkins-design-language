@@ -6,7 +6,7 @@ node {
        def environment  = docker.build 'cloudbees-node'
 
        environment.inside {
-        stage "Checkout and build"
+        stage "Checkout and Build"
           sh "npm install"
 
          stage "Install gulp" 
