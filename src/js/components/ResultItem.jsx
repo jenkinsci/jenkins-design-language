@@ -79,7 +79,7 @@ export class ResultItem extends Component {
         const hasChildren = !!this.props.children;
         const expanded = this.state.expanded && hasChildren;
 
-        let classes = ['result-item', resultClean];
+        const classes = ['result-item', resultClean];
 
         if (expanded) {
             classes.push('expanded');
@@ -124,13 +124,14 @@ ResultItem.propTypes = {
     data: PropTypes.any, // Whatever you want, will be sent back to listeners
     onExpand: PropTypes.func, // f(data:*, originalEvent:?event)
     onCollapse: PropTypes.func, // f(data:*, originalEvent:?event)
+    children: PropTypes.node,
 };
 
 // We can extract this into an exported component if we need it elsewhere
 class Expando extends Component {
     render() {
 
-        let classes = ['result-item-expando'];
+        const classes = ['result-item-expando'];
 
         if (this.props.expanded) {
             classes.push('expanded');
