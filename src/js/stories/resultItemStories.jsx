@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import { TimeDuration } from './';
 import { ResultItem } from '../components';
 
 import lipsum from './lipsum';
