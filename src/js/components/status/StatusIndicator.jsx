@@ -4,8 +4,6 @@ import React, {Component, PropTypes} from 'react';
 import SvgSpinner from './SvgSpinner';
 import SvgStatus from './SvgStatus';
 
-const {bool, number, string} = PropTypes;
-
 const validResultValues = {
     success: 'success',
     failure: 'failure',
@@ -88,11 +86,11 @@ class StatusIndicator extends Component {
 }
 
 StatusIndicator.propTypes = {
-    result: string,
-    percentage: number,
-    width: string,
-    height: string,
-    noBackground: bool,
+    result: PropTypes.string,
+    percentage: PropTypes.number,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    noBackground: PropTypes.bool,
 };
 
 StatusIndicator.validResultValues = validResultValues;

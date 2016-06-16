@@ -2,8 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
 import { StatusIndicator, decodeResultValue } from './StatusIndicator';
 
-const {bool, number, string} = PropTypes;
-
 /**
  * LiveStatusIndicator is a wrapper around StatusIndicator that allows
  * for an in-progress status to self update.
@@ -115,11 +113,11 @@ export class LiveStatusIndicator extends Component {
 }
 
 LiveStatusIndicator.propTypes = {
-    result: string,
-    percentage: number,
-    width: string,
-    height: string,
-    noBackground: bool,
-    startTime: string,
-    estimatedDuration: number,
+    result: PropTypes.string,
+    percentage: PropTypes.number,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    noBackground: PropTypes.bool,
+    startTime: PropTypes.string,
+    estimatedDuration: PropTypes.number,
 };
