@@ -64,12 +64,22 @@ class StatusIndicator extends Component {
         const radius = 12; // px.
         const resultClean = decodeResultValue(result);
 
+        const translate = `translate(${radius} ${radius})`;
+        // SvgStatus needs to be scaled up to fill the available space when no bg is used
+        const scale = resultClean !== validResultValues.running && this.props.chromeless ?
+            'scale(2,2)' : null;
+
+        const transforms = [
+            translate,
+            scale,
+        ];
+
         return (
             <svg className={groupClasses.join(' ')} xmlns="http://www.w3.org/2000/svg"
               viewBox={`0 0 ${2 * radius} ${2 * radius}`} width={width} height={height}
             >
                 <title>{resultClean}</title>
-                <g transform={`translate(${radius} ${radius})`}>
+                <g transform={transforms.join(' ')}>
                     {getGroupForResult(resultClean, percentage, radius)}
                 </g>
             </svg>
