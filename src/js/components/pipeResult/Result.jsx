@@ -128,18 +128,4 @@ PipelineResult.propTypes = {
     onAuthorsClick: func,
 };
 
-function iconFromResult(result) {
-    switch(result) {
-        case "SUCCESS":
-        case "UNSTABLE":
-            return "done";
-        case "FAILURE":
-        case "ABORTED":
-        case "NOT_BUILT":
-            return "close";
-        default:
-            return "close";
-    }
-}
-
 export { PipelineResult };
