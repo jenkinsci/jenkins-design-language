@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
 import { StatusIndicator, decodeResultValue } from './StatusIndicator';
 
-const {number, string} = PropTypes;
+const {bool, number, string} = PropTypes;
 
 /**
  * LiveStatusIndicator is a wrapper around StatusIndicator that allows
@@ -119,6 +119,7 @@ LiveStatusIndicator.propTypes = {
     percentage: number,
     width: string,
     height: string,
+    chromeless: bool,
     startTime: string,
     estimatedDuration: number,
 };

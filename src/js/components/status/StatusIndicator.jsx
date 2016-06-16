@@ -4,7 +4,7 @@ import React, {Component, PropTypes} from 'react';
 import SvgSpinner from './SvgSpinner';
 import SvgStatus from './SvgStatus';
 
-const {number, string} = PropTypes;
+const {bool, number, string} = PropTypes;
 
 const validResultValues = {
     success: 'success',
@@ -54,11 +54,20 @@ class StatusIndicator extends Component {
             width = '24px',
             height = '24px'
         } = this.props;
+
+        const groupClasses = [
+            'svgResultStatus',
+            this.props.chromeless ?
+                'chromeless' : null
+        ];
+
         const radius = 12; // px.
         const resultClean = decodeResultValue(result);
 
         return (
-            <svg className="svgResultStatus" xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${2 * radius} ${2 * radius}`} width={width} height={height}>
+            <svg className={groupClasses.join(' ')} xmlns="http://www.w3.org/2000/svg"
+              viewBox={`0 0 ${2 * radius} ${2 * radius}`} width={width} height={height}
+            >
                 <title>{resultClean}</title>
                 <g transform={`translate(${radius} ${radius})`}>
                     {getGroupForResult(resultClean, percentage, radius)}
@@ -72,7 +81,8 @@ StatusIndicator.propTypes = {
     result: string,
     percentage: number,
     width: string,
-    height: string
+    height: string,
+    chromeless: bool,
 };
 
 StatusIndicator.validResultValues = validResultValues;
