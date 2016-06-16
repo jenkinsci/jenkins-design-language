@@ -30,7 +30,7 @@ const glyphResultValues = resultValues.slice(5); // Just skip all the repeats of
 storiesOf('StatusIndicator', module)
     .add('all', statusIndicatorStories)
     .add('status glyphs', glyphStories)
-    .add('chromeless, large', chromelessLargeStories);
+    .add('no bg, large', noBgLargeStories);
 
 function statusIndicatorStories() {
     return (
@@ -97,7 +97,7 @@ function glyphStories() {
     );
 }
 
-function chromelessLargeStories() {
+function noBgLargeStories() {
     const styleCell = {
         display: 'flex',
     };
@@ -123,7 +123,7 @@ function chromelessLargeStories() {
                         <td>{value}</td>
                         <td style={styleCell}>
                             <span style={styleIndicator}>
-                                <StatusIndicator chromeless width="100px" height="100px"
+                                <StatusIndicator noBackground width="100px" height="100px"
                                   result={value} percentage={percentage}
                                 />
                             </span>

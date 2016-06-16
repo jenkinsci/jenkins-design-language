@@ -57,8 +57,8 @@ class StatusIndicator extends Component {
 
         const groupClasses = [
             'svgResultStatus',
-            this.props.chromeless ?
-                'chromeless' : null
+            this.props.noBackground ?
+                'no-background' : null
         ];
 
         const radius = 12; // px.
@@ -66,7 +66,7 @@ class StatusIndicator extends Component {
 
         const translate = `translate(${radius} ${radius})`;
         // SvgStatus needs to be scaled up to fill the available space when no bg is used
-        const scale = resultClean !== validResultValues.running && this.props.chromeless ?
+        const scale = resultClean !== validResultValues.running && this.props.noBackground ?
             'scale(2,2)' : null;
 
         const transforms = [
@@ -92,7 +92,7 @@ StatusIndicator.propTypes = {
     percentage: number,
     width: string,
     height: string,
-    chromeless: bool,
+    noBackground: bool,
 };
 
 StatusIndicator.validResultValues = validResultValues;

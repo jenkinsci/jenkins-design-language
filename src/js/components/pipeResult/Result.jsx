@@ -61,7 +61,7 @@ class PipelineResult extends Component {
             <section className="status inverse">
                 <LiveStatusIndicator result={status} startTime={startTime}
                   estimatedDuration={estimatedDurationInMillis}
-                  width="70px" height="70px" chromeless
+                  width="70px" height="70px" noBackground
                 />
             </section>
             <section className="table">

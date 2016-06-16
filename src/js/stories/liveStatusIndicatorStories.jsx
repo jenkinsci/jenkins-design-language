@@ -8,7 +8,7 @@ storiesOf('LiveStatusIndicator', module)
     .add('10s, start now', scenario1)
     .add('60s, started 30s ago', scenario2)
     .add('already exceeded estimate', scenario3)
-    .add('chromeless, large', scenario4);
+    .add('no bg, large', scenario4);
 
 function scenario1() {
     const started = moment().toISOString();
@@ -44,13 +44,13 @@ function scenario4() {
     };
     return (
         <div style={styleContainer}>
-            <span style={styleIndicator}>
-                <LiveStatusIndicator result={'running'} chromeless
+            <span style={styleIndicator} className="inverse">
+                <LiveStatusIndicator result={'running'} noBackground
                   width="100px" height="100px"
                 />
             </span>
             <span style={styleIndicator}>
-                <LiveStatusIndicator result={'success'} chromeless
+                <LiveStatusIndicator result={'success'} noBackground
                   startTime={started} estimatedDuration={10000}
                   width="100px" height="100px"
                 />

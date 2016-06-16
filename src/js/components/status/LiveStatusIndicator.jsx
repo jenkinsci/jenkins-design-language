@@ -119,7 +119,7 @@ LiveStatusIndicator.propTypes = {
     percentage: number,
     width: string,
     height: string,
-    chromeless: bool,
+    noBackground: bool,
     startTime: string,
     estimatedDuration: number,
 };
