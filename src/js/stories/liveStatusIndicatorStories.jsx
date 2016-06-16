@@ -39,7 +39,7 @@ function scenario4() {
         margin: '20px',
     };
     const styleIndicator = {
-        backgroundColor: 'blue',
+        backgroundColor: '#0071C4',
         border: '1px solid black',
     };
     return (
