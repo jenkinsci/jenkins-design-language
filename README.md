@@ -159,4 +159,3 @@ on 2016-05-09.
 [js-samples]: https://github.com/jenkinsci/js-samples
 [js-modules]: https://github.com/jenkinsci/js-modules
 [react-storybook]: https://github.com/kadirahq/react-storybook
-
