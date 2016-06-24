@@ -832,6 +832,12 @@ footer {
     }
 }
 
+@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+    .dialog .header .page-tabs {
+        margin-bottom: 22px;
+    }
+}
+
 .dialog .header {
     &.success {
         background-color: @brand-success;
