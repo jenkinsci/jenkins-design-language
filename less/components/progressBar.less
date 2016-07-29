@@ -1,0 +1,68 @@
+.progress-container {
+  height: 5px;
+  width: 200px;
+}
+
+.progress-container line {
+  stroke-width: 5px;
+}
+
+.progress-container line.progress-bg {
+  stroke: rgb(167, 199, 242);
+  z-index: 0
+}
+.progress-container line.progress-bar {
+  stroke: rgb(74, 144, 226);
+}
+
+@keyframes slidein {
+  from {
+    transform:  translate(0, 0) scale(2,1);
+    -webkit-transform: translate(0, 0) scale(2,1);
+    -o-transform: translate(0, 0) scale(2,1);
+    -moz-transform: translate(0, 0) scale(2,1);
+  }
+
+  100% {
+    transform: translate(100px, 0) scale(1);
+    -webkit-transform: translate(100px, 0) scale(1);
+    -o-transform: translate(100px, 0) scale(1);
+    -moz-transform: translate(100px, 0) scale(1);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform:  translate(0, 0) ;
+    -webkit-transform: translate(0, 0) ;
+    -o-transform: translate(0, 0) ;
+    -moz-transform: translate(0, 0) ;
+  }
+
+  50% {
+    transform: translate(75px, 0) scale(1);
+    -webkit-transform: translate(75px, 0) scale(1);
+    -o-transform: translate(75px, 0) scale(1);
+    -moz-transform: translate(75px, 0) scale(1);
+  }
+
+  to {
+    transform:  translate(0, 0) ;
+    -webkit-transform: translate(0, 0) ;
+    -o-transform: translate(0, 0) ;
+    -moz-transform: translate(0, 0) ;
+  }
+}
+.progress-container.indeterminate line.progress-bar {
+  z-index: 10;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+
+.progress-container.bounce line.progress-bar {
+  z-index: 10;
+  animation-duration: 3s;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+}
