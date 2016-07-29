@@ -28,7 +28,7 @@ function progessBarStory() {
 
 function progessBarStories() {
     return (
-        <table>
+        <table style={{width: "98%"}}>
             <thead>
                 <tr>
                     <th>Description</th>
