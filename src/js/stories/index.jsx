@@ -12,4 +12,5 @@ require('./table.jsx');
 require('./timeduration.jsx');
 require('./toast.jsx');
 require('./resultItemStories.jsx');
+require('./editorStories.jsx');
 require('./typography.jsx');

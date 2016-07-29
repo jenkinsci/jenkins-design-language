@@ -30,7 +30,7 @@ export function decodeResultValue(resultMaybe: any):Result {
 }
 
 // Returns the correct <g> element for the result / progress percent
-export function getGroupForResult(result: Result, percentage: number, radius: number) {
+export function getGroupForResult(result: Result, percentage: number, radius: number):React$Element {
     if (usesSvgSpinner(result)) {
         return <SvgSpinner radius={radius} result={result} percentage={percentage}/>;
     } else {
