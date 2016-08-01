@@ -12,8 +12,7 @@ export class Progress extends Component {
             percentage = 12.5;
         }
         else if (percentage === 100) {
-            groupClasses.push('pc-over-100');
-            percentage = 0;
+            percentage = 100;
         }
         else if (percentage > 100) {
             groupClasses.push('bounce');
