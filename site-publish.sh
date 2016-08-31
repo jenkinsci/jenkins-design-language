@@ -1,11 +1,12 @@
 #!/bin/bash
 
-npm run build
+npm run site-build
 
 pushd website-build
 
 git init
-git remote add webpages git@github.com:jenkinsci/jenkins-design-language.git
+# TODO: point this back at the upstream repo
+git remote add webpages git@github.com:tfennelly/jenkins-design-language.git
 git fetch --depth=1 webpages gh-pages
 
 git add --all
