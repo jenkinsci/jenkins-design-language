@@ -1,6 +1,7 @@
-@import "../bootstrap/_less/bootstrap";
-@import "stylesheet";
-@import "github-light";
+//@import "../bootstrap/_less/bootstrap";
+@import "_stylesheet";
+@import "_github-light";
+@import "_elements";
 
 aside a.button, header a.button {
   box-sizing: initial;
@@ -10,6 +11,32 @@ header h1 {
   font-size: 45px;
 }
 
-header a.button {
-  top: -13px;
+header {
+  padding-bottom: 10px;
+  a.button {
+    top: -8px;
+  }
+  .nav {
+    padding-top: 10px;
+    a {
+      border: solid 1px #fff;
+      .rounded(3px);
+      padding: 5px 10px;
+      color: #fff;
+      margin-left: 15px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    a:hover {
+      background: #2e94ea;
+    }
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+    margin-top: 15px;
+
+    p {
+      margin: 0;
+    }
+  }
 }
