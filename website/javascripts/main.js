@@ -28,7 +28,10 @@
         }
 
         // Style the nav buttons using JDL styles
-        var currentUrl = window.location.href;
+        var currentUrl = window.location.pathname;
+        if (currentUrl === '' || currentUrl === '/index') {
+            currentUrl = '/';
+        }
         $('.nav a').addClass('btn-secondary inverse').each(function() {
             var a = $(this);
             var ahref = a.attr('href');
@@ -36,7 +39,7 @@
             if (ahref.indexOf('./') === 0) {
                 ahref = ahref.substring(1);
             }
-            if (currentUrl.length > ahref.length && currentUrl.substring(currentUrl.length - ahref.length) === ahref) {
+            if (currentUrl === ahref) {
                 a.removeClass('btn-secondary').addClass('btn');
             }
         });
