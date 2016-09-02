@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf website-build
+npm run build-storybook
 npm run site-build
 
 pushd website-build
