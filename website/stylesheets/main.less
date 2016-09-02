@@ -1,22 +1,23 @@
-@import "_stylesheet";
-@import "_github-light";
 @import "_elements";
 
-aside a.button, header a.button {
-  box-sizing: initial;
-}
-
-header h1 {
-  font-size: 45px;
+div#content {
+  font-size: 150%;
+  max-width: 1300px;
+  margin: 20px auto;
+  padding: 0px 20px;
+  code {
+    padding: 10px;
+  }
 }
 
 header {
-  padding-bottom: 15px;
+  padding: 10px 20px 20px 20px;
+
   a.button {
     top: -8px;
   }
   .nav {
-    padding-top: 10px;
+    padding-top: 25px;
     a {
       border: solid 1px #fff;
       .rounded(3px);
@@ -29,10 +30,6 @@ header {
     a:hover {
       background: #2e94ea;
     }
-    position: relative;
-    width: 940px;
-    margin: 0 auto;
-    margin-top: 15px;
 
     p {
       margin: 0;
