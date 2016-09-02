@@ -1,42 +1,84 @@
-.checkbox {
-  display: inline-block;
-
-  input[type="checkbox"] {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  span {
-    display: block;
-    cursor: pointer;
+.favorite {
+    display: inline-block;
+    width: 24px;
     height: 24px;
+    overflow: hidden;
+    cursor: pointer;
 
-    &:before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      background: url('../icons/favorite/stars-default.svg') no-repeat;
-      background-position: 0 0;
+    // hide the checkbox entirely
+    input[type="checkbox"] {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
     }
-  }
 
-  input[type="checkbox"]:checked + span:before {
-    background-position: -264px 0;
-    transition: background 0.3s steps(11);
-  }
+    .star-icon {
+        display: block;
+    }
 
-  &.dark-yellow span:before {
-    background: url('../icons/favorite/stars-dark-yellow.svg') no-repeat;
-  }
+    // animate to a 'filled in' star
+    input[type="checkbox"]:checked + .star-icon {
+        transform: translate(-264px, 0px);
+        transition: 0.3s steps(11);
+    }
 
-  &.dark-white span:before {
-    background: url('../icons/favorite/stars-dark-white.svg') no-repeat;
-  }
+    // hover states for unchecked and checked
+    &:hover {
+        path[fill='#4a90e2'], path[fill='#4A90E2'] {
+            fill: @brand-active;
+        }
+
+        input[type="checkbox"]:checked + .star-icon {
+            path[fill='#f5a623'], path[fill='#F5A623'] {
+                fill: darken(#F5A623, 20%);
+            }
+        }
+    }
+
+    &.dark-yellow {
+        path[fill='#4a90e2'], path[fill='#4A90E2'] {
+            fill: #F5A623;
+        }
+
+        // hover states for unchecked and checked
+        &:hover {
+            path[fill='#4a90e2'], path[fill='#4A90E2'] {
+                fill: darken(#F5A623, 20%);
+            }
+
+            input[type="checkbox"]:checked + .star-icon {
+                path[fill='#f5a623'], path[fill='#F5A623'] {
+                    fill: darken(#F5A623, 20%);
+                }
+            }
+        }
+    }
+
+    &.dark-white {
+        path[fill='#4a90e2'], path[fill='#4A90E2'],
+        path[fill='#f5a623'], path[fill='#F5A623'] {
+            fill: #FFF;
+        }
+
+        circle[stroke='#f5a623'], circle[stroke='#F5A623'] {
+            stroke: #FFF;
+        }
+
+        &:hover {
+            path[fill='#4a90e2'], path[fill='#4A90E2'] {
+                fill: @white-active;
+            }
+
+            input[type="checkbox"]:checked + .star-icon {
+                path[fill='#f5a623'], path[fill='#F5A623'] {
+                    fill: @white-active;
+                }
+            }
+        }
+    }
 }
