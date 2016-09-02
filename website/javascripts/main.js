@@ -8,7 +8,7 @@
 
             function setStoryBookFrameHeith() {
                 var offset = jdlStorybookFrame.offset();
-                jdlStorybookFrame.height($window.height() - offset.top - 20);
+                jdlStorybookFrame.height($window.height() - offset.top - 40);
             }
             $window.resize(setStoryBookFrameHeith);
 
