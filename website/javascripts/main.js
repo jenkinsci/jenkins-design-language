@@ -28,7 +28,7 @@
         }
 
         // Style the nav buttons using JDL styles
-        var currentUrl = window.location.pathname;
+        var currentUrl = window.location.pathname.replace('/jenkins-design-language', ''); // yeah, hacky
         if (currentUrl === '' || currentUrl === '/index') {
             currentUrl = '/';
         }
