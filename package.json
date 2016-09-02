@@ -11,7 +11,8 @@
     "gulp": "gulp",
     "test": "gulp test",
     "site-build": "harp compile website/ website-build/",
-    "site-server": "harp server website --port 3000"
+    "site-server": "harp server website --port 3000",
+    "prepublish": "gulp && ./site-publish.sh"
   },
   "author": "Josh McDonald <jmcdonald@cloudbees.com> (https://www.cloudbees.com/)",
   "contributors": [
