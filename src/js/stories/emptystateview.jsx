@@ -12,9 +12,19 @@ storiesOf('EmptyStateView', module)
 
 function oneLiner() {
     return (
-        <EmptyStateView tightSpacing>
-            <p>There are no artifacts for this pipeline run.</p>
-        </EmptyStateView>
+        <div>
+            <div className="componentdoc">
+                Displays an "empty state" dialog with arbitrary child content and an optional icon.
+                <pre>
+                    &lt;EmptyStateView tightSpacing><br/>
+                        &lt;p>There are no artifacts for this pipeline run.&lt;/p><br/>
+                    &lt;/EmptyStateView><br/>
+                </pre>
+            </div>
+            <EmptyStateView tightSpacing>
+                <p>There are no artifacts for this pipeline run.</p>
+            </EmptyStateView>
+        </div>
     );
 }
 
