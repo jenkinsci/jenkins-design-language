@@ -6,4 +6,5 @@ dist
 .idea/
 /.project
 reports
+/website/storybook
 /website-build
