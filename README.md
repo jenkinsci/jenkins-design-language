@@ -4,6 +4,8 @@ Reusable [React] components and design elements that adhere to the Jenkins Desig
 
 License is MIT. Other licenses in /licenses
 
+// DO NOT MERGE
+
 ## NPM installing
 
 ```bash
