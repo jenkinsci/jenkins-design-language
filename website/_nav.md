@@ -1,3 +1,3 @@
-[Home](./index)
+[Home](./)
 [Documentation](./docs)
 [Community](./community)
