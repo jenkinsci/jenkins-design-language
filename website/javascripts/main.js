@@ -6,13 +6,25 @@
         if (jdlStorybookFrame.length === 1) {
             var $window = $(window);
 
-            function setStoryBookFrameHeith() {
+            function setStoryBookFrameHeight() {
                 var offset = jdlStorybookFrame.offset();
                 jdlStorybookFrame.height($window.height() - offset.top - 40);
             }
-            $window.resize(setStoryBookFrameHeith);
+            $window.resize(setStoryBookFrameHeight);
 
-            setStoryBookFrameHeith();
+            setStoryBookFrameHeight();
+
+            function removeActionLogger() {
+                setTimeout(function() {
+                    var actionLogger = $('.Pane.horizontal.Pane2', jdlStorybookFrame.contents());
+                    if (actionLogger.length > 0) {
+                        actionLogger.remove();
+                    } else {
+                        removeActionLogger();
+                    }
+                }, 10);
+            }
+            removeActionLogger();
         }
 
         // Style the nav buttons using JDL styles
