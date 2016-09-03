@@ -24,15 +24,7 @@ const buttons = {
 function buttonsLightBg() {
     return (
         <div>
-            <div className="componentdoc">
-                Button styles can be applied on <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements.
-                <pre>
-                    &lt;button>Default Button&lt;/button><br/>
-                    &lt;button className="btn-primary">Primary Button&lt;/button><br/>
-                    &lt;button className="btn-secondary" disabled="disabled">Secondary Button Disabled&lt;/button><br/>
-                    &lt;a className="btn-secondary">Secondary Anchor&lt;/a>
-                </pre>
-            </div>
+            <span className="componentdoc" data-docfile="doc-buttons-default"></span>
             <div style={container}>
                 <div style={buttons}>
                     <div>no class</div>
@@ -65,13 +57,7 @@ function buttonsDarkBg() {
 
     return (
         <div>
-            <div className="componentdoc">
-                Button styles can also be inverted using the <code>inverse</code> class.
-                <pre>
-                    &lt;button className="inverse">Default Button&lt;/button>
-                    &lt;a className="inverse">Default Anchor&lt;/a>
-                </pre>
-            </div>
+            <span className="componentdoc" data-docfile="doc-buttons-inverse"></span>
             <div style={containerDark}>
                 <div style={buttons}>
                     <div>.inverse</div>

@@ -7,4 +7,5 @@ dist
 /.project
 reports
 /website/storybook
+/website/component-docs/doc*
 /website-build

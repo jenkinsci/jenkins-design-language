@@ -13,14 +13,7 @@ storiesOf('EmptyStateView', module)
 function oneLiner() {
     return (
         <div>
-            <div className="componentdoc">
-                Displays an "empty state" dialog with arbitrary child content and an optional icon.
-                <pre>
-                    &lt;EmptyStateView tightSpacing><br/>
-                        &lt;p>There are no artifacts for this pipeline run.&lt;/p><br/>
-                    &lt;/EmptyStateView><br/>
-                </pre>
-            </div>
+            <span className="componentdoc" data-docfile="doc-emptystate-oneliner"></span>
             <EmptyStateView tightSpacing>
                 <p>There are no artifacts for this pipeline run.</p>
             </EmptyStateView>
