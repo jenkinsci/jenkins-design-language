@@ -38,7 +38,6 @@
     "url": "https://github.com/jenkinsci/jenkins-design-language.git"
   },
   "dependencies": {
-    "harp": "^0.20.3",
     "moment": "2.13.0",
     "moment-duration-format": "1.3.0",
     "react": "15.1.0",
@@ -69,6 +68,7 @@
     "gulp-rename": "1.2.2",
     "gulp-sourcemaps": "1.6.0",
     "gulp-svgmin": "1.2.2",
+    "harp": "^0.20.3",
     "karma": "0.13.22",
     "karma-browserify": "5.0.5",
     "karma-chrome-launcher": "1.0.1",
