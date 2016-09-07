@@ -657,6 +657,7 @@ code.hash {
 }
 
 .global-header {
+    position: relative;
     font-size: 1.5rem;
     letter-spacing: 1.1px;
     background-color: @header-bg;
@@ -683,6 +684,15 @@ code.hash {
 
 .global-header a:hover {
     color: @gray-dark;
+}
+
+.global-header .button-bar {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    height: 48px;
+    display: flex;
+    align-items: center;
 }
 
 .sub-header {
