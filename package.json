@@ -12,7 +12,10 @@
         "test": "gulp test",
         "site-build": "harp compile website/ website-build/",
         "site-server": "harp server website --port 3000",
-        "postpublish": "./site-publish.sh"
+        "site-publish": "./site-publish.sh",
+        "preversion": "npm install && gulp",
+        "release": "npm version prepatch && npm publish && npm run site-publish",
+        "release-beta": "npm version prepatch && npm publish --tag=beta"
     },
     "author": "Josh McDonald <jmcdonald@cloudbees.com> (https://www.cloudbees.com/)",
     "contributors": [
