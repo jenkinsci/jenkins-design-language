@@ -14,8 +14,8 @@
     "site-server": "harp server website --port 3000",
     "site-publish": "./site-publish.sh",
     "preversion": "npm install && gulp",
-    "release": "npm version prepatch && npm publish && npm run site-publish",
-    "release-beta": "npm version prepatch && npm publish --tag=beta"
+    "release": "npm version patch && npm publish && npm run site-publish",
+    "release-beta": "npm version prerelease && npm publish --tag=beta"
   },
   "author": "Josh McDonald <jmcdonald@cloudbees.com> (https://www.cloudbees.com/)",
   "contributors": [
