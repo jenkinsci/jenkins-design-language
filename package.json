@@ -13,7 +13,8 @@
     "site-build": "harp compile website/ website-build/",
     "site-server": "harp server website --port 3000",
     "site-publish": "./site-publish.sh",
-    "preversion": "npm install && gulp",
+    "validate-deps": "./validatedeps.js",
+    "preversion": "npm install && npm run validate-deps && gulp",
     "release": "npm version patch && npm publish && npm run site-publish",
     "release-beta": "npm version prerelease && npm publish --tag=beta"
   },
