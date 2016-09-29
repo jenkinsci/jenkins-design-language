@@ -66,7 +66,7 @@ export function getGlyphFor(result:Result) {
             const radius = (12 - (0.5 * strokeWidth));
             const d = describeArcAsPath(0, 0, radius, 0, 120);
             return (
-                <g className="result-status-glyph">
+                <g className="result-status-glyph" transform="scale(0.5)">
                     <circle stroke="#a7c7f2"
                             fill="none"
                             cx="0" cy="0" r={radius} strokeWidth={strokeWidth}/>
