@@ -1,0 +1,62 @@
+.expandable-path {
+    .link {
+        cursor: pointer;
+    }
+
+    .path-list {
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+
+        /* hide all folder icons by default */
+        .svg-icon.folder {
+            display: none;
+        }
+
+        .path-item {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* always hide the last slash */
+        .path-item:last-child {
+            .separator {
+                display: none;
+            }
+        }
+
+        &.long-path {
+            .svg-icon.folder {
+                display: inline;
+            }
+
+            .path-text {
+                display: none;
+            }
+
+            /* if the path is long, display all folder icons except for first and last */
+            .path-item:first-child, .path-item:last-child {
+                .svg-icon.folder {
+                    display: none;
+                }
+
+                .path-text{
+                    display: inline;
+                }
+            }
+
+            /* on hover, show all labels */
+            &:hover {
+                .svg-icon.folder {
+                    display: none;
+                }
+
+                .path-text{
+                    display: inline;
+                }
+            }
+        }
+    }
+}
