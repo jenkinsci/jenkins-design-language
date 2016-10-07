@@ -26,10 +26,16 @@ storiesOf('ExpandablePath', module)
             </div>
         );
     })
-    .add('long, with link', () => {
+    .add('short, hide first', () => {
+        const name = 'jenkins / folder1';
+        return (
+            <ExpandablePath path={name} hideFirst />
+        );
+    })
+    .add('long, hide first', () => {
         const name = 'jenkins / folder1 / folder2 / pipeline';
         return (
-            <ExpandablePath path={name} link="http://jenkins.io" />
+            <ExpandablePath path={name} hideFirst />
         );
     })
     .add('large', () => {
