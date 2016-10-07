@@ -19,7 +19,7 @@ describe("ExpandablePath", () => {
         const name = 'jenkins / pipeline';
         const wrapper = shallow(<ExpandablePath path={name} />);
 
-        assert.equal(wrapper.text(), `<Icon />jenkins /<Icon /> pipeline/`);
+        assert.equal(wrapper.text(), `<Icon />jenkins  / <Icon /> pipeline / `);
     });
 
 });

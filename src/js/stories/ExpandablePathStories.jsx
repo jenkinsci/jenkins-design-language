@@ -38,6 +38,14 @@ storiesOf('ExpandablePath', module)
             <ExpandablePath path={name} hideFirst />
         );
     })
+    .add('with link', () => {
+        const name = 'Jenkins / folder1 / folder2 / pipeline';
+        return (
+            <a href="http://jenkins.io" target="_blank">
+                <ExpandablePath path={name} />
+            </a>
+        );
+    })
     .add('large', () => {
         const name = 'Jenkins / folder1 / folder2 / pipeline';
         return (
