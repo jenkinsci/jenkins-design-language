@@ -10,7 +10,6 @@
     "flow": "flow",
     "gulp": "gulp",
     "test": "gulp test",
-    "postinstall": "./bin/cleanshrink.js",
     "site-build": "harp compile website/ website-build/",
     "site-server": "harp server website --port 3000",
     "site-publish": "./site-publish.sh"
