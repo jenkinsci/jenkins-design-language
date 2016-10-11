@@ -7,50 +7,59 @@ import { ExpandablePath } from '../components';
 
 storiesOf('ExpandablePath', module)
     .add('short', () => {
-        const name = 'jenkins / pipeline';
+        const path = 'jenkins / pipeline';
         return (
-            <ExpandablePath path={name} />
+            <ExpandablePath path={path} />
         );
     })
     .add('long', () => {
-        const name = 'jenkins / folder1 / folder2 / pipeline';
+        const path = 'jenkins / folder1 / folder2 / pipeline';
         return (
-            <ExpandablePath path={name} />
+            <ExpandablePath path={path} />
         );
     })
     .add('long, with wrap', () => {
-        const name = 'jenkins / long-folder-name1 / long-folder-name2 / long-folder-name3 / long-folder-name4 / pipeline';
+        const path = 'jenkins / long-folder-name1 / long-folder-name2 / long-folder-name3 / long-folder-name4 / pipeline';
         return (
             <div style={ { width: 250 } }>
-                <ExpandablePath path={name} />
+                <ExpandablePath path={path} />
             </div>
         );
     })
     .add('short, hide first', () => {
-        const name = 'jenkins / folder1';
+        const path = 'jenkins / folder1';
         return (
-            <ExpandablePath path={name} hideFirst />
+            <ExpandablePath path={path} hideFirst />
         );
     })
     .add('long, hide first', () => {
-        const name = 'jenkins / folder1 / folder2 / pipeline';
+        const path = 'jenkins / folder1 / folder2 / pipeline';
         return (
-            <ExpandablePath path={name} hideFirst />
+            <ExpandablePath path={path} hideFirst />
         );
     })
     .add('with link', () => {
-        const name = 'Jenkins / folder1 / folder2 / pipeline';
+        const path = 'Jenkins / folder1 / folder2 / pipeline';
         return (
             <a href="http://jenkins.io" target="_blank">
-                <ExpandablePath path={name} />
+                <ExpandablePath path={path} />
+            </a>
+        );
+    })
+    .add('custom label', () => {
+        let path = 'Jenkins / folder1 / folder2 / pipeline';
+        path = ExpandablePath.replaceLastPathElement(path, 'Fancy Pipeline Name');
+        return (
+            <a href="http://jenkins.io" target="_blank">
+                <ExpandablePath path={path} />
             </a>
         );
     })
     .add('large', () => {
-        const name = 'Jenkins / folder1 / folder2 / pipeline';
+        const path = 'Jenkins / folder1 / folder2 / pipeline';
         return (
             <div style={ { fontSize: 24 } }>
-                <ExpandablePath path={name} iconSize={28} />
+                <ExpandablePath path={path} iconSize={28} />
             </div>
         );
     });
