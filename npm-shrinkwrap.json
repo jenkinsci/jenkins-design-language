@@ -754,6 +754,18 @@
       "from": "babel-plugin-transform-strict-mode@>=6.8.0 <7.0.0",
       "dev": true
     },
+    "babel-polyfill": {
+      "version": "6.16.0",
+      "from": "babel-polyfill@6.16.0",
+      "dev": true,
+      "dependencies": {
+        "core-js": {
+          "version": "2.4.1",
+          "from": "core-js@>=2.4.0 <3.0.0",
+          "dev": true
+        }
+      }
+    },
     "babel-preset-es2015": {
       "version": "6.16.0",
       "from": "babel-preset-es2015@6.16.0",
