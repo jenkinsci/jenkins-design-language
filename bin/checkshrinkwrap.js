@@ -46,7 +46,7 @@ function checkProject(pathToProject) {
     const allDeps = Object.assign({}, packageDeps, packageDevDeps);
     const shrinkwrap = require(shrinkwrapJsonPath);
     validateDepsAgainstShrinkwrap(allDeps, shrinkwrap);
-    validateShrinkwrapProperties(shrinkwrap);
+    // validateShrinkwrapProperties(shrinkwrap);
 }
 
 function buildPath(path) {
