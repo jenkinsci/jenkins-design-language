@@ -4,7 +4,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Icon } from 'react-material-icons-blue';
 
-const NUM_LABELS_TO_SHOW = 3;
 const SHOW_LABEL_CLASS = 'show-label';
 const SHOW_FOLDER_CLASS = 'show-folder';
 
@@ -39,14 +38,11 @@ export class ExpandablePath extends Component {
         }
 
         const pathElements = this.props.path.split('/');
-        const showFolders = this.props.hideFirst || pathElements.length > NUM_LABELS_TO_SHOW;
         const extraClass = this.props.className || '';
-        let foldersClass = showFolders ? 'show-folders' : '';
-        foldersClass += this.props.hideFirst ? ' first-folder' : '';
 
         return (
             <span className={`expandable-path ${extraClass}`}>
-                <ul className={`path-list ${foldersClass}`}>
+                <ul className="path-list">
                     { pathElements.map((pathElem, index, elements) => {
                         const isFirst = index === 0;
                         const isSecondLast = (index + 1) === (elements.length - 1);
