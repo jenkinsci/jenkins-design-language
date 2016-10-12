@@ -8,7 +8,7 @@ node {
                 sh "./bin/checkshrinkwrap.js"
 
             stage "Checkout and build deps"
-                sh "npm install --registry http://172.18.128.187:8081/repository/npm-proxy/ --maxsockets 2"
+                sh "npm install"
 
             stage "Validate types"
                 sh "./node_modules/.bin/flow"
