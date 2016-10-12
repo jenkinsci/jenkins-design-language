@@ -5,13 +5,13 @@ node {
 
         environment.inside {
             stage "Checkout and build deps"
-                sh "npm install"
+                sh "yarn"
 
             stage "Validate types"
                 sh "./node_modules/.bin/flow"
 
             stage "Test and validate"
-                sh "npm install gulp-cli && ./node_modules/.bin/gulp"
+                sh "yarn add gulp-cli --no-lockfile && ./node_modules/.bin/gulp"
                 step([$class: 'JUnitResultArchiver', testResults: 'reports/**/*.xml'])
         }
 
