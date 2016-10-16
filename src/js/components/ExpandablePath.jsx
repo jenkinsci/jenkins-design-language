@@ -60,7 +60,7 @@ export class ExpandablePath extends Component {
                         return (
                             <li key={index} className={`path-item ${displayClass}`}>
                                 <Icon size={this.props.iconSize} icon="folder" style={ { fill: '#ccc' } }/>
-                                <span className="path-text">{label}</span>
+                                <span className="path-text">{label.trim()}</span>
                                 <span className="separator">&nbsp;/&nbsp;</span>
                             </li>
                         );
