@@ -90,14 +90,20 @@ export class TimeDuration extends Component {
         const millis = parseInt(this.props.millis) + this.state.elapsed;
 
         if (!isNaN(millis)) {
+            const {
+                locale = 'en',
+                liveFormat = 'm[ minutes] s[ seconds]',
+                hintFormat = 'M [mos], d [days], h[h], m[m], s[s]',
+            } = this.props;
+            moment.locale(locale);
             // in case we are in live update we are interested in seconds
             const duration = this.props.liveUpdate ?
-                moment.duration(millis).format("m[ minutes] s[ seconds]")
+                moment.duration(millis).format(liveFormat)
                     : moment.duration(millis).humanize();
 
             const hint = this.props.hint ?
                 this.props.hint :
-                moment.duration(millis).format("M [mos], d [days], h[h], m[m], s[s]");
+                moment.duration(millis).format(hintFormat);
 
             return (
                 <span title={hint}>{duration}</span>
@@ -113,4 +119,7 @@ TimeDuration.propTypes = {
     updatePeriod: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     hint: PropTypes.string,
     liveUpdate: PropTypes.bool,
+    locale: PropTypes.string,
+    liveFormat: PropTypes.string,
+    hintFormat: PropTypes.string,
 };

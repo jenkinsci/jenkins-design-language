@@ -58,7 +58,10 @@ export class TabLink extends Component {
 TabLink.propTypes = {
     children: PropTypes.node,
     base: PropTypes.string,
-    to: PropTypes.string.isRequired
+    to: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.shape.isRequired,
+    ])
 };
 
 TabLink.contextTypes = {

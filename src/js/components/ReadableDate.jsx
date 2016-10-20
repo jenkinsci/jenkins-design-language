@@ -44,6 +44,8 @@ export class ReadableDate extends Component {
 
     handleProps(props:Props) {
 
+        const { locale = 'en' } = props;
+
         if (this.timer) {
             clearInterval(this.timer);
             this.timer = 0;
@@ -52,6 +54,7 @@ export class ReadableDate extends Component {
         let date = null;
 
         if (props.date) {
+            moment.locale(locale);
             // enforce a ISO-8601 date and try to set proper timezone
             const aMoment = moment(props.date, moment.ISO_8601)
                 .utcOffset(props.date);
@@ -80,14 +83,18 @@ export class ReadableDate extends Component {
 
     render() {
         const {date} = this.state;
+        const {
+            shortFormat = 'MMM DD h:mma Z',
+            longFormat = 'MMM DD YYYY h:mma Z' ,
+        } = this.props;
 
         if (date) {
             const now = moment().utc();
 
             // only show the year if from different year
             let tooltip = date.year() !== now.year() ?
-                date.format('MMM DD YYYY h:mma Z') :
-                date.format('MMM DD h:mma Z');
+                date.format(longFormat) :
+                date.format(shortFormat);
 
             tooltip = tooltip.replace('+00:00', 'UTC');
 
@@ -103,4 +110,6 @@ export class ReadableDate extends Component {
 ReadableDate.propTypes = {
     date: PropTypes.string,
     liveUpdate: PropTypes.bool,
+    longFormat: PropTypes.string,
+    shortFormat: PropTypes.string,
 };
