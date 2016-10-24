@@ -2,6 +2,8 @@
 
 import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
+// needs to be loaded since the moment lib will use require which in run time will fail
+import 'moment/min/locales.min';
 
 import type Moment from 'moment';
 

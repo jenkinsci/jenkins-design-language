@@ -3,6 +3,8 @@
 import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
 require('moment-duration-format');
+// needs to be loaded since the moment lib will use require which in run time will fail
+import 'moment/min/locales.min';
 
 type Props = {
      millis: number,
