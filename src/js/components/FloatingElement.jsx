@@ -502,8 +502,6 @@ export default class Popover extends Component {
     static propTypes = {
         targetElement: PropTypes.object,
         position: PropTypes.oneOf(positions),
-        onDismiss: PropTypes.func,
-        ignoreEscapeKey: PropTypes.bool,
         style: PropTypes.object,
         children: PropTypes.node
     }
