@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component, PropTypes } from 'react';
-import FloatingElement, { positions, sanitizePosition } from './FloatingElement';
+import FloatingElement, { positions, positionValues, sanitizePosition } from './FloatingElement';
 
 export class Popover extends Component {
 
@@ -31,7 +31,7 @@ export class Popover extends Component {
 
     render() {
         const { children, style } = this.props;
-        const position = sanitizePosition(this.props.position || positions.positionAbove);
+        const position = sanitizePosition(this.props.position || positionValues.above);
         const pointClassName = 'Popover-point Popover-point--' + position;
 
         return (
