@@ -1,6 +1,3 @@
-/**
- * Created by cmeyers on 11/3/16.
- */
 import React, {Component, PropTypes} from 'react';
 import { storiesOf } from '@kadira/storybook';
 
@@ -96,7 +93,7 @@ class ExampleBasic extends Component {
                          targetElement={targetElement}
                          onDismiss={this.popoverDismissed}
                          style={popoverStyle}>
-                    <div style={{width: 250}}>
+                    <div>
                         <h3>This is my Popover</h3>
                         <p>There are many like it, but this one is mine. The quick brown fox jumps over the lazy dog.</p>
                     </div>
