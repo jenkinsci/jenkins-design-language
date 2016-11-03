@@ -16,7 +16,7 @@ const positionBelow = 'below';
 const positionLeft = 'left';
 const positionRight = 'right';
 
-const positionValues = {
+export const positionValues = {
     above: 'above',
     below: 'below',
     left: 'left',
@@ -53,7 +53,7 @@ type Props = {
 //  Position enum
 //--------------------------------------
 
-export function sanitizePosition(input) {
+export function sanitizePosition(input:Position) {
 
     if (positions.indexOf(input) === -1) {
         return positionAbove;
