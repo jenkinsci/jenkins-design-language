@@ -8,6 +8,7 @@ import 'moment/min/locales.min';
 import type Moment from 'moment';
 
 type Props = {
+    locale: ?string,
     date: ?string,
     liveUpdate: ?boolean
 };

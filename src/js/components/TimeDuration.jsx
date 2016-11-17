@@ -10,7 +10,10 @@ type Props = {
      millis: number,
      updatePeriod: number,
      hint?: string,
-     liveUpdate: bool
+     liveUpdate: bool,
+     liveFormat: ?string,
+     hintFormat: ?string,
+     locale: ?string,
 };
 
 type State = {
