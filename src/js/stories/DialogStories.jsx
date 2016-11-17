@@ -13,7 +13,7 @@ import {
 
 storiesOf('Dialog', module)
     .add('Easy', renderEasy)
-    .add('Easy - No Title', renderEasyNoTitle)
+    .add('Easy - No Title or X', renderEasyNoTitle)
     .add('Easy - No Buttons', renderEasyNoButtons)
     .add('Input', () => renderWithClassName('Dialog--input'))
     .add('Error', () => renderWithClassName('Dialog--error'))
@@ -75,7 +75,7 @@ function renderEasyNoTitle() {
         <div>
             <p>Background page.</p>
 
-            <Dialog onDismiss={() => console.log('User dismiss')}
+            <Dialog onDismiss={() => console.log('User dismiss')} hideCloseIcon
                     buttons={buttons}>
                 <p>This dialog was not given a title.</p>
                 <ToggleWide/>

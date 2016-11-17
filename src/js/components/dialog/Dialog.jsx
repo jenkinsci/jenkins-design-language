@@ -21,8 +21,9 @@ export class BasicDialog extends Component {
     props: {
         className?: string,
         onDismiss?: Function,
+        hideCloseIcon?: bool,
         ignoreEscapeKey?: bool,
-        children?: ReactChildren
+        children?: ReactChildren,
     };
 
     //--------------------------------------
@@ -88,20 +89,23 @@ BasicDialog.propTypes = {
 /** Basic header for dialogs */
 export class DialogHeader extends Component {
     props: {
-        children?: ReactChildren
+        children?: ReactChildren,
+        onDismiss?: Function,
     };
 
     render() {
+        const { onDismiss } = this.props;
         return (
             <div className="Dialog-header">
-                <h3>{this.props.children}</h3>
+                <h3>{this.props.children}{onDismiss && <div className="Dialog-close-button" onClick={onDismiss}>&times;</div>}</h3>
             </div>
         );
     }
 }
 
 DialogHeader.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    onDismiss: PropTypes.func,
 };
 
 //--------------------------------------------------------------------------
@@ -181,7 +185,9 @@ export class Dialog extends Component {
             title,
             buttons,
             children,
-            ignoreEscapeKey
+            onDismiss,
+            hideCloseIcon,
+            ignoreEscapeKey,
             } = this.props;
 
         const defaultButton = <button onClick={this.userDismissed}>Close</button>;
@@ -194,7 +200,7 @@ export class Dialog extends Component {
             <BasicDialog className={className}
                          ignoreEscapeKey={ignoreEscapeKey}
                          onDismiss={this.userDismissed}>
-                <DialogHeader>{ title }</DialogHeader>
+                <DialogHeader onDismiss={!hideCloseIcon && onDismiss}>{ title }</DialogHeader>
                 <DialogContent>{ children }</DialogContent>
                 { buttonBar }
             </BasicDialog>
@@ -208,5 +214,6 @@ Dialog.propTypes = {
     buttons: PropTypes.node,
     children: PropTypes.node,
     onDismiss: PropTypes.func,
+    hideCloseIcon: PropTypes.bool,
     ignoreEscapeKey: PropTypes.bool
 };
