@@ -7,6 +7,7 @@ storiesOf('Typography', module)
     .add('Headings', headings)
     .add('Body', bodyText)
     .add('Buttons', buttons)
+    .add('Table', table)
 ;
 
 function headings() {
