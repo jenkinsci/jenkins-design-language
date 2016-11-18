@@ -1,10 +1,10 @@
 // @flow
 
 export {
-    ModalView,
-    ModalBody,
-    ModalStyles,
-    ModalHeader
+  ModalView,
+  ModalBody,
+  ModalStyles,
+  ModalHeader
 } from './modal/modalview';
 export {WeatherIcon} from './weather-icon';
 export {Page} from './page';
@@ -12,12 +12,12 @@ export {GlobalHeader, GlobalNav} from './global-header';
 export {PageHeader, Title, PageTabs, TabLink} from './page-header';
 export {Table} from './Table';
 export {
-    StatusIndicator,
-    SvgSpinner,
-    SvgStatus,
+  StatusIndicator,
+  SvgSpinner,
+  SvgStatus,
 } from './status/StatusIndicator';
 export {
-    LiveStatusIndicator,
+  LiveStatusIndicator,
 } from './status/LiveStatusIndicator';
 export {Favorite} from './favorite/Favorite';
 export {ReadableDate} from './ReadableDate';
@@ -36,12 +36,17 @@ export { Popover } from './Popover';
 export { PositionFunctions } from './Position';
 export {ExpandablePath} from './ExpandablePath';
 export {
-    BasicDialog,
-    ModalContainer,
-    DialogHeader,
-    DialogContent,
-    DialogButtonBar,
-    Dialog
+  BasicDialog,
+  ModalContainer,
+  DialogHeader,
+  DialogContent,
+  DialogButtonBar,
+  Dialog
 } from './dialog';
 export {FloatingElement} from './FloatingElement';
 export {Dropdown} from './forms/Dropdown';
+export {Checkbox} from './forms/Checkbox';
+export {RadioButtonGroup} from './forms/RadioButtonGroup';
+export {TextArea} from './forms/TextArea';
+export {TextInput} from './forms/TextInput';
+export {FormElement} from './forms/FormElement';
