@@ -51,7 +51,7 @@ function ButtonDemo(props) {
 
     return (
         <div>
-            <button style={styles}>Button</button>
+            <button style={styles}>Default Button</button>
             &nbsp;
             <a className="btn" style={styles}>Link Button</a>
         </div>
@@ -62,7 +62,7 @@ ButtonDemo.propTypes = {
     styles: PropTypes.object,
 };
 
-function TableDemo(props) {
+function TableDemo() {
     return (
         <Table headers={['Header', 'Column']}>
             <tr>
@@ -74,26 +74,20 @@ function TableDemo(props) {
 }
 
 function Debug() {
-    const sansSerifStyles = {
-        fontFamily: 'sans-serif',
-    };
-
-    const whateverStyles = {
-        fontFamily: 'serif',
-    };
-
     return (
-        <div style={{display: 'flex'}}>
-            <Everything title="default"/>
-            <Everything title="sans-serif" styles={sansSerifStyles} />
-            <Everything title="serif" styles={whateverStyles} />
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+            { /* <Everything title="no extra styles"/> */ }
+            <Everything title="Lato" styles={{fontFamily: 'Lato'}} />
+            <Everything title="LatoLatinWeb" styles={{fontFamily: 'LatoLatinWeb'}} />
+            <Everything title="sans-serif" styles={{fontFamily: 'sans-serif'}} />
+            <Everything title="serif" styles={{fontFamily: 'serif'}} />
         </div>
     );
 }
 
 function Everything(props) {
     return (
-        <div style={{padding: 5}}>
+        <div style={{padding: 5, width: 300}}>
             <div>{props.title}</div>
             <HeadingDemo styles={props.styles}/>
             <TextDemo styles={props.styles}/>
