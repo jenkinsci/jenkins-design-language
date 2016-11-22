@@ -22,7 +22,7 @@ function createOptions(count, asObject) {
     const options = [];
 
     for (let index = 0; index < count; index++) {
-        const label = `Option ${options.length + 1}`
+        const label = `Option ${options.length + 1}`;
         options.push(!asObject ? label : { label });
     }
     return options;
@@ -63,7 +63,7 @@ function LabelOptions() {
                 />
             </div>
         </div>
-    )
+    );
 }
 
 function KeyboardFocus() {
