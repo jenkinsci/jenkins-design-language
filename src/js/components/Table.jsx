@@ -56,7 +56,7 @@ export class Table extends Component {
             disableDefaultPadding } = this.props;
 
         const divider = headers && headers.length && !disableHeaderDivider ?
-            <TableDivider numCols={headers.length}/> : '';
+            <TableDivider numCols={headers.length}/> : undefined;
 
         const headerRowCells = headers && headers.map((column) => (
                 <th key={getKey(column)} className={getClass(column)}>

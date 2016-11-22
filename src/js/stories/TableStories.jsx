@@ -35,8 +35,8 @@ const detailedData = [
 
 function renderRow(values) {
     return (
-        <tr>
-            { values.map(value => <td>{value}</td>) }
+        <tr key={values[0]}>
+            { values.map(value => <td key={value}>{value}</td>) }
         </tr>
     );
 }
