@@ -41,6 +41,8 @@ function getClass(column:string | Object) {
  * To set explicit column widths, specify className for the header elements and
  * specify specify className="fixed" on the Table component to use table-layout: fixed.
  *
+ * Specify additional className="u-highlight-rows" for whole-row mouseover hover
+ *
  * Head / body divider will only be included automagically when using headers prop.
  */
 export class Table extends Component {
@@ -69,7 +71,7 @@ export class Table extends Component {
                 </thead>
             );
 
-        let tableClasses = ['jdl-table'];
+        const tableClasses = ['jdl-table'];
 
         if (className) {
             tableClasses.push(className);
