@@ -260,11 +260,25 @@ export class Dropdown extends React.Component {
         }
     }
 
+    _optionToLabel(option) {
+        if (!option) {
+            return '';
+        }
+
+        if (this.props.labelField) {
+            return option[this.props.labelField];
+        } else if (this.props.labelFunction) {
+            return this.props.labelFunction(option);
+        } else {
+            return option.toString();
+        }
+    }
+
     render() {
         // console.log('render', this.state.menuOpen);
         const extraClass = this.props.className || '';
         const openClass = this.state.menuOpen ? 'Dropdown-menu-open' : 'Dropdown-menu-closed';
-        const label = this.state.selectedOption || this.props.placeholder;
+        const buttonLabel = this._optionToLabel(this.state.selectedOption) || this.props.placeholder;
 
         return (
             <div ref={dropdown => { this.dropdownRef = dropdown; }}
@@ -275,7 +289,7 @@ export class Dropdown extends React.Component {
                    onKeyUp={this._onDropdownKeyEvent}
                 >
                     <div className="Dropdown-button-container">
-                        <span className="Dropdown-button-label">{label}</span>
+                        <span className="Dropdown-button-label">{buttonLabel}</span>
 
                         <Icon icon="keyboard_arrow_down" size={16} />
                     </div>
@@ -290,15 +304,7 @@ export class Dropdown extends React.Component {
                     >
                         { this.props.options.map((option, index) => {
                             const selectedClass = this.state.selectedOption === option ? 'Dropdown-menu-item-selected' : '';
-                            let labelValue = '';
-
-                            if (this.props.labelField) {
-                                labelValue = option[this.props.labelField];
-                            } else if (this.props.labelFunction) {
-                                labelValue = this.props.labelFunction(option);
-                            } else {
-                                labelValue = option.toString();
-                            }
+                            const optionLabel = this._optionToLabel(option);
 
                             return (
                                 <li key={index} data-position={index}>
@@ -306,7 +312,7 @@ export class Dropdown extends React.Component {
                                        href="#"
                                        onClick={() => this._onMenuItemClick(option, index)}
                                     >
-                                        {labelValue}
+                                        {optionLabel}
                                     </a>
                                 </li>
                             );
