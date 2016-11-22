@@ -4,6 +4,7 @@ import { Dropdown } from '../components';
 
 storiesOf('Dropdown', module)
     .add('default', () => <Default />)
+    .add('labeling', () => <LabelOptions />)
     .add('keyboard & focus', () => <KeyboardFocus />)
     .add('callbacks', () => <Callbacks />)
 ;
@@ -17,11 +18,12 @@ const style = {
     padding: 10,
 };
 
-function createOptions(count) {
+function createOptions(count, asObject) {
     const options = [];
-    options.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
     for (let index = 0; index < count; index++) {
-        options.push(`Option ${options.length + 1}`);
+        const label = `Option ${options.length + 1}`
+        options.push(!asObject ? label : { label });
     }
     return options;
 }
@@ -36,7 +38,38 @@ function Default() {
     );
 }
 
+function LabelOptions() {
+    const style = {
+        display: 'flex',
+        justifyContent: 'space-around',
+    };
+
+    return (
+        <div style={style}>
+            <div>
+                <p>Using label field</p>
+
+                <Dropdown
+                    labelField="label"
+                    options={createOptions(50, true)}
+                />
+            </div>
+            <div>
+                <p>Using label function</p>
+
+                <Dropdown
+                    labelFunction={val => `\\m/ ${val.label} \\m/`}
+                    options={createOptions(50, true)}
+                />
+            </div>
+        </div>
+    )
+}
+
 function KeyboardFocus() {
+    const options = createOptions(200);
+    options.unshift('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
     return (
         <div style={style}>
             <p>This Layout is useful for demonstrating keyboard accessibility and focus behavior,
@@ -46,15 +79,15 @@ function KeyboardFocus() {
 
             <select>
                 <option disabled selected>- Select -</option>
-                { createOptions(200).map((option, index) =>
-                    <option key={index}>{option}</option>
+                { options.map((opt, index) =>
+                    <option key={index}>{opt}</option>
                 )}
             </select>
 
             <button>Test 2</button>
 
             <Dropdown
-                options={createOptions(200)}
+                options={options}
             />
 
             <button>Test 3</button>
