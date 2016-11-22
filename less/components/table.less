@@ -7,6 +7,17 @@
         table-layout: fixed;
     }
 
+    &.activity-table, // FIXME: Replace with .u-highlight-rows so we can delete it
+    &.multibranch-table, // FIXME: Replace with .u-highlight-rows so we can delete it
+    &.pr-table, // FIXME: Replace with .u-highlight-rows so we can delete it
+    &.u-highlight-rows {
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: rgba(148, 147, 147, 0.1);
+        }
+    }
+
+    &.u-table-padding tr.jdl-table-divider, // Applies when default padding is on or not
     tr.jdl-table-divider {
 
         td {
@@ -30,9 +41,15 @@
 
     th, td {
         .text-overflow();
+        text-align: left;
+    }
+
+    &.u-table-padding th, // For standard tables
+    &.u-table-padding td,
+    td.u-table-padding, // apply to specific cells via className
+    th.u-table-padding {
 
         padding: 0.5rem 0;
-        text-align: left;
 
         &:first-child {
             padding-left: 1rem;

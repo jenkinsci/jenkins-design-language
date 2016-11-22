@@ -27,10 +27,16 @@ function getClass(column:string | Object) {
  * Renders a simple HTML table with optional header elements.
  *
  * Properties:
+ *
  * "children": one or more TR elements
+ *
  * "headers": an array of Strings to render, or
  *            an array of Objects with shape: { label:String, className:String }
+ *
  * "disableHeaderDivider": Optional, truthy if you wish to disable the HR row at the bottom of THEAD
+ *
+ * "disableDefaultPadding": Optional, truthy if you wish to disable default padding added by removing u-table-padding
+ * className from the TABLE element
  *
  * To set explicit column widths, specify className for the header elements and
  * specify specify className="fixed" on the Table component to use table-layout: fixed.
@@ -43,8 +49,9 @@ export class Table extends Component {
         const {
             headers,
             children,
-            className = '',
-            disableHeaderDivider } = this.props;
+            className,
+            disableHeaderDivider,
+            disableDefaultPadding } = this.props;
 
         const divider = headers && headers.length && !disableHeaderDivider ?
             <TableDivider numCols={headers.length}/> : '';
@@ -62,8 +69,18 @@ export class Table extends Component {
                 </thead>
             );
 
+        let tableClasses = ['jdl-table'];
+
+        if (className) {
+            tableClasses.push(className);
+        }
+
+        if (!disableDefaultPadding) {
+            tableClasses.push('u-table-padding');
+        }
+
         return (
-            <table className={'jdl-table ' + className}>
+            <table className={tableClasses.join(' ')}>
                 { tableHeader }
                 { headers ? <tbody>{children}</tbody> : children }
             </table>
@@ -75,7 +92,8 @@ Table.propTypes = {
     headers: PropTypes.array,
     children: PropTypes.node,
     className: PropTypes.string,
-    disableHeaderDivider: PropTypes.bool
+    disableHeaderDivider: PropTypes.bool,
+    disableDefaultPadding: PropTypes.bool
 };
 
 export const TableDivider = (props: {numCols: number}) => (

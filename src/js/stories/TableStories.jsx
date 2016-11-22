@@ -6,15 +6,18 @@ const headers = ['A','B','C'];
 const headers2 = [
     { className: 'red', label: 'A' },
     { className: 'blue', label: 'B' },
-    { className: 'green', label: 'C' },
+    { className: 'green', label: 'C' }
 ];
 
 storiesOf('Table', module)
-    .add('standard', scenario1)
-    .add('table class', scenario2)
-    .add('header class', scenario3)
-    .add('fluid columns', scenario4)
-    .add('fixed columns', scenario5);
+    .add('Standard', scenario1)
+    .add('Hover Highlight', scenario1Hover)
+    .add('No Divider', scenario1NoDivider)
+    .add('No Default Padding', scenario1NoPadding)
+    .add('Table class', scenario2)
+    .add('Header class', scenario3)
+    .add('Fluid columns', scenario4)
+    .add('Fixed columns', scenario5);
 
 
 // SHORYUKEN
@@ -41,6 +44,30 @@ function renderRow(values) {
 function scenario1() {
     return (
         <Table headers={detailedHeaders}>
+            { detailedData.map(renderRow) }
+        </Table>
+    );
+}
+
+function scenario1Hover() {
+    return (
+        <Table headers={detailedHeaders} className="u-highlight-rows">
+            { detailedData.map(renderRow) }
+        </Table>
+    );
+}
+
+function scenario1NoDivider() {
+    return (
+        <Table disableHeaderDivider headers={detailedHeaders}>
+            { detailedData.map(renderRow) }
+        </Table>
+    );
+}
+
+function scenario1NoPadding() {
+    return (
+        <Table disableDefaultPadding headers={detailedHeaders}>
             { detailedData.map(renderRow) }
         </Table>
     );
