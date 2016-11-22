@@ -1,11 +1,49 @@
 .jdl-table {
 
-  &.fixed {
-    table-layout: fixed;
-  }
+    border-collapse: collapse;
+    width: 100%;
 
-  th, td {
-    .text-overflow();
-    padding-right: 0.8em;
-  }
+    &.fixed {
+        table-layout: fixed;
+    }
+
+    tr.jdl-table-divider {
+
+        td {
+            padding: 0.5rem 0;
+        }
+
+        hr {
+            height: 1px;
+            color: @text-color;
+            background: @text-color;
+            border: none;
+            font-size: 0;
+            opacity: 0.5;
+        }
+    }
+
+    th {
+        font-family: @font-family-headings;
+        font-weight: normal;
+    }
+
+    th, td {
+        .text-overflow();
+
+        padding: 0.5rem 0;
+        text-align: left;
+
+        &:first-child {
+            padding-left: 1rem;
+        }
+
+        &:last-child {
+            padding-right: 1rem;
+        }
+    }
+
+    a {
+        color: @text-color;
+    }
 }

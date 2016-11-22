@@ -1,6 +1,27 @@
+// @flow
+
 import React, { Component, PropTypes } from 'react';
 
-const { array, node, string } = PropTypes;
+function getKey(column:string | Object) {
+    if (typeof column === 'string') {
+        return column;
+    }
+    return column.label;
+}
+
+function getLabel(column:string | Object) {
+    if (typeof column === 'string') {
+        return column;
+    }
+    return column.label;
+}
+
+function getClass(column:string | Object) {
+    if (typeof column === 'string') {
+        return null;
+    }
+    return column.className;
+}
 
 /**
  * Renders a simple HTML table with optional header elements.
@@ -9,63 +30,62 @@ const { array, node, string } = PropTypes;
  * "children": one or more TR elements
  * "headers": an array of Strings to render, or
  *            an array of Objects with shape: { label:String, className:String }
+ * "disableHeaderDivider": Optional, truthy if you wish to disable the HR row at the bottom of THEAD
  *
  * To set explicit column widths, specify className for the header elements and
  * specify specify className="fixed" on the Table component to use table-layout: fixed.
+ *
+ * Head / body divider will only be included automagically when using headers prop.
  */
 export class Table extends Component {
 
-    getKey(column) {
-        if (typeof column === 'string') {
-            return column;
-        }
-        return column.label;
-    }
-
-    getLabel(column) {
-        if (typeof column === 'string') {
-            return column;
-        }
-        return column.label;
-    }
-
-    getClass(column) {
-        if (typeof column === 'string') {
-            return null;
-        }
-        return column.className;
-    }
-
     render() {
-        const { headers, children } = this.props;
-        const className = 'jdl-table' + (this.props.className ? ` ${this.props.className}` : '');
+        const {
+            headers,
+            children,
+            className = '',
+            disableHeaderDivider } = this.props;
+
+        const divider = headers && headers.length && !disableHeaderDivider ?
+            <TableDivider numCols={headers.length}/> : '';
+
+        const headerRowCells = headers && headers.map((column) => (
+                <th key={getKey(column)} className={getClass(column)}>
+                    {getLabel(column)}
+                </th>
+            ));
+
+        const tableHeader = headers && (
+                <thead>
+                    <tr>{ headerRowCells }</tr>
+                    { divider }
+                </thead>
+            );
 
         return (
-            <table className={className}>
-            { headers &&
-                <thead>
-                    <tr>
-                        {
-                            headers.map((column) =>
-                                <th key={this.getKey(column)} className={this.getClass(column)}>
-                                  {this.getLabel(column)}
-                                </th>)
-                        }
-                    </tr>
-                </thead>
-            }
-            { headers ? (
-                <tbody>{children}</tbody>
-            ) : {
-                children
-            }}
+            <table className={'jdl-table ' + className}>
+                { tableHeader }
+                { headers ? <tbody>{children}</tbody> : children }
             </table>
         );
     }
 }
 
 Table.propTypes = {
-    headers: array,
-    children: node,
-    className: string,
+    headers: PropTypes.array,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disableHeaderDivider: PropTypes.bool
+};
+
+export const TableDivider = (props: {numCols: number}) => (
+    <tr className="jdl-table-divider">
+        <td colSpan={props.numCols}>
+            <hr/>
+        </td>
+    </tr>
+);
+
+TableDivider.propTypes = {
+    numCols: PropTypes.number.isRequired
 };
