@@ -422,12 +422,16 @@ export class FloatingElement extends Component {
     }
 
     componentRendered() {
-        // As soon as possible, we need to re-calculate our position
-        this.validatePositioningScheduled = true;
-        window.requestAnimationFrame(() => {
-            this.validatePositioningScheduled = false;
+        if (this.props.positionImmediate) {
             this.validatePositioning();
-        });
+        } else {
+            // As soon as possible, we need to re-calculate our position
+            this.validatePositioningScheduled = true;
+            window.requestAnimationFrame(() => {
+                this.validatePositioningScheduled = false;
+                this.validatePositioning();
+            });
+        }
 
         // Start the periodic timeout to check dom measurements
         this.startPollTimeout();
@@ -443,6 +447,7 @@ export class FloatingElement extends Component {
     static propTypes = {
         targetElement: PropTypes.object,
         positionFunction: PropTypes.func,
+        positionImmediate: PropTypes.bool,
         style: PropTypes.object,
         children: PropTypes.node
     }
