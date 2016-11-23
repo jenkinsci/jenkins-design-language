@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { Table } from '../components/Table';
 
+import lipsum from './lipsum.js';
+
 const headers = ['A','B','C'];
 const headers2 = [
     { className: 'red', label: 'A' },
@@ -14,6 +16,7 @@ storiesOf('Table', module)
     .add('Hover Highlight', scenario1Hover)
     .add('No Divider', scenario1NoDivider)
     .add('No Default Padding', scenario1NoPadding)
+    .add('Long Text', longText)
     .add('Table class', scenario2)
     .add('Header class', scenario3)
     .add('Fluid columns', scenario4)
@@ -73,6 +76,72 @@ function scenario1NoPadding() {
     );
 }
 
+function longText() {
+
+    const tableStyles = {
+        margin: '1em 0',
+        boxShadow: '0px 4px 5px 3px rgba(0,0,0,0.21)'
+    };
+
+    // Good news, everyone!
+    const h = [ "Amy", "Bender", "Calculon", "Donbot" ];
+
+    const lipsum2 = lipsum[0].substr(0,180) + ' blah blah blah.';
+
+    const tbody = (<tbody>
+            <tr>
+                <td>Elzar</td>
+                <td>Fry</td>
+                <td>Gypsybot</td>
+                <td>
+                    <b>ALL HAIL HYPNOTOAD</b>
+                </td>
+            </tr>
+            <tr>
+                <td>Inez Wong</td>
+                <td>Joey Mousepad</td>
+                <td>Kif</td>
+                <td>Lrrr</td>
+            </tr>
+            <tr>
+                <td>Morbo</td>
+                <td>Nixon</td>
+                <td>{lipsum2}</td>
+                <td>Mr Panucci</td>
+            </tr>
+            <tr>
+                <td>{lipsum2}</td>
+                <td>Roberto</td>
+                <td>Scruffy</td>
+                <td>Turanga Leela</td>
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td>Warden Vogel</td>
+                <td>
+                    <i>Wernstrom!</i>
+                </td>
+                <td>Fle<b>x</b>o
+                </td>
+            </tr>
+        </tbody>
+    );
+
+    return (
+        <div style={{padding: '1em'}}>
+            <h3>Normal</h3>
+            <Table style={tableStyles} headers={h}>
+                {tbody}
+            </Table>
+
+            <h3>With disableNoWrap</h3>
+            <Table style={tableStyles} headers={h} disableNoWrap>
+                {tbody}
+            </Table>
+        </div>
+    );
+}
+
 function scenario2() {
     return (
         <Table className="red" headers={headers}>
@@ -99,7 +168,7 @@ function scenario3() {
 
 function scenario4() {
     return (
-        <Table headers={headers}>
+        <Table headers={headers} disableFixed>
             <tr>
                 <td>this column has very long text, therefore gets a very long width</td>
                 <td>short column 1</td>
@@ -111,7 +180,7 @@ function scenario4() {
 
 function scenario5() {
     return (
-        <Table className="fixed" headers={headers}>
+        <Table headers={headers}>
             <tr>
                 <td>this column has very long text, but is still the same size</td>
                 <td>short column 1</td>

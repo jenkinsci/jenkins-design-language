@@ -33,27 +33,33 @@ function getClass(column:string | Object) {
  * "headers": an array of Strings to render, or
  *            an array of Objects with shape: { label:String, className:String }
  *
- * "disableHeaderDivider": Optional, truthy if you wish to disable the HR row at the bottom of THEAD
+ * "disableHeaderDivider": Optional, truthy if you wish to disable the HR row at the bottom of THEAD.
  *
- * "disableDefaultPadding": Optional, truthy if you wish to disable default padding added by removing u-table-padding
- * className from the TABLE element
+ * "disableDefaultPadding": Optional, truthy if you wish to disable default padding added by removing "u-table-padding"
+ * className from the TABLE element.
  *
- * To set explicit column widths, specify className for the header elements and
- * specify specify className="fixed" on the Table component to use table-layout: fixed.
+ * "disableNoWrap": Optional, truthy if you wish to disable the "u-single-line" className, and allow cell contents to
+ * wrap.
  *
- * Specify additional className="u-highlight-rows" for whole-row mouseover hover
+ * "disableFixed": Optional, truthy if you wish to disable the "u-fixed" className, and use default browser fluid layout.
  *
- * Head / body divider will only be included automagically when using headers prop.
+ * Specify additional className="u-highlight-rows" for whole-row mouseover hover.
+ *
+ * Head / body divider will only be included automagically when using headers prop. TableDivider component can be used
+ * when manually constructing a table you wish to look the same.
  */
 export class Table extends Component {
 
     render() {
         const {
+            style,
             headers,
             children,
             className,
             disableHeaderDivider,
-            disableDefaultPadding } = this.props;
+            disableDefaultPadding,
+            disableNoWrap,
+            disableFixed } = this.props;
 
         const divider = headers && headers.length && !disableHeaderDivider ?
             <TableDivider numCols={headers.length}/> : undefined;
@@ -81,21 +87,34 @@ export class Table extends Component {
             tableClasses.push('u-table-padding');
         }
 
+        if (!disableNoWrap) {
+            tableClasses.push('u-single-line');
+        }
+
+        if (!disableFixed) {
+            tableClasses.push('u-fixed');
+        }
+
+        const wrapChildren = headers && children && children.type !== 'tbody';
+
         return (
-            <table className={tableClasses.join(' ')}>
+            <table className={tableClasses.join(' ')} style={style}>
                 { tableHeader }
-                { headers ? <tbody>{children}</tbody> : children }
+                { wrapChildren ? <tbody>{children}</tbody> : children }
             </table>
         );
     }
 }
 
 Table.propTypes = {
-    headers: PropTypes.array,
     children: PropTypes.node,
     className: PropTypes.string,
+    style: PropTypes.any,
+    headers: PropTypes.array,
     disableHeaderDivider: PropTypes.bool,
-    disableDefaultPadding: PropTypes.bool
+    disableDefaultPadding: PropTypes.bool,
+    disableNoWrap: PropTypes.bool,
+    disableFixed: PropTypes.bool
 };
 
 export const TableDivider = (props: {numCols: number}) => (
