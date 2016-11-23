@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { Dropdown } from '../components';
+import Utils from './Utils';
 
 storiesOf('Dropdown', module)
     .add('default', () => <Default />)
@@ -14,7 +15,6 @@ const style = {
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: 400,
     padding: 10,
 };
 
@@ -29,11 +29,33 @@ function createOptions(count, asObject) {
 }
 
 function Default() {
+    Utils.createCssRule(
+        '.Dropdown-Default .Dropdown-placeholder',
+        'font-style: italic; text-transform: uppercase'
+    );
+
+    const style = {
+        display: 'flex',
+        justifyContent: 'space-around',
+    };
+
     return (
-        <div style={{...style, height: 100}}>
-            <Dropdown
-                options={createOptions(200)}
-            />
+        <div style={style}>
+            <div>
+                <p>Default</p>
+
+                <Dropdown
+                    options={createOptions(200)}
+                />
+            </div>
+
+            <div className="Dropdown-Default">
+                <p>Placeholder Styling</p>
+
+                <Dropdown
+                    options={createOptions(200)}
+                />
+            </div>
         </div>
     );
 }
@@ -71,7 +93,7 @@ function KeyboardFocus() {
     options.unshift('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
     return (
-        <div style={style}>
+        <div style={{...style, height: 400}}>
             <p>This Layout is useful for demonstrating keyboard accessibility and focus behavior,
             especially as compared to a standard select box.</p>
 

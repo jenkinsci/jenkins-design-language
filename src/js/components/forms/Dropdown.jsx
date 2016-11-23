@@ -278,6 +278,7 @@ export class Dropdown extends React.Component {
         // console.log('render', this.state.menuOpen);
         const extraClass = this.props.className || '';
         const openClass = this.state.menuOpen ? 'Dropdown-menu-open' : 'Dropdown-menu-closed';
+        const promptClass = !this.state.selectedOption ? 'Dropdown-placeholder' : '';
         const buttonLabel = this._optionToLabel(this.state.selectedOption) || this.props.placeholder;
 
         return (
@@ -289,7 +290,7 @@ export class Dropdown extends React.Component {
                    onKeyUp={this._onDropdownKeyEvent}
                 >
                     <div className="Dropdown-button-container">
-                        <span className="Dropdown-button-label">{buttonLabel}</span>
+                        <span className={`Dropdown-button-label ${promptClass}`}>{buttonLabel}</span>
 
                         <Icon icon="keyboard_arrow_down" size={16} />
                     </div>
