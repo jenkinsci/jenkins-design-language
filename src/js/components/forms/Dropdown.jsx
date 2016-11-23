@@ -285,16 +285,17 @@ export class Dropdown extends React.Component {
             <div ref={dropdown => { this.dropdownRef = dropdown; }}
                 className={`Dropdown ${openClass} ${extraClass}`}>
                 <button ref={button => { this.buttonRef = button; }}
-                   className="Dropdown-button"
-                   onClick={this._onDropdownMouseEvent}
-                   onKeyUp={this._onDropdownKeyEvent}
+                    className={`Dropdown-button ${promptClass}`}
+                    onClick={this._onDropdownMouseEvent}
+                    onKeyUp={this._onDropdownKeyEvent}
+                    title={buttonLabel}
                 >
-                    <div className="Dropdown-button-container">
-                        <span className={`Dropdown-button-label ${promptClass}`}>{buttonLabel}</span>
-
-                        <Icon icon="keyboard_arrow_down" size={16} />
-                    </div>
+                    {buttonLabel}
                 </button>
+
+                <Icon icon="keyboard_arrow_down" size={16}
+                    onClick={this._onDropdownMouseEvent}
+                />
 
                 { this.state.menuOpen &&
                 <FloatingElement targetElement={this.buttonRef} positionFunction={positionMenu}>

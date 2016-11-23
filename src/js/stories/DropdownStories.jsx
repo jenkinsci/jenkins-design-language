@@ -18,15 +18,19 @@ const style = {
     padding: 10,
 };
 
-function createOptions(count, asObject) {
+const a2z = 'ABCDEFGHIJKLM NOPQRSTUVWXYZ';
+
+function createOptions(text = 'Option', asObject = false) {
     const options = [];
 
-    for (let index = 0; index < count; index++) {
-        const label = `Option ${options.length + 1}`;
+    for (let index = 0; index < 200; index++) {
+        const label = `${text} ${options.length + 1}`;
         options.push(!asObject ? label : { label });
     }
     return options;
 }
+
+
 
 function Default() {
     Utils.createCssRule(
@@ -45,7 +49,7 @@ function Default() {
                 <p>Default</p>
 
                 <Dropdown
-                    options={createOptions(200)}
+                    options={createOptions()}
                 />
             </div>
 
@@ -53,7 +57,16 @@ function Default() {
                 <p>Placeholder Styling</p>
 
                 <Dropdown
-                    options={createOptions(200)}
+                    options={createOptions()}
+                />
+            </div>
+
+            <div style={{maxWidth: 150}}>
+                <p>Using max-width</p>
+
+                <Dropdown
+                    placeholder="Long placeholder text is too long."
+                    options={createOptions(a2z)}
                 />
             </div>
         </div>
@@ -73,7 +86,7 @@ function LabelOptions() {
 
                 <Dropdown
                     labelField="label"
-                    options={createOptions(50, true)}
+                    options={createOptions('Option', true)}
                 />
             </div>
             <div>
@@ -81,7 +94,7 @@ function LabelOptions() {
 
                 <Dropdown
                     labelFunction={val => `\\m/ ${val.label} \\m/`}
-                    options={createOptions(50, true)}
+                    options={createOptions('Option', true)}
                 />
             </div>
         </div>
@@ -89,8 +102,8 @@ function LabelOptions() {
 }
 
 function KeyboardFocus() {
-    const options = createOptions(200);
-    options.unshift('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    const options = createOptions();
+    options.unshift(a2z);
 
     return (
         <div style={{...style, height: 400}}>
@@ -121,7 +134,7 @@ function Callbacks() {
     return (
         <div style={{...style, height: 100}}>
             <Dropdown
-                options={createOptions(200)}
+                options={createOptions()}
                 onChange={(val, index) => console.log(`onChange val=${val}, index=${index}`)}
             />
         </div>

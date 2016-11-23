@@ -1,17 +1,20 @@
 .Dropdown {
+    display: flex;
+    align-items: center;
+
     .Dropdown-button {
         min-width: 130px;
+        padding-right: 25px;
+        flex-grow: 0;
+        text-align: left;
+        .text-overflow;
     }
 
-    // need to nest a container in the button for Firefox to apply flex-box
-    .Dropdown-button-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .svg-icon {
-            fill: #fff;
-        }
+    .svg-icon {
+        fill: #fff;
+        margin-left: -25px;
+        flex-shrink: 0;
+        cursor: pointer;
     }
 
     .Dropdown-menu {
