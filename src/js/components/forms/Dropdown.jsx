@@ -177,6 +177,7 @@ export class Dropdown extends React.Component {
     }, 200);
 
     _setInitialFocus() {
+        // console.log('_setInitialFocus');
         if (this.state.selectedOption) {
             const selectedIndex = this.props.options.indexOf(this.state.selectedOption);
             const selectedListItem = this.menuRef.children[selectedIndex];
@@ -214,18 +215,22 @@ export class Dropdown extends React.Component {
     }
 
     _focusListItem(listItemNode) {
+        // console.log('_focusListItem', listItemNode);
         if (this.menuRef.contains(listItemNode)) {
-            listItemNode.children[0].focus();
+            // need to delay ~1 frame for the focus and scroll to be reliable
+            setTimeout(() => {
+                listItemNode.children[0].focus();
 
-            const listItemRect = listItemNode.getBoundingClientRect();
-            const menuRect = this.menuRef.getBoundingClientRect();
+                const listItemRect = listItemNode.getBoundingClientRect();
+                const menuRect = this.menuRef.getBoundingClientRect();
 
-            // make the focused item "stick" to top or bottom edge
-            if (listItemRect.top < menuRect.top) {
-                this.menuRef.scrollTop = listItemNode.offsetTop;
-            } else if (listItemRect.bottom > menuRect.bottom) {
-                this.menuRef.scrollTop += listItemRect.bottom - menuRect.bottom;
-            }
+                // make the focused item "stick" to top or bottom edge
+                if (listItemRect.top < menuRect.top) {
+                    this.menuRef.scrollTop = listItemNode.offsetTop;
+                } else if (listItemRect.bottom > menuRect.bottom) {
+                    this.menuRef.scrollTop += listItemRect.bottom - menuRect.bottom;
+                }
+            }, 1000/60);
         }
     }
 
