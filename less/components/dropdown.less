@@ -10,11 +10,23 @@
         .text-overflow;
     }
 
-    .svg-icon {
-        fill: #fff;
+    .Dropdown-thumb {
+        width: 16px;
+        height: 16px;
+        // nudge the thumb over the button
         margin-left: -25px;
+        // but apply a right margin so total width of .Dropdown matches button
+        // (-25 + 16 + 9) = 0
+        margin-right: 9px;
         flex-shrink: 0;
         cursor: pointer;
+
+        .svg-icon.keyboard_arrow_down {
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: #fff;
+        }
     }
 
     .Dropdown-menu {
