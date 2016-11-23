@@ -84,17 +84,11 @@ export class Dropdown extends React.Component {
         });
     }
 
-    _onDropdownKeyEvent = (event) => {
-        // console.log('_onDropdownKeyEvent');
-        if (event.keyCode === KeyCodes.SPACEBAR) {
-            this._toggleDropdownMenu();
-            // prevent the onClick handler from being triggered automatically
-            event.preventDefault();
-        }
-    };
-
-    _onDropdownMouseEvent = () => {
-        // console.log('_onDropdownMouseEvent');
+    // (note: also triggered via spacebar press when button has focus)
+    _onDropdownMouseEvent = (event) => {
+        console.log('_onDropdownMouseEvent');
+        // prevent navigation if anchor was clicked
+        event.preventDefault();
         this._toggleDropdownMenu();
     };
 
@@ -292,7 +286,6 @@ export class Dropdown extends React.Component {
                 <button ref={button => { this.buttonRef = button; }}
                     className={`Dropdown-button ${promptClass}`}
                     onClick={this._onDropdownMouseEvent}
-                    onKeyUp={this._onDropdownKeyEvent}
                     title={buttonLabel}
                 >
                     {buttonLabel}
