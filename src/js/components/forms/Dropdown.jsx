@@ -242,10 +242,10 @@ export class Dropdown extends React.Component {
         }
     }
 
-    _onMenuItemClick(option, index) {
+    _onMenuItemClick(event, option, index) {
+        // prevent any navigation resulting from click
+        event.preventDefault();
         this._applySelection(option, index);
-
-        return false;
     }
 
     _applySelection(option, index) {
@@ -310,7 +310,7 @@ export class Dropdown extends React.Component {
                                 <li key={index} data-position={index}>
                                     <a className={`Dropdown-menu-item ${selectedClass}`}
                                        href="#"
-                                       onClick={() => this._onMenuItemClick(option, index)}
+                                       onClick={event => this._onMenuItemClick(event, option, index)}
                                     >
                                         {optionLabel}
                                     </a>
