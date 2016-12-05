@@ -296,7 +296,7 @@ export class Dropdown extends React.Component {
                 </a>
 
                 { this.state.menuOpen &&
-                <FloatingElement targetElement={this.buttonRef} positionFunction={positionMenu} positionImmediate>
+                <FloatingElement targetElement={this.buttonRef} positionFunction={positionMenu}>
                     <ul
                         ref={list => { this.menuRef = list; }}
                         className="Dropdown-menu"

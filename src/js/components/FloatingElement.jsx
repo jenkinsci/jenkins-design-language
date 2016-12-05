@@ -228,6 +228,16 @@ export class FloatingElement extends Component {
     }
 
     /**
+     * Set the popover's initial position (off-screen)
+     * Avoids a Safari/IE bug where content would flash at 0/0 before being positioned.
+     */
+    setInitialPosition() {
+        this.movePopover(-9999,-9999);
+        // leave in the init state so the eventual repositioning will happen immediately (no anim)
+        this.lifecycleState = lifecycleStates.init;
+    }
+
+    /**
      Calculate popover positon based on its dimensions, preferred position,
      and the dimensions and position of the anchor. If there's a change,
      invokes movePopover to move the popover.
@@ -422,16 +432,13 @@ export class FloatingElement extends Component {
     }
 
     componentRendered() {
-        if (this.props.positionImmediate) {
+        this.setInitialPosition();
+        // As soon as possible, we need to re-calculate our position
+        this.validatePositioningScheduled = true;
+        window.requestAnimationFrame(() => {
+            this.validatePositioningScheduled = false;
             this.validatePositioning();
-        } else {
-            // As soon as possible, we need to re-calculate our position
-            this.validatePositioningScheduled = true;
-            window.requestAnimationFrame(() => {
-                this.validatePositioningScheduled = false;
-                this.validatePositioning();
-            });
-        }
+        });
 
         // Start the periodic timeout to check dom measurements
         this.startPollTimeout();
@@ -447,7 +454,6 @@ export class FloatingElement extends Component {
     static propTypes = {
         targetElement: PropTypes.object,
         positionFunction: PropTypes.func,
-        positionImmediate: PropTypes.bool,
         style: PropTypes.object,
         children: PropTypes.node
     }
