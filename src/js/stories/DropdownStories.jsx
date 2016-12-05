@@ -35,7 +35,7 @@ function createOptions(text = 'Option', asObject = false) {
 function Default() {
     Utils.createCssRule(
         '.Dropdown-Default .Dropdown-placeholder',
-        'font-style: italic; text-transform: uppercase'
+        'font-style: italic', 'text-transform: uppercase'
     );
 
     const style = {
