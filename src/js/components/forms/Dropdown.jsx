@@ -86,7 +86,7 @@ export class Dropdown extends React.Component {
 
     // (note: also triggered via spacebar press when button has focus)
     _onDropdownMouseEvent = (event) => {
-        console.log('_onDropdownMouseEvent');
+        // console.log('_onDropdownMouseEvent');
         // prevent navigation if anchor was clicked
         event.preventDefault();
         this._toggleDropdownMenu();
