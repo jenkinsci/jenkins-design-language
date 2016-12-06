@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Utils from '../../Utils';
 
 /**
  * Renders a group of radio buttons for the provided 'options'
@@ -21,6 +22,8 @@ export class RadioButtonGroup extends React.Component {
         this.state = {
             selectedOption: null,
         };
+
+        this.groupId = () => { return Utils.randomId('RadioButtonGroup'); };
     }
 
     componentWillMount() {
@@ -54,6 +57,8 @@ export class RadioButtonGroup extends React.Component {
     }
 
     render() {
+        const groupId = this.groupId();
+
         return (
             <div className={`RadioButtonGroup ${this.props.className}`}>
                 { this.props.options.map((option, index) => {
@@ -76,12 +81,13 @@ export class RadioButtonGroup extends React.Component {
                         >
                             <input
                               className="RadioButtonGroup-button"
+                              name={groupId}
                               type="radio"
                               checked={checked}
                               onChange={() => this._onChange(option)}
                             />
 
-                            <div className="RadioButtonGroup-indicator" />
+                            <Indicator />
 
                             <span className="RadioButtonGroup-text">{labelValue}</span>
                         </label>
@@ -105,3 +111,21 @@ RadioButtonGroup.propTypes = {
 RadioButtonGroup.defaultProps = {
     className: '',
 };
+
+function Indicator() {
+    return (
+        <div className="RadioButtonGroup-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                width="100%" height="100%" className="svg-shape" focusable="false"
+            >
+                <g>
+                    <circle className="outer-circle" cx="10" cy="10" r="9.5" stroke="black" strokeWidth="1" fill="none"
+                            shapeRendering="geometricPrecision"/>
+                    <circle className="inner-circle" cx="10" cy="10" r="3" fill="white"
+                            shapeRendering="geometricPrecision"/>
+                </g>
+            </svg>
+            <div className="RadioButtonGroup-focus" />
+        </div>
+    );
+}

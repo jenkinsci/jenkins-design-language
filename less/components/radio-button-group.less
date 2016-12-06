@@ -2,46 +2,58 @@
     .RadioButtonGroup-medium;
     display: inline-block;
 
-    //.RadioButtonGroup-wrapper {
-        // by default, there is no layout - stack vertically
+    // by default, there is no layout - stack vertically
+    .RadioButtonGroup-item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
 
-        .RadioButtonGroup-item {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
+        // hide the radio entirely but keep accessible
+        input[type="radio"] {
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
 
-            // hide the radio entirely but keep accessible
-            input[type="radio"] {
-                border: 0;
-                clip: rect(0, 0, 0, 0);
-                height: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
+        .RadioButtonGroup-indicator {
+            position: relative;
+
+            .svg-shape {
+                display: block;
+            }
+
+            .outer-circle {
+                stroke: @gray-light;
+            }
+
+            .RadioButtonGroup-focus {
                 position: absolute;
-                width: 1px;
-            }
-
-            .RadioButtonGroup-indicator {
+                top: 0;
                 border-radius: 100%;
-                border: 1px solid @gray-light;
-                transition: border 0.1s linear;
-            }
-
-            input[type="radio"]:checked + .RadioButtonGroup-indicator {
-                border-style: solid;
-                border-color: @brand-primary;
-            }
-
-            input[type="radio"]:focus + .RadioButtonGroup-indicator {
-                .focus-styles;
-            }
-
-            .RadioButtonGroup-text {
-                margin-left: 5px;
             }
         }
-    //}
+
+        input[type="radio"]:checked + .RadioButtonGroup-indicator {
+            .outer-circle {
+                fill: @brand-primary;
+            }
+        }
+
+        input[type="radio"]:focus + .RadioButtonGroup-indicator {
+            .RadioButtonGroup-focus {
+                .focus-styles;
+            }
+        }
+
+        .RadioButtonGroup-text {
+            margin-left: 5px;
+        }
+    }
 
     &.is-layout-horizontal {
         display: inline-flex;
@@ -57,13 +69,9 @@
         margin-bottom: 4px;
     }
 
-    .RadioButtonGroup-indicator {
+    .RadioButtonGroup-indicator, .RadioButtonGroup-focus {
         width: 16px;
         height: 16px;
-    }
-
-    input[type="radio"]:checked + .RadioButtonGroup-indicator {
-        border-width: 5px;
     }
 }
 
@@ -72,13 +80,9 @@
         margin-bottom: 6px;
     }
 
-    .RadioButtonGroup-indicator {
+    .RadioButtonGroup-indicator, .RadioButtonGroup-focus {
         width: 20px;
         height: 20px;
-    }
-
-    input[type="radio"]:checked + .RadioButtonGroup-indicator {
-        border-width: 7px;
     }
 }
 
@@ -87,13 +91,9 @@
         margin-bottom: 10px;
     }
 
-    .RadioButtonGroup-indicator {
+    .RadioButtonGroup-indicator, .RadioButtonGroup-focus {
         width: 24px;
         height: 24px;
-    }
-
-    input[type="radio"]:checked + .RadioButtonGroup-indicator {
-        border-width: 9px;
     }
 }
 
