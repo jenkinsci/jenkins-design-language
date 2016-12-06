@@ -285,8 +285,9 @@ export class Dropdown extends React.Component {
                 className={`Dropdown ${openClass} ${extraClass}`}>
                 <button ref={button => { this.buttonRef = button; }}
                     className={`Dropdown-button ${promptClass}`}
-                    onClick={this._onDropdownMouseEvent}
+                    disabled={this.props.disabled}
                     title={buttonLabel}
+                    onClick={this._onDropdownMouseEvent}
                 >
                     {buttonLabel}
                 </button>
@@ -343,6 +344,7 @@ Dropdown.propTypes = {
     defaultOption: PropTypes.string,
     labelField: PropTypes.string,
     labelFunction: PropTypes.func,
+    disabled: PropTypes.bool,
     onChange: PropTypes.func,
 };
 

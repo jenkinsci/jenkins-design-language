@@ -4,7 +4,7 @@ import { Dropdown } from '../components';
 import Utils from './Utils';
 
 storiesOf('Dropdown', module)
-    .add('default', () => <Default />)
+    .add('general', () => <General />)
     .add('labeling', () => <LabelOptions />)
     .add('keyboard & focus', () => <KeyboardFocus />)
     .add('callbacks', () => <Callbacks />)
@@ -32,20 +32,19 @@ function createOptions(text = 'Option', asObject = false) {
 
 
 
-function Default() {
+function General() {
     Utils.createCssRule(
         '.Dropdown-Default .Dropdown-placeholder',
         'font-style: italic', 'text-transform: uppercase'
     );
 
     const style = {
-        display: 'flex',
-        justifyContent: 'space-around',
+        padding: 10,
     };
 
     return (
-        <div style={style}>
-            <div>
+        <div>
+            <div style={style}>
                 <p>Default</p>
 
                 <Dropdown
@@ -53,7 +52,16 @@ function Default() {
                 />
             </div>
 
-            <div className="Dropdown-Default">
+            <div style={style}>
+                <p>Disabled</p>
+
+                <Dropdown
+                    options={createOptions()}
+                    disabled
+                />
+            </div>
+
+            <div className="Dropdown-Default" style={style}>
                 <p>Placeholder Styling</p>
 
                 <Dropdown
@@ -61,11 +69,11 @@ function Default() {
                 />
             </div>
 
-            <div style={{maxWidth: 150}}>
+            <div style={{...style, maxWidth: 150}}>
                 <p>Using max-width</p>
 
                 <Dropdown
-                    placeholder="Long placeholder text is too long."
+                    placeholder="Should be truncated beacuse the text is too long"
                     options={createOptions(a2z)}
                 />
             </div>
@@ -82,7 +90,7 @@ function LabelOptions() {
     return (
         <div style={style}>
             <div>
-                <p>Using label field</p>
+                <p>Using labelField=label</p>
 
                 <Dropdown
                     labelField="label"
@@ -90,7 +98,7 @@ function LabelOptions() {
                 />
             </div>
             <div>
-                <p>Using label function</p>
+                <p>Using labeFunction</p>
 
                 <Dropdown
                     labelFunction={val => `\\m/ ${val.label} \\m/`}

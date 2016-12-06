@@ -84,6 +84,7 @@ export class RadioButtonGroup extends React.Component {
                               name={groupId}
                               type="radio"
                               checked={checked}
+                              disabled={this.props.disabled}
                               onChange={() => this._onChange(option)}
                             />
 
@@ -105,6 +106,7 @@ RadioButtonGroup.propTypes = {
     defaultOption: PropTypes.any,
     labelField: PropTypes.string,
     labelFunction: PropTypes.func,
+    disabled: PropTypes.bool,
     onChange: PropTypes.func,
 };
 

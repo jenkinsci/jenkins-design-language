@@ -6,7 +6,6 @@
     .RadioButtonGroup-item {
         display: flex;
         align-items: center;
-        cursor: pointer;
 
         // hide the radio entirely but keep accessible
         input[type="radio"] {
@@ -22,6 +21,7 @@
 
         .RadioButtonGroup-indicator {
             position: relative;
+            cursor: pointer;
 
             .svg-shape {
                 display: block;
@@ -38,6 +38,11 @@
             }
         }
 
+        .RadioButtonGroup-text {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
         input[type="radio"]:checked + .RadioButtonGroup-indicator {
             .outer-circle {
                 fill: @brand-primary;
@@ -50,12 +55,14 @@
             }
         }
 
-        .RadioButtonGroup-text {
-            margin-left: 5px;
+        input[type="radio"][disabled] {
+            & ~ .RadioButtonGroup-indicator, & ~ .RadioButtonGroup-text {
+                .u-disabled;
+            }
         }
     }
 
-    &.is-layout-horizontal {
+    &.u-layout-horizontal {
         display: inline-flex;
 
         .RadioButtonGroup-item {
