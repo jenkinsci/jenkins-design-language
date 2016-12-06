@@ -44,7 +44,7 @@ function DefaultOption() {
         <div style={style}>
             <RadioButtonGroup
                 options={options}
-                defaultOption="C"
+                defaultOption="Charlie"
             />
         </div>
     );
