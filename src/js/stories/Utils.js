@@ -32,7 +32,6 @@ function createCssRule(selector, ...rules) {
         for (let j = 0; j < sheet.cssRules.length; j++) {
             const existingRule = sheet.cssRules[j];
             if (cssText === existingRule.cssText) {
-                console.log('found');
                 found = true;
                 break;
             }
