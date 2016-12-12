@@ -70,10 +70,10 @@ function General() {
             </div>
 
             <div style={{...style, maxWidth: 150}}>
-                <p>Using max-width</p>
+                <p>Truncation</p>
 
                 <Dropdown
-                    placeholder="Should be truncated beacuse the text is too long"
+                    placeholder="Truncated because the text is too long"
                     options={createOptions(a2z)}
                 />
             </div>
