@@ -336,13 +336,13 @@ export class Dropdown extends React.Component {
 
 }
 
-const BORDER_OFFSET:number = 1;
+const BORDER_OFFSET:number = 2;
 
 // eslint-disable-next-line max-len, no-unused-vars
 function positionMenu(selfWidth:number, selfHeight:number, targetWidth:number, targetHeight:number, targetLeft:number, targetTop:number, viewportWidth:number, viewportHeight:number) {
     return {
         newLeft: targetLeft,
-        newTop: targetTop + targetHeight - BORDER_OFFSET,
+        newTop: targetTop + targetHeight + BORDER_OFFSET,
     };
 }
 
@@ -358,5 +358,5 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
-    placeholder: '-Select-',
+    placeholder: 'Select an option',
 };

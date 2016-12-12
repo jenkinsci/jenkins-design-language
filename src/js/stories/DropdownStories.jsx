@@ -61,6 +61,15 @@ function General() {
                 />
             </div>
 
+            <div style={style}>
+                <p>Default Value</p>
+
+                <Dropdown
+                    options={createOptions()}
+                    defaultOption="Option 3"
+                />
+            </div>
+
             <div className="Dropdown-Default" style={style}>
                 <p>Placeholder Styling</p>
 
