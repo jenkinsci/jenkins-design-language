@@ -38,6 +38,7 @@ function General() {
 
                 <RadioButtonGroup
                     options={options}
+                    defaultOption="Alpha"
                     disabled
                 />
             </div>
