@@ -21,8 +21,8 @@ export class Dropdown extends React.Component {
     constructor(props) {
         super(props);
 
-        this.dropdownRef = null;
         this.buttonRef = null;
+        this.thumbRef = null;
         this.menuRef = null;
         this.lastScrollTop = 0;
 
@@ -145,7 +145,14 @@ export class Dropdown extends React.Component {
         if (this.state.menuOpen) {
             const element = document.elementFromPoint(clientX, clientY);
 
-            if (!this.dropdownRef.contains(element)) {
+            // close the dropdown only if the user clicked "outside" of it
+            // (only if the button, thumb and menu was not clicked)
+            // clicking those elements will actually close the it via different means
+            const clickedOutsideDropdown = !this.buttonRef.contains(element) &&
+                !this.thumbRef.contains(element) &&
+                !this.menuRef.contains(element);
+
+            if (clickedOutsideDropdown) {
                 this._closeDropdownMenu();
             }
         }
@@ -281,8 +288,7 @@ export class Dropdown extends React.Component {
         const buttonLabel = this._optionToLabel(this.state.selectedOption) || this.props.placeholder;
 
         return (
-            <div ref={dropdown => { this.dropdownRef = dropdown; }}
-                className={`Dropdown ${openClass} ${extraClass}`}>
+            <div className={`Dropdown ${openClass} ${extraClass}`}>
                 <button ref={button => { this.buttonRef = button; }}
                     className={`Dropdown-button ${promptClass}`}
                     disabled={this.props.disabled}
@@ -292,7 +298,10 @@ export class Dropdown extends React.Component {
                     {buttonLabel}
                 </button>
 
-                <a className="Dropdown-thumb" onClick={this._onDropdownMouseEvent}>
+                <a ref={thumb => { this.thumbRef = thumb; }}
+                    className="Dropdown-thumb"
+                    onClick={this._onDropdownMouseEvent}
+                >
                     <Icon icon="keyboard_arrow_down" size={16} />
                 </a>
 
