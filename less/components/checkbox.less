@@ -1,3 +1,5 @@
+@import "../mixins/browsers";
+
 .Checkbox {
     .Checkbox-medium;
     display: inline-block;
@@ -58,6 +60,14 @@
         }
     }
 }
+
+.browser-ie11up({
+    .Checkbox input[type="checkbox"]:focus + .Checkbox-indicator,
+    .Checkbox.focus .Checkbox-indicator {
+        .ie11-focus-rect;
+    }
+});
+
 
 .Checkbox-small {
     .svg-icon {

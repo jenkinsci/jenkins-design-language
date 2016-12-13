@@ -1,3 +1,5 @@
+@import "../mixins/browsers";
+
 .RadioButtonGroup {
     .RadioButtonGroup-medium;
     display: inline-block;
@@ -71,6 +73,18 @@
         }
     }
 }
+
+.browser-ie11up({
+    input[type="radio"]:focus + .RadioButtonGroup-indicator {
+        .RadioButtonGroup-focus {
+            .ie11-focus-rect;
+            margin-top: -1px;
+        }
+    }
+});
+
+
+// sizing
 
 .RadioButtonGroup-small {
     .RadioButtonGroup-item {
