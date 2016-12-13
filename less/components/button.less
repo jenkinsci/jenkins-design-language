@@ -1,6 +1,5 @@
 // Mixin for generating btn styles
 .btn-styles(@btn-color; @btn-border; @btn-text; @hover-color; @active-color) {
-
     display: inline-block;
     font-family: @font-family-base;
 
@@ -64,8 +63,8 @@ button, .btn, .btn-default, .btn-primary {
     }
 }
 
-// link styling
-a {
+// "link button" styling
+a.btn, a.btn-link {
     .btn-styles(
         transparent,
         transparent,
@@ -73,6 +72,8 @@ a {
         fade(@brand-primary, 8%),
         fade(@brand-primary, 18%)
     );
+
+    text-align: left;
 }
 
 .btn-secondary {
@@ -107,7 +108,7 @@ a {
 }
 
 // inverse buttons
-button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-danger, a {
+button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-danger, a.btn, a.btn-link {
     &.inverse, .inverse &, .inverse-background & {
         .btn-styles(
             transparent,
@@ -126,7 +127,7 @@ button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-danger, a {
 }
 
 // button sizing
-button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-danger, a {
+button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-danger, a.btn, a.btn-link {
     .Button-medium;
 
     .layout-small & {

@@ -90,10 +90,10 @@ function General() {
             <ButtonRow label="Destructive" text="Secondary" props={{className: 'btn-secondary btn-danger'}} />
 
             <ButtonHeader title="Link Button" />
-            <ButtonRow label="Normal" element="a" text="Link Button" props={{href: '#'}}/>
-            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'hover', href: '#'}}/>
-            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'active', href: '#'}}/>
-            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'focus', href: '#'}}/>
+            <ButtonRow label="Normal" element="a" text="Link Button" props={{className: 'btn', href: '#'}}/>
+            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'btn hover', href: '#'}}/>
+            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'btn active', href: '#'}}/>
+            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'btn focus', href: '#'}}/>
 
             { /* <ButtonRow label="Disabled" element="a" text="Link Button" props={{href: '#', disabled: true}} /> */ }
         </ButtonTable>
@@ -112,10 +112,10 @@ function Inverse() {
             <ButtonRow label="Destructive" props={{className: 'btn-danger'}} />
 
             <ButtonHeader title="Link Button" />
-            <ButtonRow label="Normal" element="a" text="Link Button" props={{href: '#'}}/>
-            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'hover', href: '#'}}/>
-            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'active', href: '#'}}/>
-            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'focus', href: '#'}}/>
+            <ButtonRow label="Normal" element="a" text="Link Button" props={{className: 'btn', href: '#'}}/>
+            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'btn hover', href: '#'}}/>
+            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'btn active', href: '#'}}/>
+            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'btn focus', href: '#'}}/>
         </ButtonTable>
     )
 }

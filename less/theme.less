@@ -145,8 +145,27 @@ main {
     background-color: @brand-primary;
 }
 
-.btn-link {
+a {
+    text-decoration: none;
+}
+
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge,
+a {
     color: @link-color;
+}
+
+a:hover {
+    color: @link-hover-color;
+    text-decoration: @link-hover-decoration;
+}
+
+a.inverse {
+    color: white;
+
+    &:hover {
+        color: white;
+    }
 }
 
 .list-group-item.active .list-group-item-text,
