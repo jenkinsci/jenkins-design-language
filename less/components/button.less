@@ -1,9 +1,8 @@
 // Mixin for generating btn styles
-.btn-styles(@btn-color; @btn-border; @btn-text) {
+.btn-styles(@btn-color; @btn-border; @btn-text; @hover-color; @active-color) {
 
     display: inline-block;
-    padding: 0.5rem 1rem;
-    font-family: @font-family-btn;
+    font-family: @font-family-base;
 
     border: solid 1px @btn-border;
     border-radius: 3px;
@@ -14,16 +13,18 @@
     background-color: @btn-color;
     color: @btn-text;
     cursor: pointer;
-    min-width: 130px;
 
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-        background-color: @btn-color;
-        border-color: darken(@btn-border, 12%);
-        color: @btn-text;
+    &:hover, &.hover {
+        background-color: @hover-color;
         text-decoration: none;
+    }
+
+    &:focus, &.focus {
+        .focus-styles;
+    }
+
+    &:active, &.active {
+        background-color: @active-color;
     }
 
     &.disabled,
@@ -35,53 +36,116 @@
         &.focus,
         &:active,
         &.active {
-            opacity: 0.4;
+            .u-disabled;
+            background-color: @btn-color;
         }
-    }
-
-    &:focus {
-        .focus-styles;
     }
 }
 
 // Apply the mixin to the buttons
-.btn-default, .btn, button, .btn-primary {
-    .btn-styles(@btn-primary-bg, @btn-primary-border, @btn-primary-color);
+button, .btn, .btn-default, .btn-primary {
+    // TODO: need to derive hover and active from @brand-primary
+    .btn-styles(
+        @btn-primary-bg,
+        @btn-primary-border,
+        @btn-primary-color,
+        #3080de,
+        #2171ce
+    );
 
-    &.inverse {
-        .btn-styles(white, @brand-primary, @brand-primary);
+    .Button-medium;
+
+    .layout-small & {
+        .Button-small;
     }
+
+    .layout-large & {
+        .Button-large;
+    }
+}
+
+// link styling
+a {
+    .btn-styles(
+        transparent,
+        transparent,
+        @brand-primary,
+        fade(@brand-primary, 8%),
+        fade(@brand-primary, 18%)
+    );
 }
 
 .btn-secondary {
-    .btn-styles(transparent, @btn-primary-border, @btn-primary-border);
-
-    &.inverse {
-        .btn-styles(transparent, white, white)
-    }
-}
-
-.btn-success {
-    .btn-styles(@btn-success-bg, @btn-success-border, @btn-success-color);
-}
-
-.btn-info {
-    .btn-styles(@btn-info-bg, @btn-info-border, @btn-info-color);
-}
-
-.btn-warning {
-    .btn-styles(@btn-warning-bg, @btn-warning-border, @btn-warning-color);
+    .btn-styles(
+        transparent,
+        fade(@brand-primary, 50%),
+        @btn-primary-border,
+        fade(@brand-primary, 8%),
+        fade(@brand-primary, 18%)
+    );
 }
 
 .btn-danger {
-    .btn-styles(@btn-danger-bg, @btn-danger-border, @btn-danger-color);
+    // TODO: need hover and actives
+    .btn-styles(
+        @btn-danger-bg,
+        @btn-danger-border,
+        @btn-danger-color,
+        @btn-danger-bg,
+        @btn-danger-bg
+    );
 }
 
-a, button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-success, .btn-info, .btn-warning, .btn-danger {
-    &.small {
-        font-size: 12px;
-        height: 24px;
-        min-width: 75px;
-        padding: 3px 10px;
+.btn-secondary.btn-danger {
+    .btn-styles(
+        transparent,
+        fade(@btn-danger-bg, 50%),
+        @btn-danger-bg,
+        fade(@btn-danger-bg, 8%),
+        fade(@btn-danger-bg, 18%)
+    );
+}
+
+// inverse buttons
+button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-danger, a {
+    &.inverse, .inverse &, .inverse-background & {
+        .btn-styles(
+            transparent,
+            #fff,
+            #fff,
+            fade(#fff, 10%),
+            fade(#fff, 20%)
+        );
+
+        &:focus, &.focus {
+            .focus-styles;
+            // TODO: need real style; using 0.4 here
+            box-shadow: inset 0 0 1px 3px rgba(255, 255, 255, 0.4);
+        }
     }
+}
+
+// button sizing
+button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-danger, a {
+    .Button-medium;
+
+    .layout-small & {
+        .Button-small;
+    }
+
+    .layout-large & {
+        .Button-large;
+    }
+}
+
+.Button-small {
+    padding: 5px 10px;
+}
+
+.Button-medium {
+    padding: 6px 20px;
+}
+
+.Button-large {
+    padding: 8px 24px;
 }

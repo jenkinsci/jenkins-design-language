@@ -3,25 +3,124 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
 storiesOf('Button', module)
-    .add('default (light bg)', buttonsLightBg)
-    .add('inverse (dark bg)', buttonsDarkBg);
+    .add('general', General)
+    .add('inverse', Inverse)
+;
 
-const container = {
+const titleCell = {
+    width: 150,
+};
+
+const buttonCell = {
     display: 'flex',
+    width: '33%',
     justifyContent: 'center',
-    width: '800px',
-    height: '400px',
-    padding: '10px',
 };
 
-const buttons = {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 1,
-    justifyContent: 'space-around',
+const buttonRow = {
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10
 };
 
+function ButtonRow(props) {
+    const label = props.label || 'Normal';
+    const element = props.element || 'button';
+    const text = props.text || 'Primary';
+
+    const buttonProps = props.props || {};
+
+    const layouts = ['layout-small', '', 'layout-large'];
+
+    return (
+        <div style={buttonRow}>
+            <div style={titleCell}>{label}</div>
+
+            {layouts.map(layout => (
+                <div key={layout} className={layout} style={buttonCell}>
+                    {React.createElement(element, { ...buttonProps }, text)}
+                </div>
+            ))}
+        </div>
+    );
+}
+
+function ButtonHeader(props) {
+    return (
+        <div style={{marginTop: 10}}>
+            <h3>{props.title}</h3>
+            <div style={buttonRow}>
+                <div style={titleCell} />
+                <div style={buttonCell}>Small</div>
+                <div style={buttonCell}>Medium</div>
+                <div style={buttonCell}>Large</div>
+            </div>
+        </div>
+    )
+}
+
+function ButtonTable(props) {
+    const className = props.className || '';
+    const style = props.style || {};
+    style.padding = 10;
+    style.backgroundColor = style.backgroundColor || 'transparent';
+
+    return (
+        <div className={className} style={style}>
+            {props.children}
+        </div>
+    )
+}
+
+function General() {
+    return (
+        <ButtonTable>
+            <ButtonHeader title="Primary" />
+            <ButtonRow label="Normal" />
+            <ButtonRow label="Hover" props={{className:'hover'}} />
+            <ButtonRow label="Active" props={{className:'active'}} />
+            <ButtonRow label="Disabled" props={{disabled: true}} />
+            <ButtonRow label="Focus" props={{className:'focus'}} />
+            <ButtonRow label="Destructive" props={{className: 'btn-danger'}} />
+
+            <ButtonHeader title="Secondary" />
+            <ButtonRow label="Normal" text="Secondary" props={{className: 'btn-secondary'}}/>
+            <ButtonRow label="Hover" text="Secondary" props={{className:'btn-secondary hover'}} />
+            <ButtonRow label="Active" text="Secondary" props={{className:'btn-secondary active'}} />
+            <ButtonRow label="Disabled" text="Secondary" props={{className: 'btn-secondary', disabled: true}} />
+            <ButtonRow label="Focus" text="Secondary" props={{className:'btn-secondary focus'}} />
+            <ButtonRow label="Destructive" text="Secondary" props={{className: 'btn-secondary btn-danger'}} />
+
+            <ButtonHeader title="Link Button" />
+            <ButtonRow label="Normal" element="a" text="Link Button" props={{href: '#'}}/>
+            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'hover', href: '#'}}/>
+            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'active', href: '#'}}/>
+            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'focus', href: '#'}}/>
+
+            { /* <ButtonRow label="Disabled" element="a" text="Link Button" props={{href: '#', disabled: true}} /> */ }
+        </ButtonTable>
+    );
+}
+
+function Inverse() {
+    return (
+        <ButtonTable className="inverse" style={{color: '#FFF', backgroundColor: '#003054'}}>
+            <ButtonHeader title="Primary" />
+            <ButtonRow label="Normal" />
+            <ButtonRow label="Hover" props={{className:'hover'}} />
+            <ButtonRow label="Active" props={{className:'active'}} />
+            <ButtonRow label="Disabled" props={{disabled: true}} />
+            <ButtonRow label="Focus" props={{className:'focus'}} />
+            <ButtonRow label="Destructive" props={{className: 'btn-danger'}} />
+
+            <ButtonHeader title="Link Button" />
+            <ButtonRow label="Normal" element="a" text="Link Button" props={{href: '#'}}/>
+            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'hover', href: '#'}}/>
+            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'active', href: '#'}}/>
+            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'focus', href: '#'}}/>
+        </ButtonTable>
+    )
+}
+
+/*
 function buttonsLightBg() {
     return (
         <div>
@@ -91,3 +190,4 @@ function buttonsDarkBg() {
         </div>
     );
 }
+*/
