@@ -25,9 +25,14 @@ function General() {
             <div style={style}>
                 <Checkbox disabled label="Disabled" />
             </div>
-
             <div style={style}>
-                <Checkbox checked disabled label="Checked, Disabled" />
+                <Checkbox checked disabled label="Disabled, Checked" />
+            </div>
+            <div style={style}>
+                <Checkbox className="focus" label="Focused" />
+            </div>
+            <div style={style}>
+                <Checkbox checked className="focus" label="Focused, Checked" />
             </div>
         </div>
     );

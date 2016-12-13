@@ -38,6 +38,7 @@ function General() {
 
                 <RadioButtonGroup
                     options={options}
+                    className="u-layout-horizontal"
                     defaultOption="Alpha"
                     disabled
                 />
@@ -47,6 +48,7 @@ function General() {
 
                 <RadioButtonGroup
                     options={options}
+                    className="u-layout-horizontal"
                     defaultOption="Charlie"
                 />
             </div>
