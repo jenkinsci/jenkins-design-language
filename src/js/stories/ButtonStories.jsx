@@ -73,7 +73,8 @@ function ButtonTable(props) {
 function General() {
     return (
         <ButtonTable>
-            <ButtonHeader title="Primary" />
+            <span className="componentdoc" data-docfile="doc-buttons-default"></span>
+            <ButtonHeader title="Primary Button" />
             <ButtonRow label="Normal" />
             <ButtonRow label="Hover" props={{className:'hover'}} />
             <ButtonRow label="Active" props={{className:'active'}} />
@@ -81,7 +82,7 @@ function General() {
             <ButtonRow label="Focus" props={{className:'focus'}} />
             <ButtonRow label="Destructive" props={{className: 'btn-danger'}} />
 
-            <ButtonHeader title="Secondary" />
+            <ButtonHeader title="Secondary Button" />
             <ButtonRow label="Normal" text="Secondary" props={{className: 'btn-secondary'}}/>
             <ButtonRow label="Hover" text="Secondary" props={{className:'btn-secondary hover'}} />
             <ButtonRow label="Active" text="Secondary" props={{className:'btn-secondary active'}} />
@@ -90,12 +91,16 @@ function General() {
             <ButtonRow label="Destructive" text="Secondary" props={{className: 'btn-secondary btn-danger'}} />
 
             <ButtonHeader title="Link Button" />
+            <ButtonRow label="Normal" element="a" text="Link Button" props={{className: 'btn-link', href: '#'}}/>
+            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'btn-link hover', href: '#'}}/>
+            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'btn-link active', href: '#'}}/>
+            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'btn-link focus', href: '#'}}/>
+
+            <ButtonHeader title="A tag as Button" />
             <ButtonRow label="Normal" element="a" text="Link Button" props={{className: 'btn', href: '#'}}/>
             <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'btn hover', href: '#'}}/>
             <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'btn active', href: '#'}}/>
             <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'btn focus', href: '#'}}/>
-
-            { /* <ButtonRow label="Disabled" element="a" text="Link Button" props={{href: '#', disabled: true}} /> */ }
         </ButtonTable>
     );
 }
@@ -103,6 +108,7 @@ function General() {
 function Inverse() {
     return (
         <ButtonTable className="inverse" style={{color: '#FFF', backgroundColor: '#003054'}}>
+            <span className="componentdoc" data-docfile="doc-buttons-inverse"></span>
             <ButtonHeader title="Primary" />
             <ButtonRow label="Normal" />
             <ButtonRow label="Hover" props={{className:'hover'}} />
@@ -112,82 +118,10 @@ function Inverse() {
             <ButtonRow label="Destructive" props={{className: 'btn-danger'}} />
 
             <ButtonHeader title="Link Button" />
-            <ButtonRow label="Normal" element="a" text="Link Button" props={{className: 'btn', href: '#'}}/>
-            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'btn hover', href: '#'}}/>
-            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'btn active', href: '#'}}/>
-            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'btn focus', href: '#'}}/>
+            <ButtonRow label="Normal" element="a" text="Link Button" props={{className: 'btn-link', href: '#'}}/>
+            <ButtonRow label="Hover" element="a" text="Link Button" props={{className: 'btn-link hover', href: '#'}}/>
+            <ButtonRow label="Active" element="a" text="Link Button" props={{className: 'btn-link active', href: '#'}}/>
+            <ButtonRow label="Focus" element="a" text="Link Button" props={{className: 'btn-link focus', href: '#'}}/>
         </ButtonTable>
     )
 }
-
-/*
-function buttonsLightBg() {
-    return (
-        <div>
-            <span className="componentdoc" data-docfile="doc-buttons-default"></span>
-            <div style={container}>
-                <div style={buttons}>
-                    <div>no class</div>
-                    <button>Default Button</button>
-                    <a href="#">Default Anchor</a>
-                    <button disabled="disabled">Default Button Disabled</button>
-                    <button className="small">Small Button</button>
-                    <a href="#" className="small">Small Anchor</a>
-                    <button className="small" disabled="disabled">Small Button Disabled</button>
-                </div>
-                <div style={buttons}>
-                    <div>.btn, .btn-default, .btn-primary</div>
-                    <button className="btn-primary">Primary Button</button>
-                    <a href="#" className="btn-primary">Primary Anchor</a>
-                    <button className="btn-primary" disabled="disabled">Primary Button Disabled</button>
-                    <button className="btn-primary small">Small Button</button>
-                    <a href="#" className="btn-primary small">Small Anchor</a>
-                    <button className="btn-primary small" disabled="disabled">Small Button Disabled</button>
-                </div>
-                <div style={buttons}>
-                    <div>.btn-secondary</div>
-                    <button className="btn-secondary">Secondary Button</button>
-                    <a href="#" className="btn-secondary">Secondary Anchor</a>
-                    <button className="btn-secondary" disabled="disabled">Secondary Button Disabled</button>
-                    <button className="btn-secondary small">Small Button</button>
-                    <a href="#" className="btn-secondary small">Small Anchor</a>
-                    <button className="btn-secondary small" disabled="disabled">Small Button Disabled</button>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function buttonsDarkBg() {
-    const containerDark = {
-        ... container,
-        backgroundColor: '#4A90E2',
-    };
-
-    return (
-        <div>
-            <span className="componentdoc" data-docfile="doc-buttons-inverse"></span>
-            <div style={containerDark}>
-                <div style={buttons}>
-                    <div>.inverse</div>
-                    <button className="inverse">Default Button</button>
-                    <a className="inverse">Default Anchor</a>
-                    <button className="inverse" disabled="disabled">Default Button Disabled</button>
-                </div>
-                <div style={buttons}>
-                    <div>.btn, .btn-default, .btn-primary with .inverse</div>
-                    <button className="btn-primary inverse">Primary Button</button>
-                    <a className="btn-primary inverse">Primary Anchor</a>
-                    <button className="btn-primary inverse" disabled="disabled">Primary Button Disabled</button>
-                </div>
-                <div style={buttons}>
-                    <div>.btn-secondary .inverse</div>
-                    <button className="btn-secondary inverse">Secondary Button</button>
-                    <a className="btn-secondary inverse">Secondary Anchor</a>
-                    <button className="btn-secondary inverse" disabled="disabled">Secondary Button Disabled</button>
-                </div>
-            </div>
-        </div>
-    );
-}
-*/
