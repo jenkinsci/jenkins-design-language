@@ -3,11 +3,17 @@
 import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
 require('moment-duration-format');
+// needs to be loaded since the moment lib will use require which in run time will fail
+import 'moment/min/locales.min';
 
 type Props = {
      millis: number,
+     updatePeriod: number,
      hint?: string,
-     liveUpdate: bool
+     liveUpdate: bool,
+     liveFormat: ?string,
+     hintFormat: ?string,
+     locale: ?string,
 };
 
 type State = {
@@ -37,8 +43,8 @@ export class TimeDuration extends Component {
         super(props);
         // track how much time has elapsed since live updating tracking started
         this.state = { elapsed: 0 };
-        // When updating, average 30s period, with jitter to spread out the work
-        this.timerPeriodMillis = 30000 + Math.ceil(Math.random() * 5000);
+        const {updatePeriod = 30000} = this.props;
+        this.timerPeriodMillis = typeof updatePeriod !== 'number' || isNaN(updatePeriod) ? 30000 : updatePeriod;
         this.clearIntervalId = 0;
         
     }
@@ -89,11 +95,20 @@ export class TimeDuration extends Component {
         const millis = parseInt(this.props.millis) + this.state.elapsed;
 
         if (!isNaN(millis)) {
-            const duration = moment.duration(millis).humanize();
+            const {
+                locale = 'en',
+                liveFormat = 'm[ minutes] s[ seconds]',
+                hintFormat = 'M [mos], d [days], h[h], m[m], s[s]',
+            } = this.props;
+            moment.locale(locale);
+            // in case we are in live update we are interested in seconds
+            const duration = this.props.liveUpdate ?
+                moment.duration(millis).format(liveFormat)
+                    : moment.duration(millis).humanize();
 
             const hint = this.props.hint ?
                 this.props.hint :
-                moment.duration(millis).format("M [mos], d [days], h[h], m[m], s[s]");
+                moment.duration(millis).format(hintFormat);
 
             return (
                 <span title={hint}>{duration}</span>
@@ -106,6 +121,10 @@ export class TimeDuration extends Component {
 
 TimeDuration.propTypes = {
     millis: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    updatePeriod: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     hint: PropTypes.string,
     liveUpdate: PropTypes.bool,
+    locale: PropTypes.string,
+    liveFormat: PropTypes.string,
+    hintFormat: PropTypes.string,
 };

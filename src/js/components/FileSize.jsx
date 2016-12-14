@@ -5,9 +5,9 @@ import React, {Component, PropTypes} from 'react';
 const { oneOfType, number, string } = PropTypes;
 const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
-// Polyfill for old browsers and IE
+// Ponyfill for old browsers and IE
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/log10
-Math.log10 = Math.log10 || function (x) {
+const log10 = Math.log10 || function (x) {
     return Math.log(x) / Math.LN10;
 };
 
@@ -20,10 +20,12 @@ export class FileSize extends Component {
             bytes = parseInt(bytes);
         }
 
-        if (!isNaN(bytes)) {
+        if (bytes === 0) {
+             output = `0 ${units[0]}`;
+        } else if (!isNaN(bytes)) {
             // calculate the unit (e.g. 'MB') to display
             // but ensure it doesn't go over the max we support
-            let power = Math.floor(Math.log10(Math.abs(bytes)) / Math.log10(1024));
+            let power = Math.floor(log10(Math.abs(bytes)) / log10(1024));
             power = Math.min(power, units.length - 1);
 
             // round displayed value to one decimal place

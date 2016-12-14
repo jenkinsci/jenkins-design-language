@@ -7,10 +7,11 @@
 //
 // Load core variables and mixins
 // --------------------------------------------------
-@import "variables.less";
-@import "mixins.less";
-@import "icons.less";
-@import "components.less";
+@import "variables";
+@import "mixins";
+@import "icons";
+@import "components";
+@import "layouts";
 
 //
 // Base font stuffs
@@ -26,12 +27,13 @@ html {
 
 body {
     color: @text-color;
-  text-rendering: optimizeSpeed;
-  font-feature-settings: "kern" on, "liga" off;
-  -moz-font-feature-settings: "kern" on, "liga" off;
-  // Want to change this? Pick a fight with i386
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    font-feature-settings: "kern" on, "liga" off;
+    -moz-font-feature-settings: "kern" on, "liga" off;
+    // Want to change this? Pick a fight with i386
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.2;
 }
 
 //
@@ -40,6 +42,10 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+p {
+    margin: 1em 0;
 }
 
 // Default All headings to basically "bold and display:block"
@@ -111,12 +117,12 @@ main {
 
 .status-color(success, @brand-success, @brand-success-lite);
 .status-color(info, @brand-info, @brand-info-lite);
-.status-color(queued, @brand-info, @brand-info-lite);
 .status-color(running, @brand-info, @brand-info-lite);
 .status-color(failure, @brand-danger, @brand-danger-lite);
 .status-color(aborted, @brand-danger, @brand-danger-lite);
 .status-color(unstable, @brand-warning, @brand-warning-lite);
 .status-color(not_built, @brand-grey, @brand-grey-lite);
+.status-color(queued, @brand-grey, @brand-grey-lite);
 .status-color(unknown, @brand-unknown, @brand-unknown-lite);
 
 .label-danger {
@@ -271,6 +277,15 @@ code, pre, kbd {
 
 .btn-danger {
     .btn-styles(@btn-danger-bg, @btn-danger-border, @btn-danger-color);
+}
+
+a, button, .btn, .btn-default, .btn-primary, .btn-secondary, .btn-success, .btn-info, .btn-warning, .btn-danger {
+    &.small {
+        font-size: 12px;
+        height: 24px;
+        min-width: 75px;
+        padding: 3px 10px;
+    }
 }
 
 //
@@ -485,45 +500,6 @@ code, pre, kbd {
 }
 
 //
-// Tables
-// --------------------------------------------------
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-
-    a {
-        color: @text-color;
-    }
-}
-
-thead tr:last-child {
-    border-bottom: solid 1px;
-    th {
-        padding-bottom: 1.5rem;
-    }
-}
-
-tbody tr:first-child td {
-    padding-top: 1rem;
-}
-
-th {
-    font-family: @font-family-headings;
-    font-weight: normal;
-}
-
-td, th {
-    padding: 0.5em 0;
-    text-align: left;
-}
-
-th:first-child,
-td:first-child {
-    padding-left: 1em;
-}
-
-//al
 // Code / Logs
 // --------------------------------------------------
 
@@ -605,7 +581,8 @@ code.block {
     display: block;
     padding: 0.5rem;
     //max-height: @pre-scrollable-max-height;
-    border: solid 1px darken(@pre-bg, 20%);;
+    border: solid 1px darken(@pre-bg, 20%);
+    white-space: pre-wrap;
 }
 
 code.inline {
@@ -648,6 +625,7 @@ code.hash {
 }
 
 .global-header {
+    position: relative;
     font-size: 1.5rem;
     letter-spacing: 1.1px;
     background-color: @header-bg;
@@ -674,6 +652,15 @@ code.hash {
 
 .global-header a:hover {
     color: @gray-dark;
+}
+
+.global-header .button-bar {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    height: 48px;
+    display: flex;
+    align-items: center;
 }
 
 .sub-header {
@@ -996,13 +983,6 @@ footer {
 
 .clickIndicator {
     cursor: pointer;
-}
-
-.activity-table tbody tr:hover,
-.multibranch-table tbody tr:hover,
-.pr-table tbody tr:hover {
-    cursor: pointer;
-    background-color: rgba(148, 147, 147, 0.1);
 }
 
 .Site {
