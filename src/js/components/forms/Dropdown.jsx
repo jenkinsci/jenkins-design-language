@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import debounce from 'lodash.debounce';
-import { Icon } from 'react-material-icons-blue';
+import { Icon } from '@jenkins-cd/react-material-icons';
 
 import {FloatingElement} from '../FloatingElement';
 import KeyCodes from '../../KeyCodes';
