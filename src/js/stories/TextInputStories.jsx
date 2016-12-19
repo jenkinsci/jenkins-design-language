@@ -11,6 +11,7 @@ storiesOf('TextInput', module)
 ;
 
 const style = {padding: 10};
+const name= { name: 'testTextInput' };
 
 function Default() {
     return (
@@ -23,7 +24,7 @@ function Default() {
 function Placeholder() {
     return (
         <div style={style}>
-            <TextInput placeholder="This is a placeholder." />
+            <TextInput placeholder="This is a placeholder." { ...name } />
         </div>
     );
 }
@@ -31,7 +32,7 @@ function Placeholder() {
 function DefaultValue() {
     return (
         <div style={style}>
-            <TextInput defaultValue="I have a default value." />
+            <TextInput defaultValue="I have a default value." { ...name } />
         </div>
     );
 }
@@ -40,6 +41,7 @@ function Callbacks() {
     return (
         <div style={style}>
             <TextInput
+                { ...name }
                 onChange={val => console.log('onChange', val)}
                 onBlur={val => console.log('onBlur', val)}
             />
@@ -51,16 +53,16 @@ function Sizes() {
     return (
         <div>
             <div style={style}>
-                <TextInput placeholder="Using no layout" />
+                <TextInput placeholder="Using no layout" { ...name } />
             </div>
             <div className="layout-small" style={style}>
-                <TextInput placeholder="Using layout-small" />
+                <TextInput placeholder="Using layout-small" { ...name } />
             </div>
             <div className="layout-medium" style={style}>
-                <TextInput placeholder="Using layout-medium" />
+                <TextInput placeholder="Using layout-medium" { ...name } />
             </div>
             <div className="layout-large" style={style}>
-                <TextInput placeholder="Using layout-large" />
+                <TextInput placeholder="Using layout-large" { ...name } />
             </div>
         </div>
     );

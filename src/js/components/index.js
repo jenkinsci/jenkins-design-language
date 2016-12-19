@@ -50,3 +50,4 @@ export { RadioButtonGroup } from './forms/RadioButtonGroup';
 export { TextArea } from './forms/TextArea';
 export { TextInput } from './forms/TextInput';
 export { FormElement } from './forms/FormElement';
+export { PasswordInput } from './forms/PasswordInput';
