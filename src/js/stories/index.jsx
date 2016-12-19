@@ -21,7 +21,7 @@ require('./timeduration.jsx');
 require('./toast.jsx');
 require('./ToasterStories.jsx');
 require('./resultItemStories.jsx');
-require('./typography.jsx');
 require('./progressBarStories');
 require('./PopoverStories');
 require('./DialogStories');
+require('./TypographyStories');

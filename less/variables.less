@@ -61,25 +61,41 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
+/* original font definitions
 @font-family-sans-serif:  "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
-@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
-
 @font-family-ss-light:    "LatoLatinWebLight", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-ss-regular:  @font-family-sans-serif;
 @font-family-ss-medium:   "LatoLatinWebMedium", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-ss-semibold: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+*/
 
+/* new font definitions */
+@font-family-sans-serif:  "Lato", sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+@font-family-monospace:   "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@font-family-ss-light:    "Lato", sans-serif;
+@font-family-ss-regular:  @font-family-sans-serif;
+@font-family-ss-medium:   "Lato", sans-serif;
+@font-family-ss-semibold: "Lato", sans-serif;
+
+
+// font settings continue...
 @font-family-headings:    @font-family-ss-semibold;
 @font-family-nav:         @font-family-ss-regular;
 @font-family-btn:         @font-family-ss-semibold;
 @font-family-panel:       @font-family-ss-regular;
+
+@font-size-base:          14px;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
 @font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
 @font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
