@@ -46,6 +46,7 @@ export {
 export { FloatingElement } from './FloatingElement';
 export { Dropdown } from './forms/Dropdown';
 export { Checkbox } from './forms/Checkbox';
+export { FlyoutMenu } from './forms/_FlyoutMenu';
 export { RadioButtonGroup } from './forms/RadioButtonGroup';
 export { TextArea } from './forms/TextArea';
 export { TextInput } from './forms/TextInput';

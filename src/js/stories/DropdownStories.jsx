@@ -66,7 +66,7 @@ function General() {
 
                 <Dropdown
                     options={createOptions()}
-                    defaultOption="Option 3"
+                    defaultOption="Option 20"
                 />
             </div>
 

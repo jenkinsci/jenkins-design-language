@@ -36,40 +36,6 @@
         }
     }
 
-    .Dropdown-menu {
-        overflow-y: scroll;
-        min-width: @dropdown-min-width;
-        max-height: 200px;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        background: #fff;
-        .control-border;
-        border-color: @brand-primary;
-
-        .Dropdown-menu-item {
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            padding: 5px 10px;
-            cursor: pointer;
-            color: @text-color;
-
-            &.Dropdown-menu-item-selected {
-            }
-
-            &:hover {
-                text-decoration: none;
-                background: fadeout(@brand-primary, 85%);
-            }
-
-            &:focus {
-                background: fadeout(@brand-primary, 85%);
-                outline: 0;
-            }
-        }
-    }
-
     &.Dropdown-menu-open {
         .Dropdown-button {
             border-color: @brand-primary;
