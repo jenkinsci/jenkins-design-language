@@ -59,7 +59,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: @font-size-h1;
     font-family: @font-family-nav;
-    letter-spacing: 1.1px;
 }
 
 h2 {
@@ -123,6 +122,7 @@ main {
 .status-color(unstable, @brand-warning, @brand-warning-lite);
 .status-color(not_built, @brand-grey, @brand-grey-lite);
 .status-color(queued, @brand-grey, @brand-grey-lite);
+.status-color(paused, @brand-paused, @brand-paused-lite);
 .status-color(unknown, @brand-unknown, @brand-unknown-lite);
 
 .label-danger {
@@ -527,6 +527,10 @@ code.hash {
 // Layout elements
 // --------------------------------------------------
 
+.u-flex-grow {
+    flex-grow: 1;
+}
+
 .content-width {
     min-width: 70rem;
     margin-left: 100px;
@@ -803,6 +807,10 @@ footer {
 
     &.queued {
         background-color: @brand-grey-lite;
+    }
+
+    &.paused {
+        background-color: @brand-paused;
     }
 
     &.unknown {
