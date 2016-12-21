@@ -64,11 +64,15 @@ export class Table extends Component {
         const divider = headers && headers.length && !disableHeaderDivider ?
             <TableDivider numCols={headers.length}/> : undefined;
 
-        const headerRowCells = headers && headers.map((column) => (
+        const headerRowCells = headers && headers.map((column) => {
+            const content = !column.content ? getLabel(column) : column.content;
+
+            return (
                 <th key={getKey(column)} className={getClass(column)}>
-                    {getLabel(column)}
+                    {content}
                 </th>
-            ));
+            );
+        });
 
         const tableHeader = headers && (
                 <thead>
