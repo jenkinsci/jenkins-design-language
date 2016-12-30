@@ -114,6 +114,10 @@ function FormError(props) {
     );
 }
 
+FormError.propTypes = {
+    children: PropTypes.node,
+};
+
 function Errors() {
     return (
         <div>
