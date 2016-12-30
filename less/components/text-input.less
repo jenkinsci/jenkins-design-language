@@ -18,6 +18,8 @@
     }
 }
 
+// sizing
+
 .TextInput-small {
     .TextInput-control {
         padding: 5px 8px;
@@ -43,5 +45,15 @@
 
     .layout-large & {
         .TextInput-large;
+    }
+}
+
+// errors
+
+.TextInput {
+    .TextInput-control {
+        .FormElement.u-error-state & {
+            border-color: @brand-danger;
+        }
     }
 }

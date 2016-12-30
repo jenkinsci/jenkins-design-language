@@ -19,6 +19,8 @@
     }
 }
 
+// sizing
+
 .TextArea-small {
     height: 83px; // 5 lines
 
@@ -50,5 +52,15 @@
 
     .layout-large & {
         .TextArea-large;
+    }
+}
+
+// errors
+
+.TextArea {
+    .TextArea-control {
+        .FormElement.u-error-state & {
+            border-color: @brand-danger;
+        }
     }
 }
