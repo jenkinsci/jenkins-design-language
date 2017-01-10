@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { storiesOf } from '@kadira/storybook';
-import { ErrorMessage } from '../components/ErrorMessage';
 import { FormElement } from '../components/forms/FormElement';
 import { PasswordInput } from '../components/forms/PasswordInput';
 import { RadioButtonGroup } from '../components/forms/RadioButtonGroup';
