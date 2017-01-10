@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { FormElement } from '../components/forms/FormElement';
+import { PasswordInput } from '../components/forms/PasswordInput';
 import { RadioButtonGroup } from '../components/forms/RadioButtonGroup';
 import { TextArea } from '../components/forms/TextArea';
 import { TextInput } from '../components/forms/TextInput';
@@ -38,6 +39,21 @@ function General() {
 
                 <FormElement title="Title" errorMessage="and errorMessage">
                     <TextInput defaultValue="Child" />
+                </FormElement>
+            </div>
+            <div style={style}>
+                <p>Nesting!</p>
+
+                <FormElement title="Authentication Details" showDivider errorMessage="provide key">
+                    <FormElement title="Username">
+                        <TextInput defaultValue="michael.garibaldi"/>
+                    </FormElement>
+                    <FormElement title="Password" errorMessage="yeah">
+                        <PasswordInput defaultValue="peekaboo"/>
+                    </FormElement>
+                    <FormElement title="Secret Key" errorMessage="yeah">
+                        <TextArea />
+                    </FormElement>
                 </FormElement>
             </div>
         </div>

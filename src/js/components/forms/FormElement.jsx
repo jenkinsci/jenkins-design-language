@@ -21,7 +21,7 @@ export function FormElement(props) {
 }
 
 FormElement.propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.node,
     className: PropTypes.string,
     title: PropTypes.string,
     errorMessage: PropTypes.string,

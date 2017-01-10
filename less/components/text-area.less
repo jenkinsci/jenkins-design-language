@@ -58,10 +58,11 @@
 
 // errors
 
-.TextArea {
-    .TextArea-control {
-        .FormElement.u-error-state & {
+.FormElement.u-error-state {
+    > .TextArea {
+        .TextArea-control {
             border-color: @brand-danger;
         }
     }
 }
+

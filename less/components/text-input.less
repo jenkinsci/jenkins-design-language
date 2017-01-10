@@ -51,9 +51,9 @@
 
 // errors
 
-.TextInput {
-    .TextInput-control {
-        .FormElement.u-error-state & {
+.FormElement.u-error-state {
+    > .TextInput, > .PasswordInput {
+        .TextInput-control {
             border-color: @brand-danger;
         }
     }

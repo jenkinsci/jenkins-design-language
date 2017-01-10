@@ -7,7 +7,7 @@
         color: @brand-danger;
     }
 
-    &.u-show-divider .FormElement-heading {
+    &.u-show-divider > .FormElement-heading {
         border-bottom: 1px solid @gray-lighter;
     }
 }
@@ -63,7 +63,21 @@
 // errors
 
 .FormElement.u-error-state {
-    .FormElement-title {
+    > .FormElement-heading {
         color: @brand-danger;
+    }
+}
+
+// nesting!
+
+.FormElement .FormElement {
+    margin-top: 10px;
+
+    .layout-small & {
+        margin-top: 6px;
+    }
+
+    .layout-large & {
+        margin-top: 16px;
     }
 }
