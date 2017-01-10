@@ -1,3 +1,7 @@
+.ErrorMessage {
+    .u-error-color;
+}
+
 .FormElement {
     .FormElement-medium;
     display: flex;
@@ -5,6 +9,10 @@
 
     .FormElement-error {
         color: @brand-danger;
+    }
+
+    > .FormElement-heading .ErrorMessage {
+        display: inline;
     }
 
     &.u-show-divider > .FormElement-heading {
@@ -64,7 +72,7 @@
 
 .FormElement.u-error-state {
     > .FormElement-heading {
-        color: @brand-danger;
+        .u-error-color;
     }
 }
 
