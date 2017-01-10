@@ -37,8 +37,14 @@ function General() {
             <div style={style}>
                 <p>With errorMessage</p>
 
-                <FormElement title="Title" errorMessage="and errorMessage">
-                    <TextInput defaultValue="Child" />
+                <FormElement title="TextInput" errorMessage="error">
+                    <TextInput defaultValue="error" />
+                </FormElement>
+                <FormElement title="PasswordInput" errorMessage="error">
+                    <PasswordInput defaultValue="error" />
+                </FormElement>
+                <FormElement title="TextArea" errorMessage="error">
+                    <TextArea defaultValue="error" />
                 </FormElement>
             </div>
             <div style={style}>
@@ -48,10 +54,10 @@ function General() {
                     <FormElement title="Username">
                         <TextInput defaultValue="michael.garibaldi"/>
                     </FormElement>
-                    <FormElement title="Password" errorMessage="yeah">
+                    <FormElement title="Password">
                         <PasswordInput defaultValue="peekaboo"/>
                     </FormElement>
-                    <FormElement title="Secret Key" errorMessage="yeah">
+                    <FormElement title="Secret Key">
                         <TextArea />
                     </FormElement>
                 </FormElement>
