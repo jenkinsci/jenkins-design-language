@@ -3,7 +3,6 @@ import { storiesOf } from '@kadira/storybook';
 import { ErrorMessage } from '../components/ErrorMessage';
 
 storiesOf('ErrorMessage', module)
-    .add('general', () => <General />)
     .add('sizes', () => <Sizes />)
 ;
 
@@ -11,24 +10,9 @@ const style = {
     padding: 10,
 };
 
-
-function General() {
-    return (
-        <div>
-            <div style={style}>
-                <p>ErrorMessage (standalone)</p>
-
-                <ErrorMessage>text as children</ErrorMessage>
-
-                <ErrorMessage text="text as 'text' property" />
-            </div>
-        </div>
-    );
-}
-
 // Sizes
 
-// show several ErrorMessages spacing
+// show several ErrorMessages w/ spacing
 function ErrorMessageGroup(props) {
     const count = props.count || 3;
     const array = new Array(count);
@@ -36,7 +20,7 @@ function ErrorMessageGroup(props) {
     return (
         <div>
             {React.Children.map(array, (item, index) => (
-                <ErrorMessage>Element #{index}</ErrorMessage>
+                <ErrorMessage>Error Message #{index}</ErrorMessage>
             ))}
         </div>
     );
