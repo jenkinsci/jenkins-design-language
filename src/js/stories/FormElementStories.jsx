@@ -8,6 +8,7 @@ import { TextInput } from '../components/forms/TextInput';
 
 storiesOf('FormElement', module)
     .add('general', () => <General />)
+    .add('layouts', () => <Layouts />)
     .add('sizes', () => <Sizes />)
     .add('errors', () => <Errors />)
 ;
@@ -47,10 +48,46 @@ function General() {
                     <TextArea defaultValue="error" />
                 </FormElement>
             </div>
-            <div style={style}>
-                <p>Nesting!</p>
+        </div>
+    );
+}
 
-                <FormElement title="Authentication Details" showDivider errorMessage="provide key">
+function Layouts() {
+    return (
+        <div>
+            <div style={style}>
+                <p>Multiple children lay out horizontally by default...</p>
+
+                <FormElement title="Details">
+                    <TextInput placeholder="name" />
+                    <button>Save</button>
+                </FormElement>
+            </div>
+            <div style={style}>
+                <p>... or use verticalLayout=true</p>
+
+                <FormElement title="Details" verticalLayout>
+                    <TextArea placeholder="name" />
+                    <button>Save</button>
+                </FormElement>
+            </div>
+            <div style={style}>
+                <p>Nesting FormElements within FormElements</p>
+
+                <FormElement title="Legal Name" showDivider>
+                    <FormElement title="First Name">
+                        <TextInput defaultValue="Michael"/>
+                    </FormElement>
+                    <FormElement title="Last Name">
+                        <TextInput defaultValue="Garibaldi"/>
+                    </FormElement>
+                </FormElement>
+            </div>
+
+            <div style={style}>
+                <p>Nesting FormElements within FormElements with verticalLayout=true</p>
+
+                <FormElement title="Authentication Details" showDivider verticalLayout errorMessage="fill in fields below">
                     <FormElement title="Username">
                         <TextInput defaultValue="michael.garibaldi"/>
                     </FormElement>
@@ -65,6 +102,7 @@ function General() {
         </div>
     );
 }
+
 
 // Sizes
 

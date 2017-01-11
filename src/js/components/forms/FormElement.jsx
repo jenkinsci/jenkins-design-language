@@ -5,9 +5,10 @@ export function FormElement(props) {
     const extraClass = props.className || '';
     const errorClass = props.errorMessage ? 'u-error-state' : '';
     const dividerClass = props.showDivider ? 'u-show-divider' : '';
+    const layoutClass = props.verticalLayout ? 'u-layout-vertical' : '';
 
     return (
-        <div className={`FormElement ${extraClass} ${errorClass} ${dividerClass}`}>
+        <div className={`FormElement ${extraClass} ${errorClass} ${dividerClass} ${layoutClass}`}>
             <div className="FormElement-heading">
                 <label className="FormElement-title">{props.title}</label>
                 <span>&nbsp;</span>
@@ -15,8 +16,9 @@ export function FormElement(props) {
                 <ErrorMessage>- {props.errorMessage}</ErrorMessage>
                 }
             </div>
-
-            { props.children }
+            <div className="FormElement-children">
+                { props.children }
+            </div>
         </div>
     );
 }
@@ -27,4 +29,5 @@ FormElement.propTypes = {
     title: PropTypes.string,
     errorMessage: PropTypes.string,
     showDivider: PropTypes.bool,
+    verticalLayout: PropTypes.bool,
 };
