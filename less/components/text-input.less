@@ -52,9 +52,11 @@
 // errors
 
 .FormElement.u-error-state {
-    > .TextInput, > .PasswordInput {
-        .TextInput-control {
-            .u-error-border;
+    > .FormElement-children {
+        > .TextInput, > .PasswordInput {
+            .TextInput-control {
+                .u-error-border;
+            }
         }
     }
 }
