@@ -13,14 +13,14 @@ fieldset {
         display: inline;
     }
 
-    &.u-show-divider > .FormElement-heading {
-        border-bottom: 1px solid @gray-lighter;
-    }
-
     // children go horizontal by default
     .FormElement-children {
         display: flex;
         align-items: flex-start;
+    }
+
+    &.u-show-divider > .FormElement-heading {
+        border-bottom: 1px solid @gray-lighter;
     }
 
     &.u-layout-vertical .FormElement-children {
