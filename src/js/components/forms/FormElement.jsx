@@ -10,9 +10,10 @@ export function FormElement(props) {
     const errorClass = props.errorMessage ? 'u-error-state' : '';
     const dividerClass = props.showDivider ? 'u-show-divider' : '';
     const layoutClass = props.verticalLayout ? 'u-layout-vertical' : '';
+    const childFreeClass = !props.children ? 'u-child-free' : '';
 
     return (
-        <div className={`FormElement ${extraClass} ${errorClass} ${dividerClass} ${layoutClass}`}>
+        <div className={`FormElement ${extraClass} ${errorClass} ${dividerClass} ${layoutClass} ${childFreeClass}`}>
             { (props.title || props.errorMessage) &&
             <div className="FormElement-heading">
                 { props.title &&
