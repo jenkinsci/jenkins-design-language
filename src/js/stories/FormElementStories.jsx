@@ -1,16 +1,13 @@
 import React, { PropTypes } from 'react';
 import { storiesOf } from '@kadira/storybook';
-import { FormElement } from '../components/forms/FormElement';
-import { PasswordInput } from '../components/forms/PasswordInput';
-import { RadioButtonGroup } from '../components/forms/RadioButtonGroup';
-import { TextArea } from '../components/forms/TextArea';
-import { TextInput } from '../components/forms/TextInput';
+import { Checkbox, Dropdown, Favorite, FormElement, PasswordInput, RadioButtonGroup, TextArea, TextInput } from '../components';
 
 storiesOf('FormElement', module)
     .add('general', () => <General />)
     .add('layouts', () => <Layouts />)
-    .add('sizes', () => <Sizes />)
+    .add('disabled', () => <Disabled />)
     .add('errors', () => <Errors />)
+    .add('sizes', () => <Sizes />)
 ;
 
 const style = {
@@ -159,6 +156,43 @@ function Sizes() {
             <div className="layout-large" style={style}>
                 <p>Using layout-large</p>
                 <TextInputGroup divider />
+            </div>
+        </div>
+    );
+}
+
+function Disabled() {
+    return (
+        <div>
+            <div style={style}>
+                <p>Elements are disabled when nested in &#60;fieldset disabled&#62;</p>
+
+                <fieldset disabled>
+                    <FormElement>
+                        <button>Button</button>
+                    </FormElement>
+                    <FormElement>
+                        <TextInput placeholder="TextInput" />
+                    </FormElement>
+                    <FormElement>
+                        <PasswordInput placeholder="PasswordInput" />
+                    </FormElement>
+                    <FormElement>
+                        <TextArea placeholder="TextArea" />
+                    </FormElement>
+                    <FormElement>
+                        <Checkbox label="Checkbox" />
+                    </FormElement>
+                    <FormElement>
+                        <Favorite label="Favorite" />
+                    </FormElement>
+                    <FormElement>
+                        <RadioButtonGroup options={['Radio','Button','Group']} />
+                    </FormElement>
+                    <FormElement>
+                        <Dropdown placeholder="Dropdown" options={['Drop','Down','Menu']} />
+                    </FormElement>
+                </fieldset>
             </div>
         </div>
     );
