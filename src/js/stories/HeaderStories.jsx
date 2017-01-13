@@ -60,7 +60,7 @@ function split() {
                 </BasicHeader>
             </div>
         </div>
-    )
+    );
 }
 
 const Example = (props: {statusColor?: Result}) =>
