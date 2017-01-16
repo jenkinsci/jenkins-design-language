@@ -11,14 +11,15 @@ import { Icon } from '@jenkins-cd/react-material-icons';
  * @param {object} [style] - custom style object
  * @param {string} [label] - button text
  * @param {string} [iconName] - name of material-ui icon to display
- * @param {string} [iconFill] - color code to apply as fill
  * @param {number} [iconSize] - width/height of icon
+ * @param {string} [iconFill] - color code to apply as fill
+ * @param {function} [onClick] - onclick callback function
  * @constructor
  */
-export function IconButton({children, className, style, label, iconName, iconFill, iconSize}) {
-    function onClick() {
-        if (props.onClick) {
-            props.onClick();
+export function IconButton({children, className, style, label, iconName, iconSize, iconFill, onClick}) {
+    function _onClick() {
+        if (onClick) {
+            onClick();
         }
     }
 
@@ -53,7 +54,7 @@ export function IconButton({children, className, style, label, iconName, iconFil
         <button
             className={`IconButton ${className} ${iconNameClass} ${materialClass} ${spacingClass}`}
             style={style}
-            onClick={onClick}
+            onClick={_onClick}
         >
             { icon &&
             <span className="IconButton-icon">{icon}</span>

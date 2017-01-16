@@ -1,15 +1,17 @@
-/* eslint-disable */
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { shapes } from '@jenkins-cd/react-material-icons';
 
-import { Button, IconButton } from '../components';
+import { IconButton } from '../components';
 import { CustomIcons } from './IconButtonStoryHelpers';
+
+/* eslint-disable max-len, react/self-closing-comp */
 
 storiesOf('IconButton', module)
     .add('material', Material)
     .add('custom', Custom)
     .add('sizing', Sizing)
+    .add('callbacks', Callbacks)
 ;
 
 const style = {
@@ -97,7 +99,7 @@ function Custom() {
                                     <CustomIcon />
                                 </IconButton>
                             </div>
-                        )
+                        );
                     } )}
                 </div>
             </div>
@@ -137,3 +139,12 @@ function Sizing() {
     );
 }
 
+function Callbacks() {
+    return (
+        <div style={style}>
+            <p>onClick</p>
+
+            <IconButton icon="google" label="Click" onClick={() => console.log('clicked')}/>
+        </div>
+    );
+}

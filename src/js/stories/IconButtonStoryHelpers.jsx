@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* eslint-disable max-len, react/prop-types, react/self-closing-comp */
+
 function BasicIcon(props) {
     return React.cloneElement(props.children, {
         width: props.width,
@@ -9,7 +11,6 @@ function BasicIcon(props) {
     });
 }
 
-/* eslint-disable max-len, react/prop-types, react/self-closing-comp */
 export const CustomIcons = {
     git(props) {
         return (
