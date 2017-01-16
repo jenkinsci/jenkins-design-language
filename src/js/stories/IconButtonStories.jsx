@@ -24,7 +24,7 @@ function Material() {
                 <p>using iconName (Material UI icons)</p>
 
                 <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
-                    { Object.keys(shapes).slice(0, 25).sort().map(shape => (
+                    { Object.keys(shapes).slice(50, 75).sort().map(shape => (
                         <div key={shape}  style={{padding: 5}}>
                             <IconButton
                                 label={shape}
@@ -39,7 +39,7 @@ function Material() {
                 <p>with className=monochrome</p>
 
                 <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
-                    { Object.keys(shapes).slice(0, 25).sort().map(shape => (
+                    { Object.keys(shapes).slice(50, 75).sort().map(shape => (
                         <div key={shape}  style={{padding: 5}}>
                             <IconButton
                                 className="monochrome"
@@ -106,15 +106,15 @@ function Custom() {
 }
 
 const buttonRow = {
-    display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10
 };
 
 function Sizing() {
-    const cellStyle = {...buttonRow, margin: 0};
+    const cellStyle = {...buttonRow, marginBottom: 0};
 
     return (
-        <div>
-            { Object.keys(shapes).sort().slice(50, 60).map(shape => (
+        <div style={style}>
+            { Object.keys(shapes).slice(50, 60).sort().map(shape => (
             <div style={buttonRow}>
                 <div className="layout-small" style={cellStyle}>
                     <button>Small</button>

@@ -1,14 +1,26 @@
 import React, { PropTypes } from 'react';
 import { Icon } from '@jenkins-cd/react-material-icons';
 
-export function IconButton(props) {
+/**
+ * button element with icon.
+ * Use "iconName" for standard material-ui icons
+ * Use "children" for custom icon. Provide element (e.g. raw svg), or React component
+ *
+ * @param {object} [children] - React element or custom component to render as icon
+ * @param {string} [className] - custom class name for outer element
+ * @param {object} [style] - custom style object
+ * @param {string} [label] - button text
+ * @param {string} [iconName] - name of material-ui icon to display
+ * @param {string} [iconFill] - color code to apply as fill
+ * @param {number} [iconSize] - width/height of icon
+ * @constructor
+ */
+export function IconButton({children, className, style, label, iconName, iconFill, iconSize}) {
     function onClick() {
         if (props.onClick) {
             props.onClick();
         }
     }
-
-    const { children, className, style, label, iconName, iconFill, iconSize } = props;
 
     let icon = null;
 
