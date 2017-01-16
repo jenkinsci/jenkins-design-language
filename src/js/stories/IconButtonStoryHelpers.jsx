@@ -9,7 +9,7 @@ function BasicIcon(props) {
     });
 }
 
-/* eslint-disable react/self-closing-comp, max-len */
+/* eslint-disable max-len, react/prop-types, react/self-closing-comp */
 export const CustomIcons = {
     git(props) {
         return (
