@@ -46,7 +46,7 @@ export function IconButton({children, className, style, label, iconName, iconFil
     }
 
     const iconNameClass = iconName ? `u-icon-${iconName}` : '';
-    const materialClass = iconName ? 'u-material-spacing' : '';
+    const materialClass = iconName ? 'u-material-icon' : '';
     const spacingClass = label && icon ? 'u-inner-margin' : '';
 
     return (
