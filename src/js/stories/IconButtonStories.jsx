@@ -117,7 +117,7 @@ function Sizing() {
     return (
         <div style={style}>
             { Object.keys(shapes).slice(50, 60).sort().map(shape => (
-            <div style={buttonRow}>
+            <div key={shape} style={buttonRow}>
                 <div className="layout-small" style={cellStyle}>
                     <button>Small</button>
                     &nbsp;
