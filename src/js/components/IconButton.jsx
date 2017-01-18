@@ -1,27 +1,42 @@
+// @flow
+
 import React, { PropTypes } from 'react';
 import { Icon } from '@jenkins-cd/react-material-icons';
+
+type Props = {
+    className?: string,
+    children?: ReactChildren,
+    style?: Object,
+    label?: string,
+    iconName?: string,
+    iconSize?: number,
+    iconFill?: string,
+    onClick?: Function,
+}
 
 /**
  * button element with icon.
  * Use "iconName" for standard material-ui icons
  * Use "children" for custom icon. Provide element (e.g. raw svg), or React component
  *
- * @param {object} [children] - React element or custom component to render as icon
- * @param {string} [className] - custom class name for outer element
- * @param {object} [style] - custom style object
- * @param {string} [label] - button text
- * @param {string} [iconName] - name of material-ui icon to display
- * @param {number} [iconSize] - width/height of icon
- * @param {string} [iconFill] - color code to apply as fill
- * @param {function} [onClick] - onclick callback function
+ * @param {object} [props.children] - React element or custom component to render as icon
+ * @param {string} [props.className] - custom class name for outer element
+ * @param {object} [props.style] - custom style object
+ * @param {string} [props.label] - button text
+ * @param {string} [props.iconName] - name of material-ui icon to display
+ * @param {number} [props.iconSize] - width/height of icon
+ * @param {string} [props.iconFill] - color code to apply as fill
+ * @param {function} [props.onClick] - onclick callback function
  * @constructor
  */
-export function IconButton({children, className, style, label, iconName, iconSize, iconFill, onClick}) {
+export function IconButton(props:Props) {
     function _onClick() {
         if (onClick) {
             onClick();
         }
     }
+
+    const { children, className, style, label, iconName, iconSize, iconFill, onClick } = props;
 
     let icon = null;
 
@@ -43,16 +58,17 @@ export function IconButton({children, className, style, label, iconName, iconSiz
             fill: iconFill,
         };
 
-        icon = React.cloneElement(children, iconProps);
+        icon = React.Children.map(children, child => React.cloneElement(child, iconProps));
     }
 
+    const customClass = className || '';
     const iconNameClass = iconName ? `u-icon-${iconName}` : '';
     const materialClass = iconName ? 'u-material-icon' : '';
     const spacingClass = label && icon ? 'u-inner-margin' : '';
 
     return (
         <button
-            className={`IconButton ${className} ${iconNameClass} ${materialClass} ${spacingClass}`}
+            className={`IconButton ${customClass} ${iconNameClass} ${materialClass} ${spacingClass}`}
             style={style}
             onClick={_onClick}
         >
@@ -75,8 +91,4 @@ IconButton.propTypes = {
     iconSize: PropTypes.number,
     iconFill: PropTypes.string,
     onClick: PropTypes.func,
-};
-
-IconButton.defaultProps = {
-    className: '',
 };
