@@ -1,0 +1,76 @@
+.List {
+    display: flex;
+
+    .List-ItemContainer {
+        display: inline-flex;
+        flex-flow: column nowrap;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .List-Item {
+        // remove default styles from a tag
+        color: inherit;
+
+        &:hover {
+            text-decoration: inherit;
+        }
+
+        position: relative;
+    }
+
+    .List-ItemContainer.u-default-list-container {
+        padding: 8px;
+        background-color: fade(@gray-lighter, 25%);
+        border-radius: 3px;
+    }
+
+    .List-Item.u-default-list-item {
+        margin-bottom: 8px;
+        background-color: #fff;
+        .control-border;
+
+        &.List-Item-selected {
+            background-color: @gray-lighter;
+        }
+
+        &:hover {
+            background-color: @gray-lighter;
+            cursor: pointer;
+        }
+
+        &:focus {
+            .focus-styles;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .List-DefaultRenderer {
+        position: relative;
+        padding: 8px 16px;
+        // prevent icon (below) from causing overflow in the list
+        overflow: hidden;
+
+        // TODO: evaluate the styles
+        padding-left: 38px;
+
+        .List-DefaultRenderer-text {
+            &:before {
+                content: '\2039\203a';
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                margin-top: -23px;
+                font: 44px Sans-serif;
+                line-height: 38px;
+                color: @gray;
+                font-weight: 100;
+                letter-spacing: -4px;
+            }
+        }
+    }
+
+}
