@@ -57,9 +57,11 @@ function General() {
 // renderers
 
 function Renderer1(props) {
+    /* eslint-disable react/prop-types */
     return (
         <div style={{padding: 20, fontSize: 20}}>Large {props.listItem}</div>
     );
+    /* eslint-enable react/prop-types */
 }
 
 
@@ -69,6 +71,7 @@ function RendererOptions() {
         justifyContent: 'space-around',
     };
 
+    /* eslint-disable react/prop-types */
     return (
         <div style={style}>
             <div>
@@ -87,6 +90,7 @@ function RendererOptions() {
             </div>
         </div>
     );
+    /* eslint-enable react/prop-types */
 }
 
 function KeyboardFocus() {
