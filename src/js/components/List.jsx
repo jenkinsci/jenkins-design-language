@@ -103,7 +103,7 @@ export class List extends React.Component {
     }
 
     render() {
-        const { children, data, labelFunction } = this.props;
+        const { children, data, keyFunction, labelFunction } = this.props;
 
         const childCount = React.Children.count(children);
 
@@ -134,9 +134,10 @@ export class List extends React.Component {
                 <div className={`List-ItemContainer ${containerClass}`}>
                 { data && data.map((item, index) => {
                     const selectedClass = item === this.state.selectedItem ? 'List-Item-selected' : '';
+                    const keyValue = keyFunction ? keyFunction(item) : index;
 
                     return (
-                        <a key={labelFunc(item)} href="#"
+                        <a key={keyValue} href="#"
                             className={`List-Item ${itemClass} ${selectedClass}`}
                             onClick={e => this._onClickListItem(e, index, item)}
                             onKeyPress={e => this._onKeyPressListItem(e, index, item)}
@@ -161,6 +162,7 @@ List.propTypes = {
     style: PropTypes.object,
     data: PropTypes.array,
     labelFunction: PropTypes.func,
+    keyFunction: PropTypes.func,
     defaultStyles: PropTypes.bool,
     defaultContainerClass: PropTypes.bool,
     defaultItemClass: PropTypes.bool,
