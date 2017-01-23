@@ -124,7 +124,7 @@ export class ResultItem extends Component {
 ResultItem.propTypes = {
     result: PropTypes.oneOf(Object.keys(StatusIndicator.validResultValues)),
     label: PropTypes.string,
-    extraInfo: PropTypes.string,
+    extraInfo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     data: PropTypes.any, // Whatever you want, will be sent back to listeners
     onExpand: PropTypes.func, // f(data:*, originalEvent:?event)
     onCollapse: PropTypes.func, // f(data:*, originalEvent:?event)

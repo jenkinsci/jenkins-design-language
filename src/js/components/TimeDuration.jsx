@@ -99,12 +99,14 @@ export class TimeDuration extends Component {
                 locale = 'en',
                 liveFormat = 'm[ minutes] s[ seconds]',
                 hintFormat = 'M [mos], d [days], h[h], m[m], s[s]',
+                displayFormat,
             } = this.props;
             moment.locale(locale);
             // in case we are in live update we are interested in seconds
             const duration = this.props.liveUpdate ?
                 moment.duration(millis).format(liveFormat)
-                    : moment.duration(millis).humanize();
+                    : displayFormat ?
+                        moment.duration(millis).format(displayFormat) : moment.duration(millis).humanize();
 
             const hint = this.props.hint ?
                 this.props.hint :
@@ -125,6 +127,7 @@ TimeDuration.propTypes = {
     hint: PropTypes.string,
     liveUpdate: PropTypes.bool,
     locale: PropTypes.string,
+    displayFormat: PropTypes.string,
     liveFormat: PropTypes.string,
     hintFormat: PropTypes.string,
 };
