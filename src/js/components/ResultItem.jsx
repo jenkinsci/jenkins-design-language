@@ -17,7 +17,7 @@ type State = {
 type Props = {
     result: Result,
     label: String,
-    extraInfo: ?String,
+    extraInfo: ?String | Object,
     data: ?any,
     onExpand: (data: ?any, event: ?Event) => void,
     onCollapse: (data: ?any, event: ?Event) => void,

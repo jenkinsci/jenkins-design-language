@@ -11,6 +11,7 @@ type Props = {
      updatePeriod: number,
      hint?: string,
      liveUpdate: bool,
+     displayFormat: ?string,
      liveFormat: ?string,
      hintFormat: ?string,
      locale: ?string,
@@ -46,7 +47,7 @@ export class TimeDuration extends Component {
         const {updatePeriod = 30000} = this.props;
         this.timerPeriodMillis = typeof updatePeriod !== 'number' || isNaN(updatePeriod) ? 30000 : updatePeriod;
         this.clearIntervalId = 0;
-        
+
     }
 
     componentWillMount() {
