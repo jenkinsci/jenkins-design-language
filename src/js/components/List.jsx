@@ -119,6 +119,7 @@ export class List extends React.Component {
         }
 
         const listClass = this.props.className || '';
+        const selectedClass = this.state.selectedItem ? 'List-selected' : '';
 
         let containerClass = '', itemClass = '';
 
@@ -130,15 +131,15 @@ export class List extends React.Component {
         const labelFunc = labelFunction || itemToLabel;
 
         return (
-            <div className={`List ${listClass}`} style={this.props.style}>
+            <div className={`List ${selectedClass} ${listClass}`} style={this.props.style}>
                 <div className={`List-ItemContainer ${containerClass}`}>
                 { data && data.map((item, index) => {
-                    const selectedClass = item === this.state.selectedItem ? 'List-Item-selected' : '';
+                    const itemSelectedClass = item === this.state.selectedItem ? 'List-Item-selected' : '';
                     const keyValue = keyFunction ? keyFunction(item) : index;
 
                     return (
                         <a key={keyValue} href="#"
-                            className={`List-Item ${itemClass} ${selectedClass}`}
+                            className={`List-Item ${itemSelectedClass} ${itemClass}`}
                             onClick={e => this._onClickListItem(e, index, item)}
                             onKeyPress={e => this._onKeyPressListItem(e, index, item)}
                         >
