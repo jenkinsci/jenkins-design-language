@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import KeyCodes from '../KeyCodes';
 import Utils from '../Utils';
 
 type Props = {
