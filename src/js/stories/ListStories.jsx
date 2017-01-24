@@ -48,7 +48,7 @@ function General() {
             <div style={style}>
                 <p>Truncation</p>
 
-                <List data={simpleData} style={{maxWidth: 100, maxHeight: 100}} />
+                <List data={simpleData} style={{maxWidth: 150, maxHeight: 150}} />
             </div>
         </div>
     );

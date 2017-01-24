@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import KeyCodes from '../KeyCodes';
+import Utils from '../Utils';
 
 type Props = {
     className?: string,
@@ -46,6 +47,8 @@ export class List extends React.Component {
         this.state = {
             selectedItem: null,
         };
+
+        this.groupId = Utils.randomId('List');
     }
 
     componentWillReceiveProps(nextProps:Props) {
@@ -84,12 +87,8 @@ export class List extends React.Component {
         this._selectItem(index, item);
     }
 
-    _onKeyPressListItem(event:React$Event, index:number, item:Object) {
-        event.preventDefault();
-
-        if (event.nativeEvent.keyCode === KeyCodes.SPACEBAR) {
-            this._selectItem(index, item);
-        }
+    _onChangeSelection(index:number, item:Object) {
+        this._selectItem(index, item);
     }
 
     _selectItem(index:number, item:Object) {
@@ -120,13 +119,7 @@ export class List extends React.Component {
 
         const listClass = this.props.className || '';
         const selectedClass = this.state.selectedItem ? 'List-selected' : '';
-
-        let containerClass = '', itemClass = '';
-
-        if (this.props.defaultStyles) {
-            containerClass = this.props.defaultContainerClass ? 'u-default-list-container' : '';
-            itemClass = this.props.defaultItemClass ? 'u-default-list-item' : '';
-        }
+        const containerClass = this.props.defaultStyles ? 'u-default-list-container' : '';
 
         const labelFunc = labelFunction || itemToLabel;
 
@@ -138,17 +131,23 @@ export class List extends React.Component {
                     const keyValue = keyFunction ? keyFunction(item) : index;
 
                     return (
-                        <a key={keyValue} href="#"
-                            className={`List-Item ${itemSelectedClass} ${itemClass}`}
-                            onClick={e => this._onClickListItem(e, index, item)}
-                            onKeyPress={e => this._onKeyPressListItem(e, index, item)}
-                        >
-                            {React.cloneElement(childTemplate, {
-                                listIndex: index,
-                                listItem: item,
-                                labelFunction: labelFunc,
-                            })}
-                        </a>
+                        <div className="List-Row" key={keyValue}>
+                            <input
+                                type="radio"
+                                name={this.groupId}
+                                className="List-Radio cloak"
+                                onChange={() => this._onChangeSelection(index, item)}/>
+
+                            <div className={`List-Item ${itemSelectedClass}`}
+                                 onClick={e => this._onClickListItem(e, index, item)}
+                            >
+                                {React.cloneElement(childTemplate, {
+                                    listIndex: index,
+                                    listItem: item,
+                                    labelFunction: labelFunc,
+                                })}
+                            </div>
+                        </div>
                     );
                 })}
                 </div>
@@ -165,8 +164,6 @@ List.propTypes = {
     labelFunction: PropTypes.func,
     keyFunction: PropTypes.func,
     defaultStyles: PropTypes.bool,
-    defaultContainerClass: PropTypes.bool,
-    defaultItemClass: PropTypes.bool,
     defaultSelection: PropTypes.any,
     onItemSelect: PropTypes.func,
 };

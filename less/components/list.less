@@ -1,4 +1,7 @@
+@list-margin: 8px;
+
 .List {
+    // core styling to handle layout properly
     display: flex;
 
     .List-ItemContainer {
@@ -9,52 +12,47 @@
     }
 
     .List-Item {
-        // remove default styles from a tag
-        color: inherit;
-
-        &:hover {
-            text-decoration: inherit;
-        }
-
         position: relative;
     }
 
+    // default visual styling
     .List-ItemContainer.u-default-list-container {
-        padding: 8px;
+        padding-left: @list-margin;
+        padding-top: @list-margin;
         background-color: fade(@gray-lighter, 25%);
         border-radius: 3px;
-    }
 
-    .List-Item.u-default-list-item {
-        margin-bottom: 8px;
-        background-color: #fff;
-        .control-border;
-
-        &.List-Item-selected {
-            background-color: @gray-lighter;
+        .List-Radio {
+            &:focus + .List-Item {
+                .focus-rect;
+            }
         }
 
-        &:hover {
-            background-color: @gray-lighter;
-            cursor: pointer;
-        }
+        .List-Item {
+            margin-bottom: @list-margin;
+            margin-right: @list-margin;
+            background-color: #fff;
+            .control-border;
 
-        &:focus {
-            .focus-styles;
-        }
+            &.List-Item-selected {
+                background-color: @gray-lighter;
+            }
 
-        &:last-child {
-            margin-bottom: 0;
+            &:hover {
+                background-color: @gray-lighter;
+                cursor: pointer;
+            }
         }
     }
 
     .List-DefaultRenderer {
         position: relative;
         padding: 8px 16px;
+
+        // TODO: redo this with SVG. this font stuff falls apart in non-webkit browsers
         // prevent icon (below) from causing overflow in the list
         overflow: hidden;
 
-        // TODO: evaluate the styles
         padding-left: 38px;
 
         .List-DefaultRenderer-text {
