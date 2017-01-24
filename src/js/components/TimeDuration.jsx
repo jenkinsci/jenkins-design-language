@@ -98,20 +98,17 @@ export class TimeDuration extends Component {
         if (!isNaN(millis)) {
             const {
                 locale = 'en',
+                displayFormat = 'M[ month] d[ days] h[ hours] m[ minutes] s[ seconds]',
                 liveFormat = 'm[ minutes] s[ seconds]',
                 hintFormat = 'M [mos], d [days], h[h], m[m], s[s]',
-                displayFormat,
             } = this.props;
             moment.locale(locale);
             // in case we are in live update we are interested in seconds
             const duration = this.props.liveUpdate ?
-                moment.duration(millis).format(liveFormat)
-                    : displayFormat ?
-                        moment.duration(millis).format(displayFormat) : moment.duration(millis).humanize();
+                moment.duration(millis).format(liveFormat) : moment.duration(millis).format(displayFormat);
 
             const hint = this.props.hint ?
-                this.props.hint :
-                moment.duration(millis).format(hintFormat);
+                this.props.hint : moment.duration(millis).format(hintFormat);
 
             return (
                 <span title={hint}>{duration}</span>
