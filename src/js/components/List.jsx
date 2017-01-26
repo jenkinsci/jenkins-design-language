@@ -51,6 +51,7 @@ export class List extends React.Component {
 
     props: Props;
     state: State;
+    groupId: string;
 
     static defaultProps: Props = {
         style: {},
