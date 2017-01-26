@@ -4,12 +4,11 @@ import Utils from '../Utils';
 type Props = {
     className?: string,
     children?: ReactChildren,
-    style?: Object,
+    style: Object,
     data?: Array<Object>,
     labelFunction?: Function,
+    keyFunction?: Function,
     defaultStyles: bool,
-    defaultContainerClass: bool,
-    defaultItemClass: bool,
     defaultSelection?: Object,
     onItemSelect?: Function,
 }
@@ -18,16 +17,34 @@ type State = {
     selectedItem?: Object,
 };
 
-// TODO: fix a few flow errors
-/*
-type RendererProps = {
-    listIndex: number,
-    listItem: string | Object,
-    labelFunction: Function,
-}
-*/
 
-
+/**
+ * Control that displays a List of items and allows for selection.
+ * Functions like a list of radio buttons from a keyboard accessibility standpoint.
+ * By default it uses a simple renderer that converts each object to a string.
+ * A custom renderer can be provided as a single React child to the element, e.g.
+ *      <List data={data}>
+ *          <MyRenderer />
+ *      </List>
+ *
+ *      function MyRenderer(props) {
+ *          return (
+ *              <div>{props.listIndex} {props.listItem}</div>
+ *          );
+ *      }
+ * Custom render will receive three props: listIndex, listItem and labelFunction (from parent)
+ * A keyFunction is encouraged to generate a React key for each row. Default is to use listIndex.
+ *
+ * @property {string} className additional "class" to add to outermost element (alongside "List")
+ * @property {array} children React children
+ * @property {Object} style React style object
+ * @property {array} [data] data to render in the list.
+ * @property {Function} [labelFunction] converts each object to a string in the default renderer.
+ * @property {Function} [keyFunction]
+ * @property {boolean} [defaultStyles] set "false" to remove all default styling from the List.
+ * @property {Object} [defaultSelection] item to select in the list by default
+ * @property {Function} [onItemSelect] callback when an item is selected, receiving listIndex and listItem.
+ */
 export class List extends React.Component {
 
     props: Props;
@@ -36,8 +53,6 @@ export class List extends React.Component {
     static defaultProps: Props = {
         style: {},
         defaultStyles: true,
-        defaultContainerClass: true,
-        defaultItemClass: true,
     };
 
     constructor(props:Props) {
