@@ -21,6 +21,7 @@ export const defaultLayout = {
 
 type StageInfo = {
     name: string,
+    title: string,
     state: Result,
     completePercent: number,
     id: number,
@@ -368,7 +369,7 @@ export class PipelineGraph extends Component {
         // Add an invisible click/touch target, coz the nodes are small and (more importantly)
         // many are hollow.
         groupChildren.push(
-            <circle r={mouseTargetRadius}   
+            <circle r={mouseTargetRadius}
                     cursor="pointer"
                     className="pipeline-node-hittarget"
                     fillOpacity="0"
