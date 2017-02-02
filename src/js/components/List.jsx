@@ -1,3 +1,5 @@
+// @flow
+
 import React, { PropTypes } from 'react';
 import Utils from '../Utils';
 
@@ -49,6 +51,7 @@ export class List extends React.Component {
 
     props: Props;
     state: State;
+    groupId: string;
 
     static defaultProps: Props = {
         style: {},
@@ -58,9 +61,7 @@ export class List extends React.Component {
     constructor(props:Props) {
         super(props);
 
-        this.state = {
-            selectedItem: null,
-        };
+        this.state = {};
 
         this.groupId = Utils.randomId('List');
     }
@@ -68,7 +69,7 @@ export class List extends React.Component {
     componentWillReceiveProps(nextProps:Props) {
         if (this.props.data !== nextProps.data) {
             this.setState({
-                selectedItem: null,
+                selectedItem: undefined,
             });
         }
 
@@ -80,10 +81,13 @@ export class List extends React.Component {
     }
 
     get selectedIndex():number {
-        return this.props.data ? this.props.data.indexOf(this.state.selectedItem) : -1;
+        const { selectedItem } = this.state;
+        const { data } = this.props;
+
+        return selectedItem && data ? data.indexOf(selectedItem) : -1;
     }
 
-    get selectedItem():Object {
+    get selectedItem():?Object {
         return this.state.selectedItem;
     }
 
@@ -120,7 +124,7 @@ export class List extends React.Component {
 
         const childCount = React.Children.count(children);
 
-        let childTemplate = null;
+        let childTemplate:React$Element<*>;
 
         if (childCount === 0) {
             childTemplate = <DefaultRenderer />;
