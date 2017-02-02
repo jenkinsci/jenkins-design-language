@@ -353,7 +353,6 @@ export class PipelineGraph extends Component {
 
         const nodeIsSelected = this.stageIsSelected(node.stage);
         const { nodeRadius, connectorStrokeWidth } = this.state.layout;
-
         // Use a bigger radius for invisible click/touch target
         const mouseTargetRadius = nodeRadius + (2 * connectorStrokeWidth);
 
@@ -362,7 +361,10 @@ export class PipelineGraph extends Component {
 
         const completePercent = node.completePercent || 0;
         const groupChildren = [getGroupForResult(resultClean, completePercent, nodeRadius)];
-
+        const { title } = node.stage;
+        if (title) {
+          groupChildren.push(<title>{ title }</title>);
+        }
         // Add an invisible click/touch target, coz the nodes are small and (more importantly)
         // many are hollow.
         groupChildren.push(
