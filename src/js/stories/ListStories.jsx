@@ -6,10 +6,13 @@ storiesOf('List', module)
     .add('general', () => <General />)
     .add('renderers', () => <RendererOptions />)
     .add('keyboard & focus', () => <KeyboardFocus />)
+    .add('constraining', () => <Constraining />)
     .add('callbacks', () => <Callbacks />)
 ;
 
-const style = {
+const simpleData = ['A', 'B', 'C', 'D', 'EFGHIJKLMNOPQRSTUV', 'W', 'X', 'Y', 'Z'];
+
+const column = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
@@ -17,12 +20,11 @@ const style = {
     padding: 10,
 };
 
-const simpleData = ['A', 'B', 'C', 'DEFGHIJKLMNOPQRSTUVW', 'X', 'Y', 'Z'];
-
 
 function General() {
     const style = {
         padding: 10,
+        maxWidth: 300,
     };
 
     return (
@@ -43,12 +45,6 @@ function General() {
                 <p>Default Value</p>
 
                 <List data={simpleData} defaultSelection="C" />
-            </div>
-
-            <div style={style}>
-                <p>Truncation</p>
-
-                <List data={simpleData} style={{maxWidth: 150, maxHeight: 150}} />
             </div>
         </div>
     );
@@ -97,21 +93,74 @@ function KeyboardFocus() {
     const buttonStyle = { margin: 10, flexShrink: 0 };
 
     return (
-        <div style={{...style, height: 300}}>
-            <p>This Layout is useful for demonstrating keyboard accessibility and focus behavior.</p>
+        <div style={{...column, height: 400}}>
+            <p>This layout is useful for demonstrating keyboard accessibility and focus behavior.</p>
 
             <button style={buttonStyle}>Test 1</button>
 
-            <List data={simpleData} />
+            <List data={simpleData} style={{width: 300}} />
 
             <button style={buttonStyle}>Test 2</button>
         </div>
     );
 }
 
+const WIDTH = 150;
+const HEIGHT = 200;
+
+function Constraining() {
+    const constrain = {maxWidth: WIDTH, maxHeight: HEIGHT};
+    const explicit = {width: WIDTH, height: HEIGHT};
+    const style = { display: 'flex' };
+    const style2 = { width: WIDTH + 50, padding: 10 };
+
+    return (
+        <div>
+            <div style={style}>
+                <div style={style2}>
+                    <p>width / height directly on List</p>
+
+                    <List data={simpleData} style={explicit} />
+                </div>
+
+                <div style={style2}>
+                    <p>maxWidth / maxHeight directly on List</p>
+
+                    <List data={simpleData} style={constrain} />
+                </div>
+
+                <div style={style2}>
+                    <p>List anchored to parent via absolute positioning</p>
+
+                    <div style={{...constrain, height: HEIGHT, position: 'relative'}}>
+                        <List data={simpleData} style={{position: 'absolute', top: 0, bottom: 0}} />
+                    </div>
+                </div>
+
+                <div style={style2}>
+                    <p>maxWidth / maxHeight on parent container (flexbox)</p>
+
+                    <div style={{...constrain, display: 'flex'}}>
+                        <List data={simpleData} />
+                    </div>
+                </div>
+            </div>
+            <div style={style}>
+                <div style={style2}>
+                    <p>maxWidth / maxHeight on parent container (not flexbox)</p>
+
+                    <div style={constrain}>
+                        <List data={simpleData} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 function Callbacks() {
     return (
-        <div style={style}>
+        <div style={{...column, width: 300}}>
             <p>onItemSelect</p>
 
             <List data={simpleData} onItemSelect={(index, item) => console.log(index, item)} />
