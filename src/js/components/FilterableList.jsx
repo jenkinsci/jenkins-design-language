@@ -85,40 +85,44 @@ export class FilterableList extends React.Component {
     }, 250);
 
     render() {
-        const { data, emptyText, filterFunction, style } = this.props;
-        const { text } = this.state;
+        // passthrough props for List
+        const { keyFunction, labelFunction, listStyle, defaultStyles, defaultSelection, onItemSelect } = this.props;
+        const { data, emptyText, filterFunction, placeholder, style } = this.props;
 
+        const { text } = this.state;
         const filtered = data ? data.filter(item => !text || filterFunction(text, item)) : [];
         const noMatches = text && filtered.length === 0;
 
-        const listProps = Object.assign({}, this.props, {
-            className: null,
-            children: null,
-            style: null,
-            filterFunction: null,
-            placeholder: null,
-            emptyText: null,
-        });
-        const listStyle = Object.assign({}, this.props.listStyle);
-
-        if (filtered.length === 0) {
-            listStyle.display = 'none';
-        }
+        const listProps = {
+            data,
+            labelFunction,
+            keyFunction,
+            defaultStyles,
+            defaultSelection,
+            onItemSelect,
+        };
 
         return (
             <div className={`FilterableList`} style={style}>
                 <TextInput
-                    placeholder={this.props.placeholder}
+                    placeholder={placeholder}
                     onChange={text => this._onFilterChange(text)}
                 />
 
                 { noMatches && emptyText &&
-                    <div className="FilterableList-empty">{emptyText}</div>
+                    <div className="FilterableList-empty-text">{emptyText}</div>
                 }
 
-                <List {...listProps} data={filtered} style={listStyle}>
+                { !noMatches &&
+                <List
+                    className="FilterableList-List"
+                    data={filtered}
+                    style={listStyle}
+                    {...listProps}
+                >
                     {this.props.children}
                 </List>
+                }
             </div>
         );
     }
