@@ -199,6 +199,7 @@ export class List extends React.Component {
                                 className="List-Radio cloak"
                                 onChange={(event) => this._onChangeSelection(event, index, item)}
                                 onFocus={event => this._scrollFocusedItemIntoView(event)}
+                                checked={!!itemSelectedClass}
                             />
 
                             <div className={`List-Item ${itemSelectedClass}`}>
