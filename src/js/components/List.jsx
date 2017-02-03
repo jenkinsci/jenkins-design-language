@@ -93,7 +93,11 @@ export class List extends React.Component {
     }
 
     componentWillReceiveProps(nextProps:Props) {
-        if (this.props.data !== nextProps.data) {
+        const { selectedItem } = this.state;
+        const { data } = nextProps;
+
+        // if the selectedItem is not found in new data, discard it
+        if (selectedItem && (!data || data.indexOf(selectedItem) === -1)) {
             this.setState({
                 selectedItem: undefined,
             });
