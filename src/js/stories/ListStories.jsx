@@ -7,6 +7,7 @@ storiesOf('List', module)
     .add('renderers', () => <RendererOptions />)
     .add('keyboard & focus', () => <KeyboardFocus />)
     .add('constraining', () => <Constraining />)
+    .add('disabled', () => <Disabled />)
     .add('callbacks', () => <Callbacks />)
 ;
 
@@ -27,24 +28,28 @@ function General() {
         maxWidth: 300,
     };
 
+    const list = {
+        maxHeight: 150,
+    };
+
     return (
         <div>
             <div style={style}>
                 <p>Default</p>
 
-                <List data={simpleData} />
+                <List data={simpleData} style={list} />
             </div>
 
             <div style={style}>
                 <p>No Default Styles</p>
 
-                <List data={simpleData} defaultStyles={false} />
+                <List data={simpleData} style={list} defaultStyles={false} />
             </div>
 
             <div style={style}>
                 <p>Default Value</p>
 
-                <List data={simpleData} defaultSelection="C" />
+                <List data={simpleData} style={list} defaultSelection="C" />
             </div>
         </div>
     );
@@ -157,6 +162,35 @@ function Constraining() {
         </div>
     );
 }
+
+function Disabled() {
+    const style = {
+        padding: 10,
+        maxWidth: 300,
+    };
+
+    const list = {
+        maxHeight: 150,
+    };
+
+    return (
+        <div>
+            <div style={style}>
+                <p>props.disabled = true</p>
+
+                <List data={simpleData} style={list} disabled />
+            </div>
+            <div style={style}>
+                <p>nested in fieldset.disabled=true</p>
+
+                <fieldset disabled="disabled">
+                    <List data={simpleData} style={list} />
+                </fieldset>
+            </div>
+        </div>
+    );
+}
+
 
 function Callbacks() {
     return (

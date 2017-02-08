@@ -9,6 +9,13 @@
         position: relative;
     }
 
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        .u-disabled;
+        pointer-events: none;
+    }
+
     // default visual styling
     &.u-default-list-container {
         padding: @list-margin;
@@ -34,6 +41,15 @@
             &:hover {
                 background-color: @gray-lighter;
                 cursor: pointer;
+            }
+        }
+
+        &.disabled,
+        &[disabled],
+        fieldset[disabled] & {
+            .List-Item:hover {
+                background-color: #fff;
+                cursor: default;
             }
         }
     }

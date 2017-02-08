@@ -166,7 +166,7 @@ export class List extends React.Component {
     }
 
     render() {
-        const { children, data, keyFunction, labelFunction } = this.props;
+        const { children, data, disabled, keyFunction, labelFunction } = this.props;
 
         const childCount = React.Children.count(children);
 
@@ -184,11 +184,12 @@ export class List extends React.Component {
         const listClass = this.props.className || '';
         const selectedClass = this.state.selectedItem ? 'List-selected' : '';
         const defaultClass = this.props.defaultStyles ? 'u-default-list-container' : '';
+        const disabledClass = disabled ? 'disabled' : '';
 
         return (
                 <div
                     ref={node => this._storeSelfNode(node)}
-                    className={`List ${selectedClass} ${listClass} ${defaultClass}`}
+                    className={`List ${selectedClass} ${listClass} ${defaultClass} ${disabledClass}`}
                     style={this.props.style}
                 >
                 { data && data.map((item, index) => {
@@ -203,6 +204,7 @@ export class List extends React.Component {
                                 className="List-Radio cloak"
                                 onChange={(event) => this._onChangeSelection(event, index, item)}
                                 onFocus={event => this._scrollFocusedItemIntoView(event)}
+                                disabled={disabled}
                                 checked={!!itemSelectedClass}
                             />
 
@@ -226,6 +228,7 @@ List.propTypes = {
     children: PropTypes.element,
     style: PropTypes.object,
     data: PropTypes.array,
+    disabled: PropTypes.bool,
     labelFunction: PropTypes.func,
     keyFunction: PropTypes.func,
     defaultStyles: PropTypes.bool,
