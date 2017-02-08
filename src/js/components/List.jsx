@@ -9,6 +9,7 @@ type Props = {
     style: Object,
     data?: Array<Object>,
     labelFunction?: Function,
+    disabled?: bool,
     keyFunction?: Function,
     defaultStyles: bool,
     defaultSelection?: Object,
