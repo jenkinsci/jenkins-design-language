@@ -1,0 +1,41 @@
+.Alert {
+    font-size: 14px;
+    min-height: 48px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px #e6eaee;
+    border-left-width: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.Alert.Info {
+    border-left-color: @brand-info-lite;
+    color: @brand-info-lite;
+}
+
+.Alert.Warning {
+    border-left-color: @brand-warning;
+    color: @brand-warning;
+}
+
+.Alert.Error {
+    border-left-color: @brand-danger;
+    color: @brand-danger;
+}
+
+.Alert.Success {
+    border-left-color: @brand-success;
+    color: @brand-success;
+}
+
+.Alert .title {
+    padding-right: 16px;
+    padding-left: 24px;
+    font-weight: bold;
+}
+
+.Alert .message {
+    color: @text-color;
+    line-height: 1.71;
+}
