@@ -12,6 +12,10 @@ function onCollapse(data) {
 }
 function allCases() {
     return (<div>
+        <Alerts/>
+        <br/>
+        <Alerts title="Custom title" message="some message"/>
+        <br/>
         <Alerts type="Error" message={<div>This pipeline uses input types that are unsupported. Use <a href="#">Jenkins Classic</a> to resolve this input step</div>} />
         <br/>
         <Alerts type="Success"  message="Yay! All the thigns worked. Obviously don’t use this text"/>
