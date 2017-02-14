@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 
 export class Alerts extends Component {
     render() {
-        const { type = 'Info', message='Please pass a message', title=type } = this.props;
+        const { type = 'Info', message=`${type} message`, title=type } = this.props;
         const classNames = `Alert ${type}`;
         return (<div className={classNames}>
             <div className="border">&nbsp;</div>
@@ -15,10 +15,6 @@ export class Alerts extends Component {
 
         </div>);
     }
-
-    static defaultProps = {
-        size: "default"
-    };
 
     static propTypes = {
         type: PropTypes.oneOf(['Warning', 'Error', 'Success', 'Info']),
