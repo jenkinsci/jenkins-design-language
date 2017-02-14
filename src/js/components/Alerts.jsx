@@ -18,7 +18,7 @@ export class Alerts extends Component {
 
     static propTypes = {
         type: PropTypes.oneOf(['Warning', 'Error', 'Success', 'Info']),
-        title: PropTypes.string,
-        message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+        message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+        title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     };
 }
