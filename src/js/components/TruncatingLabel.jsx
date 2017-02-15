@@ -45,7 +45,7 @@ export class TruncatingLabel extends Component {
     //  Component state / lifecycle
     //--------------------------------------
 
-    props: Props
+    props: Props;
 
     completeText: string; // Unabridged plain text content
     innerText: string; // Current innerText of element - includes possible ellipses
