@@ -93,23 +93,23 @@ export class TruncatingLabel extends Component {
     //--------------------------------------
 
     render() {
-        let {
+        const {
             style = {},
             className = ''
         } = this.props;
 
-        style = {
+        const mergedStyle = {
             overflow: 'hidden',
             wordWrap: 'break-word',
             ...style
         };
 
         if (this.renderState !== RS_STABLE) {
-            style.opacity = 0;
+            mergedStyle.opacity = 0;
         }
 
         return (
-            <div style={style} className={'TruncatingLabel ' + className}>{this.innerText}</div>
+            <div style={mergedStyle} className={'TruncatingLabel ' + className}>{this.innerText}</div>
         );
     }
 
@@ -150,9 +150,8 @@ export class TruncatingLabel extends Component {
             return; // Nothing to check, no more checks to schedule
         }
 
-        let thisElement = ReactDOM.findDOMNode(this);
-
-        let {
+        const thisElement = ReactDOM.findDOMNode(this);
+        const {
             scrollHeight,
             clientHeight,
             scrollWidth,
@@ -190,7 +189,6 @@ export class TruncatingLabel extends Component {
             } else if (lastLength <= MINLENGTH) {
                 keepMeasuring = false;
             } else if (Math.abs(this.shortestBad - this.longestGood) < 2) {
-                // debug('Found optimum length!', lastLength);
                 keepMeasuring = false;
             } else {
 
@@ -219,3 +217,9 @@ export class TruncatingLabel extends Component {
         }
     }
 }
+
+TruncatingLabel.propTypes = {
+    children: PropTypes.string,
+    style: PropTypes.object,
+    className: PropTypes.string
+};

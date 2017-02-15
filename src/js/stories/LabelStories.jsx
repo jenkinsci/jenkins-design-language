@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
 import {storiesOf} from '@kadira/storybook';
 import {TruncatingLabel} from '../components/TruncatingLabel';
 import {hgw} from './data/textdata';
@@ -14,34 +14,34 @@ storiesOf('Label', module)
 
 function basic() {
     return (
-        <div style={{margin:'1em'}}>
+        <div style={{margin: '1em'}}>
             {example(210, 121, hgw)}
         </div>
-    )
+    );
 }
 
 function empty1() {
     return (
-        <div style={{margin:'1em'}}>
+        <div style={{margin: '1em'}}>
             {example(200, 200, null)}
         </div>
-    )
+    );
 }
 
 function empty2() {
     return (
-        <div style={{margin:'1em'}}>
+        <div style={{margin: '1em'}}>
             {example(200, 200, undefined)}
         </div>
-    )
+    );
 }
 
 function empty3() {
     return (
-        <div style={{margin:'1em'}}>
+        <div style={{margin: '1em'}}>
             {example(200, 200, "")}
         </div>
-    )
+    );
 }
 
 function basic2() {
@@ -51,15 +51,15 @@ function basic2() {
     const badString = "Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.";
 
     return (
-        <div style={{margin:'1em', fontSize: '80%'}}>
+        <div style={{margin: '1em', fontSize: '80%'}}>
             {example(89, 34, badString)}
         </div>
-    )
+    );
 }
 
 function many() {
     return (
-        <div style={{margin:'1em'}}>
+        <div style={{margin: '1em'}}>
             {example(100, 100, hgw)}
             <br/>
             {example(180, 100, hgw)}
