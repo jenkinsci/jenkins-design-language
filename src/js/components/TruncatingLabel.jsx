@@ -189,6 +189,7 @@ export class TruncatingLabel extends Component {
             } else if (lastLength <= MINLENGTH) {
                 keepMeasuring = false;
             } else if (Math.abs(this.shortestBad - this.longestGood) < 2) {
+                // We're done searching, hoorays!
                 keepMeasuring = false;
             } else {
 
