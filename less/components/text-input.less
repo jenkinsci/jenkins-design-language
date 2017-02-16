@@ -1,3 +1,10 @@
+input[type="text"] {
+    // remove "x" from IE11
+    &::-ms-clear {
+        display: none;
+    }
+}
+
 .TextInput, .PasswordInput {
     .TextInput-medium;
     display: inline-block;
