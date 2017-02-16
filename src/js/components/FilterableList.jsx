@@ -107,6 +107,7 @@ export class FilterableList extends React.Component {
                 <TextInput
                     placeholder={placeholder}
                     onChange={text => this._onFilterChange(text)}
+                    iconLeft="search"
                 />
 
                 { noMatches && emptyText &&
