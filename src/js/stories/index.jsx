@@ -21,7 +21,6 @@ require('./liveStatusIndicatorStories');
 require('./TableStories.jsx');
 require('./TextAreaStories');
 require('./TextInputStories');
-require('./IconTextInputStories');
 require('./timeduration.jsx');
 require('./toast.jsx');
 require('./ToasterStories.jsx');

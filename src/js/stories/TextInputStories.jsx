@@ -5,6 +5,7 @@ import { TextInput } from '../components/forms/TextInput';
 
 storiesOf('TextInput', module)
     .add('general', () => <General />)
+    .add('icons', () => <Icons />)
     .add('callbacks', () => <Callbacks />)
     .add('sizes', () => <Sizes />)
 ;
@@ -39,6 +40,33 @@ function General() {
                 <p>Password</p>
 
                 <PasswordInput defaultValue="I have a default value." />
+            </div>
+        </div>
+    );
+}
+
+function Icons() {
+    return (
+        <div>
+            <div style={style}>
+                <p>None</p>
+
+                <TextInput />
+            </div>
+            <div style={style}>
+                <p>Left</p>
+
+                <TextInput iconLeft="search" />
+            </div>
+            <div style={style}>
+                <p>Right</p>
+
+                <TextInput iconRight="close" />
+            </div>
+            <div style={style}>
+                <p>Both</p>
+
+                <TextInput iconLeft="search" iconRight="close" />
             </div>
         </div>
     );
