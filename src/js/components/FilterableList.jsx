@@ -94,7 +94,6 @@ export class FilterableList extends React.Component {
         const noMatches = text && filtered.length === 0;
 
         const listProps = {
-            data,
             labelFunction,
             keyFunction,
             defaultStyles,
@@ -116,10 +115,10 @@ export class FilterableList extends React.Component {
 
                 { !noMatches &&
                 <List
+                    {...listProps}
                     className="FilterableList-List"
                     data={filtered}
                     style={listStyle}
-                    {...listProps}
                 >
                     {this.props.children}
                 </List>
