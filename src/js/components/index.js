@@ -2,7 +2,6 @@
 
 export { WeatherIcon } from './weather-icon';
 export { Page } from './page';
-export { GlobalHeader, GlobalNav } from './global-header';
 export { TabLink } from './TabLink';
 export { Table, TableDivider } from './Table';
 export {
