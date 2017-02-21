@@ -10,7 +10,6 @@ type Props = {
     className?: string,
     children?: ReactChildren,
     style: Object,
-    listStyle: Object,
     data?: Array<Object>,
     labelFunction?: Function,
     keyFunction?: Function,
@@ -18,6 +17,7 @@ type Props = {
     defaultSelection?: Object,
     onItemSelect?: Function,
 
+    listStyle: Object,
     filterFunction: Function,
     placeholder: string,
     emptyText: string,
@@ -34,30 +34,24 @@ function defaultFilterFunction(text, item) {
 
 /**
  * Control that displays a List of items and allows for selection.
- * Functions like a list of radio buttons from a keyboard accessibility standpoint.
- * By default it uses a simple renderer that converts each object to a string.
- * A custom renderer can be provided as a single React child to the element, e.g.
- *      <List data={data}>
- *          <MyRenderer />
- *      </List>
+ * Includes a text field above for quick filtering of items in the list.
+ * Provide a filterFunction that determines whether item should be displayed with text.
+ * See "List" component for more details.
  *
- *      function MyRenderer(props) {
- *          return (
- *              <div>{props.listIndex} {props.listItem}</div>
- *          );
- *      }
- * Custom render will receive three props: listIndex, listItem and labelFunction (from parent)
- * A keyFunction is encouraged to generate a React key for each row. Default is to use listIndex.
- *
- * @property {string} className additional "class" to add to outermost element (alongside "List")
+ * @property {string} className additional "class" to add to outermost element (alongside "FilterableList")
  * @property {array} children React children
- * @property {Object} style React style object
+ * @property {Object} style React style object to be applied to outer element.
  * @property {array} [data] data to render in the list.
  * @property {Function} [labelFunction] converts each object to a string in the default renderer.
  * @property {Function} [keyFunction]
  * @property {boolean} [defaultStyles] set "false" to remove all default styling from the List.
  * @property {Object} [defaultSelection] item to select in the list by default
  * @property {Function} [onItemSelect] callback when an item is selected, receiving listIndex and listItem.
+ *
+ * @property {Object} listStyle React style object to be applied to child List.
+ * @property {Function} filterFunction receives text, item; return true/false to show each item
+ * @property {string} placeholder text to display in filter input when empty
+ * @property {string} emptyText text to display when no matches occur
  */
 export class FilterableList extends React.Component {
 
@@ -129,18 +123,19 @@ export class FilterableList extends React.Component {
 }
 
 FilterableList.propTypes = {
+    // from List
     className: PropTypes.string,
     children: PropTypes.element,
     style: PropTypes.object,
-    filterFunction: PropTypes.func,
-    placeholder: PropTypes.string,
-    emptyText: PropTypes.string,
-    listStyle: PropTypes.object,
-    // from List
     data: PropTypes.array,
     labelFunction: PropTypes.func,
     keyFunction: PropTypes.func,
     defaultStyles: PropTypes.bool,
     defaultSelection: PropTypes.any,
     onItemSelect: PropTypes.func,
+    // for FilterableList
+    listStyle: PropTypes.object,
+    filterFunction: PropTypes.func,
+    placeholder: PropTypes.string,
+    emptyText: PropTypes.string,
 };
