@@ -96,8 +96,10 @@ export class FilterableList extends React.Component {
             onItemSelect,
         };
 
+        const outerClass = this.props.className || '';
+
         return (
-            <div className={`FilterableList`} style={style}>
+            <div className={`FilterableList ${outerClass}`} style={style}>
                 <TextInput
                     placeholder={placeholder}
                     disabled={disabled}
