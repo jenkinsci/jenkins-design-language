@@ -12,6 +12,7 @@ type Props = {
     style: Object,
     data?: Array<Object>,
     labelFunction?: Function,
+    disabled?: bool,
     keyFunction?: Function,
     defaultStyles?: bool,
     defaultSelection?: Object,
@@ -81,7 +82,7 @@ export class FilterableList extends React.Component {
     render() {
         // passthrough props for List
         const { keyFunction, labelFunction, listStyle, defaultStyles, defaultSelection, onItemSelect } = this.props;
-        const { data, emptyText, filterFunction, placeholder, style } = this.props;
+        const { data, disabled, emptyText, filterFunction, placeholder, style } = this.props;
 
         const { text } = this.state;
         const filtered = data ? data.filter(item => !text || filterFunction(text, item)) : [];
@@ -99,6 +100,7 @@ export class FilterableList extends React.Component {
             <div className={`FilterableList`} style={style}>
                 <TextInput
                     placeholder={placeholder}
+                    disabled={disabled}
                     onChange={text => this._onFilterChange(text)}
                     iconLeft="search"
                 />
@@ -110,6 +112,7 @@ export class FilterableList extends React.Component {
                 { !noMatches &&
                 <List
                     {...listProps}
+                    disabled={disabled}
                     className="FilterableList-List"
                     data={filtered}
                     style={listStyle}
@@ -128,6 +131,7 @@ FilterableList.propTypes = {
     children: PropTypes.element,
     style: PropTypes.object,
     data: PropTypes.array,
+    disabled: PropTypes.bool,
     labelFunction: PropTypes.func,
     keyFunction: PropTypes.func,
     defaultStyles: PropTypes.bool,
