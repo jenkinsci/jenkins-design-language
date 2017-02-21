@@ -8,6 +8,7 @@ storiesOf('TextInput', module)
     .add('icons', () => <Icons />)
     .add('callbacks', () => <Callbacks />)
     .add('sizes', () => <Sizes />)
+    .add('sizes - icons', () => <SizesIcons />)
 ;
 
 const style = {padding: 10};
@@ -107,6 +108,50 @@ function Sizes() {
                 <TextInput placeholder="TextInput using layout-large" { ...name } />
                 <br /> <br />
                 <PasswordInput placeholder="PasswordInput using layout-large" { ...name } />
+            </div>
+        </div>
+    );
+}
+
+function SizesIcons() {
+    const style2 = { padding: '20px 10px'};
+    return (
+        <div>
+            <div style={style2}>
+                <TextInput placeholder="no layout" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" placeholder="no layout" { ...name } />
+                <br /> <br />
+                <TextInput iconRight="close" placeholder="no layout" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" iconRight="close" placeholder="no layout" { ...name } />
+            </div>
+            <div className="layout-small" style={style2}>
+                <TextInput placeholder="layout-small" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" placeholder="layout-small" { ...name } />
+                <br /> <br />
+                <TextInput iconRight="close" placeholder="layout-small" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" iconRight="close" placeholder="layout-small" { ...name } />
+            </div>
+            <div className="layout-medium" style={style2}>
+                <TextInput placeholder="layout-medium" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" placeholder="layout-medium" { ...name } />
+                <br /> <br />
+                <TextInput iconRight="close" placeholder="layout-medium" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" iconRight="close" placeholder="layout-medium" { ...name } />
+            </div>
+            <div className="layout-large" style={style2}>
+                <TextInput placeholder="layout-large" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" placeholder="layout-large" { ...name } />
+                <br /> <br />
+                <TextInput iconRight="close" placeholder="layout-large" { ...name } />
+                <br /> <br />
+                <TextInput iconLeft="search" iconRight="close" placeholder="layout-large" { ...name } />
             </div>
         </div>
     );
