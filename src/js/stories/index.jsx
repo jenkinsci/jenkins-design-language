@@ -29,3 +29,5 @@ require('./typography.jsx');
 require('./progressBarStories');
 require('./PopoverStories');
 require('./DialogStories');
+require('./alerts');
+require('./LabelStories');
