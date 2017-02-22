@@ -1,0 +1,44 @@
+//--------------------------------------------------------------------------
+//
+//  JTable and related components
+//
+//--------------------------------------------------------------------------
+
+//--------------------------------------
+//  Vars / Mixins
+//--------------------------------------
+
+@table-border-color: #e6eaee;
+
+.JTable {
+    border: solid 1px @table-border-color;
+    border-radius: 3px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    &.u-table-maxwidth {
+        max-width: 1170px;
+    }
+}
+
+.JTable-row {
+    display: flex;
+    flex-direction: row;
+    border-top: solid 1px @table-border-color;
+
+    &:first-child {
+        border-top: none;
+    }
+
+    //&:nth-child(odd) { // TODO: Remove this :)
+    //    background:#fee;
+    //}
+}
+
+.JTable-cell {
+    //&:nth-child(even) { // TODO: Remove this :)
+    //    background:rgba(0,0,0,0.1);
+    //}
+}

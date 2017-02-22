@@ -12,6 +12,11 @@ export { GlobalHeader, GlobalNav } from './global-header';
 export { PageHeader, Title, PageTabsOld, TabLink } from './page-header';
 export { Table, TableDivider } from './Table';
 export {
+    JTable,
+    TableRow,
+    TableCell
+} from './jtable';
+export {
     StatusIndicator,
     SvgSpinner,
     SvgStatus,
