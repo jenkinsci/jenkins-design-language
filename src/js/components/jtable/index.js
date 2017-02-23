@@ -1,3 +1,3 @@
 export { JTable } from './JTable';
 export { TableRow } from './TableRow';
-export { TableCell } from './TableCell';
+export { TableCell, TableHeader } from './TableCell';

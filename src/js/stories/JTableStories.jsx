@@ -2,7 +2,12 @@
 
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import { JTable, TableRow, TableCell } from '../components';
+import {
+    JTable,
+    TableRow,
+    TableCell,
+    TableHeader
+} from '../components';
 
 //--------------------------------------------------------------------------
 //
@@ -34,16 +39,7 @@ const rowData = [
     [ "337",   "Hanif Mohammad",     "Pakistan",    "West Indies",  "2nd",     "1st",  "Kensington Oval, Bridgetown",               "17 January 1958"  ],
     [ "336",   "Wally Hammond",      "England",     "New Zealand",  "1st",     "2nd",  "Eden Park, Auckland",                       "31 March 1933"    ],
     [ "334",   "Donald Bradman",     "Australia",   "England",      "1st",     "3rd",  "Headingley, Leeds",                         "11 July 1930"     ],
-    [ "334",   "Mark Taylor",        "Australia",   "Pakistan",     "1st",     "2nd",  "Arbab Niaz Stadium, Peshawar",              "15 October 1998"  ],
-    [ "333",   "Graham Gooch",       "England",     "India",        "1st",     "1st",  "Lord's Cricket Ground, London",             "26 July 1990"     ],
-    [ "333",   "Chris Gayle",        "West Indies", "Sri Lanka",    "1st",     "1st",  "Galle International Stadium",               "15 November 2010" ],
-    [ "329",   "Inzamam-ul-Haq",     "Pakistan",    "New Zealand",  "1st",     "1st",  "Gaddafi Stadium, Lahore",                   "1 May 2002"       ],
-    [ "329",   "Michael Clarke",     "Australia",   "India",        "1st",     "2nd",  "Sydney Cricket Ground",                     "3 January 2012"   ],
-    [ "325",   "Andy Sandham",       "England",     "West Indies",  "1st",     "4th",  "Sabina Park, Kingston",                     "3 April 1930"     ],
-    [ "319",   "Virender Sehwag",    "India",       "South Africa", "1st",     "1st",  "M. A. Chidambaram Stadium, Chennai",        "26 March 2008"    ],
-    [ "319",   "Kumar Sangakkara",   "Sri Lanka",   "Bangladesh",   "1st",     "2nd",  "Zohur Ahmed Chowdhury Stadium, Chittagong", "5 February 2014"  ],
-    [ "317",   "Chris Gayle",        "West Indies", "South Africa", "1st",     "4th",  "Antigua Recreation Ground, St John's",      "29 April 2005"    ],
-    [ "313",   "Younis Khan",        "Pakistan",    "Sri Lanka",    "1st",     "1st",  "National Stadium, Karachi",                 "21 February 2009" ]];
+    [ "334",   "Mark Taylor",        "Australia",   "Pakistan",     "1st",     "2nd",  "Arbab Niaz Stadium, Peshawar",              "15 October 1998"  ]];
 const colWidths =
     [ 40,      200,                  90,            90,             40,        40,     200,                                         130 ];
 
@@ -90,7 +86,7 @@ function basic() {
     const columns = [];
 
     for (let i = 0; i < colWidths.length; i++) {
-        columns.push(JTable.column(colWidths[i]));
+        columns.push(JTable.column(rowHeaders[i], colWidths[i]));
     }
 
     columns[1].isFlexible = true;
@@ -98,6 +94,16 @@ function basic() {
 
     return container(
         <JTable columns={columns}>
+            <TableRow>
+                <TableHeader>{ rowHeaders[0] }</TableHeader>
+                <TableHeader>{ rowHeaders[1] }</TableHeader>
+                <TableHeader>{ rowHeaders[2] }</TableHeader>
+                <TableHeader>{ rowHeaders[3] }</TableHeader>
+                <TableHeader>{ rowHeaders[4] }</TableHeader>
+                <TableHeader>{ rowHeaders[5] }</TableHeader>
+                <TableHeader>{ rowHeaders[6] }</TableHeader>
+                <TableHeader>{ rowHeaders[7] }</TableHeader>
+            </TableRow>
             {rows}
         </JTable>
     )

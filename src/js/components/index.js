@@ -14,7 +14,8 @@ export { Table, TableDivider } from './Table';
 export {
     JTable,
     TableRow,
-    TableCell
+    TableCell,
+    TableHeader
 } from './jtable';
 export {
     StatusIndicator,
