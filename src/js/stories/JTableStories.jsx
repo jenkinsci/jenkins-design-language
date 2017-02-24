@@ -88,7 +88,7 @@ function basic() {
     const columns = [];
 
     for (let i = 0; i < colWidths.length; i++) {
-        columns.push(JTable.column(rowHeaders[i], colWidths[i]));
+        columns.push(JTable.column(colWidths[i], rowHeaders[i]));
     }
 
     columns[1].isFlexible = true;
@@ -107,12 +107,12 @@ function manual() {
     const w = 100;
     
     const columns = [
-        JTable.column("", w),
-        JTable.column("", w),
-        JTable.column("", w),
-        JTable.column("", w),
-        JTable.column("", w),
-        JTable.column("", w)
+        JTable.column(w),
+        JTable.column(w),
+        JTable.column(w),
+        JTable.column(w),
+        JTable.column(w),
+        JTable.column(w)
     ];
 
     const style = {
@@ -128,6 +128,38 @@ function manual() {
                 <TableHeader>OR</TableHeader>
                 <TableHeader>XOR</TableHeader>
                 <TableHeader>NAND</TableHeader>
+            </TableRow>
+            <TableRow>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>True</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
             </TableRow>
         </JTable>
     );
