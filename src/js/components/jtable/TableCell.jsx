@@ -44,7 +44,7 @@ export class TableCell extends Component {
     }
 }
 
-export const TableHeader = (props) => {
+export const TableHeader = (props: $PropertyType<TableCell, 'props'> ) => {
 
     const {
         className,

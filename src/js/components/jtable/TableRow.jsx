@@ -16,7 +16,7 @@ export class TableRow extends Component {
 
     getColumns(): Array<ColumnDescription> {
 
-        const columns = this.props.columns || [];
+        const columns: Array<ColumnDescription> = this.props.columns || [];
         const numChildren = Children.count(this.props.children);
 
         // Make sure we have the right number of columns
@@ -25,7 +25,7 @@ export class TableRow extends Component {
 
             // Add more columns if there's some missing
             while (columns.length < numChildren) {
-                columns.push({ width: 100, isFlexible: true })
+                columns.push({ name:'', width: 100, isFlexible: true });
             }
         }
 
@@ -78,7 +78,7 @@ export class TableRow extends Component {
     }
 }
 
-export const TableHeaderRow = (props) => {
+export const TableHeaderRow = (props: $PropertyType<TableRow, 'props'> ) => {
 
     const columns = props.columns || [];
     const children = columns.map((col: ColumnDescription) => <TableHeader>{col.name}</TableHeader>);
