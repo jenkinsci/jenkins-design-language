@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component, PropTypes, Children } from 'react';
+import { TableHeader } from './';
 import {
     TABLE_COLUMN_SPACING,
     TABLE_LEFT_RIGHT_PADDING
@@ -10,7 +11,6 @@ import type {ColumnDescription} from './JTable';
 
 // TODO: Docs
 export class TableRow extends Component {
-    // TODO: Rename to DataRow?
 
     static propTypes = {}; // TODO: propTypes
 
@@ -78,6 +78,12 @@ export class TableRow extends Component {
     }
 }
 
+export const TableHeaderRow = (props) => {
 
+    const columns = props.columns || [];
+    const children = columns.map((col: ColumnDescription) => <TableHeader>{col.name}</TableHeader>);
+
+    return React.createElement(TableRow, props, ...children);
+};
 
 

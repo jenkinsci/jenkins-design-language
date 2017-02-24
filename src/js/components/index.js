@@ -15,7 +15,8 @@ export {
     JTable,
     TableRow,
     TableCell,
-    TableHeader
+    TableHeader,
+    TableHeaderRow
 } from './jtable';
 export {
     StatusIndicator,

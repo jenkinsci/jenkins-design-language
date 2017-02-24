@@ -6,7 +6,8 @@ import {
     JTable,
     TableRow,
     TableCell,
-    TableHeader
+    TableHeader,
+    TableHeaderRow
 } from '../components';
 
 //--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ import {
 
 storiesOf('JTable', module)
     .add('Basic', basic)
+    .add('Manual', manual)
 ;
 
 
@@ -94,18 +96,39 @@ function basic() {
 
     return container(
         <JTable columns={columns}>
-            <TableRow>
-                <TableHeader>{ rowHeaders[0] }</TableHeader>
-                <TableHeader>{ rowHeaders[1] }</TableHeader>
-                <TableHeader>{ rowHeaders[2] }</TableHeader>
-                <TableHeader>{ rowHeaders[3] }</TableHeader>
-                <TableHeader>{ rowHeaders[4] }</TableHeader>
-                <TableHeader>{ rowHeaders[5] }</TableHeader>
-                <TableHeader>{ rowHeaders[6] }</TableHeader>
-                <TableHeader>{ rowHeaders[7] }</TableHeader>
-            </TableRow>
+            <TableHeaderRow/>
             {rows}
         </JTable>
     )
 }
 
+function manual() {
+
+    const w = 100;
+    
+    const columns = [
+        JTable.column("", w),
+        JTable.column("", w),
+        JTable.column("", w),
+        JTable.column("", w),
+        JTable.column("", w),
+        JTable.column("", w)
+    ];
+
+    const style = {
+        width:'600px'
+    };
+
+    return container(
+        <JTable columns={columns} style={style}>
+            <TableRow>
+                <TableHeader>X</TableHeader>
+                <TableHeader>Y</TableHeader>
+                <TableHeader>AND</TableHeader>
+                <TableHeader>OR</TableHeader>
+                <TableHeader>XOR</TableHeader>
+                <TableHeader>NAND</TableHeader>
+            </TableRow>
+        </JTable>
+    );
+}

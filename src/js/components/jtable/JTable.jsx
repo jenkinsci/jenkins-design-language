@@ -26,7 +26,8 @@ export class JTable extends Component {
         const {
             className,
             children,
-            columns
+            columns,
+            style
         } = this.props;
 
         const classNames = ['JTable'];
@@ -47,7 +48,7 @@ export class JTable extends Component {
         });
 
         return (
-            <div className={classNames.join(' ')}>
+            <div className={classNames.join(' ')} style={style}>
                 {newChildren}
             </div>
         );
