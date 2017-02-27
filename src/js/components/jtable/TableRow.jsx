@@ -38,8 +38,16 @@ export class TableRow extends Component {
 
         const {
             className,
-            children
+            children,
+            href,
+            onClick,
         } = this.props;
+
+        const classNames = ['JTable-row'];
+
+        if (className) {
+            classNames.push(className);
+        }
 
         const numChildren = Children.count(children);
         
@@ -64,17 +72,21 @@ export class TableRow extends Component {
             return React.cloneElement(child, {style: newStyle});
         });
 
-        const classNames = ['JTable-row'];
+        let tagName = 'div';
+        let props = {
+            onClick,
+            href
+        };
 
-        if (className) {
-            classNames.push(className);
+        if (typeof href === 'string' && href.length > 0) {
+            // We switch to an <A> instead of <DIV> so the user can middle-click
+            tagName = 'a';
+            classNames.push('JTable-row--href');
         }
 
-        return (
-            <div className={classNames.join(' ')}>
-                {newChildren}
-            </div>
-        );
+        props.className = classNames.join(' ');
+
+        return React.createElement(tagName, props, ...newChildren);
     }
 }
 

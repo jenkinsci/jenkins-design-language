@@ -14,6 +14,7 @@
 
 @table-border-color: #e6eaee; // TODO: Get this from theme
 @table-header-color: rgba(53, 64, 82, 0.5); // TODO: Get this from theme
+@table-hover-bg: #fafbfd; // TODO: Get from theme
 
 //--------------------------------------
 //  Outer JTable component
@@ -44,18 +45,17 @@
     &:first-child {
         border-top: none;
     }
+}
 
-    //&:nth-child(odd) { // TODO: Remove this :)
-    //    .JTable-cell:nth-child(odd) { // TODO: Remove this :)
-    //        background: #fee;
-    //    }
-    //}
-    //
-    //&:nth-child(even) { // TODO: Remove this :)
-    //    .JTable-cell:nth-child(even) { // TODO: Remove this :)
-    //        background: #fee;
-    //    }
-    //}
+a.JTable-row--href {
+
+    color: inherit;
+
+    &:hover {
+        background: @table-hover-bg;
+        color: inherit;
+        //text-decoration: none;
+    }
 }
 
 //--------------------------------------

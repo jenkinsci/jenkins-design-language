@@ -129,7 +129,7 @@ function manual() {
                 <TableHeader>XOR</TableHeader>
                 <TableHeader>NAND</TableHeader>
             </TableRow>
-            <TableRow>
+            <TableRow href="http://www.example.org/alpha/">
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
@@ -137,7 +137,7 @@ function manual() {
                 <TableCell>False</TableCell>
                 <TableCell>False</TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow href="http://www.example.org/bravo/">
                 <TableCell>True</TableCell>
                 <TableCell>False</TableCell>
                 <TableCell>False</TableCell>
@@ -153,7 +153,7 @@ function manual() {
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow href="http://www.example.org/delta/">
                 <TableCell>False</TableCell>
                 <TableCell>False</TableCell>
                 <TableCell>False</TableCell>
