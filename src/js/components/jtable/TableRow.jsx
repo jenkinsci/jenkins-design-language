@@ -9,33 +9,66 @@ import {
 
 import type {ColumnDescription} from './JTable';
 
+type Props = {
+    className?: string,
+    children: ReactChildren,
+    href?: string,
+    onClick?: function,
+    columns: Array<ColumnDescription>
+};
+
 /**
  * A table row, stand-in for <TR>. Can take a href="" attribute, which will render the row as an anchor instead of a
  * div.
  */
 export class TableRow extends Component {
 
-    getColumns(): Array<ColumnDescription> {
+    props: Props;
+    state: {
+        columns: Array<ColumnDescription>
+    };
 
-        const columns: Array<ColumnDescription> = this.props.columns || [];
-        const numChildren = Children.count(this.props.children);
+    constructor(props: Props) {
+        super(props);
 
-        // Make sure we have the right number of columns
-        if (columns.length !== numChildren) {
-            console.warn('TableRow - received', numChildren, 'children, but', columns.length, 'columns!');
+        this.state = {columns: []};
+    }
 
-            // Add more columns if there's some missing
-            while (columns.length < numChildren) {
-                columns.push({ name: '', width: 100, isFlexible: true });
+    componentWillMount() {
+        this.processColumns(this.props.columns, Children.count(this.props.children));
+    }
+
+    componentWillReceiveProps(nextProps: Props) {
+        if (nextProps.columns !== this.props.columns) {
+            this.processColumns(nextProps.columns, Children.count(nextProps.children));
+        }
+    }
+
+    processColumns(columns: any, numChildren: number) {
+
+        let processed = [];
+
+        if (Array.isArray(columns)) {
+
+            processed = [...columns];
+
+            // Make sure we have the right number of columns
+            if (columns.length !== numChildren) {
+                console.warn('TableRow - received', numChildren, 'children, but', columns.length, 'columns!');
+
+                // Add generic columns if there's some missing
+                while (columns.length < numChildren) {
+                    columns.push({name: '', width: 100, isFlexible: true});
+                }
             }
         }
 
-        return columns;
+        this.setState({ columns: processed });
     }
 
     render() {
 
-        const columns: Array<ColumnDescription> = this.getColumns(); // TODO: Move columns to this.state?
+        const columns: Array<ColumnDescription> = this.state.columns;
 
         const {
             className,
@@ -76,7 +109,8 @@ export class TableRow extends Component {
         let tagName = 'div';
         const props = {
             onClick,
-            href
+            href,
+            className
         };
 
         if (typeof href === 'string' && href.length > 0) {
