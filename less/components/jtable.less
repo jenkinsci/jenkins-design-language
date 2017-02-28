@@ -12,9 +12,10 @@
 @table-column-spacing: 32px;
 // !!!IMPORTANT!!! Don't change the above without changing the constants in JTable.jsx to match!
 
-@table-border-color: #e6eaee; // TODO: Get this from theme
-@table-header-color: rgba(53, 64, 82, 0.5); // TODO: Get this from theme
-@table-hover-bg: #fafbfd; // TODO: Get from theme
+// FIXME: We need to sort out the mess of different colours we've got all over the place
+@table-border-color: #e6eaee;
+@table-header-color: rgba(53, 64, 82, 0.5);
+@table-hover-bg: #fafbfd;
 
 //--------------------------------------
 //  Outer JTable component
@@ -48,13 +49,11 @@
 }
 
 a.JTable-row--href {
-
     color: inherit;
 
     &:hover {
         background: @table-hover-bg;
         color: inherit;
-        //text-decoration: none;
     }
 }
 

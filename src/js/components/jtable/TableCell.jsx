@@ -1,13 +1,9 @@
 // @flow
 
-import React, { Component, PropTypes, Children } from 'react';
-
-import type {ColumnDescription} from './JTable';
+import React, { Component, PropTypes } from 'react';
 
 // TODO: Docs
 export class TableCell extends Component {
-
-    static propTypes = {}; // TODO: propTypes
 
     render() {
 
@@ -30,7 +26,7 @@ export class TableCell extends Component {
             title
         };
 
-        if (!title && typeof children === 'string') {
+        if (typeof title === 'undefined' && typeof children === 'string') {
             outerProps.title = children;
         }
 
@@ -43,6 +39,13 @@ export class TableCell extends Component {
         );
     }
 }
+
+TableCell.propTypes = {
+    style: PropTypes.object,
+    title: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.node
+};
 
 export const TableHeader = (props: $PropertyType<TableCell, 'props'> ) => {
 
@@ -63,7 +66,7 @@ export const TableHeader = (props: $PropertyType<TableCell, 'props'> ) => {
         className: classNames.join(' ')
     };
 
-    return <TableCell {...newProps}>{children}</TableCell>
+    return <TableCell {...newProps}>{children}</TableCell>;
 };
 
-
+TableHeader.propTypes = TableCell.propTypes;

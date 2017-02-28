@@ -99,7 +99,7 @@ function basic() {
             <TableHeaderRow/>
             {rows}
         </JTable>
-    )
+    );
 }
 
 function manual() {
@@ -116,7 +116,7 @@ function manual() {
     ];
 
     const style = {
-        width:'600px'
+        width: '600px'
     };
 
     return container(

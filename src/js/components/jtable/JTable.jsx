@@ -2,15 +2,15 @@
 
 import React, { Component, PropTypes, Children } from 'react';
 
+export const TABLE_LEFT_RIGHT_PADDING = 24;
+export const TABLE_COLUMN_SPACING = 32;
+// !!!IMPORTANT!!! Don't change the above consts without changing jtable.less to match!
+
 export type ColumnDescription = {
     name: string,
     width: number,
     isFlexible: boolean
 };
-
-export const TABLE_LEFT_RIGHT_PADDING = 24;
-export const TABLE_COLUMN_SPACING = 32;
-// !!!IMPORTANT!!! Don't change the above consts without changing jtable.less to match!
 
 /**
  * Make sure we have an Array<ColumnDescription> with all fields populated
@@ -25,9 +25,9 @@ export function processColumns(columns: any): Array<ColumnDescription> {
     }
 
     let hasFlexibleColumn = false;
-    let processedColumns = columns.map(input => {
+    const processedColumns = columns.map(input => {
 
-        let result = {
+        const result = {
             name: input.name ? '' + input.name : '',
             width: parseInt(input.width),
             isFlexible: !!input.isFlexible
@@ -45,7 +45,7 @@ export function processColumns(columns: any): Array<ColumnDescription> {
 
     // If no flexible columns specified, we make them all flexible, or they'll get cut off / table will look weird
     if (!hasFlexibleColumn) {
-        for (let col of processedColumns) {
+        for (const col of processedColumns) {
             col.isFlexible = true;
         }
     }
@@ -53,10 +53,11 @@ export function processColumns(columns: any): Array<ColumnDescription> {
     return processedColumns;
 }
 
-// TODO: Docs
+/**
+ * Table component, rendered using divs and display:flex rather than HTML tables, because that gives us better control
+ * over layout, and allows us to do things like making a whole row an anchor, etc.
+ */
 export class JTable extends Component {
-
-    static propTypes = {}; // TODO: propTypes
 
     static column(width: number, name: string = '', isFlexible: boolean = false): ColumnDescription {
         return {name, width, isFlexible};
@@ -70,7 +71,7 @@ export class JTable extends Component {
             style
         } = this.props;
 
-        const columns = processColumns(this.props.columns);
+        const columns = processColumns(this.props.columns); // TODO: Put this in state
 
         const classNames = ['JTable', 'u-table-maxwidth'];
 
@@ -93,6 +94,13 @@ export class JTable extends Component {
         );
     }
 }
+
+JTable.propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+    style: PropTypes.object,
+    columns: PropTypes.array
+};
 
 
 

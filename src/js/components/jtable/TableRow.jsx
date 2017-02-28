@@ -9,10 +9,11 @@ import {
 
 import type {ColumnDescription} from './JTable';
 
-// TODO: Docs
+/**
+ * A table row, stand-in for <TR>. Can take a href="" attribute, which will render the row as an anchor instead of a
+ * div.
+ */
 export class TableRow extends Component {
-
-    static propTypes = {}; // TODO: propTypes
 
     getColumns(): Array<ColumnDescription> {
 
@@ -25,7 +26,7 @@ export class TableRow extends Component {
 
             // Add more columns if there's some missing
             while (columns.length < numChildren) {
-                columns.push({ name:'', width: 100, isFlexible: true });
+                columns.push({ name: '', width: 100, isFlexible: true });
             }
         }
 
@@ -34,7 +35,7 @@ export class TableRow extends Component {
 
     render() {
 
-        let columns: Array<ColumnDescription> = this.getColumns(); // TODO: Move columns to this.state?
+        const columns: Array<ColumnDescription> = this.getColumns(); // TODO: Move columns to this.state?
 
         const {
             className,
@@ -73,7 +74,7 @@ export class TableRow extends Component {
         });
 
         let tagName = 'div';
-        let props = {
+        const props = {
             onClick,
             href
         };
@@ -90,6 +91,14 @@ export class TableRow extends Component {
     }
 }
 
+TableRow.propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+    onClick: PropTypes.func,
+    href: PropTypes.string,
+    columns: PropTypes.array
+};
+
 export const TableHeaderRow = (props: $PropertyType<TableRow, 'props'> ) => {
 
     const columns = props.columns || [];
@@ -98,4 +107,5 @@ export const TableHeaderRow = (props: $PropertyType<TableRow, 'props'> ) => {
     return React.createElement(TableRow, props, ...children);
 };
 
+TableHeaderRow.propTypes = TableRow.propTypes;
 
