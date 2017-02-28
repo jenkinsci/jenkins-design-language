@@ -12,46 +12,12 @@ export type ColumnDescription = {
     isFlexible: boolean
 };
 
-/**
- * Make sure we have an Array<ColumnDescription> with all fields populated
- */
-export function processColumns(columns: any): Array<ColumnDescription> {
-    if (!columns) {
-        return [];
-    }
-
-    if (!Array.isArray(columns)) {
-        columns = [columns]; // Assuming a single column passed in
-    }
-
-    let hasFlexibleColumn = false;
-    const processedColumns = columns.map(input => {
-
-        const result = {
-            name: input.name ? '' + input.name : '',
-            width: parseInt(input.width),
-            isFlexible: !!input.isFlexible
-        };
-
-        hasFlexibleColumn = hasFlexibleColumn || result.isFlexible;
-
-        if (isNaN(result.width)) {
-            // Make a wild stab at it
-            result.width = Math.floor(1000 / columns.length);
-        }
-
-        return result;
-    });
-
-    // If no flexible columns specified, we make them all flexible, or they'll get cut off / table will look weird
-    if (!hasFlexibleColumn) {
-        for (const col of processedColumns) {
-            col.isFlexible = true;
-        }
-    }
-
-    return processedColumns;
-}
+type Props = {
+    className?: string,
+    children: ReactChildren,
+    columns: Array<ColumnDescription>,
+    style?: Object
+};
 
 /**
  * Table component, rendered using divs and display:flex rather than HTML tables, because that gives us better control
@@ -59,8 +25,71 @@ export function processColumns(columns: any): Array<ColumnDescription> {
  */
 export class JTable extends Component {
 
+    /**
+     * Just a simple helper
+     */
     static column(width: number, name: string = '', isFlexible: boolean = false): ColumnDescription {
         return {name, width, isFlexible};
+    }
+
+    props: Props;
+    state: {
+        columns: Array<ColumnDescription>
+    };
+
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {columns: []};
+    }
+
+    componentWillMount() {
+        this.processColumns(this.props.columns);
+    }
+
+    componentWillReceiveProps(nextProps: Props) {
+        if (nextProps.columns !== this.props.columns) {
+            this.processColumns(nextProps.columns);
+        }
+    }
+
+    processColumns(propColumns: any) {
+
+        if (propColumns == null) {
+            propColumns = [];
+        }
+
+        if (!Array.isArray(propColumns)) {
+            propColumns = [propColumns]; // Assuming a single column passed in
+        }
+
+        let hasFlexibleColumn = false;
+        const processedColumns = propColumns.map(input => {
+
+            const result = {
+                name: input.name ? '' + input.name : '',
+                width: parseInt(input.width),
+                isFlexible: !!input.isFlexible
+            };
+
+            hasFlexibleColumn = hasFlexibleColumn || result.isFlexible;
+
+            if (isNaN(result.width)) {
+                // Make a wild stab at it
+                result.width = Math.floor(1000 / propColumns.length);
+            }
+
+            return result;
+        });
+
+        // If no flexible columns specified, we make them all flexible, or they'll get cut off / last column stretches
+        if (!hasFlexibleColumn) {
+            for (const col of processedColumns) {
+                col.isFlexible = true;
+            }
+        }
+
+        this.setState({ columns: processedColumns });
     }
 
     render() {
@@ -71,7 +100,7 @@ export class JTable extends Component {
             style
         } = this.props;
 
-        const columns = processColumns(this.props.columns); // TODO: Put this in state
+        const columns = this.state.columns;
 
         const classNames = ['JTable', 'u-table-maxwidth'];
 

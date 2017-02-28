@@ -2,7 +2,9 @@
 
 import React, { Component, PropTypes } from 'react';
 
-// TODO: Docs
+/**
+ * Takes the place of a <TD>
+ */
 export class TableCell extends Component {
 
     render() {
@@ -47,6 +49,9 @@ TableCell.propTypes = {
     children: PropTypes.node
 };
 
+/**
+ * Takes the place of a single <TH>
+ */
 export const TableHeader = (props: $PropertyType<TableCell, 'props'> ) => {
 
     const {

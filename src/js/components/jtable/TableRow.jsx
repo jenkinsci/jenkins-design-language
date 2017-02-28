@@ -13,7 +13,7 @@ type Props = {
     className?: string,
     children: ReactChildren,
     href?: string,
-    onClick?: function,
+    onClick?: Function,
     columns: Array<ColumnDescription>
 };
 
