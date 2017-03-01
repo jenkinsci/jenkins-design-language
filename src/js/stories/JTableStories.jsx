@@ -51,15 +51,13 @@ const colWidths =
 //
 //--------------------------------------------------------------------------
 
-function container(children) {
+function container(...children) {
 
     const style = {
         margin: "1em"
     };
 
-    return (
-        <div style={style}>{children}</div>
-    );
+    return React.createElement('div', {style}, ...children);
 }
 
 function renderRow(rowData) {
@@ -112,14 +110,23 @@ function manual() {
         JTable.column(w),
         JTable.column(w),
         JTable.column(w),
-        JTable.column(w)
+        JTable.column(w),
+        JTable.column(w * 2)
     ];
 
     const style = {
-        width: '600px'
+        marginTop: '1em',
+        marginBottom: '2em',
+        width: '800px'
+    };
+
+    const style2 = {
+        marginTop: '1em',
+        marginBottom: '2em'
     };
 
     return container(
+        <h3>Manual headers, row links</h3>,
         <JTable columns={columns} style={style}>
             <TableRow>
                 <TableHeader>X</TableHeader>
@@ -128,6 +135,7 @@ function manual() {
                 <TableHeader>OR</TableHeader>
                 <TableHeader>XOR</TableHeader>
                 <TableHeader>NAND</TableHeader>
+                <TableHeader>Nonsense</TableHeader>
             </TableRow>
             <TableRow href="http://www.example.org/alpha/">
                 <TableCell>True</TableCell>
@@ -136,6 +144,7 @@ function manual() {
                 <TableCell>True</TableCell>
                 <TableCell>False</TableCell>
                 <TableCell>False</TableCell>
+                <TableCell>Alpha</TableCell>
             </TableRow>
             <TableRow href="http://www.example.org/bravo/">
                 <TableCell>True</TableCell>
@@ -144,14 +153,16 @@ function manual() {
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
+                <TableCell>this space intentionally left blank</TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow href="http://www.example.org/charlie/">
                 <TableCell>False</TableCell>
                 <TableCell>True</TableCell>
                 <TableCell>False</TableCell>
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
+                <TableCell>Charlie don't surf</TableCell>
             </TableRow>
             <TableRow href="http://www.example.org/delta/">
                 <TableCell>False</TableCell>
@@ -160,6 +171,55 @@ function manual() {
                 <TableCell>False</TableCell>
                 <TableCell>False</TableCell>
                 <TableCell>True</TableCell>
+                <TableCell>YEARGH!</TableCell>
+            </TableRow>
+        </JTable>,
+        <h3>Some Links, some useRollover</h3>,
+        <JTable columns={columns} style={style2}>
+            <TableRow>
+                <TableHeader>X</TableHeader>
+                <TableHeader>Y</TableHeader>
+                <TableHeader>AND</TableHeader>
+                <TableHeader>OR</TableHeader>
+                <TableHeader>XOR</TableHeader>
+                <TableHeader>NAND</TableHeader>
+                <TableHeader>Comment</TableHeader>
+            </TableRow>
+            <TableRow href="http://www.example.org/alpha/">
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>Link</TableCell>
+            </TableRow>
+            <TableRow href="http://www.example.org/bravo/" useRollover={false}>
+                <TableCell>True</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>Link, useRollover=false</TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>No link</TableCell>
+            </TableRow>
+            <TableRow useRollover>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>False</TableCell>
+                <TableCell>True</TableCell>
+                <TableCell>No link, useRollover=true</TableCell>
             </TableRow>
         </JTable>
     );

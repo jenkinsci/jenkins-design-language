@@ -52,8 +52,16 @@ a.JTable-row--href {
     color: inherit;
 
     &:hover {
-        background: @table-hover-bg;
         color: inherit;
+        text-decoration: inherit;
+    }
+}
+
+.JTable-row--rollOver {
+    cursor: pointer;
+
+    &:hover {
+        background: @table-hover-bg;
     }
 }
 
@@ -63,7 +71,7 @@ a.JTable-row--href {
 
 .JTable-cell {
 
-    min-width: 0;
+    min-width: 0; // Otherwise columns will not shrink uniformly
 
     height: 48px;
 

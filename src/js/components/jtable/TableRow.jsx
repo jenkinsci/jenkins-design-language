@@ -14,7 +14,8 @@ type Props = {
     children: ReactChildren,
     href?: string,
     onClick?: Function,
-    columns: Array<ColumnDescription>
+    columns: Array<ColumnDescription>,
+    useRollover?: boolean
 };
 
 /**
@@ -77,6 +78,7 @@ export class TableRow extends Component {
             onClick,
         } = this.props;
 
+        const useRollOver = this.props.useRollover;
         const classNames = ['JTable-row'];
 
         if (className) {
@@ -117,6 +119,15 @@ export class TableRow extends Component {
             // We switch to an <A> instead of <DIV> so the user can middle-click
             tagName = 'a';
             classNames.push('JTable-row--href');
+
+            if (useRollOver !== false) {
+                // ^ Explicitly setting to false (not falsy) will disable rollover
+                classNames.push('JTable-row--rollOver');
+            }
+        } else {
+            if (useRollOver) {
+                classNames.push('JTable-row--rollOver');
+            }
         }
 
         props.className = classNames.join(' ');
@@ -130,7 +141,8 @@ TableRow.propTypes = {
     children: PropTypes.node,
     onClick: PropTypes.func,
     href: PropTypes.string,
-    columns: PropTypes.array
+    columns: PropTypes.array,
+    useRollover: PropTypes.bool
 };
 
 export const TableHeaderRow = (props: $PropertyType<TableRow, 'props'> ) => {
