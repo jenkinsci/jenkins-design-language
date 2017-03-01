@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 require('./ButtonStories');
 require('./IconButtonStories');
 require('./CheckboxStories');
