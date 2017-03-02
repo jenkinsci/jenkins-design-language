@@ -18,6 +18,7 @@ type Props = {
     useRollover?: boolean
 };
 
+
 /**
  * A table row, stand-in for <TR>. Can take a href="" attribute, which will render the row as an anchor instead of a
  * div.
@@ -58,8 +59,8 @@ export class TableRow extends Component {
                 console.warn('TableRow - received', numChildren, 'children, but', columns.length, 'columns!');
 
                 // Add generic columns if there's some missing
-                while (columns.length < numChildren) {
-                    columns.push({name: '', width: 100, isFlexible: true});
+                while (processed.length < numChildren) {
+                    processed.push({name: '', width: 100, isFlexible: true});
                 }
             }
         }
