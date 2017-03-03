@@ -18,6 +18,27 @@ type Props = {
     useRollover?: boolean
 };
 
+function processColumns(columns: any, numChildren: number) {
+
+    let processed = [];
+
+    if (Array.isArray(columns)) {
+
+        processed = [...columns];
+
+        // Make sure we have the right number of columns
+        if (processed.length !== numChildren) {
+            console.warn('TableRow - received', numChildren, 'children, but', processed.length, 'columns!');
+
+            // Add generic columns if there's some missing
+            while (processed.length < numChildren) {
+                processed.push({name: '', width: 100, isFlexible: true});
+            }
+        }
+    }
+
+    return processed;
+}
 
 /**
  * A table row, stand-in for <TR>. Can take a href="" attribute, which will render the row as an anchor instead of a
@@ -26,51 +47,12 @@ type Props = {
 export class TableRow extends Component {
 
     props: Props;
-    state: {
-        columns: Array<ColumnDescription>
-    };
 
     constructor(props: Props) {
         super(props);
-
-        this.state = {columns: []};
-    }
-
-    componentWillMount() {
-        this.processColumns(this.props.columns, Children.count(this.props.children));
-    }
-
-    componentWillReceiveProps(nextProps: Props) {
-        if (nextProps.columns !== this.props.columns) {
-            this.processColumns(nextProps.columns, Children.count(nextProps.children));
-        }
-    }
-
-    processColumns(columns: any, numChildren: number) {
-
-        let processed = [];
-
-        if (Array.isArray(columns)) {
-
-            processed = [...columns];
-
-            // Make sure we have the right number of columns
-            if (processed.length !== numChildren) {
-                console.warn('TableRow - received', numChildren, 'children, but', processed.length, 'columns!');
-
-                // Add generic columns if there's some missing
-                while (processed.length < numChildren) {
-                    processed.push({name: '', width: 100, isFlexible: true});
-                }
-            }
-        }
-
-        this.setState({ columns: processed });
     }
 
     render() {
-
-        const columns: Array<ColumnDescription> = this.state.columns;
 
         const {
             className,
@@ -87,6 +69,7 @@ export class TableRow extends Component {
         }
 
         const numChildren = Children.count(children);
+        const columns = processColumns(this.props.columns, numChildren);
         
         const newChildren = Children.map(children, (child, i) => {
 
