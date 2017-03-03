@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Reset -->
+    <link href="storybook/css/normalize.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="storybook/css/latofonts.css" rel="stylesheet">
+    <link href="storybook/octicons/octicons.css" rel="stylesheet">
+
+    <!-- Jenkins theme -->
+    <link href="storybook/css/jenkins-design-language.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css" media="screen">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="./javascripts/jquery-3.1.0.min.js"></script>
+    <script src="./javascripts/main.js"></script>
+
+    <title>Jenkins Design Language</title>
+</head>
+
+<body>
+<header class="global-header">
+    <h1>Jenkins Design Language</h1>
+    <div class="nav"><p><a href="./">Home</a>
+<a href="./docs">Documentation</a>
+<a href="./community">Community</a></p>
+</div>
+    <a href="https://github.com/jenkinsci/jenkins-design-language"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</header>
+
+<div id="content">
+    <h2>Developing and testing within JDL</h2><p>Development of JDL components without accompanying Jenkins plugins and related overhead is
+facilitated by use of <a href="https://github.com/kadirahq/react-storybook">react-storybook</a>:</p>
+<pre><code class="language-bash">$ npm run storybook
+</code></pre>
+<p>This will startup a <a href="http://localhost:9001/">local webpack server</a> that watches files for rapid turnaround.
+Stories are located in <a href="src/js/stories/">/src/js/stories/</a> and allow you to develop and test example use cases for
+components within JDL. Note that Storybook doesn&#39;t currently watch and rebuild the CSS from .less files, only
+JavaScript sources. If you&#39;re making changes to styles as well as JS, run the <code>watch-styles</code> Gulp task:</p>
+<pre><code class="language-bash">$ npm run gulp watch-styles
+</code></pre>
+<p>To read more about <a href="https://github.com/kadirahq/react-storybook">react-storybook</a>, please see <a href="https://medium.com/@arunoda/ec27f28de1e2">Introducing React Storybook</a>
+on Medium.</p>
+<h2>Developing and testing alongside Blue Ocean</h2><p>If you are working on adding features to the JDL, you&#39;ll probably want to do that in an iterative
+way i.e you will not want to have to publish changes after every change (or use relative <code>package.json</code> paths)
+and then run <code>npm install</code>. We recommend using <a href="https://github.com/tfennelly/slink">slink</a> to avoid potential issues related to <code>npm install</code>.</p>
+<h3>Step 1: Install slink</h3><pre><code class="language-bash">$ npm install -g slink
+</code></pre>
+<h3>Step 2: Locally <code>install</code> your JDL checkout into blueocean-web and any other modules</h3><p>Assuming you&#39;re in a directory containing clones of JDL and Blue Ocean:</p>
+<pre><code class="language-bash">$ cd blueocean/blueocean-web/
+$ npm install ../../jenkins-design-language/
+$ cd ../blueocean-dashboard/
+$ npm install ../../jenkins-design-language/
+</code></pre>
+<p>This will perform a local install that overrides the released JDL version that was installed
+from npm&#39;s servers when building Blue Ocean. Don&#39;t change your <code>package.json</code> to refer
+to the local version.</p>
+<p><strong>Note:</strong> Because we&#39;re omitting the <code>--save</code> option, this is a temporary operation.
+It can be easily undone by running <code>npm install</code> in the target project directories,
+or by running <code>mvn clean install</code> in the root of your Blue Ocean checkout.</p>
+<h3>Step 3: <code>watch</code> for JDL code changes</h3><p>In the <code>jenkins-design-language</code> folder, run <code>gulp watch</code>.</p>
+<h3>Step 4: Run slink for each module</h3><pre><code class="language-bash">$ cd blueocean/blueocean-web/
+$ slink ../../jenkins-design-language/
+</code></pre>
+<p>You should see something like <code>Watching for changes in /Users/jdoe/work/jenkins-design-language</code>.</p>
+<p>This will need to be done for any other modules related to your testing. <em>In another terminal:</em></p>
+<pre><code class="language-bash">$ cd blueocean/blueocean-dashboard/
+$ slink ../../jenkins-design-language/
+</code></pre>
+<p>It may seem strange that you need to do this, but there&#39;s a good reason. Blue Ocean does not load and
+instantiate multiple instances of <code>react</code> (and <code>react-dom</code>) and <code>@jenkins-cd/design-language</code> for every plugin. That simply
+would not work (for a number of reasons). Instead, <code>blueocean-web</code> is responsible for creating and <code>export</code>ing
+shared instances of these modules via <a href="https://github.com/jenkinsci/js-modules">js-modules</a>. Then, other plugins that need access to these shared component
+instances <code>import</code> them via <a href="https://github.com/jenkinsci/js-modules">js-modules</a>. For that reason, <code>blueocean-web</code> needs to know about (&quot;watch for&quot;)
+changes in the <code>@jenkins-cd/design-language</code> as you are working on it.</p>
+<h3>Step 5: <code>watch</code> for <code>blueocean-web</code> changes (and rebundle)</h3><p>In the <code>blueocean-web</code> folder, run <code>gulp bundle:watch</code>.</p>
+<p>This will watch for changes not only in <code>blueocean-web</code> code, but also in the linked <code>@jenkins-cd/design-language</code>
+code, triggering a rebundle of <code>blueocean-web</code> code, making it available to the browser.</p>
+<blockquote>
+<p>As you might notice, there&#39;s a <code>watch</code> + <code>rebundle</code> cascading effect going on here i.e. changes in
+<code>@jenkins-cd/design-language</code> are watched for and rebundled (Step 2), which triggers the <code>blueocean-web</code>
+watch and rebundle (Step 4).</p>
+</blockquote>
+<h3>Step 6-n: Install and slink the JDL code into other HPI plugin projects + <code>bundle:watch</code> there too</h3><p>Basically ... repeating Steps 2, 4, and 5 in other HPI plugins that you are working on.</p>
+<pre><code class="language-bash">$ cd blueocean/blueocean-dashboard/
+$ npm run gulp bundle:watch
+</code></pre>
+<h3>Flow</h3><p>We&#39;re using Facebook&#39;s <a href="http://flowtype.org/">Flow</a> type system to help us spot bugs
+and improve documentation within the JDL codebase. If you&#39;re on using a supported
+platform (basically not Windows), please do the same. We&#39;re hoping it will continue
+to aid in maintaining quality code, and will almost certainly speed up the pull-request
+process for all involved.</p>
+<h3>Publish a new version of <code>@jenkins-cd/design-language</code></h3><p>Once your changes have been made (and through the PR contribution process), we need to publish a new version
+of the <code>@jenkins-cd/design-language</code> package to the NPM registry (to the <code>jenkins-cd</code> organization).</p>
+<p>If you&#39;re not already a member of the <code>jenkins-cd</code> organization, please ping us and we&#39;ll add you. Otherwise,
+someone else can publish a new version of the package for you.</p>
+<h2>Repository History</h2><p>This current repository was filtered from <a href="https://github.com/cloudbees/blueocean.git">https://github.com/cloudbees/blueocean.git</a> at 99f14895c448eb7303d2eaa29f369ce50f4fb674
+on 2016-05-09.</p>
+</div>
+
+</body>
+</html>
