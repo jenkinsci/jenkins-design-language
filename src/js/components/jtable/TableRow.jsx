@@ -55,8 +55,8 @@ export class TableRow extends Component {
             processed = [...columns];
 
             // Make sure we have the right number of columns
-            if (columns.length !== numChildren) {
-                console.warn('TableRow - received', numChildren, 'children, but', columns.length, 'columns!');
+            if (processed.length !== numChildren) {
+                console.warn('TableRow - received', numChildren, 'children, but', processed.length, 'columns!');
 
                 // Add generic columns if there's some missing
                 while (processed.length < numChildren) {
