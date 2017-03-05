@@ -20,20 +20,15 @@ type Props = {
 
 function processColumns(columns: any, numChildren: number) {
 
-    let processed = [];
+    const processed = Array.isArray(columns) ? columns.concat() : [];
 
-    if (Array.isArray(columns)) {
+    // Make sure we have the right number of columns
+    if (processed.length !== numChildren) {
+        console.warn('TableRow - received', numChildren, 'children, but', processed.length, 'columns!');
 
-        processed = [...columns];
-
-        // Make sure we have the right number of columns
-        if (processed.length !== numChildren) {
-            console.warn('TableRow - received', numChildren, 'children, but', processed.length, 'columns!');
-
-            // Add generic columns if there's some missing
-            while (processed.length < numChildren) {
-                processed.push({name: '', width: 100, isFlexible: true});
-            }
+        // Add generic columns if there's some missing
+        while (processed.length < numChildren) {
+            processed.push({name: '', width: 100, isFlexible: true});
         }
     }
 
