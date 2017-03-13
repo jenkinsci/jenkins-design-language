@@ -282,6 +282,7 @@ export class Dropdown extends React.Component {
 
     render() {
         // console.log('render', this.state.menuOpen);
+        const { style } = this.props;
         const extraClass = this.props.className || '';
         const openClass = this.state.menuOpen ? 'Dropdown-menu-open' : 'Dropdown-menu-closed';
         const promptClass = !this.state.selectedOption ? 'Dropdown-placeholder' : '';
@@ -289,7 +290,7 @@ export class Dropdown extends React.Component {
         const menuWidth = this.buttonRef && this.buttonRef.offsetWidth || 0;
 
         return (
-            <div className={`Dropdown ${openClass} ${extraClass}`}>
+            <div className={`Dropdown ${openClass} ${extraClass}`} style={style}>
                 <button ref={button => { this.buttonRef = button; }}
                     className={`Dropdown-button ${promptClass}`}
                     disabled={this.props.disabled}
@@ -353,6 +354,7 @@ function positionMenu(selfWidth:number, selfHeight:number, targetWidth:number, t
 
 Dropdown.propTypes = {
     className: PropTypes.string,
+    style: PropTypes.object,
     placeholder: PropTypes.string,
     options: PropTypes.array,
     defaultOption: PropTypes.string,
