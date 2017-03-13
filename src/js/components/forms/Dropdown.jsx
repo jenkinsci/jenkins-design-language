@@ -294,10 +294,13 @@ export class Dropdown extends React.Component {
 
     render() {
         // console.log('render', this.state.menuOpen);
-        const { style } = this.props;
+        const { disabled, options, style } = this.props;
         const extraClass = this.props.className || '';
         const openClass = this.state.menuOpen ? 'Dropdown-menu-open' : 'Dropdown-menu-closed';
         const promptClass = !this.state.selectedOption ? 'Dropdown-placeholder' : '';
+
+        const noOptions = !options || !options.length;
+        const buttonDisabled = disabled || noOptions;
         const buttonLabel = this._optionToLabel(this.state.selectedOption) || this.props.placeholder;
         const menuWidth = this.buttonRef && this.buttonRef.offsetWidth || 0;
 
@@ -305,7 +308,7 @@ export class Dropdown extends React.Component {
             <div className={`Dropdown ${openClass} ${extraClass}`} style={style}>
                 <button ref={button => { this.buttonRef = button; }}
                     className={`Dropdown-button ${promptClass}`}
-                    disabled={this.props.disabled}
+                    disabled={buttonDisabled}
                     title={buttonLabel}
                     onClick={this._onDropdownMouseEvent}
                 >
@@ -330,7 +333,7 @@ export class Dropdown extends React.Component {
                         className="Dropdown-menu"
                         onWheel={this._onMenuScrollEvent}
                     >
-                        { this.props.options.map((option, index) => {
+                        { options && options.map((option, index) => {
                             const selectedClass = this.state.selectedOption === option ? 'Dropdown-menu-item-selected' : '';
                             const optionLabel = this._optionToLabel(option);
 
