@@ -166,12 +166,42 @@ function KeyboardFocus() {
 }
 
 function Callbacks() {
+    const options = createOptions();
+
+    const style = {
+        padding: 10,
+    };
+
+    const state = {
+        dropdown: null,
+    };
+
+    function changeHandler(val, index) {
+        console.log(`onChange val=${val}, index=${index}`);
+    }
+
+    function selectedHandler() {
+        console.log('selectedOption=', state.dropdown.selectedOption);
+    }
+
+    function selectRandom() {
+        const index = Math.round(Math.random() * (options.length - 1));
+        console.log('selecting random option', options[index]);
+        state.dropdown.selectOption(options[index]);
+    }
+
     return (
         <div style={style}>
             <Dropdown
-                options={createOptions()}
-                onChange={(val, index) => console.log(`onChange val=${val}, index=${index}`)}
+                ref={dropdown => state.dropdown = dropdown}
+                style={{ width: 200, marginRight: 10}}
+                options={options}
+                onChange={changeHandler}
             />
+
+            <button style={{marginRight: 10}} onClick={selectRandom}>Select Random</button>
+
+            <button onClick={selectedHandler}>Log Selected</button>
         </div>
     );
 }

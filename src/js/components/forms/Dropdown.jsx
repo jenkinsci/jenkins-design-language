@@ -56,6 +56,18 @@ export class Dropdown extends React.Component {
         return this.state.selectedOption;
     }
 
+    selectOption(option) {
+        const found = this.props.options && this.props.options.indexOf(option) !== -1;
+
+        if (!option || !found) {
+            return;
+        }
+
+        this.setState({
+            selectedOption: option,
+        });
+    }
+
     _defaultSelection(props) {
         if (!this.state.selectedOption && props.defaultOption) {
             this.setState({
