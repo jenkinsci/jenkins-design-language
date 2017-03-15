@@ -166,12 +166,34 @@ function KeyboardFocus() {
 }
 
 function Callbacks() {
+    const options = createOptions();
+
+    const style = {
+        padding: 10,
+    };
+
+    const refs = {
+        dropdown: null,
+    };
+
+    function changeHandler(val, index) {
+        console.log(`onChange val=${val}, index=${index}`);
+    }
+
+    function selectedHandler() {
+        console.log('selectedOption=', refs.dropdown.selectedOption);
+    }
+
     return (
         <div style={style}>
             <Dropdown
-                options={createOptions()}
-                onChange={(val, index) => console.log(`onChange val=${val}, index=${index}`)}
+                ref={dropdown => refs.dropdown = dropdown}
+                style={{ width: 200, marginRight: 10}}
+                options={options}
+                onChange={changeHandler}
             />
+
+            <button onClick={selectedHandler}>Log Selected</button>
         </div>
     );
 }
