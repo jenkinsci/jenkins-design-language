@@ -48,13 +48,22 @@ export {
 } from './dialog';
 export { FloatingElement } from './FloatingElement';
 export { IconButton } from './IconButton';
-export { Dropdown } from './forms/Dropdown';
+
+// export new controls in the "controls" namespace
+export { controls } from './controls';
+
+// export 'legacy' controls that wrap new controls but provide backwards-compatible API
+import { legacy } from './legacy';
+export const { Dropdown } = legacy;
+
+// export original (unwrapped) 'form' components
 export { Checkbox } from './forms/Checkbox';
 export { RadioButtonGroup } from './forms/RadioButtonGroup';
 export { TextArea } from './forms/TextArea';
 export { TextInput } from './forms/TextInput';
 export { FormElement } from './forms/FormElement';
 export { PasswordInput } from './forms/PasswordInput';
+
 export {
     BasicHeader,
     TopNav,

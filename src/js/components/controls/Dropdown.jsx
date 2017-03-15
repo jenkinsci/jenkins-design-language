@@ -28,12 +28,7 @@ export class Dropdown extends React.Component {
 
         this.state = {
             menuOpen: false,
-            selectedOption: null,
         };
-    }
-
-    componentWillMount() {
-        this._defaultSelection(this.props);
     }
 
     componentDidMount() {
@@ -50,30 +45,6 @@ export class Dropdown extends React.Component {
     componentWillUnmount() {
         document.removeEventListener('keydown', this._handleKeyEvent);
         document.removeEventListener('mousedown', this._handleMouseEvent);
-    }
-
-    get selectedOption() {
-        return this.state.selectedOption;
-    }
-
-    selectOption(option) {
-        const found = this.props.options && this.props.options.indexOf(option) !== -1;
-
-        if (!option || !found) {
-            return;
-        }
-
-        this.setState({
-            selectedOption: option,
-        });
-    }
-
-    _defaultSelection(props) {
-        if (!this.state.selectedOption && props.defaultOption) {
-            this.setState({
-                selectedOption: props.defaultOption,
-            });
-        }
     }
 
     _toggleDropdownMenu() {
@@ -191,8 +162,8 @@ export class Dropdown extends React.Component {
 
     _setInitialFocus() {
         // console.log('_setInitialFocus');
-        if (this.state.selectedOption) {
-            const selectedIndex = this.props.options.indexOf(this.state.selectedOption);
+        if (this.props.selectedOption) {
+            const selectedIndex = this.props.options.indexOf(this.props.selectedOption);
             const selectedListItem = this.menuRef.children[selectedIndex];
             this._focusListItem(selectedListItem);
         } else {
@@ -269,7 +240,6 @@ export class Dropdown extends React.Component {
 
     _applySelection(option, index) {
         this.setState({
-            selectedOption: option,
             menuOpen: false,
         });
 
@@ -297,11 +267,11 @@ export class Dropdown extends React.Component {
         const { disabled, options, style } = this.props;
         const extraClass = this.props.className || '';
         const openClass = this.state.menuOpen ? 'Dropdown-menu-open' : 'Dropdown-menu-closed';
-        const promptClass = !this.state.selectedOption ? 'Dropdown-placeholder' : '';
+        const promptClass = !this.props.selectedOption ? 'Dropdown-placeholder' : '';
 
         const noOptions = !options || !options.length;
         const buttonDisabled = disabled || noOptions;
-        const buttonLabel = this._optionToLabel(this.state.selectedOption) || this.props.placeholder;
+        const buttonLabel = this._optionToLabel(this.props.selectedOption) || this.props.placeholder;
         const menuWidth = this.buttonRef && this.buttonRef.offsetWidth || 0;
 
         return (
@@ -334,7 +304,7 @@ export class Dropdown extends React.Component {
                         onWheel={this._onMenuScrollEvent}
                     >
                         { options && options.map((option, index) => {
-                            const selectedClass = this.state.selectedOption === option ? 'Dropdown-menu-item-selected' : '';
+                            const selectedClass = this.props.selectedOption === option ? 'Dropdown-menu-item-selected' : '';
                             const optionLabel = this._optionToLabel(option);
 
                             return (
@@ -372,7 +342,7 @@ Dropdown.propTypes = {
     style: PropTypes.object,
     placeholder: PropTypes.string,
     options: PropTypes.array,
-    defaultOption: PropTypes.string,
+    selectedOption: PropTypes.object,
     labelField: PropTypes.string,
     labelFunction: PropTypes.func,
     disabled: PropTypes.bool,
