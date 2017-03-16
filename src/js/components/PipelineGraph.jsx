@@ -178,7 +178,16 @@ export class PipelineGraph extends Component {
 
             for (const nodeStage of nodeStages) {
 
+                // needed for dummmy data to prevent that render fails when not all nodes are in the context
                 const unknown = 'unknown';
+                const dummyStage = {
+                    children: [],
+                    completePercent: 100,
+                    id: -1,
+                    name: 'Unable to display more',
+                    state: unknown,
+                    title: 'dummyTitle',
+                };
                 const node = nodeStage ? {
                     x: xp,
                     y: yp,
@@ -190,11 +199,11 @@ export class PipelineGraph extends Component {
                 } : {
                         x: xp,
                         y: yp,
-                        name: "Unable to display more",
+                        name: 'Unable to display more',
                         state: unknown,
                         completePercent: 100,
                         id: -1,
-                        stage: nodeStage
+                        stage: dummyStage
                     };
 
                 columnNodes.push(node);
@@ -210,7 +219,7 @@ export class PipelineGraph extends Component {
                         x: xp,
                         y: yp,
                         text: "Unable to display more",
-                        stage: nodeStage,
+                        stage: dummyStage,
                     });
                 }
 
