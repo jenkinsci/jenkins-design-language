@@ -178,6 +178,7 @@ export class PipelineGraph extends Component {
 
             for (const nodeStage of nodeStages) {
 
+                const unknown = 'unknown';
                 const node = nodeStage ? {
                     x: xp,
                     y: yp,
@@ -190,21 +191,26 @@ export class PipelineGraph extends Component {
                         x: xp,
                         y: yp,
                         name: "Unable to display more",
-                        state: "state",
+                        state: unknown,
                         completePercent: 100,
-                        id: "id",
-                        stage: {}
+                        id: -1,
+                        stage: nodeStage
                     };
 
                 columnNodes.push(node);
 
                 // Only separate child nodes need a smallLabel, as topStage already has a bigLabel
                 if (nodeStage != topStage) {
-                    smallLabels.push({
+                    smallLabels.push(nodeStage ? {
                         x: xp,
                         y: yp,
-                        text: nodeStage ? nodeStage.name : "Unable to display more",
-                        stage: nodeStage ? nodeStage : {},
+                        text: nodeStage.name,
+                        stage: nodeStage,
+                    } :  {
+                        x: xp,
+                        y: yp,
+                        text: "Unable to display more",
+                        stage: nodeStage,
                     });
                 }
 
