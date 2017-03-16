@@ -177,7 +177,8 @@ export class PipelineGraph extends Component {
             const columnNodes: Array<NodeInfo> = [];
 
             for (const nodeStage of nodeStages) {
-                const node = {
+
+                const node = nodeStage ? {
                     x: xp,
                     y: yp,
                     name: nodeStage.name,
@@ -185,7 +186,15 @@ export class PipelineGraph extends Component {
                     completePercent: nodeStage.completePercent,
                     id: nodeStage.id,
                     stage: nodeStage
-                };
+                } : {
+                        x: xp,
+                        y: yp,
+                        name: "Unable to display more",
+                        state: "state",
+                        completePercent: 100,
+                        id: "id",
+                        stage: {}
+                    };
 
                 columnNodes.push(node);
 
@@ -194,8 +203,8 @@ export class PipelineGraph extends Component {
                     smallLabels.push({
                         x: xp,
                         y: yp,
-                        text: nodeStage.name,
-                        stage: nodeStage
+                        text: nodeStage ? nodeStage.name : "Unable to display more",
+                        stage: nodeStage ? nodeStage : {},
                     });
                 }
 
