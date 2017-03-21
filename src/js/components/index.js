@@ -62,4 +62,10 @@ export {
     PageTabs
 } from './header';
 export { Alerts } from './Alerts';
-export { Placeholder } from './Placeholder';
+export {
+    PlaceholderTable,
+    PlaceholderText,
+    PlaceholderCircle,
+    PlaceholderTextCell,
+    PlaceholderCircleCell,
+} from './Placeholder';
