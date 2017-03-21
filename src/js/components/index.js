@@ -62,3 +62,4 @@ export {
     PageTabs
 } from './header';
 export { Alerts } from './Alerts';
+export { Placeholder } from './Placeholder';

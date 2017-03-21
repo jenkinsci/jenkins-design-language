@@ -33,3 +33,4 @@ require('./PopoverStories');
 require('./DialogStories');
 require('./alerts');
 require('./LabelStories');
+require('./PlaceholderStories');
