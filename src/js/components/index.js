@@ -65,7 +65,7 @@ export { Alerts } from './Alerts';
 export {
     PlaceholderTable,
     PlaceholderText,
-    PlaceholderCircle,
+    PlaceholderIcon,
     PlaceholderTextCell,
-    PlaceholderCircleCell,
+    PlaceholderIconCell,
 } from './Placeholder';

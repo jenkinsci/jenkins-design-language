@@ -66,18 +66,18 @@ PlaceholderText.propTypes = {
 };
 
 
-export function PlaceholderCircle(props) {
+export function PlaceholderIcon(props) {
     const { size, style } = props;
     const rad = size / 2;
 
     return (
-        <svg className="Placeholder-circle" width={size} height={size} style={style}>
+        <svg className="Placeholder-icon" width={size} height={size} style={style}>
             <circle cx={rad} cy={rad} r={rad} />
         </svg>
     );
 }
 
-PlaceholderCircle.propTypes = {
+PlaceholderIcon.propTypes = {
     size: PropTypes.number,
     style: PropTypes.object,
 };
@@ -89,9 +89,9 @@ function createPlaceholderCell(item) {
     if (item['text']) {
         _props.size = item['text'];
         return <PlaceholderText { ..._props} />;
-    } else if (item['circle']) {
-        _props.size = item['circle'];
-        return <PlaceholderCircle {..._props} />;
+    } else if (item['icon']) {
+        _props.size = item['icon'];
+        return <PlaceholderIcon {..._props} />;
     }
 
     return null;
@@ -99,7 +99,11 @@ function createPlaceholderCell(item) {
 
 
 export function PlaceholderTextCell(props) {
-    return <TableCell style={props.style}><PlaceholderText size={props.size} /></TableCell>;
+    return (
+        <TableCell style={props.style}>
+            <PlaceholderText size={props.size} />
+        </TableCell>
+    );
 }
 
 PlaceholderTextCell.propTypes = {
@@ -108,11 +112,15 @@ PlaceholderTextCell.propTypes = {
 };
 
 
-export function PlaceholderCircleCell(props) {
-    return <TableCell style={props.style}><PlaceholderCircle size={props.size} /></TableCell>;
+export function PlaceholderIconCell(props) {
+    return (
+        <TableCell style={props.style}>
+            <PlaceholderIcon size={props.size} />
+        </TableCell>
+    );
 }
 
-PlaceholderCircleCell.propTypes = {
+PlaceholderIconCell.propTypes = {
     style: PropTypes.object,
     size: PropTypes.number,
 };

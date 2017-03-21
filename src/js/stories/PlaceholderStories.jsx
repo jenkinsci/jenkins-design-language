@@ -3,9 +3,9 @@ import { storiesOf } from '@kadira/storybook';
 import {
     PlaceholderTable,
     PlaceholderTextCell as TextCell,
-    PlaceholderCircleCell as CircleCell,
+    PlaceholderIconCell as IconCell,
     PlaceholderText,
-    PlaceholderCircle,
+    PlaceholderIcon,
 } from '../components';
 import { JTable, TableRow, TableCell } from '../components/';
 
@@ -22,11 +22,11 @@ const style = {
 
 function TableStory() {
     const columns = [
-        { width: 75, head: { text: 50 }, cell: { circle: 20 } },
+        { width: 75, head: { text: 50 }, cell: { icon: 20 } },
         { width: 250, isFlexible: true, head: { text: 50 }, cell: { text: 200 } },
         { width: 125, head: { text: 50 }, cell: { text: 100 } },
         { width: 125, head: { text: 50 }, cell: { text: 100 } },
-        { width: 50, head: { text: 50 }, cell: { circle: 20 } },
+        { width: 50, head: { text: 50 }, cell: { icon: 20 } },
     ];
 
     return (
@@ -49,7 +49,7 @@ function JTableStory() {
 
     return (
         <div style={style}>
-            <p>JTable using PlaceholderText/Circle and PlaceholderTextCell/CircleCell</p>
+            <p>JTable using PlaceholderText/Icon and PlaceholderTextCell/IconCell</p>
 
             <JTable columns={columns}>
                 <TableRow>
@@ -61,7 +61,7 @@ function JTableStory() {
                 </TableRow>
                 <TableRow>
                     <TableCell>
-                        <PlaceholderCircle size={20} style={{marginRight: 10}} />
+                        <PlaceholderIcon size={20} style={{marginRight: 10}} />
                         <PlaceholderText size={75} />
                     </TableCell>
                     <TableCell />
@@ -74,14 +74,14 @@ function JTableStory() {
                     <TextCell size={200} />
                     <TextCell size={100} />
                     <TextCell size={100} />
-                    <CircleCell size={20} />
+                    <IconCell size={20} />
                 </TableRow>
                 <TableRow>
                     <TextCell size={75} />
                     <TextCell size={50} />
                     <TextCell size={50} />
                     <TextCell size={50} />
-                    <CircleCell size={20} />
+                    <IconCell size={20} />
                 </TableRow>
             </JTable>
         </div>
