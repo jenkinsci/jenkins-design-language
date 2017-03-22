@@ -13,7 +13,7 @@ export class PlaceholderTable extends React.Component {
         const heads = columns.map(col => col.head);
         const cells = columns.map(col => col.cell);
         const rowIterator = new Array(rowCount).fill('');
-        const classString = `Placeholder ${className}`;
+        const classString = `PlaceholderTable ${className}`;
 
         return (
             <div className={classString} style={style}>
