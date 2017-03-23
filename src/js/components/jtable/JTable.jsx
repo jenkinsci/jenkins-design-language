@@ -14,7 +14,7 @@ export type ColumnDescription = {
 
 type Props = {
     className?: string,
-    children: ReactChildren,
+    children?: ReactChildren,
     columns: Array<ColumnDescription>,
     style?: Object
 };
