@@ -33,7 +33,7 @@ function TableStory() {
         <div style={style}>
             <p>PlaceholderTable driven by 'columns' prop</p>
 
-            <PlaceholderTable columns={columns} style={{maxHeight: 415}} />
+            <PlaceholderTable columns={columns} />
         </div>
     );
 }
