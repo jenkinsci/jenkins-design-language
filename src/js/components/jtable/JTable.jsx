@@ -7,7 +7,7 @@ export const TABLE_COLUMN_SPACING = 32;
 // !!!IMPORTANT!!! Don't change the above consts without changing jtable.less to match!
 
 export type ColumnDescription = {
-    name: string,
+    name?: string,
     width: number,
     isFlexible: boolean
 };
