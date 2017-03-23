@@ -2,7 +2,7 @@
 
 import React, { Component, PropTypes, Children } from 'react';
 
-export const TABLE_LEFT_RIGHT_PADDING = 24;
+export const TABLE_LEFT_RIGHT_PADDING = 15; // 16 inc border
 export const TABLE_COLUMN_SPACING = 32;
 // !!!IMPORTANT!!! Don't change the above consts without changing jtable.less to match!
 
