@@ -1,32 +1,74 @@
+// @flow
+
 import React, { PropTypes } from 'react';
 import { JTable } from './jtable/JTable';
 import { TableRow } from './jtable/TableRow';
 import { TableCell } from './jtable/TableCell';
 
 
+type CellDescription = {
+    text?: number,
+    icon?: number,
+};
+
+type ColumnDescription = {
+    width: number,
+    isFlexible: boolean,
+    head?: CellDescription,
+    cell?: CellDescription,
+};
+
+type TableProps = {
+    className: string,
+    style: Object,
+    columns: Array<ColumnDescription>,
+    rowCount: number,
+};
+
+type TextProps = {
+    style?: Object,
+    size: number,
+};
+
+type IconProps = {
+    style?: Object,
+    size: number,
+};
+
 
 export class PlaceholderTable extends React.Component {
+
+    props: TableProps;
+
+    static defaultProps: TableProps = {
+        className: '',
+        style: {},
+        columns: [],
+        rowCount: 20,
+    };
 
     render() {
         const { className, columns, rowCount, style } = this.props;
 
+        const tableCols = columns.map(col => ({ width: col.width, isFlexible: col.isFlexible }));
         const heads = columns.map(col => col.head);
         const cells = columns.map(col => col.cell);
+
         const rowIterator = new Array(rowCount).fill('');
         const classString = `PlaceholderTable ${className}`;
 
         return (
             <div className={classString} style={style}>
-                <JTable columns={columns}>
-                    <TableRow>
+                <JTable columns={tableCols}>
+                    <TableRow columns={tableCols}>
                         { heads.map((item, index) =>
-                            <TableCell key={index}>
+                            <TableCell key={`head-${index}`}>
                                 { createPlaceholderCell(item) }
                             </TableCell>
                         ) }
                     </TableRow>
                 { rowIterator.map((item, index) =>
-                    <TableRow key={`row-${index}`}>
+                    <TableRow key={`row-${index}`} columns={tableCols}>
                         { cells.map((item, index) =>
                             <TableCell key={`cell-${index}`}>
                                 { createPlaceholderCell(item) }
@@ -47,14 +89,9 @@ PlaceholderTable.propTypes = {
     rowCount: PropTypes.number,
 };
 
-PlaceholderTable.defaultProps = {
-    className: '',
-    style: {},
-    rowCount: 20,
-};
 
 
-export function PlaceholderText(props) {
+export function PlaceholderText(props: TextProps) {
     return (
         <div className="Placeholder-text" style={{ ...props.style, width: props.size }} />
     );
@@ -66,7 +103,7 @@ PlaceholderText.propTypes = {
 };
 
 
-export function PlaceholderIcon(props) {
+export function PlaceholderIcon(props: IconProps) {
     const { size, style } = props;
     const rad = size / 2;
 
@@ -84,21 +121,17 @@ PlaceholderIcon.propTypes = {
 
 
 function createPlaceholderCell(item) {
-    const _props = {};
-
-    if (item['text']) {
-        _props.size = item['text'];
-        return <PlaceholderText { ..._props} />;
-    } else if (item['icon']) {
-        _props.size = item['icon'];
-        return <PlaceholderIcon {..._props} />;
+    if (item && item.text) {
+        return <PlaceholderText size={item.text} />;
+    } else if (item && item.icon) {
+        return <PlaceholderIcon size={item.icon} />;
     }
 
     return null;
 }
 
 
-export function PlaceholderTextCell(props) {
+export function PlaceholderTextCell(props: TextProps) {
     return (
         <TableCell style={props.style}>
             <PlaceholderText size={props.size} />
@@ -112,7 +145,7 @@ PlaceholderTextCell.propTypes = {
 };
 
 
-export function PlaceholderIconCell(props) {
+export function PlaceholderIconCell(props: IconProps) {
     return (
         <TableCell style={props.style}>
             <PlaceholderIcon size={props.size} />
