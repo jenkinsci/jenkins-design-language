@@ -140,6 +140,9 @@ function manual() {
                 <TableHeader>NAND</TableHeader>
                 <TableHeader>Nonsense</TableHeader>
             </TableRow>
+            {
+                null // Make sure we can have optional rows, as well as optional columns!
+            }
             <TableRow href="http://www.example.org/alpha/">
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>

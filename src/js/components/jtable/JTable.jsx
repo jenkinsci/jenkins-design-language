@@ -112,8 +112,12 @@ export class JTable extends Component {
             columns
         };
 
-        const newChildren = Children.map(children, child => {
-            return React.cloneElement(child, newChildProps);
+        const newChildren = [];
+
+        Children.forEach(children, child => {
+            if (child) {
+                newChildren.push(React.cloneElement(child, newChildProps));
+            }
         });
 
         return (
