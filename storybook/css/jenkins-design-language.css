@@ -1,0 +1,4767 @@
+/*!
+* Jenkins Design Language CSS Theme
+*
+* Licensed under MIT
+*/
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+/* Document
+   ========================================================================== */
+
+html {
+  font-family: sans-serif; /* 1 */
+  line-height: 1.15; /* 2 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main { /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details, /* 1 */
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+}
+
+/* Webfont: LatoLatin-Light */@font-face {
+    font-family: 'LatoLatinWebLight';
+    src: url('../fonts/LatoLatin-Light.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: LatoLatin-Regular */@font-face {
+    font-family: 'LatoLatinWeb';
+    src: url('../fonts/LatoLatin-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: LatoLatin-Bold */@font-face {
+    font-family: 'LatoLatinWeb';
+    src: url('../fonts/LatoLatin-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: LatoLatin-Italic */@font-face {
+    font-family: 'LatoLatinWeb';
+    src: url('../fonts/LatoLatin-Italic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: LatoLatin-Medium */@font-face {
+    font-family: 'LatoLatinWebMedium';
+    src: url('../fonts/LatoLatin-Medium.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: LatoLatin-Semibold */@font-face {
+    font-family: 'LatoLatinWebSemibold';
+    src: url('../fonts/LatoLatin-Semibold.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
+@font-face {
+  font-family:"Octicons";
+  src:url("octicons.eot?ef21c39f0ca9b1b5116e5eb7ac5eabe6");
+  src:url("octicons.eot?#iefix") format("embedded-opentype"),
+		url("octicons.woff2?ef21c39f0ca9b1b5116e5eb7ac5eabe6") format("woff2"),
+		url("octicons.woff?ef21c39f0ca9b1b5116e5eb7ac5eabe6") format("woff"),
+		url("octicons.ttf?ef21c39f0ca9b1b5116e5eb7ac5eabe6") format("truetype"),
+		url("octicons.svg?ef21c39f0ca9b1b5116e5eb7ac5eabe6#octicons") format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+
+
+/*
+
+.octicon is optimized for 16px.
+.mega-octicon is optimized for 32px but can be used larger.
+
+*/
+.octicon, .mega-octicon {
+  font: normal normal normal 16px/1 Octicons;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  speak: none;
+}
+.mega-octicon { font-size: 32px; }
+
+.octicon-alert:before { content:"\f02d"; }
+
+.octicon-arrow-down:before { content:"\f03f"; }
+
+.octicon-arrow-left:before { content:"\f040"; }
+
+.octicon-arrow-right:before { content:"\f03e"; }
+
+.octicon-arrow-small-down:before { content:"\f0a0"; }
+
+.octicon-arrow-small-left:before { content:"\f0a1"; }
+
+.octicon-arrow-small-right:before { content:"\f071"; }
+
+.octicon-arrow-small-up:before { content:"\f09f"; }
+
+.octicon-arrow-up:before { content:"\f03d"; }
+
+.octicon-beaker:before { content:"\f0dd"; }
+
+.octicon-bell:before { content:"\f0de"; }
+
+.octicon-bold:before { content:"\f0e2"; }
+
+.octicon-book:before { content:"\f007"; }
+
+.octicon-bookmark:before { content:"\f07b"; }
+
+.octicon-briefcase:before { content:"\f0d3"; }
+
+.octicon-broadcast:before { content:"\f048"; }
+
+.octicon-browser:before { content:"\f0c5"; }
+
+.octicon-bug:before { content:"\f091"; }
+
+.octicon-calendar:before { content:"\f068"; }
+
+.octicon-check:before { content:"\f03a"; }
+
+.octicon-checklist:before { content:"\f076"; }
+
+.octicon-chevron-down:before { content:"\f0a3"; }
+
+.octicon-chevron-left:before { content:"\f0a4"; }
+
+.octicon-chevron-right:before { content:"\f078"; }
+
+.octicon-chevron-up:before { content:"\f0a2"; }
+
+.octicon-circle-slash:before { content:"\f084"; }
+
+.octicon-circuit-board:before { content:"\f0d6"; }
+
+.octicon-clippy:before { content:"\f035"; }
+
+.octicon-clock:before { content:"\f046"; }
+
+.octicon-cloud-download:before { content:"\f00b"; }
+
+.octicon-cloud-upload:before { content:"\f00c"; }
+
+.octicon-code:before { content:"\f05f"; }
+
+.octicon-comment-discussion:before { content:"\f04f"; }
+
+.octicon-comment:before { content:"\f02b"; }
+
+.octicon-credit-card:before { content:"\f045"; }
+
+.octicon-dash:before { content:"\f0ca"; }
+
+.octicon-dashboard:before { content:"\f07d"; }
+
+.octicon-database:before { content:"\f096"; }
+
+.octicon-desktop-download:before { content:"\f0dc"; }
+
+.octicon-device-camera-video:before { content:"\f057"; }
+
+.octicon-device-camera:before { content:"\f056"; }
+
+.octicon-device-desktop:before { content:"\f27c"; }
+
+.octicon-device-mobile:before { content:"\f038"; }
+
+.octicon-diff-added:before { content:"\f06b"; }
+
+.octicon-diff-ignored:before { content:"\f099"; }
+
+.octicon-diff-modified:before { content:"\f06d"; }
+
+.octicon-diff-removed:before { content:"\f06c"; }
+
+.octicon-diff-renamed:before { content:"\f06e"; }
+
+.octicon-diff:before { content:"\f04d"; }
+
+.octicon-ellipses:before { content:"\f101"; }
+
+.octicon-ellipsis:before { content:"\f09a"; }
+
+.octicon-eye:before { content:"\f04e"; }
+
+.octicon-file-binary:before { content:"\f094"; }
+
+.octicon-file-code:before { content:"\f010"; }
+
+.octicon-file-directory:before { content:"\f016"; }
+
+.octicon-file-media:before { content:"\f012"; }
+
+.octicon-file-pdf:before { content:"\f014"; }
+
+.octicon-file-submodule:before { content:"\f017"; }
+
+.octicon-file-symlink-directory:before { content:"\f0b1"; }
+
+.octicon-file-symlink-file:before { content:"\f0b0"; }
+
+.octicon-file-text:before { content:"\f011"; }
+
+.octicon-file-zip:before { content:"\f013"; }
+
+.octicon-file:before { content:"\f102"; }
+
+.octicon-flame:before { content:"\f0d2"; }
+
+.octicon-fold:before { content:"\f0cc"; }
+
+.octicon-gear:before { content:"\f02f"; }
+
+.octicon-gift:before { content:"\f042"; }
+
+.octicon-gist-secret:before { content:"\f08c"; }
+
+.octicon-gist:before { content:"\f00e"; }
+
+.octicon-git-branch:before { content:"\f020"; }
+
+.octicon-git-commit:before { content:"\f01f"; }
+
+.octicon-git-compare:before { content:"\f0ac"; }
+
+.octicon-git-merge:before { content:"\f023"; }
+
+.octicon-git-pull-request:before { content:"\f009"; }
+
+.octicon-globe:before { content:"\f0b6"; }
+
+.octicon-grabber:before { content:"\f103"; }
+
+.octicon-graph:before { content:"\f043"; }
+
+.octicon-heart:before { content:"\2665"; }
+
+.octicon-history:before { content:"\f07e"; }
+
+.octicon-home:before { content:"\f08d"; }
+
+.octicon-horizontal-rule:before { content:"\f070"; }
+
+.octicon-hubot:before { content:"\f09d"; }
+
+.octicon-inbox:before { content:"\f0cf"; }
+
+.octicon-info:before { content:"\f059"; }
+
+.octicon-issue-closed:before { content:"\f028"; }
+
+.octicon-issue-opened:before { content:"\f026"; }
+
+.octicon-issue-reopened:before { content:"\f027"; }
+
+.octicon-italic:before { content:"\f0e4"; }
+
+.octicon-jersey:before { content:"\f019"; }
+
+.octicon-key:before { content:"\f049"; }
+
+.octicon-keyboard:before { content:"\f00d"; }
+
+.octicon-law:before { content:"\f0d8"; }
+
+.octicon-light-bulb:before { content:"\f000"; }
+
+.octicon-link-external:before { content:"\f07f"; }
+
+.octicon-link:before { content:"\f05c"; }
+
+.octicon-list-ordered:before { content:"\f062"; }
+
+.octicon-list-unordered:before { content:"\f061"; }
+
+.octicon-location:before { content:"\f060"; }
+
+.octicon-lock:before { content:"\f06a"; }
+
+.octicon-logo-gist:before { content:"\f0ad"; }
+
+.octicon-logo-github:before { content:"\f092"; }
+
+.octicon-mail-read:before { content:"\f03c"; }
+
+.octicon-mail-reply:before { content:"\f051"; }
+
+.octicon-mail:before { content:"\f03b"; }
+
+.octicon-mark-github:before { content:"\f00a"; }
+
+.octicon-markdown:before { content:"\f0c9"; }
+
+.octicon-megaphone:before { content:"\f077"; }
+
+.octicon-mention:before { content:"\f0be"; }
+
+.octicon-milestone:before { content:"\f075"; }
+
+.octicon-mirror:before { content:"\f024"; }
+
+.octicon-mortar-board:before { content:"\f0d7"; }
+
+.octicon-mute:before { content:"\f080"; }
+
+.octicon-no-newline:before { content:"\f09c"; }
+
+.octicon-octoface:before { content:"\f008"; }
+
+.octicon-organization:before { content:"\f037"; }
+
+.octicon-package:before { content:"\f0c4"; }
+
+.octicon-paintcan:before { content:"\f0d1"; }
+
+.octicon-pencil:before { content:"\f058"; }
+
+.octicon-person:before { content:"\f018"; }
+
+.octicon-pin:before { content:"\f041"; }
+
+.octicon-plug:before { content:"\f0d4"; }
+
+.octicon-plus-small:before { content:"\f104"; }
+
+.octicon-plus:before { content:"\f05d"; }
+
+.octicon-primitive-dot:before { content:"\f052"; }
+
+.octicon-primitive-square:before { content:"\f053"; }
+
+.octicon-pulse:before { content:"\f085"; }
+
+.octicon-question:before { content:"\f02c"; }
+
+.octicon-quote:before { content:"\f063"; }
+
+.octicon-radio-tower:before { content:"\f030"; }
+
+.octicon-reply:before { content:"\f105"; }
+
+.octicon-repo-clone:before { content:"\f04c"; }
+
+.octicon-repo-force-push:before { content:"\f04a"; }
+
+.octicon-repo-forked:before { content:"\f002"; }
+
+.octicon-repo-pull:before { content:"\f006"; }
+
+.octicon-repo-push:before { content:"\f005"; }
+
+.octicon-repo:before { content:"\f001"; }
+
+.octicon-rocket:before { content:"\f033"; }
+
+.octicon-rss:before { content:"\f034"; }
+
+.octicon-ruby:before { content:"\f047"; }
+
+.octicon-search:before { content:"\f02e"; }
+
+.octicon-server:before { content:"\f097"; }
+
+.octicon-settings:before { content:"\f07c"; }
+
+.octicon-shield:before { content:"\f0e1"; }
+
+.octicon-sign-in:before { content:"\f036"; }
+
+.octicon-sign-out:before { content:"\f032"; }
+
+.octicon-smiley:before { content:"\f0e7"; }
+
+.octicon-squirrel:before { content:"\f0b2"; }
+
+.octicon-star:before { content:"\f02a"; }
+
+.octicon-stop:before { content:"\f08f"; }
+
+.octicon-sync:before { content:"\f087"; }
+
+.octicon-tag:before { content:"\f015"; }
+
+.octicon-tasklist:before { content:"\f0e5"; }
+
+.octicon-telescope:before { content:"\f088"; }
+
+.octicon-terminal:before { content:"\f0c8"; }
+
+.octicon-text-size:before { content:"\f0e3"; }
+
+.octicon-three-bars:before { content:"\f05e"; }
+
+.octicon-thumbsdown:before { content:"\f0db"; }
+
+.octicon-thumbsup:before { content:"\f0da"; }
+
+.octicon-tools:before { content:"\f031"; }
+
+.octicon-trashcan:before { content:"\f0d0"; }
+
+.octicon-triangle-down:before { content:"\f05b"; }
+
+.octicon-triangle-left:before { content:"\f044"; }
+
+.octicon-triangle-right:before { content:"\f05a"; }
+
+.octicon-triangle-up:before { content:"\f0aa"; }
+
+.octicon-unfold:before { content:"\f039"; }
+
+.octicon-unmute:before { content:"\f0ba"; }
+
+.octicon-unverified:before { content:"\f0e8"; }
+
+.octicon-verified:before { content:"\f0e6"; }
+
+.octicon-versions:before { content:"\f064"; }
+
+.octicon-watch:before { content:"\f0e0"; }
+
+.octicon-x:before { content:"\f081"; }
+
+.octicon-zap:before { content:"\26a1"; }
+
+
+.weather-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.weather-icon.large-icon {
+  width: 60px;
+  height: 60px;
+}
+.jdl-table td .weather-icon {
+  vertical-align: middle;
+}
+.weather-sunny {
+  background-image: url("../icons/weather/Sunny.svg");
+}
+.weather-partially-sunny {
+  background-image: url("../icons/weather/Partially%20Sunny.svg");
+}
+.weather-cloudy {
+  background-image: url("../icons/weather/Cloudy.svg");
+}
+.weather-raining {
+  background-image: url("../icons/weather/Raining.svg");
+}
+.weather-storm {
+  background-image: url("../icons/weather/Storm.svg");
+}
+.control-border {
+  border: 1px solid rgba(73, 73, 73, 0.5);
+  border-radius: 3px;
+}
+.focus-rect {
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.ie11-focus-rect {
+  box-shadow: inset 0 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.focus-styles {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.u-disabled {
+  opacity: 0.4;
+  cursor: auto;
+}
+.u-error-color {
+  color: #d54c53;
+}
+.u-error-border {
+  border-color: #d54c53;
+}
+.cloak {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+button,
+.btn,
+.btn-default,
+.btn-primary {
+  display: inline-block;
+  border: solid 1px #4A90E2;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4A90E2;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 20px;
+}
+button:hover,
+.btn:hover,
+.btn-default:hover,
+.btn-primary:hover,
+button.hover,
+.btn.hover,
+.btn-default.hover,
+.btn-primary.hover {
+  color: #fff;
+  background-color: #3080de;
+  text-decoration: none;
+}
+button:focus,
+.btn:focus,
+.btn-default:focus,
+.btn-primary:focus,
+button.focus,
+.btn.focus,
+.btn-default.focus,
+.btn-primary.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+button:active,
+.btn:active,
+.btn-default:active,
+.btn-primary:active,
+button.active,
+.btn.active,
+.btn-default.active,
+.btn-primary.active {
+  background-color: #2171ce;
+}
+button.disabled,
+.btn.disabled,
+.btn-default.disabled,
+.btn-primary.disabled,
+button[disabled],
+.btn[disabled],
+.btn-default[disabled],
+.btn-primary[disabled],
+fieldset[disabled] button,
+fieldset[disabled] .btn,
+fieldset[disabled] .btn-default,
+fieldset[disabled] .btn-primary,
+button.disabled:hover,
+.btn.disabled:hover,
+.btn-default.disabled:hover,
+.btn-primary.disabled:hover,
+button[disabled]:hover,
+.btn[disabled]:hover,
+.btn-default[disabled]:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] button:hover,
+fieldset[disabled] .btn:hover,
+fieldset[disabled] .btn-default:hover,
+fieldset[disabled] .btn-primary:hover,
+button.disabled:focus,
+.btn.disabled:focus,
+.btn-default.disabled:focus,
+.btn-primary.disabled:focus,
+button[disabled]:focus,
+.btn[disabled]:focus,
+.btn-default[disabled]:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] button:focus,
+fieldset[disabled] .btn:focus,
+fieldset[disabled] .btn-default:focus,
+fieldset[disabled] .btn-primary:focus,
+button.disabled.focus,
+.btn.disabled.focus,
+.btn-default.disabled.focus,
+.btn-primary.disabled.focus,
+button[disabled].focus,
+.btn[disabled].focus,
+.btn-default[disabled].focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] button.focus,
+fieldset[disabled] .btn.focus,
+fieldset[disabled] .btn-default.focus,
+fieldset[disabled] .btn-primary.focus,
+button.disabled:active,
+.btn.disabled:active,
+.btn-default.disabled:active,
+.btn-primary.disabled:active,
+button[disabled]:active,
+.btn[disabled]:active,
+.btn-default[disabled]:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] button:active,
+fieldset[disabled] .btn:active,
+fieldset[disabled] .btn-default:active,
+fieldset[disabled] .btn-primary:active,
+button.disabled.active,
+.btn.disabled.active,
+.btn-default.disabled.active,
+.btn-primary.disabled.active,
+button[disabled].active,
+.btn[disabled].active,
+.btn-default[disabled].active,
+.btn-primary[disabled].active,
+fieldset[disabled] button.active,
+fieldset[disabled] .btn.active,
+fieldset[disabled] .btn-default.active,
+fieldset[disabled] .btn-primary.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: #4A90E2;
+}
+.layout-small button,
+.layout-small .btn,
+.layout-small .btn-default,
+.layout-small .btn-primary {
+  padding: 5px 10px;
+}
+.layout-large button,
+.layout-large .btn,
+.layout-large .btn-default,
+.layout-large .btn-primary {
+  padding: 8px 24px;
+}
+a.btn-link {
+  display: inline-block;
+  border: solid 1px transparent;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #4A90E2;
+  cursor: pointer;
+  text-align: left;
+}
+a.btn-link:hover,
+a.btn-link.hover {
+  color: #4A90E2;
+  background-color: rgba(74, 144, 226, 0.08);
+  text-decoration: none;
+}
+a.btn-link:focus,
+a.btn-link.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+a.btn-link:active,
+a.btn-link.active {
+  background-color: rgba(74, 144, 226, 0.18);
+}
+a.btn-link.disabled,
+a.btn-link[disabled],
+fieldset[disabled] a.btn-link,
+a.btn-link.disabled:hover,
+a.btn-link[disabled]:hover,
+fieldset[disabled] a.btn-link:hover,
+a.btn-link.disabled:focus,
+a.btn-link[disabled]:focus,
+fieldset[disabled] a.btn-link:focus,
+a.btn-link.disabled.focus,
+a.btn-link[disabled].focus,
+fieldset[disabled] a.btn-link.focus,
+a.btn-link.disabled:active,
+a.btn-link[disabled]:active,
+fieldset[disabled] a.btn-link:active,
+a.btn-link.disabled.active,
+a.btn-link[disabled].active,
+fieldset[disabled] a.btn-link.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: transparent;
+}
+.btn-secondary {
+  display: inline-block;
+  border: solid 1px rgba(74, 144, 226, 0.5);
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #4A90E2;
+  cursor: pointer;
+}
+.btn-secondary:hover,
+.btn-secondary.hover {
+  color: #4A90E2;
+  background-color: rgba(74, 144, 226, 0.08);
+  text-decoration: none;
+}
+.btn-secondary:focus,
+.btn-secondary.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.btn-secondary:active,
+.btn-secondary.active {
+  background-color: rgba(74, 144, 226, 0.18);
+}
+.btn-secondary.disabled,
+.btn-secondary[disabled],
+fieldset[disabled] .btn-secondary,
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus,
+.btn-secondary.disabled:active,
+.btn-secondary[disabled]:active,
+fieldset[disabled] .btn-secondary:active,
+.btn-secondary.disabled.active,
+.btn-secondary[disabled].active,
+fieldset[disabled] .btn-secondary.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: transparent;
+}
+.btn-danger {
+  display: inline-block;
+  border: solid 1px #d54c53;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #d54c53;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-danger:hover,
+.btn-danger.hover {
+  color: #fff;
+  background-color: #d54c53;
+  text-decoration: none;
+}
+.btn-danger:focus,
+.btn-danger.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #d54c53;
+}
+.btn-danger.disabled,
+.btn-danger[disabled],
+fieldset[disabled] .btn-danger,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-danger:hover,
+.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-danger:focus,
+.btn-danger.disabled.focus,
+.btn-danger[disabled].focus,
+fieldset[disabled] .btn-danger.focus,
+.btn-danger.disabled:active,
+.btn-danger[disabled]:active,
+fieldset[disabled] .btn-danger:active,
+.btn-danger.disabled.active,
+.btn-danger[disabled].active,
+fieldset[disabled] .btn-danger.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: #d54c53;
+}
+.btn-secondary.btn-danger {
+  display: inline-block;
+  border: solid 1px rgba(213, 76, 83, 0.5);
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #d54c53;
+  cursor: pointer;
+}
+.btn-secondary.btn-danger:hover,
+.btn-secondary.btn-danger.hover {
+  color: #d54c53;
+  background-color: rgba(213, 76, 83, 0.08);
+  text-decoration: none;
+}
+.btn-secondary.btn-danger:focus,
+.btn-secondary.btn-danger.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.btn-secondary.btn-danger:active,
+.btn-secondary.btn-danger.active {
+  background-color: rgba(213, 76, 83, 0.18);
+}
+.btn-secondary.btn-danger.disabled,
+.btn-secondary.btn-danger[disabled],
+fieldset[disabled] .btn-secondary.btn-danger,
+.btn-secondary.btn-danger.disabled:hover,
+.btn-secondary.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-secondary.btn-danger:hover,
+.btn-secondary.btn-danger.disabled:focus,
+.btn-secondary.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-secondary.btn-danger:focus,
+.btn-secondary.btn-danger.disabled.focus,
+.btn-secondary.btn-danger[disabled].focus,
+fieldset[disabled] .btn-secondary.btn-danger.focus,
+.btn-secondary.btn-danger.disabled:active,
+.btn-secondary.btn-danger[disabled]:active,
+fieldset[disabled] .btn-secondary.btn-danger:active,
+.btn-secondary.btn-danger.disabled.active,
+.btn-secondary.btn-danger[disabled].active,
+fieldset[disabled] .btn-secondary.btn-danger.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: transparent;
+}
+button.inverse,
+.btn.inverse,
+.btn-default.inverse,
+.btn-primary.inverse,
+.btn-secondary.inverse,
+.btn-danger.inverse,
+a.btn-link.inverse,
+.inverse button,
+.inverse .btn,
+.inverse .btn-default,
+.inverse .btn-primary,
+.inverse .btn-secondary,
+.inverse .btn-danger,
+.inverse a.btn-link,
+.inverse-background button,
+.inverse-background .btn,
+.inverse-background .btn-default,
+.inverse-background .btn-primary,
+.inverse-background .btn-secondary,
+.inverse-background .btn-danger,
+.inverse-background a.btn-link {
+  display: inline-block;
+  border: solid 1px #fff;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+button.inverse:hover,
+.btn.inverse:hover,
+.btn-default.inverse:hover,
+.btn-primary.inverse:hover,
+.btn-secondary.inverse:hover,
+.btn-danger.inverse:hover,
+a.btn-link.inverse:hover,
+.inverse button:hover,
+.inverse .btn:hover,
+.inverse .btn-default:hover,
+.inverse .btn-primary:hover,
+.inverse .btn-secondary:hover,
+.inverse .btn-danger:hover,
+.inverse a.btn-link:hover,
+.inverse-background button:hover,
+.inverse-background .btn:hover,
+.inverse-background .btn-default:hover,
+.inverse-background .btn-primary:hover,
+.inverse-background .btn-secondary:hover,
+.inverse-background .btn-danger:hover,
+.inverse-background a.btn-link:hover,
+button.inverse.hover,
+.btn.inverse.hover,
+.btn-default.inverse.hover,
+.btn-primary.inverse.hover,
+.btn-secondary.inverse.hover,
+.btn-danger.inverse.hover,
+a.btn-link.inverse.hover,
+.inverse button.hover,
+.inverse .btn.hover,
+.inverse .btn-default.hover,
+.inverse .btn-primary.hover,
+.inverse .btn-secondary.hover,
+.inverse .btn-danger.hover,
+.inverse a.btn-link.hover,
+.inverse-background button.hover,
+.inverse-background .btn.hover,
+.inverse-background .btn-default.hover,
+.inverse-background .btn-primary.hover,
+.inverse-background .btn-secondary.hover,
+.inverse-background .btn-danger.hover,
+.inverse-background a.btn-link.hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+button.inverse:focus,
+.btn.inverse:focus,
+.btn-default.inverse:focus,
+.btn-primary.inverse:focus,
+.btn-secondary.inverse:focus,
+.btn-danger.inverse:focus,
+a.btn-link.inverse:focus,
+.inverse button:focus,
+.inverse .btn:focus,
+.inverse .btn-default:focus,
+.inverse .btn-primary:focus,
+.inverse .btn-secondary:focus,
+.inverse .btn-danger:focus,
+.inverse a.btn-link:focus,
+.inverse-background button:focus,
+.inverse-background .btn:focus,
+.inverse-background .btn-default:focus,
+.inverse-background .btn-primary:focus,
+.inverse-background .btn-secondary:focus,
+.inverse-background .btn-danger:focus,
+.inverse-background a.btn-link:focus,
+button.inverse.focus,
+.btn.inverse.focus,
+.btn-default.inverse.focus,
+.btn-primary.inverse.focus,
+.btn-secondary.inverse.focus,
+.btn-danger.inverse.focus,
+a.btn-link.inverse.focus,
+.inverse button.focus,
+.inverse .btn.focus,
+.inverse .btn-default.focus,
+.inverse .btn-primary.focus,
+.inverse .btn-secondary.focus,
+.inverse .btn-danger.focus,
+.inverse a.btn-link.focus,
+.inverse-background button.focus,
+.inverse-background .btn.focus,
+.inverse-background .btn-default.focus,
+.inverse-background .btn-primary.focus,
+.inverse-background .btn-secondary.focus,
+.inverse-background .btn-danger.focus,
+.inverse-background a.btn-link.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+button.inverse:active,
+.btn.inverse:active,
+.btn-default.inverse:active,
+.btn-primary.inverse:active,
+.btn-secondary.inverse:active,
+.btn-danger.inverse:active,
+a.btn-link.inverse:active,
+.inverse button:active,
+.inverse .btn:active,
+.inverse .btn-default:active,
+.inverse .btn-primary:active,
+.inverse .btn-secondary:active,
+.inverse .btn-danger:active,
+.inverse a.btn-link:active,
+.inverse-background button:active,
+.inverse-background .btn:active,
+.inverse-background .btn-default:active,
+.inverse-background .btn-primary:active,
+.inverse-background .btn-secondary:active,
+.inverse-background .btn-danger:active,
+.inverse-background a.btn-link:active,
+button.inverse.active,
+.btn.inverse.active,
+.btn-default.inverse.active,
+.btn-primary.inverse.active,
+.btn-secondary.inverse.active,
+.btn-danger.inverse.active,
+a.btn-link.inverse.active,
+.inverse button.active,
+.inverse .btn.active,
+.inverse .btn-default.active,
+.inverse .btn-primary.active,
+.inverse .btn-secondary.active,
+.inverse .btn-danger.active,
+.inverse a.btn-link.active,
+.inverse-background button.active,
+.inverse-background .btn.active,
+.inverse-background .btn-default.active,
+.inverse-background .btn-primary.active,
+.inverse-background .btn-secondary.active,
+.inverse-background .btn-danger.active,
+.inverse-background a.btn-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+button.inverse.disabled,
+.btn.inverse.disabled,
+.btn-default.inverse.disabled,
+.btn-primary.inverse.disabled,
+.btn-secondary.inverse.disabled,
+.btn-danger.inverse.disabled,
+a.btn-link.inverse.disabled,
+.inverse button.disabled,
+.inverse .btn.disabled,
+.inverse .btn-default.disabled,
+.inverse .btn-primary.disabled,
+.inverse .btn-secondary.disabled,
+.inverse .btn-danger.disabled,
+.inverse a.btn-link.disabled,
+.inverse-background button.disabled,
+.inverse-background .btn.disabled,
+.inverse-background .btn-default.disabled,
+.inverse-background .btn-primary.disabled,
+.inverse-background .btn-secondary.disabled,
+.inverse-background .btn-danger.disabled,
+.inverse-background a.btn-link.disabled,
+button.inverse[disabled],
+.btn.inverse[disabled],
+.btn-default.inverse[disabled],
+.btn-primary.inverse[disabled],
+.btn-secondary.inverse[disabled],
+.btn-danger.inverse[disabled],
+a.btn-link.inverse[disabled],
+.inverse button[disabled],
+.inverse .btn[disabled],
+.inverse .btn-default[disabled],
+.inverse .btn-primary[disabled],
+.inverse .btn-secondary[disabled],
+.inverse .btn-danger[disabled],
+.inverse a.btn-link[disabled],
+.inverse-background button[disabled],
+.inverse-background .btn[disabled],
+.inverse-background .btn-default[disabled],
+.inverse-background .btn-primary[disabled],
+.inverse-background .btn-secondary[disabled],
+.inverse-background .btn-danger[disabled],
+.inverse-background a.btn-link[disabled],
+fieldset[disabled] button.inverse,
+fieldset[disabled] .btn.inverse,
+fieldset[disabled] .btn-default.inverse,
+fieldset[disabled] .btn-primary.inverse,
+fieldset[disabled] .btn-secondary.inverse,
+fieldset[disabled] .btn-danger.inverse,
+fieldset[disabled] a.btn-link.inverse,
+fieldset[disabled] .inverse button,
+fieldset[disabled] .inverse .btn,
+fieldset[disabled] .inverse .btn-default,
+fieldset[disabled] .inverse .btn-primary,
+fieldset[disabled] .inverse .btn-secondary,
+fieldset[disabled] .inverse .btn-danger,
+fieldset[disabled] .inverse a.btn-link,
+fieldset[disabled] .inverse-background button,
+fieldset[disabled] .inverse-background .btn,
+fieldset[disabled] .inverse-background .btn-default,
+fieldset[disabled] .inverse-background .btn-primary,
+fieldset[disabled] .inverse-background .btn-secondary,
+fieldset[disabled] .inverse-background .btn-danger,
+fieldset[disabled] .inverse-background a.btn-link,
+button.inverse.disabled:hover,
+.btn.inverse.disabled:hover,
+.btn-default.inverse.disabled:hover,
+.btn-primary.inverse.disabled:hover,
+.btn-secondary.inverse.disabled:hover,
+.btn-danger.inverse.disabled:hover,
+a.btn-link.inverse.disabled:hover,
+.inverse button.disabled:hover,
+.inverse .btn.disabled:hover,
+.inverse .btn-default.disabled:hover,
+.inverse .btn-primary.disabled:hover,
+.inverse .btn-secondary.disabled:hover,
+.inverse .btn-danger.disabled:hover,
+.inverse a.btn-link.disabled:hover,
+.inverse-background button.disabled:hover,
+.inverse-background .btn.disabled:hover,
+.inverse-background .btn-default.disabled:hover,
+.inverse-background .btn-primary.disabled:hover,
+.inverse-background .btn-secondary.disabled:hover,
+.inverse-background .btn-danger.disabled:hover,
+.inverse-background a.btn-link.disabled:hover,
+button.inverse[disabled]:hover,
+.btn.inverse[disabled]:hover,
+.btn-default.inverse[disabled]:hover,
+.btn-primary.inverse[disabled]:hover,
+.btn-secondary.inverse[disabled]:hover,
+.btn-danger.inverse[disabled]:hover,
+a.btn-link.inverse[disabled]:hover,
+.inverse button[disabled]:hover,
+.inverse .btn[disabled]:hover,
+.inverse .btn-default[disabled]:hover,
+.inverse .btn-primary[disabled]:hover,
+.inverse .btn-secondary[disabled]:hover,
+.inverse .btn-danger[disabled]:hover,
+.inverse a.btn-link[disabled]:hover,
+.inverse-background button[disabled]:hover,
+.inverse-background .btn[disabled]:hover,
+.inverse-background .btn-default[disabled]:hover,
+.inverse-background .btn-primary[disabled]:hover,
+.inverse-background .btn-secondary[disabled]:hover,
+.inverse-background .btn-danger[disabled]:hover,
+.inverse-background a.btn-link[disabled]:hover,
+fieldset[disabled] button.inverse:hover,
+fieldset[disabled] .btn.inverse:hover,
+fieldset[disabled] .btn-default.inverse:hover,
+fieldset[disabled] .btn-primary.inverse:hover,
+fieldset[disabled] .btn-secondary.inverse:hover,
+fieldset[disabled] .btn-danger.inverse:hover,
+fieldset[disabled] a.btn-link.inverse:hover,
+fieldset[disabled] .inverse button:hover,
+fieldset[disabled] .inverse .btn:hover,
+fieldset[disabled] .inverse .btn-default:hover,
+fieldset[disabled] .inverse .btn-primary:hover,
+fieldset[disabled] .inverse .btn-secondary:hover,
+fieldset[disabled] .inverse .btn-danger:hover,
+fieldset[disabled] .inverse a.btn-link:hover,
+fieldset[disabled] .inverse-background button:hover,
+fieldset[disabled] .inverse-background .btn:hover,
+fieldset[disabled] .inverse-background .btn-default:hover,
+fieldset[disabled] .inverse-background .btn-primary:hover,
+fieldset[disabled] .inverse-background .btn-secondary:hover,
+fieldset[disabled] .inverse-background .btn-danger:hover,
+fieldset[disabled] .inverse-background a.btn-link:hover,
+button.inverse.disabled:focus,
+.btn.inverse.disabled:focus,
+.btn-default.inverse.disabled:focus,
+.btn-primary.inverse.disabled:focus,
+.btn-secondary.inverse.disabled:focus,
+.btn-danger.inverse.disabled:focus,
+a.btn-link.inverse.disabled:focus,
+.inverse button.disabled:focus,
+.inverse .btn.disabled:focus,
+.inverse .btn-default.disabled:focus,
+.inverse .btn-primary.disabled:focus,
+.inverse .btn-secondary.disabled:focus,
+.inverse .btn-danger.disabled:focus,
+.inverse a.btn-link.disabled:focus,
+.inverse-background button.disabled:focus,
+.inverse-background .btn.disabled:focus,
+.inverse-background .btn-default.disabled:focus,
+.inverse-background .btn-primary.disabled:focus,
+.inverse-background .btn-secondary.disabled:focus,
+.inverse-background .btn-danger.disabled:focus,
+.inverse-background a.btn-link.disabled:focus,
+button.inverse[disabled]:focus,
+.btn.inverse[disabled]:focus,
+.btn-default.inverse[disabled]:focus,
+.btn-primary.inverse[disabled]:focus,
+.btn-secondary.inverse[disabled]:focus,
+.btn-danger.inverse[disabled]:focus,
+a.btn-link.inverse[disabled]:focus,
+.inverse button[disabled]:focus,
+.inverse .btn[disabled]:focus,
+.inverse .btn-default[disabled]:focus,
+.inverse .btn-primary[disabled]:focus,
+.inverse .btn-secondary[disabled]:focus,
+.inverse .btn-danger[disabled]:focus,
+.inverse a.btn-link[disabled]:focus,
+.inverse-background button[disabled]:focus,
+.inverse-background .btn[disabled]:focus,
+.inverse-background .btn-default[disabled]:focus,
+.inverse-background .btn-primary[disabled]:focus,
+.inverse-background .btn-secondary[disabled]:focus,
+.inverse-background .btn-danger[disabled]:focus,
+.inverse-background a.btn-link[disabled]:focus,
+fieldset[disabled] button.inverse:focus,
+fieldset[disabled] .btn.inverse:focus,
+fieldset[disabled] .btn-default.inverse:focus,
+fieldset[disabled] .btn-primary.inverse:focus,
+fieldset[disabled] .btn-secondary.inverse:focus,
+fieldset[disabled] .btn-danger.inverse:focus,
+fieldset[disabled] a.btn-link.inverse:focus,
+fieldset[disabled] .inverse button:focus,
+fieldset[disabled] .inverse .btn:focus,
+fieldset[disabled] .inverse .btn-default:focus,
+fieldset[disabled] .inverse .btn-primary:focus,
+fieldset[disabled] .inverse .btn-secondary:focus,
+fieldset[disabled] .inverse .btn-danger:focus,
+fieldset[disabled] .inverse a.btn-link:focus,
+fieldset[disabled] .inverse-background button:focus,
+fieldset[disabled] .inverse-background .btn:focus,
+fieldset[disabled] .inverse-background .btn-default:focus,
+fieldset[disabled] .inverse-background .btn-primary:focus,
+fieldset[disabled] .inverse-background .btn-secondary:focus,
+fieldset[disabled] .inverse-background .btn-danger:focus,
+fieldset[disabled] .inverse-background a.btn-link:focus,
+button.inverse.disabled.focus,
+.btn.inverse.disabled.focus,
+.btn-default.inverse.disabled.focus,
+.btn-primary.inverse.disabled.focus,
+.btn-secondary.inverse.disabled.focus,
+.btn-danger.inverse.disabled.focus,
+a.btn-link.inverse.disabled.focus,
+.inverse button.disabled.focus,
+.inverse .btn.disabled.focus,
+.inverse .btn-default.disabled.focus,
+.inverse .btn-primary.disabled.focus,
+.inverse .btn-secondary.disabled.focus,
+.inverse .btn-danger.disabled.focus,
+.inverse a.btn-link.disabled.focus,
+.inverse-background button.disabled.focus,
+.inverse-background .btn.disabled.focus,
+.inverse-background .btn-default.disabled.focus,
+.inverse-background .btn-primary.disabled.focus,
+.inverse-background .btn-secondary.disabled.focus,
+.inverse-background .btn-danger.disabled.focus,
+.inverse-background a.btn-link.disabled.focus,
+button.inverse[disabled].focus,
+.btn.inverse[disabled].focus,
+.btn-default.inverse[disabled].focus,
+.btn-primary.inverse[disabled].focus,
+.btn-secondary.inverse[disabled].focus,
+.btn-danger.inverse[disabled].focus,
+a.btn-link.inverse[disabled].focus,
+.inverse button[disabled].focus,
+.inverse .btn[disabled].focus,
+.inverse .btn-default[disabled].focus,
+.inverse .btn-primary[disabled].focus,
+.inverse .btn-secondary[disabled].focus,
+.inverse .btn-danger[disabled].focus,
+.inverse a.btn-link[disabled].focus,
+.inverse-background button[disabled].focus,
+.inverse-background .btn[disabled].focus,
+.inverse-background .btn-default[disabled].focus,
+.inverse-background .btn-primary[disabled].focus,
+.inverse-background .btn-secondary[disabled].focus,
+.inverse-background .btn-danger[disabled].focus,
+.inverse-background a.btn-link[disabled].focus,
+fieldset[disabled] button.inverse.focus,
+fieldset[disabled] .btn.inverse.focus,
+fieldset[disabled] .btn-default.inverse.focus,
+fieldset[disabled] .btn-primary.inverse.focus,
+fieldset[disabled] .btn-secondary.inverse.focus,
+fieldset[disabled] .btn-danger.inverse.focus,
+fieldset[disabled] a.btn-link.inverse.focus,
+fieldset[disabled] .inverse button.focus,
+fieldset[disabled] .inverse .btn.focus,
+fieldset[disabled] .inverse .btn-default.focus,
+fieldset[disabled] .inverse .btn-primary.focus,
+fieldset[disabled] .inverse .btn-secondary.focus,
+fieldset[disabled] .inverse .btn-danger.focus,
+fieldset[disabled] .inverse a.btn-link.focus,
+fieldset[disabled] .inverse-background button.focus,
+fieldset[disabled] .inverse-background .btn.focus,
+fieldset[disabled] .inverse-background .btn-default.focus,
+fieldset[disabled] .inverse-background .btn-primary.focus,
+fieldset[disabled] .inverse-background .btn-secondary.focus,
+fieldset[disabled] .inverse-background .btn-danger.focus,
+fieldset[disabled] .inverse-background a.btn-link.focus,
+button.inverse.disabled:active,
+.btn.inverse.disabled:active,
+.btn-default.inverse.disabled:active,
+.btn-primary.inverse.disabled:active,
+.btn-secondary.inverse.disabled:active,
+.btn-danger.inverse.disabled:active,
+a.btn-link.inverse.disabled:active,
+.inverse button.disabled:active,
+.inverse .btn.disabled:active,
+.inverse .btn-default.disabled:active,
+.inverse .btn-primary.disabled:active,
+.inverse .btn-secondary.disabled:active,
+.inverse .btn-danger.disabled:active,
+.inverse a.btn-link.disabled:active,
+.inverse-background button.disabled:active,
+.inverse-background .btn.disabled:active,
+.inverse-background .btn-default.disabled:active,
+.inverse-background .btn-primary.disabled:active,
+.inverse-background .btn-secondary.disabled:active,
+.inverse-background .btn-danger.disabled:active,
+.inverse-background a.btn-link.disabled:active,
+button.inverse[disabled]:active,
+.btn.inverse[disabled]:active,
+.btn-default.inverse[disabled]:active,
+.btn-primary.inverse[disabled]:active,
+.btn-secondary.inverse[disabled]:active,
+.btn-danger.inverse[disabled]:active,
+a.btn-link.inverse[disabled]:active,
+.inverse button[disabled]:active,
+.inverse .btn[disabled]:active,
+.inverse .btn-default[disabled]:active,
+.inverse .btn-primary[disabled]:active,
+.inverse .btn-secondary[disabled]:active,
+.inverse .btn-danger[disabled]:active,
+.inverse a.btn-link[disabled]:active,
+.inverse-background button[disabled]:active,
+.inverse-background .btn[disabled]:active,
+.inverse-background .btn-default[disabled]:active,
+.inverse-background .btn-primary[disabled]:active,
+.inverse-background .btn-secondary[disabled]:active,
+.inverse-background .btn-danger[disabled]:active,
+.inverse-background a.btn-link[disabled]:active,
+fieldset[disabled] button.inverse:active,
+fieldset[disabled] .btn.inverse:active,
+fieldset[disabled] .btn-default.inverse:active,
+fieldset[disabled] .btn-primary.inverse:active,
+fieldset[disabled] .btn-secondary.inverse:active,
+fieldset[disabled] .btn-danger.inverse:active,
+fieldset[disabled] a.btn-link.inverse:active,
+fieldset[disabled] .inverse button:active,
+fieldset[disabled] .inverse .btn:active,
+fieldset[disabled] .inverse .btn-default:active,
+fieldset[disabled] .inverse .btn-primary:active,
+fieldset[disabled] .inverse .btn-secondary:active,
+fieldset[disabled] .inverse .btn-danger:active,
+fieldset[disabled] .inverse a.btn-link:active,
+fieldset[disabled] .inverse-background button:active,
+fieldset[disabled] .inverse-background .btn:active,
+fieldset[disabled] .inverse-background .btn-default:active,
+fieldset[disabled] .inverse-background .btn-primary:active,
+fieldset[disabled] .inverse-background .btn-secondary:active,
+fieldset[disabled] .inverse-background .btn-danger:active,
+fieldset[disabled] .inverse-background a.btn-link:active,
+button.inverse.disabled.active,
+.btn.inverse.disabled.active,
+.btn-default.inverse.disabled.active,
+.btn-primary.inverse.disabled.active,
+.btn-secondary.inverse.disabled.active,
+.btn-danger.inverse.disabled.active,
+a.btn-link.inverse.disabled.active,
+.inverse button.disabled.active,
+.inverse .btn.disabled.active,
+.inverse .btn-default.disabled.active,
+.inverse .btn-primary.disabled.active,
+.inverse .btn-secondary.disabled.active,
+.inverse .btn-danger.disabled.active,
+.inverse a.btn-link.disabled.active,
+.inverse-background button.disabled.active,
+.inverse-background .btn.disabled.active,
+.inverse-background .btn-default.disabled.active,
+.inverse-background .btn-primary.disabled.active,
+.inverse-background .btn-secondary.disabled.active,
+.inverse-background .btn-danger.disabled.active,
+.inverse-background a.btn-link.disabled.active,
+button.inverse[disabled].active,
+.btn.inverse[disabled].active,
+.btn-default.inverse[disabled].active,
+.btn-primary.inverse[disabled].active,
+.btn-secondary.inverse[disabled].active,
+.btn-danger.inverse[disabled].active,
+a.btn-link.inverse[disabled].active,
+.inverse button[disabled].active,
+.inverse .btn[disabled].active,
+.inverse .btn-default[disabled].active,
+.inverse .btn-primary[disabled].active,
+.inverse .btn-secondary[disabled].active,
+.inverse .btn-danger[disabled].active,
+.inverse a.btn-link[disabled].active,
+.inverse-background button[disabled].active,
+.inverse-background .btn[disabled].active,
+.inverse-background .btn-default[disabled].active,
+.inverse-background .btn-primary[disabled].active,
+.inverse-background .btn-secondary[disabled].active,
+.inverse-background .btn-danger[disabled].active,
+.inverse-background a.btn-link[disabled].active,
+fieldset[disabled] button.inverse.active,
+fieldset[disabled] .btn.inverse.active,
+fieldset[disabled] .btn-default.inverse.active,
+fieldset[disabled] .btn-primary.inverse.active,
+fieldset[disabled] .btn-secondary.inverse.active,
+fieldset[disabled] .btn-danger.inverse.active,
+fieldset[disabled] a.btn-link.inverse.active,
+fieldset[disabled] .inverse button.active,
+fieldset[disabled] .inverse .btn.active,
+fieldset[disabled] .inverse .btn-default.active,
+fieldset[disabled] .inverse .btn-primary.active,
+fieldset[disabled] .inverse .btn-secondary.active,
+fieldset[disabled] .inverse .btn-danger.active,
+fieldset[disabled] .inverse a.btn-link.active,
+fieldset[disabled] .inverse-background button.active,
+fieldset[disabled] .inverse-background .btn.active,
+fieldset[disabled] .inverse-background .btn-default.active,
+fieldset[disabled] .inverse-background .btn-primary.active,
+fieldset[disabled] .inverse-background .btn-secondary.active,
+fieldset[disabled] .inverse-background .btn-danger.active,
+fieldset[disabled] .inverse-background a.btn-link.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: transparent;
+}
+button.inverse:focus,
+.btn.inverse:focus,
+.btn-default.inverse:focus,
+.btn-primary.inverse:focus,
+.btn-secondary.inverse:focus,
+.btn-danger.inverse:focus,
+a.btn-link.inverse:focus,
+.inverse button:focus,
+.inverse .btn:focus,
+.inverse .btn-default:focus,
+.inverse .btn-primary:focus,
+.inverse .btn-secondary:focus,
+.inverse .btn-danger:focus,
+.inverse a.btn-link:focus,
+.inverse-background button:focus,
+.inverse-background .btn:focus,
+.inverse-background .btn-default:focus,
+.inverse-background .btn-primary:focus,
+.inverse-background .btn-secondary:focus,
+.inverse-background .btn-danger:focus,
+.inverse-background a.btn-link:focus,
+button.inverse.focus,
+.btn.inverse.focus,
+.btn-default.inverse.focus,
+.btn-primary.inverse.focus,
+.btn-secondary.inverse.focus,
+.btn-danger.inverse.focus,
+a.btn-link.inverse.focus,
+.inverse button.focus,
+.inverse .btn.focus,
+.inverse .btn-default.focus,
+.inverse .btn-primary.focus,
+.inverse .btn-secondary.focus,
+.inverse .btn-danger.focus,
+.inverse a.btn-link.focus,
+.inverse-background button.focus,
+.inverse-background .btn.focus,
+.inverse-background .btn-default.focus,
+.inverse-background .btn-primary.focus,
+.inverse-background .btn-secondary.focus,
+.inverse-background .btn-danger.focus,
+.inverse-background a.btn-link.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 1px 3px rgba(255, 255, 255, 0.4);
+}
+button.monochrome,
+.btn.monochrome,
+.btn-default.monochrome,
+.btn-primary.monochrome,
+.btn-secondary.monochrome {
+  display: inline-block;
+  border: solid 1px #777777;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #4A4A4A;
+  cursor: pointer;
+}
+button.monochrome:hover,
+.btn.monochrome:hover,
+.btn-default.monochrome:hover,
+.btn-primary.monochrome:hover,
+.btn-secondary.monochrome:hover,
+button.monochrome.hover,
+.btn.monochrome.hover,
+.btn-default.monochrome.hover,
+.btn-primary.monochrome.hover,
+.btn-secondary.monochrome.hover {
+  color: #4A4A4A;
+  background-color: #e4e4e4;
+  text-decoration: none;
+}
+button.monochrome:focus,
+.btn.monochrome:focus,
+.btn-default.monochrome:focus,
+.btn-primary.monochrome:focus,
+.btn-secondary.monochrome:focus,
+button.monochrome.focus,
+.btn.monochrome.focus,
+.btn-default.monochrome.focus,
+.btn-primary.monochrome.focus,
+.btn-secondary.monochrome.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+button.monochrome:active,
+.btn.monochrome:active,
+.btn-default.monochrome:active,
+.btn-primary.monochrome:active,
+.btn-secondary.monochrome:active,
+button.monochrome.active,
+.btn.monochrome.active,
+.btn-default.monochrome.active,
+.btn-primary.monochrome.active,
+.btn-secondary.monochrome.active {
+  background-color: #e4e4e4;
+}
+button.monochrome.disabled,
+.btn.monochrome.disabled,
+.btn-default.monochrome.disabled,
+.btn-primary.monochrome.disabled,
+.btn-secondary.monochrome.disabled,
+button.monochrome[disabled],
+.btn.monochrome[disabled],
+.btn-default.monochrome[disabled],
+.btn-primary.monochrome[disabled],
+.btn-secondary.monochrome[disabled],
+fieldset[disabled] button.monochrome,
+fieldset[disabled] .btn.monochrome,
+fieldset[disabled] .btn-default.monochrome,
+fieldset[disabled] .btn-primary.monochrome,
+fieldset[disabled] .btn-secondary.monochrome,
+button.monochrome.disabled:hover,
+.btn.monochrome.disabled:hover,
+.btn-default.monochrome.disabled:hover,
+.btn-primary.monochrome.disabled:hover,
+.btn-secondary.monochrome.disabled:hover,
+button.monochrome[disabled]:hover,
+.btn.monochrome[disabled]:hover,
+.btn-default.monochrome[disabled]:hover,
+.btn-primary.monochrome[disabled]:hover,
+.btn-secondary.monochrome[disabled]:hover,
+fieldset[disabled] button.monochrome:hover,
+fieldset[disabled] .btn.monochrome:hover,
+fieldset[disabled] .btn-default.monochrome:hover,
+fieldset[disabled] .btn-primary.monochrome:hover,
+fieldset[disabled] .btn-secondary.monochrome:hover,
+button.monochrome.disabled:focus,
+.btn.monochrome.disabled:focus,
+.btn-default.monochrome.disabled:focus,
+.btn-primary.monochrome.disabled:focus,
+.btn-secondary.monochrome.disabled:focus,
+button.monochrome[disabled]:focus,
+.btn.monochrome[disabled]:focus,
+.btn-default.monochrome[disabled]:focus,
+.btn-primary.monochrome[disabled]:focus,
+.btn-secondary.monochrome[disabled]:focus,
+fieldset[disabled] button.monochrome:focus,
+fieldset[disabled] .btn.monochrome:focus,
+fieldset[disabled] .btn-default.monochrome:focus,
+fieldset[disabled] .btn-primary.monochrome:focus,
+fieldset[disabled] .btn-secondary.monochrome:focus,
+button.monochrome.disabled.focus,
+.btn.monochrome.disabled.focus,
+.btn-default.monochrome.disabled.focus,
+.btn-primary.monochrome.disabled.focus,
+.btn-secondary.monochrome.disabled.focus,
+button.monochrome[disabled].focus,
+.btn.monochrome[disabled].focus,
+.btn-default.monochrome[disabled].focus,
+.btn-primary.monochrome[disabled].focus,
+.btn-secondary.monochrome[disabled].focus,
+fieldset[disabled] button.monochrome.focus,
+fieldset[disabled] .btn.monochrome.focus,
+fieldset[disabled] .btn-default.monochrome.focus,
+fieldset[disabled] .btn-primary.monochrome.focus,
+fieldset[disabled] .btn-secondary.monochrome.focus,
+button.monochrome.disabled:active,
+.btn.monochrome.disabled:active,
+.btn-default.monochrome.disabled:active,
+.btn-primary.monochrome.disabled:active,
+.btn-secondary.monochrome.disabled:active,
+button.monochrome[disabled]:active,
+.btn.monochrome[disabled]:active,
+.btn-default.monochrome[disabled]:active,
+.btn-primary.monochrome[disabled]:active,
+.btn-secondary.monochrome[disabled]:active,
+fieldset[disabled] button.monochrome:active,
+fieldset[disabled] .btn.monochrome:active,
+fieldset[disabled] .btn-default.monochrome:active,
+fieldset[disabled] .btn-primary.monochrome:active,
+fieldset[disabled] .btn-secondary.monochrome:active,
+button.monochrome.disabled.active,
+.btn.monochrome.disabled.active,
+.btn-default.monochrome.disabled.active,
+.btn-primary.monochrome.disabled.active,
+.btn-secondary.monochrome.disabled.active,
+button.monochrome[disabled].active,
+.btn.monochrome[disabled].active,
+.btn-default.monochrome[disabled].active,
+.btn-primary.monochrome[disabled].active,
+.btn-secondary.monochrome[disabled].active,
+fieldset[disabled] button.monochrome.active,
+fieldset[disabled] .btn.monochrome.active,
+fieldset[disabled] .btn-default.monochrome.active,
+fieldset[disabled] .btn-primary.monochrome.active,
+fieldset[disabled] .btn-secondary.monochrome.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: transparent;
+}
+button,
+.btn,
+.btn-default,
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+a.btn-link {
+  padding: 6px 20px;
+}
+.layout-small button,
+.layout-small .btn,
+.layout-small .btn-default,
+.layout-small .btn-primary,
+.layout-small .btn-secondary,
+.layout-small .btn-danger,
+.layout-small a.btn-link {
+  padding: 5px 10px;
+}
+.layout-large button,
+.layout-large .btn,
+.layout-large .btn-default,
+.layout-large .btn-primary,
+.layout-large .btn-secondary,
+.layout-large .btn-danger,
+.layout-large a.btn-link {
+  padding: 8px 24px;
+}
+.Button-small {
+  padding: 5px 10px;
+}
+.Button-medium {
+  padding: 6px 20px;
+}
+.Button-large {
+  padding: 8px 24px;
+}
+.Checkbox {
+  display: inline-block;
+}
+.Checkbox .svg-icon {
+  width: 20px;
+  height: 20px;
+}
+.Checkbox .Checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+.Checkbox input[type="checkbox"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.Checkbox .Checkbox-indicator {
+  display: flex;
+  border: 1px solid rgba(73, 73, 73, 0.5);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.Checkbox .Checkbox-text {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.Checkbox .svg-icon {
+  opacity: 0;
+  fill: #fff;
+  transition: opacity 0.1s linear;
+}
+.Checkbox input[type="checkbox"]:checked + .Checkbox-indicator {
+  background-color: #4A90E2;
+  border-color: #4A90E2;
+}
+.Checkbox input[type="checkbox"]:checked + .Checkbox-indicator .svg-icon {
+  opacity: 1;
+}
+.Checkbox input[type="checkbox"]:focus + .Checkbox-indicator,
+.Checkbox.focus .Checkbox-indicator {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.Checkbox input[disabled] + .Checkbox-indicator,
+fieldset[disabled] .Checkbox input + .Checkbox-indicator,
+.Checkbox input[disabled] ~ .Checkbox-text,
+fieldset[disabled] .Checkbox input ~ .Checkbox-text {
+  opacity: 0.4;
+  cursor: auto;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .Checkbox input[type="checkbox"]:focus + .Checkbox-indicator,
+  .Checkbox.focus .Checkbox-indicator {
+    box-shadow: inset 0 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+@supports (-ms-ime-align:auto) {
+  .Checkbox input[type="checkbox"]:focus + .Checkbox-indicator,
+  .Checkbox.focus .Checkbox-indicator {
+    box-shadow: inset 0 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+.Checkbox-small .svg-icon {
+  width: 18px;
+  height: 18px;
+}
+.Checkbox-medium .svg-icon {
+  width: 20px;
+  height: 20px;
+}
+.Checkbox-large .svg-icon {
+  width: 24px;
+  height: 24px;
+}
+.layout-small .Checkbox .svg-icon {
+  width: 18px;
+  height: 18px;
+}
+.layout-large .Checkbox .svg-icon {
+  width: 24px;
+  height: 24px;
+}
+.Dropdown {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+}
+.Dropdown .Dropdown-button {
+  width: 100%;
+  padding: 6px 8px;
+  padding-right: 25px;
+  flex-grow: 0;
+  text-align: left;
+  color: #4A4A4A;
+  background-color: #fff;
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 1px solid rgba(73, 73, 73, 0.5);
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Dropdown .Dropdown-button[disabled]:hover,
+fieldset[disabled]:hover .Dropdown .Dropdown-button {
+  background-color: #fff;
+}
+.Dropdown .Dropdown-thumb {
+  width: 16px;
+  height: 16px;
+  margin-left: -25px;
+  margin-right: 9px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.Dropdown .Dropdown-thumb .svg-icon.keyboard_arrow_down {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #949494;
+}
+.Dropdown .Dropdown-menu {
+  width: 100%;
+  overflow-y: scroll;
+  max-height: 200px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: 1px solid rgba(73, 73, 73, 0.5);
+  border-radius: 3px;
+  border-color: #4A90E2;
+}
+.Dropdown .Dropdown-menu .Dropdown-menu-item {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #4A4A4A;
+}
+.Dropdown .Dropdown-menu .Dropdown-menu-item:hover {
+  text-decoration: none;
+  background: rgba(74, 144, 226, 0.15);
+}
+.Dropdown .Dropdown-menu .Dropdown-menu-item:focus {
+  background: rgba(74, 144, 226, 0.15);
+  outline: 0;
+}
+.Dropdown.Dropdown-menu-open .Dropdown-button {
+  border-color: #4A90E2;
+}
+.empty-state {
+  display: flex;
+  justify-content: center;
+}
+.empty-state .empty-state-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 40rem;
+  max-width: 80rem;
+  padding: 4rem 4rem;
+  margin: 4rem 4rem;
+  border-radius: 2px;
+  background-image: linear-gradient(90deg, #49A3E0 0%, #4AC2E2 100%);
+}
+.empty-state .empty-state-container .empty-state-icon {
+  margin-right: 3rem;
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding-left: 150px;
+}
+.empty-state .empty-state-container .empty-state-icon.branch {
+  background: url("../icons/nounproject/branch.svg") no-repeat right center;
+}
+.empty-state .empty-state-container .empty-state-icon.goat {
+  background: url("../icons/nounproject/goat.svg") no-repeat right center;
+}
+.empty-state .empty-state-container .empty-state-icon.shoes {
+  background: url("../icons/nounproject/shoes.svg") no-repeat right center;
+}
+.empty-state .empty-state-container .empty-state-content {
+  color: white;
+  max-width: 40rem;
+}
+.empty-state .empty-state-container .empty-state-content h1 {
+  font-size: 2.4rem;
+}
+.empty-state .empty-state-container .empty-state-content button,
+.empty-state .empty-state-container .empty-state-content a {
+  display: inline-block;
+  border: solid 1px white;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: white;
+  color: #49A3E0;
+  cursor: pointer;
+}
+.empty-state .empty-state-container .empty-state-content button:hover,
+.empty-state .empty-state-container .empty-state-content a:hover,
+.empty-state .empty-state-container .empty-state-content button.hover,
+.empty-state .empty-state-container .empty-state-content a.hover {
+  color: #49A3E0;
+  background-color: white;
+  text-decoration: none;
+}
+.empty-state .empty-state-container .empty-state-content button:focus,
+.empty-state .empty-state-container .empty-state-content a:focus,
+.empty-state .empty-state-container .empty-state-content button.focus,
+.empty-state .empty-state-container .empty-state-content a.focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.empty-state .empty-state-container .empty-state-content button:active,
+.empty-state .empty-state-container .empty-state-content a:active,
+.empty-state .empty-state-container .empty-state-content button.active,
+.empty-state .empty-state-container .empty-state-content a.active {
+  background-color: white;
+}
+.empty-state .empty-state-container .empty-state-content button.disabled,
+.empty-state .empty-state-container .empty-state-content a.disabled,
+.empty-state .empty-state-container .empty-state-content button[disabled],
+.empty-state .empty-state-container .empty-state-content a[disabled],
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content button,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content a,
+.empty-state .empty-state-container .empty-state-content button.disabled:hover,
+.empty-state .empty-state-container .empty-state-content a.disabled:hover,
+.empty-state .empty-state-container .empty-state-content button[disabled]:hover,
+.empty-state .empty-state-container .empty-state-content a[disabled]:hover,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content button:hover,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content a:hover,
+.empty-state .empty-state-container .empty-state-content button.disabled:focus,
+.empty-state .empty-state-container .empty-state-content a.disabled:focus,
+.empty-state .empty-state-container .empty-state-content button[disabled]:focus,
+.empty-state .empty-state-container .empty-state-content a[disabled]:focus,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content button:focus,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content a:focus,
+.empty-state .empty-state-container .empty-state-content button.disabled.focus,
+.empty-state .empty-state-container .empty-state-content a.disabled.focus,
+.empty-state .empty-state-container .empty-state-content button[disabled].focus,
+.empty-state .empty-state-container .empty-state-content a[disabled].focus,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content button.focus,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content a.focus,
+.empty-state .empty-state-container .empty-state-content button.disabled:active,
+.empty-state .empty-state-container .empty-state-content a.disabled:active,
+.empty-state .empty-state-container .empty-state-content button[disabled]:active,
+.empty-state .empty-state-container .empty-state-content a[disabled]:active,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content button:active,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content a:active,
+.empty-state .empty-state-container .empty-state-content button.disabled.active,
+.empty-state .empty-state-container .empty-state-content a.disabled.active,
+.empty-state .empty-state-container .empty-state-content button[disabled].active,
+.empty-state .empty-state-container .empty-state-content a[disabled].active,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content button.active,
+fieldset[disabled] .empty-state .empty-state-container .empty-state-content a.active {
+  opacity: 0.4;
+  cursor: auto;
+  background-color: white;
+}
+.empty-state .empty-state-container.tight-spacing {
+  padding: 0.5rem 0;
+}
+.ErrorMessage {
+  margin-bottom: 10px;
+  color: #d54c53;
+}
+.ErrorMessage-small {
+  margin-bottom: 6px;
+}
+.ErrorMessage-medium {
+  margin-bottom: 10px;
+}
+.ErrorMessage-large {
+  margin-bottom: 16px;
+}
+.layout-small .ErrorMessage {
+  margin-bottom: 6px;
+}
+.layout-large .ErrorMessage {
+  margin-bottom: 16px;
+}
+.expandable-path {
+  display: inline-flex;
+}
+.expandable-path .link {
+  cursor: pointer;
+}
+.expandable-path .path-list {
+  display: inline-flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  /* always hide the last slash */
+  /* on hover, show all labels */
+}
+.expandable-path .path-list .path-item {
+  display: inline-flex;
+  align-items: center;
+}
+.expandable-path .path-list .path-item.show-label .svg-icon.folder {
+  display: none;
+}
+.expandable-path .path-list .path-item.show-label .path-text {
+  display: inline;
+}
+.expandable-path .path-list .path-item.show-folder .svg-icon.folder {
+  display: inline;
+}
+.expandable-path .path-list .path-item.show-folder .path-text {
+  display: none;
+}
+.expandable-path .path-list .path-item:last-child .separator {
+  display: none;
+}
+.expandable-path .path-list:hover .svg-icon.folder {
+  display: none !important;
+}
+.expandable-path .path-list:hover .path-text {
+  display: inline !important;
+}
+.expandable-path .svg-icon.folder {
+  fill: #ccc;
+}
+.expandable-path.dark-theme .svg-icon.folder {
+  fill: #fff;
+  opacity: 0.5;
+}
+.Favorite .Checkbox-indicator {
+  border: 0;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.Favorite .Checkbox-indicator .star-icon {
+  flex-shrink: 0;
+}
+.Favorite input[type="checkbox"]:checked + .Checkbox-indicator {
+  background: none;
+}
+.Favorite input[type="checkbox"]:checked + .Checkbox-indicator .star-icon {
+  transform: translate(-264px, 0px);
+  transition: 0.3s steps(11);
+}
+.Favorite:hover .star-empty {
+  fill: #1b5dab;
+}
+.Favorite:hover .star-filled {
+  fill: #aa6d08;
+}
+.Favorite.dark-yellow .star-empty {
+  fill: #FFF;
+}
+.Favorite.dark-yellow:hover .star-empty {
+  fill: #cccccc;
+}
+.Favorite.dark-yellow:hover .start-filled {
+  fill: #aa6d08;
+}
+.Favorite.dark-white path[fill='#4a90e2'],
+.Favorite.dark-white path[fill='#4A90E2'],
+.Favorite.dark-white path[fill='#f5a623'],
+.Favorite.dark-white path[fill='#F5A623'] {
+  fill: #FFF;
+}
+.Favorite.dark-white circle[stroke='#f5a623'],
+.Favorite.dark-white circle[stroke='#F5A623'] {
+  stroke: #FFF;
+}
+.Favorite.dark-white:hover .star-empty {
+  fill: #cccccc;
+}
+.Favorite.dark-white:hover .star-filled {
+  fill: #cccccc;
+}
+.FilterableList {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.FilterableList .FilterableList-empty-text {
+  padding: 8px;
+  background-color: rgba(228, 228, 228, 0.25);
+}
+.FloatingElement {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 100;
+}
+.FloatingElement-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+.FormElement {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.FormElement .FormElement-heading {
+  padding-bottom: 4px;
+}
+.FormElement.u-show-divider .FormElement-heading {
+  margin-bottom: 6px;
+}
+.FormElement > .FormElement-heading .ErrorMessage {
+  display: inline;
+}
+.FormElement .FormElement-children {
+  display: flex;
+  align-items: flex-start;
+}
+.FormElement.u-show-divider > .FormElement-heading {
+  border-bottom: 1px solid #e4e4e4;
+}
+.FormElement.u-layout-vertical .FormElement-children {
+  flex-direction: column;
+}
+.FormElement.u-child-free > .FormElement-heading {
+  padding-bottom: 0;
+}
+.FormElement-small {
+  margin-bottom: 6px;
+}
+.FormElement-small .FormElement-heading {
+  padding-bottom: 2px;
+}
+.FormElement-small.u-show-divider .FormElement-heading {
+  margin-bottom: 4px;
+}
+.FormElement-medium {
+  margin-bottom: 10px;
+}
+.FormElement-medium .FormElement-heading {
+  padding-bottom: 4px;
+}
+.FormElement-medium.u-show-divider .FormElement-heading {
+  margin-bottom: 6px;
+}
+.FormElement-large {
+  margin-bottom: 16px;
+}
+.FormElement-large .FormElement-heading {
+  padding-bottom: 8px;
+}
+.FormElement-large.u-show-divider .FormElement-heading {
+  margin-bottom: 12px;
+}
+.layout-small .FormElement {
+  margin-bottom: 6px;
+}
+.layout-small .FormElement .FormElement-heading {
+  padding-bottom: 2px;
+}
+.layout-small .FormElement.u-show-divider .FormElement-heading {
+  margin-bottom: 4px;
+}
+.layout-large .FormElement {
+  margin-bottom: 16px;
+}
+.layout-large .FormElement .FormElement-heading {
+  padding-bottom: 8px;
+}
+.layout-large .FormElement.u-show-divider .FormElement-heading {
+  margin-bottom: 12px;
+}
+.FormElement.u-error-state > .FormElement-heading {
+  color: #d54c53;
+}
+.FormElement .FormElement-children > .FormElement {
+  flex-grow: 1;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.FormElement .FormElement-children > .FormElement:last-child {
+  margin-right: 0;
+}
+.layout-small .FormElement .FormElement-children > .FormElement {
+  margin-top: 6px;
+  margin-right: 6px;
+}
+.layout-large .FormElement .FormElement-children > .FormElement {
+  margin-top: 16px;
+  margin-right: 16px;
+}
+.FormElement.u-layout-vertical .FormElement-children > .FormElement {
+  align-self: stretch;
+  margin-right: 0;
+}
+.BasicHeader {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.BasicHeader--default {
+  background: #4A90E2;
+  color: white;
+}
+.BasicHeader--unknown {
+  background: #bd0fe1;
+  color: white;
+}
+.BasicHeader--success {
+  background: #78b037;
+  color: white;
+}
+.BasicHeader--failure {
+  background: #d54c53;
+  color: white;
+}
+.BasicHeader--running {
+  background: #3a70b0;
+  color: white;
+}
+.BasicHeader--notBuilt {
+  background: #949393;
+  color: white;
+}
+.BasicHeader--unstable {
+  background: #F5A623;
+  color: white;
+}
+.BasicHeader--aborted {
+  background: #949393;
+  color: white;
+}
+.BasicHeader--paused {
+  background: #24B0D5;
+  color: white;
+}
+.Header-topNav {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.Header-topNav-inner {
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.Header-topNav-inner nav {
+  display: flex;
+  height: 100%;
+}
+.Header-topNav-inner nav a {
+  display: inline-block;
+  align-items: center;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0 20px;
+  line-height: 47px;
+}
+.Header-topNav-inner nav a .u-no-padding {
+  padding: 0;
+}
+.Header-topNav-inner nav a:hover,
+.Header-topNav-inner nav a.selected,
+.Header-topNav-inner nav:hover a.selected:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.Header-topNav-inner nav:hover a.selected {
+  background: none;
+}
+.Header-title {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.Header-details {
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.Header-pageTabs {
+  height: 100%;
+  display: flex;
+}
+.Header-pageTabs a {
+  color: white;
+  display: flex;
+  padding: 0 20px;
+  height: 100%;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+.Header-pageTabs a:hover {
+  text-decoration: none;
+  color: white;
+}
+.Header-pageTabs a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  height: 3px;
+  transition-timing-function: ease-out;
+  transition-duration: 0.2s;
+  transform: translateY(3px);
+  transition-property: transform;
+}
+.Header-pageTabs a:hover:before,
+.Header-pageTabs a.selected:before,
+.Header-pageTabs:hover a.selected:hover:before {
+  transform: translateY(0);
+}
+.Header-pageTabs:hover a.selected:before {
+  transform: translateY(3px);
+}
+button.IconButton {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+button.IconButton .IconButton-icon > * {
+  width: 20px;
+  height: 20px;
+}
+button.IconButton.u-inner-margin .IconButton-icon {
+  margin-right: 10px;
+}
+button.IconButton .IconButton-wrapper {
+  display: flex;
+  align-items: center;
+}
+button.IconButton .IconButton-icon > * {
+  display: block;
+}
+button.IconButton .IconButton-icon .svg-icon {
+  fill: #fff;
+}
+button.IconButton.monochrome .IconButton-icon .svg-icon {
+  fill: #4A4A4A;
+}
+.IconButton-small {
+  padding-top: 3.5px;
+  padding-bottom: 3.5px;
+}
+.IconButton-small .IconButton-icon > * {
+  width: 16px;
+  height: 16px;
+}
+.IconButton-small.u-inner-margin .IconButton-icon {
+  margin-right: 5px;
+}
+.IconButton-medium {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.IconButton-medium .IconButton-icon > * {
+  width: 20px;
+  height: 20px;
+}
+.IconButton-medium.u-inner-margin .IconButton-icon {
+  margin-right: 10px;
+}
+.IconButton-large {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.IconButton-large .IconButton-icon > * {
+  width: 24px;
+  height: 24px;
+}
+.IconButton-large.u-inner-margin .IconButton-icon {
+  margin-right: 12px;
+}
+.layout-small .IconButton {
+  padding-top: 3.5px;
+  padding-bottom: 3.5px;
+}
+.layout-small .IconButton .IconButton-icon > * {
+  width: 16px;
+  height: 16px;
+}
+.layout-small .IconButton.u-inner-margin .IconButton-icon {
+  margin-right: 5px;
+}
+.layout-large .IconButton {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.layout-large .IconButton .IconButton-icon > * {
+  width: 24px;
+  height: 24px;
+}
+.layout-large .IconButton.u-inner-margin .IconButton-icon {
+  margin-right: 12px;
+}
+.List {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.List .List-Item {
+  position: relative;
+}
+.List.disabled,
+.List[disabled],
+fieldset[disabled] .List {
+  opacity: 0.4;
+  cursor: auto;
+  pointer-events: none;
+}
+.List.u-default-list-container {
+  padding: 8px;
+  padding-bottom: 0;
+  background-color: rgba(228, 228, 228, 0.25);
+  border-radius: 3px;
+}
+.List.u-default-list-container .List-Radio:focus + .List-Item {
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.List.u-default-list-container .List-Item {
+  margin-bottom: 8px;
+  background-color: #fff;
+  border: 1px solid rgba(73, 73, 73, 0.5);
+  border-radius: 3px;
+}
+.List.u-default-list-container .List-Item.List-Item-selected {
+  background-color: #e4e4e4;
+}
+.List.u-default-list-container .List-Item:hover {
+  background-color: #e4e4e4;
+  cursor: pointer;
+}
+.List.u-default-list-container.disabled .List-Item:hover,
+.List.u-default-list-container[disabled] .List-Item:hover,
+fieldset[disabled] .List.u-default-list-container .List-Item:hover {
+  background-color: #fff;
+  cursor: default;
+}
+.List .List-DefaultRenderer {
+  overflow: hidden;
+  padding: 8px 16px;
+}
+.Placeholder-text {
+  display: inline-block;
+  width: 100%;
+  height: 12px;
+  background: #f0f2f6;
+}
+.Placeholder-icon {
+  display: inline-block;
+  fill: #f0f2f6;
+  vertical-align: bottom;
+}
+.popup-shadow {
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+}
+.popup-appearance {
+  background: white;
+  border: none;
+  border-radius: 3px;
+}
+.ModalContainer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ModalContainer-modalScreen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0.25;
+  z-index: 99;
+}
+.Dialog {
+  background: white;
+  border: none;
+  border-radius: 3px;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+  z-index: 100;
+  max-width: 95%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.Dialog-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  flex-shrink: 0;
+  background: #4A90E2;
+  color: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 0 32px;
+}
+.Dialog--input .Dialog-header {
+  background: #24B0D5;
+}
+.Dialog--error .Dialog-header {
+  background: #d54c53;
+}
+.Dialog--success .Dialog-header {
+  background: #78b037;
+}
+.Dialog--warning .Dialog-header {
+  background: #F5A623;
+}
+.Dialog-content-scroll {
+  overflow: auto;
+  flex-shrink: 1;
+}
+.Dialog-content-margin {
+  margin: 32px 32px 16px 32px;
+}
+.Dialog-button-bar {
+  padding: 0 32px;
+  margin: 16px 0 32px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+.Dialog-button-bar > Button + Button {
+  margin-left: 0.5em;
+}
+.Popover {
+  position: fixed;
+  z-index: 120;
+  left: 0;
+  top: 0;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+}
+.Popover-content {
+  background: white;
+  border: none;
+  border-radius: 3px;
+  padding: 2em 2em;
+}
+.Popover-point {
+  fill: white;
+  position: absolute;
+}
+.Popover-point--above {
+  bottom: -10px;
+  left: 50%;
+  margin-left: -10px;
+}
+.Popover-point--below {
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+}
+.Popover-point--left {
+  right: -10px;
+  top: 50%;
+  margin-top: -10px;
+}
+.Popover-point--right {
+  left: -10px;
+  top: 50%;
+  margin-top: -10px;
+}
+.progress-container {
+  width: 100%;
+  height: 5px;
+}
+.progress-container line {
+  stroke-width: 5px;
+}
+.progress-container line.progress-bg {
+  stroke: #a7c7f2;
+  z-index: 0;
+}
+.progress-container line.progress-bar {
+  stroke: #4A90E2;
+}
+@keyframes slidein {
+  from {
+    transform: translate(0, 0) scale(2, 1);
+    -webkit-transform: translate(0, 0) scale(2, 1);
+    -o-transform: translate(0, 0) scale(2, 1);
+    -moz-transform: translate(0, 0) scale(2, 1);
+  }
+  100% {
+    transform: translate(100px, 0) scale(1);
+    -webkit-transform: translate(100px, 0) scale(1);
+    -o-transform: translate(100px, 0) scale(1);
+    -moz-transform: translate(100px, 0) scale(1);
+  }
+}
+@keyframes bounce {
+  from {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(90px, 0) scale(1);
+    -webkit-transform: translate(90px, 0) scale(1);
+    -o-transform: translate(90px, 0) scale(1);
+    -moz-transform: translate(90px, 0) scale(1);
+  }
+  to {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+  }
+}
+.progress-container.indeterminate line.progress-bar {
+  z-index: 10;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+.progress-container.bounce line.progress-bar {
+  z-index: 10;
+  animation-duration: 3s;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+}
+.RadioButtonGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.RadioButtonGroup .RadioButtonGroup-item {
+  margin-bottom: 6px;
+}
+.RadioButtonGroup .RadioButtonGroup-indicator,
+.RadioButtonGroup .RadioButtonGroup-focus {
+  width: 20px;
+  height: 20px;
+}
+.RadioButtonGroup .RadioButtonGroup-item {
+  display: flex;
+  align-items: center;
+}
+.RadioButtonGroup .RadioButtonGroup-item input[type="radio"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.RadioButtonGroup .RadioButtonGroup-item .RadioButtonGroup-indicator {
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.RadioButtonGroup .RadioButtonGroup-item .RadioButtonGroup-indicator .svg-shape {
+  display: block;
+}
+.RadioButtonGroup .RadioButtonGroup-item .RadioButtonGroup-indicator .outer-circle {
+  stroke: #777777;
+}
+.RadioButtonGroup .RadioButtonGroup-item .RadioButtonGroup-indicator .RadioButtonGroup-focus {
+  position: absolute;
+  top: 0;
+  border-radius: 100%;
+}
+.RadioButtonGroup .RadioButtonGroup-item .RadioButtonGroup-text {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.RadioButtonGroup .RadioButtonGroup-item input[type="radio"]:checked + .RadioButtonGroup-indicator .outer-circle {
+  fill: #4A90E2;
+  stroke: #4A90E2;
+}
+.RadioButtonGroup .RadioButtonGroup-item input[type="radio"]:focus + .RadioButtonGroup-indicator .RadioButtonGroup-focus {
+  outline: 0;
+  box-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.RadioButtonGroup .RadioButtonGroup-item input[type="radio"][disabled] ~ .RadioButtonGroup-indicator,
+fieldset[disabled] .RadioButtonGroup .RadioButtonGroup-item input[type="radio"] ~ .RadioButtonGroup-indicator,
+.RadioButtonGroup .RadioButtonGroup-item input[type="radio"][disabled] ~ .RadioButtonGroup-text,
+fieldset[disabled] .RadioButtonGroup .RadioButtonGroup-item input[type="radio"] ~ .RadioButtonGroup-text {
+  opacity: 0.4;
+  cursor: auto;
+}
+.RadioButtonGroup.u-layout-horizontal {
+  flex-direction: row;
+}
+.RadioButtonGroup.u-layout-horizontal .RadioButtonGroup-item {
+  margin-right: 10px;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  input[type="radio"]:focus + .RadioButtonGroup-indicator .RadioButtonGroup-focus {
+    box-shadow: inset 0 0 1px 3px rgba(0, 0, 0, 0.2);
+    margin-top: -1px;
+  }
+}
+@supports (-ms-ime-align:auto) {
+  input[type="radio"]:focus + .RadioButtonGroup-indicator .RadioButtonGroup-focus {
+    box-shadow: inset 0 0 1px 3px rgba(0, 0, 0, 0.2);
+    margin-top: -1px;
+  }
+}
+.RadioButtonGroup-small .RadioButtonGroup-item {
+  margin-bottom: 4px;
+}
+.RadioButtonGroup-small .RadioButtonGroup-indicator,
+.RadioButtonGroup-small .RadioButtonGroup-focus {
+  width: 16px;
+  height: 16px;
+}
+.RadioButtonGroup-medium .RadioButtonGroup-item {
+  margin-bottom: 6px;
+}
+.RadioButtonGroup-medium .RadioButtonGroup-indicator,
+.RadioButtonGroup-medium .RadioButtonGroup-focus {
+  width: 20px;
+  height: 20px;
+}
+.RadioButtonGroup-large .RadioButtonGroup-item {
+  margin-bottom: 10px;
+}
+.RadioButtonGroup-large .RadioButtonGroup-indicator,
+.RadioButtonGroup-large .RadioButtonGroup-focus {
+  width: 24px;
+  height: 24px;
+}
+.layout-small .RadioButtonGroup .RadioButtonGroup-item {
+  margin-bottom: 4px;
+}
+.layout-small .RadioButtonGroup .RadioButtonGroup-indicator,
+.layout-small .RadioButtonGroup .RadioButtonGroup-focus {
+  width: 16px;
+  height: 16px;
+}
+.layout-large .RadioButtonGroup .RadioButtonGroup-item {
+  margin-bottom: 10px;
+}
+.layout-large .RadioButtonGroup .RadioButtonGroup-indicator,
+.layout-large .RadioButtonGroup .RadioButtonGroup-focus {
+  width: 24px;
+  height: 24px;
+}
+/*
+    Styles for the pipeline result status displays used in both build/branch lists, and
+    within the PipelineGraph component.
+*/
+.result-status-glyph {
+  stroke: none;
+  fill: #fff;
+}
+.svgResultStatus.no-background .circle-bg {
+  opacity: 0;
+}
+.svgResultStatus circle.success {
+  stroke: none;
+  fill: #8CC04F;
+}
+.svgResultStatus circle.failure {
+  stroke: none;
+  fill: #D54C53;
+}
+.svgResultStatus circle.unstable {
+  stroke: none;
+  fill: #F6B44B;
+}
+.svgResultStatus circle.aborted,
+.svgResultStatus circle.not_built {
+  stroke: none;
+  fill: #949393;
+}
+.svgResultStatus circle.paused {
+  stroke: none;
+  fill: #24B0D5;
+}
+.svgResultStatus circle.unknown {
+  stroke: none;
+  fill: #D54CC4;
+}
+.jdl-table td .svgResultStatus {
+  vertical-align: middle;
+}
+.progress-spinner.running circle {
+  fill: none;
+  stroke: #a7c7f2;
+}
+.progress-spinner.running path {
+  fill: none;
+  stroke: #1D7DCF;
+}
+.progress-spinner.pc-over-100 circle {
+  fill: none;
+  stroke: #1D7DCF;
+}
+.progress-spinner.pc-over-100 path {
+  fill: none;
+  stroke: #F6B44B;
+}
+.inverse .progress-spinner.running circle {
+  fill: none;
+  stroke: #4C9BD5;
+}
+.inverse .progress-spinner.running path {
+  fill: none;
+  stroke: white;
+}
+.inverse .progress-spinner.running circle.inner {
+  fill: #4C9BD5;
+  stroke: #4C9BD5;
+}
+.progress-spinner circle.inner,
+.progress-spinner.running.spin circle.inner {
+  display: none;
+  animation: progress-spinner-pulsate 1.2s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.progress-spinner.running circle.inner {
+  display: block;
+  fill: #4C9BD5;
+  stroke: #4C9BD5;
+}
+@keyframes progress-spinner-pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+.progress-spinner.queued circle {
+  fill: none;
+  stroke: #949393;
+}
+.progress-spinner.queued circle.inner {
+  display: block;
+  fill: #949393;
+  stroke: #949393;
+}
+.empty-state-content svg {
+  vertical-align: middle;
+}
+.empty-state-content > span {
+  padding-left: 15px;
+}
+.progress-spinner.queued path {
+  fill: none;
+  stroke: none;
+}
+.progress-spinner.not_built circle {
+  fill: none;
+  stroke: #949393;
+}
+.progress-spinner.not_built path {
+  fill: none;
+  stroke: none;
+}
+.result-bg.success {
+  background: #8CC04F;
+  border-bottom: 1px solid rgba(114, 162, 58, 0.5);
+}
+.result-bg.failure {
+  background: #D54C53;
+  border-bottom: 1px solid rgba(193, 45, 53, 0.5);
+}
+.result-bg.not_built,
+.result-bg.aborted,
+.result-bg.queued {
+  background: #949393;
+  border-bottom: 1px solid rgba(123, 121, 121, 0.5);
+}
+.result-bg.running {
+  background: #1D7DCF;
+  border-bottom: 1px solid rgba(23, 98, 162, 0.5);
+}
+.result-bg.unstable {
+  background: #F6B44B;
+  border-bottom: 1px solid rgba(244, 160, 26, 0.5);
+}
+.result-bg.paused {
+  background: #24B0D5;
+  border-bottom: 1px solid rgba(29, 140, 169, 0.5);
+}
+.result-bg.unknown {
+  background: #D54CC4;
+  border-bottom: 1px solid rgba(193, 45, 174, 0.5);
+}
+.result-item + .result-item .result-item-head {
+  border-top: 0;
+}
+.result-item-head {
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+  border: solid 1px #e4e4e4;
+}
+.result-item-icon {
+  display: flex;
+  align-items: flex-start;
+  margin: -1px 0 -1px -1px;
+}
+.result-item-title {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+.result-item-extra-info {
+  padding-right: 0.6em;
+}
+.result-item-label {
+  flex: 1 1 auto;
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.result-item-head:hover {
+  background: #f8f8f8;
+}
+.result-item-expando {
+  cursor: pointer;
+}
+.expando-glyph {
+  transform: rotate(0deg);
+  transition: transform 150ms ease-in;
+  fill: #4A4A4A;
+}
+.result-item-expando.expanded .expando-glyph {
+  transform: rotate(90deg);
+  transition: transform 150ms ease-in;
+}
+.result-item-expando.disabled .expando-glyph {
+  opacity: 0.3;
+}
+.result-item-children {
+  background-color: #333333;
+  color: #f5f5f5;
+  padding: 0.5em;
+  margin-bottom: 1px;
+  border-left: solid 28px #262626;
+}
+.slide-down-enter,
+.slide-down-appear {
+  max-height: 0;
+  overflow: hidden;
+}
+.slide-down-enter.slide-down-enter-active,
+.slide-down-appear.slide-down-appear-active {
+  max-height: 600px;
+  transition: all 300ms ease-in;
+}
+.slide-down-leave {
+  max-height: 600px;
+  overflow: hidden;
+}
+.slide-down-leave.slide-down-leave-active {
+  max-height: 0;
+  transition: all 300ms ease-out;
+}
+.pipeline-connector {
+  stroke: #949393;
+}
+.pipeline-small-label {
+  font-size: 80%;
+}
+.pipeline-big-label.selected,
+.pipeline-small-label.selected {
+  font-weight: bold;
+}
+.pipeline-selection-highlight circle {
+  fill: none;
+  stroke: #949393;
+}
+td,
+th {
+  padding: 0;
+}
+.jdl-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.jdl-table td,
+.jdl-table th {
+  text-align: left;
+}
+.jdl-table th {
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+.jdl-table a {
+  color: #4A4A4A;
+}
+.jdl-table.u-fixed {
+  table-layout: fixed;
+}
+.jdl-table.u-highlight-rows tbody tr:hover {
+  cursor: pointer;
+  background-color: rgba(148, 147, 147, 0.1);
+}
+.jdl-table.u-table-padding td,
+.jdl-table.u-table-padding th,
+.jdl-table td.u-table-padding,
+.jdl-table th.u-table-padding {
+  padding: 0.5rem 0;
+}
+.jdl-table.u-table-padding td:first-child,
+.jdl-table.u-table-padding th:first-child,
+.jdl-table td.u-table-padding:first-child,
+.jdl-table th.u-table-padding:first-child {
+  padding-left: 1rem;
+}
+.jdl-table.u-table-padding td:last-child,
+.jdl-table.u-table-padding th:last-child,
+.jdl-table td.u-table-padding:last-child,
+.jdl-table th.u-table-padding:last-child {
+  padding-right: 1rem;
+}
+.jdl-table.u-single-line td,
+.jdl-table.u-single-line th,
+.jdl-table td.u-single-line,
+.jdl-table th.u-single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jdl-table.u-table-padding tr.jdl-table-divider td,
+.jdl-table tr.jdl-table-divider td {
+  padding: 0.5rem 0;
+}
+.jdl-table.u-table-padding tr.jdl-table-divider hr,
+.jdl-table tr.jdl-table-divider hr {
+  height: 1px;
+  color: #4A4A4A;
+  background: #4A4A4A;
+  border: none;
+  font-size: 0;
+  opacity: 0.5;
+}
+.TextArea {
+  height: 102px;
+  display: inline-block;
+  width: 100%;
+}
+.TextArea .TextArea-control {
+  padding: 10px;
+}
+.TextArea .TextArea-control {
+  width: 100%;
+  height: 100%;
+  color: #4A4A4A;
+  border: 1px solid rgba(73, 73, 73, 0.5);
+  border-radius: 3px;
+}
+.TextArea .TextArea-control:focus {
+  border-color: #4A90E2;
+  outline: 0;
+}
+.TextArea .TextArea-control[disabled],
+fieldset[disabled] .TextArea .TextArea-control {
+  opacity: 0.4;
+  cursor: auto;
+}
+.TextArea-small {
+  height: 83px;
+}
+.TextArea-small .TextArea-control {
+  padding: 8px;
+}
+.TextArea-medium {
+  height: 102px;
+}
+.TextArea-medium .TextArea-control {
+  padding: 10px;
+}
+.TextArea-large {
+  height: 126px;
+}
+.TextArea-large .TextArea-control {
+  padding: 12px;
+}
+.layout-small .TextArea {
+  height: 83px;
+}
+.layout-small .TextArea .TextArea-control {
+  padding: 8px;
+}
+.layout-large .TextArea {
+  height: 126px;
+}
+.layout-large .TextArea .TextArea-control {
+  padding: 12px;
+}
+.FormElement.u-error-state > .FormElement-children > .TextArea .TextArea-control {
+  border-color: #d54c53;
+}
+input[type="text"]::-ms-clear {
+  display: none;
+}
+.TextInput,
+.PasswordInput {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+}
+.TextInput .TextInput-icon,
+.PasswordInput .TextInput-icon {
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+}
+.TextInput .TextInput-icon .svg-icon,
+.PasswordInput .TextInput-icon .svg-icon {
+  width: 24px;
+  height: 24px;
+}
+.TextInput.u-icon-left .TextInput-icon.u-icon-left,
+.PasswordInput.u-icon-left .TextInput-icon.u-icon-left {
+  left: 4px;
+}
+.TextInput.u-icon-left .TextInput-control,
+.PasswordInput.u-icon-left .TextInput-control {
+  padding-left: 28px;
+  margin-right: -18px;
+}
+.TextInput.u-icon-right .TextInput-icon.u-icon-right,
+.PasswordInput.u-icon-right .TextInput-icon.u-icon-right {
+  right: 4px;
+}
+.TextInput.u-icon-right .TextInput-control,
+.PasswordInput.u-icon-right .TextInput-control {
+  padding-right: 28px;
+  margin-right: -18px;
+}
+.TextInput.u-icon-left.u-icon-right .TextInput-control,
+.PasswordInput.u-icon-left.u-icon-right .TextInput-control {
+  margin-right: -36px;
+}
+.TextInput .TextInput-control,
+.PasswordInput .TextInput-control {
+  padding: 6px 10px;
+}
+.TextInput .TextInput-control,
+.PasswordInput .TextInput-control {
+  width: 100%;
+  color: #4A4A4A;
+  background-color: transparent;
+  border: 1px solid rgba(73, 73, 73, 0.5);
+  border-radius: 3px;
+}
+.TextInput .TextInput-control:focus,
+.PasswordInput .TextInput-control:focus {
+  border-color: #4A90E2;
+  outline: 0;
+}
+.TextInput .TextInput-control[disabled],
+.PasswordInput .TextInput-control[disabled],
+fieldset[disabled] .TextInput .TextInput-control,
+fieldset[disabled] .PasswordInput .TextInput-control {
+  opacity: 0.4;
+  cursor: auto;
+}
+.TextInput .TextInput-icon,
+.PasswordInput .TextInput-icon {
+  position: absolute;
+  top: 50%;
+  fill: #999;
+  cursor: default;
+}
+.TextInput-small .TextInput-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+}
+.TextInput-small .TextInput-icon .svg-icon {
+  width: 20px;
+  height: 20px;
+}
+.TextInput-small.u-icon-left .TextInput-icon.u-icon-left {
+  left: 4px;
+}
+.TextInput-small.u-icon-left .TextInput-control {
+  padding-left: 24px;
+  margin-right: -16px;
+}
+.TextInput-small.u-icon-right .TextInput-icon.u-icon-right {
+  right: 4px;
+}
+.TextInput-small.u-icon-right .TextInput-control {
+  padding-right: 24px;
+  margin-right: -16px;
+}
+.TextInput-small.u-icon-left.u-icon-right .TextInput-control {
+  margin-right: -32px;
+}
+.TextInput-small .TextInput-control {
+  padding: 5px 8px;
+}
+.TextInput-medium .TextInput-icon {
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+}
+.TextInput-medium .TextInput-icon .svg-icon {
+  width: 24px;
+  height: 24px;
+}
+.TextInput-medium.u-icon-left .TextInput-icon.u-icon-left {
+  left: 4px;
+}
+.TextInput-medium.u-icon-left .TextInput-control {
+  padding-left: 28px;
+  margin-right: -18px;
+}
+.TextInput-medium.u-icon-right .TextInput-icon.u-icon-right {
+  right: 4px;
+}
+.TextInput-medium.u-icon-right .TextInput-control {
+  padding-right: 28px;
+  margin-right: -18px;
+}
+.TextInput-medium.u-icon-left.u-icon-right .TextInput-control {
+  margin-right: -36px;
+}
+.TextInput-medium .TextInput-control {
+  padding: 6px 10px;
+}
+.TextInput-large .TextInput-icon {
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+}
+.TextInput-large .TextInput-icon .svg-icon {
+  width: 28px;
+  height: 28px;
+}
+.TextInput-large.u-icon-left .TextInput-icon.u-icon-left {
+  left: 6px;
+}
+.TextInput-large.u-icon-left .TextInput-control {
+  padding-left: 34px;
+  margin-right: -22px;
+}
+.TextInput-large.u-icon-right .TextInput-icon.u-icon-right {
+  right: 6px;
+}
+.TextInput-large.u-icon-right .TextInput-control {
+  padding-right: 34px;
+  margin-right: -22px;
+}
+.TextInput-large.u-icon-left.u-icon-right .TextInput-control {
+  margin-right: -44px;
+}
+.TextInput-large .TextInput-control {
+  padding: 8px 12px;
+}
+.layout-small .TextInput .TextInput-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+}
+.layout-small .TextInput .TextInput-icon .svg-icon {
+  width: 20px;
+  height: 20px;
+}
+.layout-small .TextInput.u-icon-left .TextInput-icon.u-icon-left {
+  left: 4px;
+}
+.layout-small .TextInput.u-icon-left .TextInput-control {
+  padding-left: 24px;
+  margin-right: -16px;
+}
+.layout-small .TextInput.u-icon-right .TextInput-icon.u-icon-right {
+  right: 4px;
+}
+.layout-small .TextInput.u-icon-right .TextInput-control {
+  padding-right: 24px;
+  margin-right: -16px;
+}
+.layout-small .TextInput.u-icon-left.u-icon-right .TextInput-control {
+  margin-right: -32px;
+}
+.layout-small .TextInput .TextInput-control {
+  padding: 5px 8px;
+}
+.layout-large .TextInput .TextInput-icon {
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+}
+.layout-large .TextInput .TextInput-icon .svg-icon {
+  width: 28px;
+  height: 28px;
+}
+.layout-large .TextInput.u-icon-left .TextInput-icon.u-icon-left {
+  left: 6px;
+}
+.layout-large .TextInput.u-icon-left .TextInput-control {
+  padding-left: 34px;
+  margin-right: -22px;
+}
+.layout-large .TextInput.u-icon-right .TextInput-icon.u-icon-right {
+  right: 6px;
+}
+.layout-large .TextInput.u-icon-right .TextInput-control {
+  padding-right: 34px;
+  margin-right: -22px;
+}
+.layout-large .TextInput.u-icon-left.u-icon-right .TextInput-control {
+  margin-right: -44px;
+}
+.layout-large .TextInput .TextInput-control {
+  padding: 8px 12px;
+}
+.FormElement.u-error-state > .FormElement-children > .TextInput .TextInput-control,
+.FormElement.u-error-state > .FormElement-children > .PasswordInput .TextInput-control {
+  border-color: #d54c53;
+}
+.toaster {
+  width: 100%;
+  height: 100%;
+}
+.toaster .toast {
+  margin-bottom: 10px;
+}
+.toaster > span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: hidden;
+}
+.toast {
+  display: inline-flex;
+  max-width: 350px;
+  flex-shrink: 0;
+  padding: 20px;
+  background-color: #4A4A4A;
+  border-radius: 4px;
+  /* TODO: get proper values from updated sketch file */
+  -webkit-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.toast.success,
+.toast.error {
+  border-left: 5px solid;
+}
+.toast.success {
+  border-left-color: #8CC04F;
+}
+.toast.error {
+  border-left-color: #D54C53;
+}
+.toast .caption {
+  margin-bottom: 10px;
+}
+.toast .text,
+.toast .action,
+.toast .dismiss {
+  align-self: center;
+}
+.toast .text {
+  font-family: "LatoLatinWebMedium", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  max-height: 85px;
+  overflow: hidden;
+}
+.toast .action,
+.toast .dismiss {
+  cursor: pointer;
+}
+.toast .action:hover,
+.toast .dismiss:hover {
+  text-decoration: none;
+}
+.toast .action {
+  margin: 0 20px;
+  text-transform: uppercase;
+}
+.toast .dismiss {
+  color: white;
+}
+.toast .dismiss svg {
+  vertical-align: middle;
+}
+.toast-enter,
+.toast-appear {
+  opacity: 0.01;
+}
+.toast-enter.toast-enter-active,
+.toast-appear.toast-appear-active {
+  opacity: 1;
+  transition: all 300ms ease-in;
+}
+.toast-leave {
+  opacity: 1;
+  max-height: 150px;
+}
+.toast-leave.toast-leave-active {
+  opacity: 0.01;
+  max-height: 0;
+  transition: all 300ms ease-in;
+}
+.Alert {
+  font-size: 14px;
+  min-height: 48px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e6eaee;
+  display: flex;
+  align-items: stretch;
+}
+.Alert .border {
+  flex: 0 0 6px;
+  min-height: 100%;
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+.Alert .title-div {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+.Alert .title {
+  padding-left: 24px;
+  font-weight: bold;
+}
+.Alert .message {
+  color: #4A4A4A;
+  line-height: 1.71;
+  padding-left: 16px;
+}
+.Alert.Info {
+  border-left-color: #4C9BD5;
+  color: #4C9BD5;
+}
+.Alert.Info .border {
+  background-color: #4C9BD5;
+}
+.Alert.Warning {
+  border-left-color: #F5A623;
+  color: #F5A623;
+}
+.Alert.Warning .border {
+  background-color: #F5A623;
+}
+.Alert.Error {
+  border-left-color: #D54C53;
+  color: #D54C53;
+}
+.Alert.Error .border {
+  background-color: #D54C53;
+}
+.Alert.Success {
+  border-left-color: #78b037;
+  color: #78b037;
+}
+.Alert.Success .border {
+  background-color: #78b037;
+}
+.JTable {
+  border: solid 1px #e6eaee;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.JTable.u-table-maxwidth {
+  max-width: 1170px;
+}
+.JTable-row {
+  display: flex;
+  flex-direction: row;
+  border-top: solid 1px #e6eaee;
+}
+.JTable-row:first-child {
+  border-top: none;
+}
+a.JTable-row--href {
+  color: inherit;
+}
+a.JTable-row--href:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+.JTable-row--rollOver {
+  cursor: pointer;
+}
+.JTable-row--rollOver:hover {
+  background: #fafbfd;
+}
+.JTable-cell {
+  min-width: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.JTable-cell:first-child {
+  padding-left: 24px;
+}
+.JTable-cell:last-child {
+  padding-right: 24px;
+}
+.JTable-cell-contents {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.JTable-header {
+  color: rgba(53, 64, 82, 0.5);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.layout-small {
+  font-size: 12px;
+}
+.layout-medium {
+  font-size: 14px;
+}
+.layout-large {
+  font-size: 18px;
+}
+html {
+  font-size: 62.5%;
+}
+#root {
+  font-size: 1.4rem;
+}
+body {
+  color: #4A4A4A;
+  text-rendering: optimizeSpeed;
+  font-feature-settings: "kern" on, "liga" off;
+  -moz-font-feature-settings: "kern" on, "liga" off;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.2;
+}
+* {
+  box-sizing: border-box;
+}
+p {
+  margin: 1em 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-family: "LatoLatinWebLight", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 18px;
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 12px;
+}
+.u-content-page-sizing {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.success-bg {
+  background-color: #78b037;
+}
+.success-bg-lite {
+  background-color: #8CC04F;
+}
+.success-fill {
+  fill: #78b037;
+}
+.success-fill-lite {
+  fill: #8CC04F;
+}
+.success-color {
+  color: #78b037;
+}
+.success-color-lite {
+  color: #8CC04F;
+}
+.info-bg {
+  background-color: #3a70b0;
+}
+.info-bg-lite {
+  background-color: #4C9BD5;
+}
+.info-fill {
+  fill: #3a70b0;
+}
+.info-fill-lite {
+  fill: #4C9BD5;
+}
+.info-color {
+  color: #3a70b0;
+}
+.info-color-lite {
+  color: #4C9BD5;
+}
+.running-bg {
+  background-color: #3a70b0;
+}
+.running-bg-lite {
+  background-color: #4C9BD5;
+}
+.running-fill {
+  fill: #3a70b0;
+}
+.running-fill-lite {
+  fill: #4C9BD5;
+}
+.running-color {
+  color: #3a70b0;
+}
+.running-color-lite {
+  color: #4C9BD5;
+}
+.failure-bg {
+  background-color: #d54c53;
+}
+.failure-bg-lite {
+  background-color: #D54C53;
+}
+.failure-fill {
+  fill: #d54c53;
+}
+.failure-fill-lite {
+  fill: #D54C53;
+}
+.failure-color {
+  color: #d54c53;
+}
+.failure-color-lite {
+  color: #D54C53;
+}
+.aborted-bg {
+  background-color: #4A4A4A;
+}
+.aborted-bg-lite {
+  background-color: #949393;
+}
+.aborted-fill {
+  fill: #4A4A4A;
+}
+.aborted-fill-lite {
+  fill: #949393;
+}
+.aborted-color {
+  color: #4A4A4A;
+}
+.aborted-color-lite {
+  color: #949393;
+}
+.unstable-bg {
+  background-color: #F5A623;
+}
+.unstable-bg-lite {
+  background-color: #F6B44B;
+}
+.unstable-fill {
+  fill: #F5A623;
+}
+.unstable-fill-lite {
+  fill: #F6B44B;
+}
+.unstable-color {
+  color: #F5A623;
+}
+.unstable-color-lite {
+  color: #F6B44B;
+}
+.not_built-bg {
+  background-color: #4A4A4A;
+}
+.not_built-bg-lite {
+  background-color: #949393;
+}
+.not_built-fill {
+  fill: #4A4A4A;
+}
+.not_built-fill-lite {
+  fill: #949393;
+}
+.not_built-color {
+  color: #4A4A4A;
+}
+.not_built-color-lite {
+  color: #949393;
+}
+.queued-bg {
+  background-color: #4A4A4A;
+}
+.queued-bg-lite {
+  background-color: #949393;
+}
+.queued-fill {
+  fill: #4A4A4A;
+}
+.queued-fill-lite {
+  fill: #949393;
+}
+.queued-color {
+  color: #4A4A4A;
+}
+.queued-color-lite {
+  color: #949393;
+}
+.paused-bg {
+  background-color: #24B0D5;
+}
+.paused-bg-lite {
+  background-color: #24B0D5;
+}
+.paused-fill {
+  fill: #24B0D5;
+}
+.paused-fill-lite {
+  fill: #24B0D5;
+}
+.paused-color {
+  color: #24B0D5;
+}
+.paused-color-lite {
+  color: #24B0D5;
+}
+.unknown-bg {
+  background-color: #bd0fe1;
+}
+.unknown-bg-lite {
+  background-color: #D54CC4;
+}
+.unknown-fill {
+  fill: #bd0fe1;
+}
+.unknown-fill-lite {
+  fill: #D54CC4;
+}
+.unknown-color {
+  color: #bd0fe1;
+}
+.unknown-color-lite {
+  color: #D54CC4;
+}
+.label-danger {
+  background-color: #d54c53;
+}
+.label-warning {
+  background-color: #F5A623;
+}
+.label-info {
+  background-color: #3a70b0;
+}
+.label-success {
+  background-color: #78b037;
+}
+.label-primary {
+  background-color: #4A90E2;
+}
+a {
+  text-decoration: none;
+}
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge,
+a {
+  color: #4A90E2;
+}
+a:hover {
+  color: #1f69c1;
+  text-decoration: underline;
+}
+a.inverse {
+  color: white;
+}
+a.inverse:hover {
+  color: white;
+}
+.list-group-item.active .list-group-item-text,
+.list-group-item.active:focus .list-group-item-text,
+.list-group-item.active:hover .list-group-item-text {
+  color: white;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus {
+  background-color: #4A90E2;
+}
+.nav-pills > li.active > a:hover {
+  background-color: #1f69c1;
+}
+.progress-bar {
+  background-color: #4A90E2;
+}
+body {
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #FFF;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body {
+    font-family: sans-serif !important;
+  }
+}
+code,
+pre,
+kbd {
+  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+.thumbnail,
+.img-thumbnail {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+  background-color: #e8e8e8;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #3483de 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff3483de', GradientType=0);
+  background-color: #3483de;
+}
+@media (max-width: 767px) {
+  .navbar .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-image: -webkit-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+    background-image: -o-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+    background-image: linear-gradient(to bottom, #4A90E2 0%, #3483de 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff3483de', GradientType=0);
+  }
+}
+.alert {
+  border: none;
+}
+.alert-success {
+  background-color: #8CC04F;
+  color: white;
+  border-radius: 3px;
+}
+.alert-info {
+  background-color: #4C9BD5;
+  color: white;
+  border-radius: 3px;
+}
+.alert-warning {
+  background-color: #F6B44B;
+  color: white;
+  border-radius: 3px;
+}
+.alert-danger {
+  background-color: #D54C53;
+  color: white;
+  border-radius: 3px;
+}
+.progress {
+  background-image: -webkit-linear-gradient(top, #95bcef 0%, #a7c7f2 100%);
+  background-image: -o-linear-gradient(top, #95bcef 0%, #a7c7f2 100%);
+  background-image: linear-gradient(to bottom, #95bcef 0%, #a7c7f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff95bcef', endColorstr='#ffa7c7f2', GradientType=0);
+}
+.progress-bar {
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #2275d7 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #2275d7 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #2275d7 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff2275d7', GradientType=0);
+}
+.progress-bar-success {
+  background-image: -webkit-linear-gradient(top, #78b037 0%, #5e892b 100%);
+  background-image: -o-linear-gradient(top, #78b037 0%, #5e892b 100%);
+  background-image: linear-gradient(to bottom, #78b037 0%, #5e892b 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff78b037', endColorstr='#ff5e892b', GradientType=0);
+}
+.progress-bar-info {
+  background-image: -webkit-linear-gradient(top, #3a70b0 0%, #2d588a 100%);
+  background-image: -o-linear-gradient(top, #3a70b0 0%, #2d588a 100%);
+  background-image: linear-gradient(to bottom, #3a70b0 0%, #2d588a 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3a70b0', endColorstr='#ff2d588a', GradientType=0);
+}
+.progress-bar-warning {
+  background-image: -webkit-linear-gradient(top, #F5A623 0%, #db8c0a 100%);
+  background-image: -o-linear-gradient(top, #F5A623 0%, #db8c0a 100%);
+  background-image: linear-gradient(to bottom, #F5A623 0%, #db8c0a 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5a623', endColorstr='#ffdb8c0a', GradientType=0);
+}
+.progress-bar-danger {
+  background-image: -webkit-linear-gradient(top, #d54c53 0%, #c12d35 100%);
+  background-image: -o-linear-gradient(top, #d54c53 0%, #c12d35 100%);
+  background-image: linear-gradient(to bottom, #d54c53 0%, #c12d35 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd54c53', endColorstr='#ffc12d35', GradientType=0);
+}
+.progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+.list-group {
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  text-shadow: 0 -1px 0 #2275d7;
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #297cdd 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #297cdd 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #297cdd 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff297cdd', GradientType=0);
+  border-color: #297cdd;
+}
+.list-group-item.active .badge,
+.list-group-item.active:hover .badge,
+.list-group-item.active:focus .badge {
+  text-shadow: none;
+}
+.panel {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.panel-default > .panel-heading {
+  background-color: #f5f5f5;
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.panel-primary > .panel-heading {
+  background-color: #4A90E2;
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #3483de 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff3483de', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.panel-success > .panel-heading {
+  background-color: #8CC04F;
+  background-image: -webkit-linear-gradient(top, #8CC04F 0%, #7fb541 100%);
+  background-image: -o-linear-gradient(top, #8CC04F 0%, #7fb541 100%);
+  background-image: linear-gradient(to bottom, #8CC04F 0%, #7fb541 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8cc04f', endColorstr='#ff7fb541', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.panel-info > .panel-heading {
+  background-color: #4C9BD5;
+  background-image: -webkit-linear-gradient(top, #4C9BD5 0%, #378fd0 100%);
+  background-image: -o-linear-gradient(top, #4C9BD5 0%, #378fd0 100%);
+  background-image: linear-gradient(to bottom, #4C9BD5 0%, #378fd0 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4c9bd5', endColorstr='#ff378fd0', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.panel-warning > .panel-heading {
+  background-color: #F6B44B;
+  background-image: -webkit-linear-gradient(top, #F6B44B 0%, #f5aa33 100%);
+  background-image: -o-linear-gradient(top, #F6B44B 0%, #f5aa33 100%);
+  background-image: linear-gradient(to bottom, #F6B44B 0%, #f5aa33 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff6b44b', endColorstr='#fff5aa33', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.panel-danger > .panel-heading {
+  background-color: #D54C53;
+  background-image: -webkit-linear-gradient(top, #D54C53 0%, #d0373f 100%);
+  background-image: -o-linear-gradient(top, #D54C53 0%, #d0373f 100%);
+  background-image: linear-gradient(to bottom, #D54C53 0%, #d0373f 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd54c53', endColorstr='#ffd0373f', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.panel-default {
+  border-color: #ddd;
+}
+.panel-primary {
+  border-color: #4A90E2;
+}
+.panel-success {
+  border-color: #93b541;
+}
+.panel-info {
+  border-color: #30a5cd;
+}
+.panel-warning {
+  border-color: #f58a33;
+}
+.panel-danger {
+  border-color: #d03759;
+}
+.well {
+  background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #f5f5f5 100%);
+  background-image: -o-linear-gradient(top, #e8e8e8 0%, #f5f5f5 100%);
+  background-image: linear-gradient(to bottom, #e8e8e8 0%, #f5f5f5 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8e8e8', endColorstr='#fff5f5f5', GradientType=0);
+  border-color: #dcdcdc;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.log-header {
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.log-header__section {
+  display: flex;
+  align-items: center;
+}
+.log-header__section a {
+  padding-left: 10px;
+}
+.download-log-button {
+  cursor: pointer;
+  opacity: 0.87000002;
+}
+code {
+  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+  width: 100%;
+  min-height: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  counter-reset: line;
+  font-size: 1.2rem;
+}
+code p:hover {
+  background-color: #444 !important;
+}
+code p {
+  counter-increment: line;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+}
+code p::nth-line {
+  color: yellow !important;
+}
+code p a {
+  margin: 0;
+  padding: 0 15px 0 20px;
+  word-break: break-all;
+  display: inline;
+  color: #f5f5f5;
+}
+code a:hover {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+code p::before {
+  color: #777777;
+  content: counter(line);
+  min-width: 35px;
+  white-space: nowrap;
+  padding-right: 1em;
+  padding-left: 10px;
+  text-align: right;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+code.block {
+  background-color: #333333;
+  color: #f5f5f5;
+  display: block;
+  padding: 0.5rem;
+  border: solid 1px #000000;
+  white-space: pre-wrap;
+}
+code.inline {
+  display: inline-block;
+  padding: inherit;
+  white-space: pre-wrap;
+}
+code.hash {
+  border: 0;
+  font-size: 1.4rem;
+}
+.material-icons {
+  color: #4A90E2;
+}
+.material-icons.selected {
+  color: #F5A623;
+}
+.u-flex-grow {
+  flex-grow: 1;
+}
+main article {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.container-fluid {
+  padding: 0;
+}
+footer {
+  text-align: center;
+  margin: 1em;
+}
+.overlayStyles {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  zIndex: 99;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.dialog {
+  width: 100%;
+  height: 100%;
+  min-width: 640px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 2px;
+  z-index: 100;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+}
+.expand-in-appear {
+  -webkit-transition: all ease-out 0.15s;
+  -o-transition: all ease-out 0.15s;
+  transition: all ease-out 0.15s;
+  top: 4%;
+  opacity: 0.01;
+  transform: scale(0.96);
+}
+.expand-in-appear.expand-in-appear-active {
+  top: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+.expand-in-leave {
+  -webkit-transition: all ease-out 0.1s;
+  -o-transition: all ease-out 0.1s;
+  transition: all ease-out 0.1s;
+  top: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+.expand-in-leave.expand-in-leave-active {
+  top: 4%;
+  opacity: 0.01;
+  transform: scale(0.96);
+}
+.slideup-appear {
+  -webkit-transition: all ease-out 0.3s;
+  -o-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  top: 75%;
+  opacity: 0.01;
+}
+.slideup-appear.slideup-appear-active {
+  top: 0;
+  opacity: 1;
+}
+.slideup-leave {
+  -webkit-transition: all ease-out 0.3s;
+  -o-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  top: 0;
+  opacity: 1;
+}
+.slideup-leave.slideup-leave-active {
+  top: 75%;
+  opacity: 0.01;
+}
+.fadein-appear {
+  -webkit-transition: opacity ease-out 1s;
+  -o-transition: opacity ease-out 1s;
+  transition: opacity ease-out 1s;
+  opacity: 0.01;
+}
+.fadein-appear.fadein-appear-active {
+  opacity: 1;
+}
+.dialog .header {
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 20px;
+  font-size: 1.6rem;
+}
+.dialog .header-content {
+  padding: 0 50px 0 50px;
+}
+.dialog .header.success {
+  background-color: #78b037;
+}
+.dialog .header.failure {
+  background-color: #d54c53;
+}
+.dialog .header.unstable {
+  background-color: #F5A623;
+}
+.dialog .header.info,
+.dialog .header.running {
+  background-color: #3a70b0;
+}
+.dialog .header.not_built {
+  background-color: #4A4A4A;
+}
+.dialog .header.queued,
+.dialog .header.aborted {
+  background-color: #949393;
+}
+.dialog .header.paused {
+  background-color: #24B0D5;
+}
+.dialog .header.unknown {
+  background-color: #bd0fe1;
+}
+.dialog .content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 25px 50px 25px 50px;
+  background-color: #fff;
+}
+.header .title {
+  margin-top: 0;
+}
+.header .closeButton {
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  font-size: 3em;
+  color: #ffffff;
+  right: 10px;
+  top: 10px;
+}
+.spin {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 4000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 4000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clickIndicator {
+  cursor: pointer;
+}
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+#outer {
+  flex: 1;
+}
+.development-footer {
+  padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777777;
+}
+
+/*# sourceMappingURL=jenkins-design-language.css.map */
