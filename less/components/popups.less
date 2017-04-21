@@ -73,21 +73,53 @@
     border-top-left-radius: @popup-border-radius;
     border-top-right-radius: @popup-border-radius;
     padding: 0 32px;
+    position: relative;
+
+    .Dialog-close-button {
+        position: absolute;
+        right: 21px;
+        top: 50%;
+        font-size: 36px;
+        margin-top: -15px;
+        line-height: 27px;
+        cursor: pointer;
+        height: 29px;
+        width: 30px;
+        text-align: center;
+        border-radius: 3px;
+        
+        &:hover, &:focus {
+            background: #fff;
+            color: @brand-primary;
+        }
+    }
 
     .Dialog--input & {
         background: @brand-input-required;
+        .Dialog-close-button {
+            &:hover, &:focus { color: @brand-input-required; }
+        }
     }
 
     .Dialog--error & {
         background: @brand-danger;
+        .Dialog-close-button {
+            &:hover, &:focus { color: @brand-danger; }
+        }
     }
 
     .Dialog--success & {
         background: @brand-success;
+        .Dialog-close-button {
+            &:hover, &:focus { color: @brand-success; }
+        }
     }
 
     .Dialog--warning & {
         background: @brand-warning;
+        .Dialog-close-button {
+            &:hover, &:focus { color: @brand-warning; }
+        }
     }
 }
 
