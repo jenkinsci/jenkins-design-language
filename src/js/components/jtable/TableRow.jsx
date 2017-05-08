@@ -14,6 +14,7 @@ type Props = {
     className?: string,
     children?: ReactChildren,
     href?: string,
+    linkTo?: string,
     onClick?: Function,
     columns: Array<ColumnDescription>,
     useRollover?: boolean
@@ -97,9 +98,9 @@ export class TableRow extends Component {
         const newChildren = processChildren(children, columns);
 
         let tagOrComponent = 'div';
-        const props = {
+        const props: Object = {
             onClick,
-            className
+            className,
         };
 
         let rowIsALink = false;
