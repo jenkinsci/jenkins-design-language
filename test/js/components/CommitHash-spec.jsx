@@ -14,11 +14,11 @@ describe("CommitHash", () => {
         ));
     });
 
-    it("renders dash with invalid data", () => {
-        const wrapper = shallow(<CommitHash commitId="invalid data" />);
+    it("renders if does not match git regexp", () => {
+        const wrapper = shallow(<CommitHash commitId="123" />);
 
         assert.isTrue(wrapper.equals(
-            <span>-</span>
+            <span>123</span>
         ));
     });
 
