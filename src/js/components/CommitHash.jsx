@@ -9,11 +9,14 @@ const GIT_HASH_REGEX = /\b[0-9a-f]{5,40}\b/;
  */
 export class CommitHash extends Component {
     render() {
+        const commitId = this.props.commitId;
         let displayValue;
-        if (GIT_HASH_REGEX.test(this.props.commitId)) {
-            displayValue = this.props.commitId.substring(0, 7);
+        if (GIT_HASH_REGEX.test(commitId)) {
+            displayValue = commitId.substring(0, 7);
+        } else if (commitId) {
+            displayValue = commitId;
         } else {
-            displayValue = this.props.commitId;
+            displayValue = '–';
         }
         return (<code className="hash">{displayValue}</code>);
     }
