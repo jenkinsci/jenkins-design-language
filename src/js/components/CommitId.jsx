@@ -7,7 +7,11 @@ const GIT_HASH_REGEX = /\b[0-9a-f]{5,40}\b/;
 /**
  * Displays a commit hash in the proper style.
  */
-export class CommitHash extends Component {
+export class CommitId extends Component {
+    propTypes = {
+        commitId: PropTypes.string,
+    };
+
     render() {
         const commitId = this.props.commitId;
         let displayValue;
@@ -21,7 +25,3 @@ export class CommitHash extends Component {
         return (<code className="hash">{displayValue}</code>);
     }
 }
-
-CommitHash.propTypes = {
-    commitId: PropTypes.string,
-};
