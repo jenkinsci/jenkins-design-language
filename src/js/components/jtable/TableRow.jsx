@@ -1,7 +1,8 @@
 // @flow
 
 import React, { Component, PropTypes, Children } from 'react';
-import { TableHeader } from './';
+import { Link } from 'react-router';
+import { TableHeader } from '../';
 import {
     TABLE_COLUMN_SPACING,
     TABLE_LEFT_RIGHT_PADDING
@@ -10,9 +11,11 @@ import {
 import type {ColumnDescription} from './JTable';
 
 type Props = {
+    onClick?: Function,
     className?: string,
     children?: ReactChildren,
     href?: string,
+    linkTo?: string,
     onClick?: Function,
     columns: Array<ColumnDescription>,
     useRollover?: boolean
@@ -82,6 +85,7 @@ export class TableRow extends Component {
             children,
             columns,
             href,
+            linkTo,
             onClick,
         } = this.props;
 
@@ -94,16 +98,27 @@ export class TableRow extends Component {
 
         const newChildren = processChildren(children, columns);
 
-        let tagName = 'div';
-        const props = {
+        let tagOrComponent = 'div';
+        const props: Object = {
             onClick,
-            href,
-            className
+            className,
         };
 
+        let rowIsALink = false;
+        
         if (typeof href === 'string' && href.length > 0) {
+            rowIsALink = true;
             // We switch to an <A> instead of <DIV> so the user can middle-click
-            tagName = 'a';
+            tagOrComponent = 'a';
+            props.href = href;
+        } else if (typeof linkTo === 'string' && linkTo.length > 0) {
+            rowIsALink = true;
+            // Use <Link> instead of <A> for local URLs because we don't know the base url here
+            tagOrComponent = Link;
+            props.to = linkTo;
+        } 
+        
+        if (rowIsALink) {
             classNames.push('JTable-row--href');
 
             if (useRollOver !== false) {
@@ -118,15 +133,17 @@ export class TableRow extends Component {
 
         props.className = classNames.join(' ');
 
-        return React.createElement(tagName, props, ...newChildren);
+        return React.createElement(tagOrComponent, props, ...newChildren);
     }
 }
 
 TableRow.propTypes = {
+    onClick: PropTypes.func,
     className: PropTypes.string,
     children: PropTypes.node,
     onClick: PropTypes.func,
     href: PropTypes.string,
+    linkTo: PropTypes.string,
     columns: PropTypes.array,
     useRollover: PropTypes.bool
 };
