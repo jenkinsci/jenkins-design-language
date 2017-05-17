@@ -106,8 +106,9 @@ export class JTable extends Component {
         const {
             className,
             children,
-            style,
-            onClick
+            style,            // TODO: Remove style and onclick if we're not going to screw with them
+            onClick,
+            ...restProps
         } = this.props;
 
         const columns = this.state.columns;
@@ -131,6 +132,7 @@ export class JTable extends Component {
         });
 
         const newProps = {
+            ...restProps,
             className: classNames.join(' '),
             style,
             onClick

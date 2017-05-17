@@ -87,6 +87,7 @@ export class TableRow extends Component {
             href,
             linkTo,
             onClick,
+            ...restProps
         } = this.props;
 
         const useRollOver = this.props.useRollover;
@@ -100,6 +101,7 @@ export class TableRow extends Component {
 
         let tagOrComponent = 'div';
         const props: Object = {
+            ...restProps,
             onClick,
             className,
         };
