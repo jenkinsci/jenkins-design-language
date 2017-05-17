@@ -175,7 +175,6 @@ function manual() {
     };
 
     return container(
-        <Link to="/relativeurl">This is in a link</Link>,
         <h3>Manual headers, row links</h3>,
         <JTable columns={columns} style={style}>
             <TableRow>

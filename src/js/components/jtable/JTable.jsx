@@ -106,12 +106,8 @@ export class JTable extends Component {
         const {
             className,
             children,
-            style,            // TODO: Remove style and onclick if we're not going to screw with them
-            onClick,
             ...restProps
         } = this.props;
-
-        const columns = this.state.columns;
 
         const classNames = ['JTable', 'u-table-maxwidth'];
 
@@ -120,7 +116,7 @@ export class JTable extends Component {
         }
 
         const newChildProps = {
-            columns
+            columns: this.state.columns
         };
 
         const newChildren = [];
@@ -133,9 +129,8 @@ export class JTable extends Component {
 
         const newProps = {
             ...restProps,
+            columns: undefined,
             className: classNames.join(' '),
-            style,
-            onClick
         };
 
         return React.createElement('div', newProps, ...newChildren);

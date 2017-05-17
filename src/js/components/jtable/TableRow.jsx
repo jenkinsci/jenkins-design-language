@@ -86,7 +86,6 @@ export class TableRow extends Component {
             columns,
             href,
             linkTo,
-            onClick,
             ...restProps
         } = this.props;
 
@@ -102,7 +101,6 @@ export class TableRow extends Component {
         let tagOrComponent = 'div';
         const props: Object = {
             ...restProps,
-            onClick,
             className,
         };
 
