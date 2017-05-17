@@ -33,7 +33,7 @@ function General() {
                 <TextInput placeholder="This is a placeholder." />
             </div>
             <div style={style}>
-                <p>Placeholder</p>
+                <p>Default Value</p>
 
                 <TextInput defaultValue="I have a default value." />
             </div>

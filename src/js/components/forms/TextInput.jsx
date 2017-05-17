@@ -28,7 +28,7 @@ export class TextInput extends React.Component {
         return (
             <TextControl {...this.props} className={`TextInput ${this.props.className} ${classLeft} ${classRight}`}>
                 { classLeft && <NestedIcon className={classLeft} icon={this.props.iconLeft} /> }
-                <input type="text" className="TextInput-control" { ...{ name: this.props.name } } />
+                <input type="text" className="TextInput-control" value={this.props.defaultValue} { ...{ name: this.props.name } } />
                 { classRight && <NestedIcon className={classRight} icon={this.props.iconRight} /> }
             </TextControl>
         );
