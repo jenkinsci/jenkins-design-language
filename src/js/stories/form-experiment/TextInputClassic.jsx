@@ -23,7 +23,7 @@ export default class TextInputClassicStory extends Component {
 
     _setValue(value) {
         console.log('_setValue:', value);
-        this.textRef.setValue('setValue: ' + value);
+        this.textRef.setValue(value);
     }
 
     render() {
@@ -49,7 +49,12 @@ export default class TextInputClassicStory extends Component {
                 </span>
 
                 <span>
-                    <button onClick={() => this._setValue(new Date().toString())}>Call setValue</button>
+                    <button onClick={() => this._setValue(new Date().toString())}>Update w/ setValue</button>
+                    &nbsp; Will work, but requires a ref, and is less "reactive"
+                </span>
+
+                <span>
+                    <button onClick={() => this._setValue('')}>Clear w/ setValue</button>
                     &nbsp; Will work, but requires a ref, and is less "reactive"
                 </span>
 

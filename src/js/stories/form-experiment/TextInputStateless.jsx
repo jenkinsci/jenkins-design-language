@@ -45,6 +45,11 @@ export default class TextInputStatelessStory extends Component {
                     &nbsp; Works fine, since parent has full control over text's state
                 </span>
 
+                <span>
+                    <button onClick={() => this._setValue('')}>Clear 'value' prop</button>
+                    &nbsp; Works fine, since parent has full control over text's state
+                </span>
+
                 <TextInputStateless onChange={value => this._setValue(value)} value={this.state.value2} />
             </div>
         );

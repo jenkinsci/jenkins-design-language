@@ -7,7 +7,8 @@ export default class TextInputHybridStory extends Component {
         super(props);
 
         this.state = {
-            value: 'value passed before mounting',
+            value1: 'value passed before mounting',
+            value2: 'value passed before mounting',
         };
     }
 
@@ -18,7 +19,7 @@ export default class TextInputHybridStory extends Component {
     _setValue(value) {
         console.log('_setValue:', value);
         this.setState({
-            value,
+            value2: value,
         });
     }
 
@@ -33,7 +34,7 @@ export default class TextInputHybridStory extends Component {
                 </span>
 
                 <span>
-                    <TextInputHybrid onChange={value => this._onChange(value)} value={this.state.value} />
+                    <TextInputHybrid onChange={value => this._onChange(value)} value={this.state.value1} />
                     &nbsp; updates as you type without extra code, with an initial value set
                 </span>
 
@@ -44,7 +45,12 @@ export default class TextInputHybridStory extends Component {
                     &nbsp; Works fine, since parent has full control over text's state
                 </span>
 
-                <TextInputHybrid onChange={value => this._onChange(value)} value={this.state.value} />
+                <span>
+                    <button onClick={() => this._setValue('')}>Clear 'value' prop</button>
+                    &nbsp; Works fine, since parent has full control over text's state
+                </span>
+
+                <TextInputHybrid onChange={value => this._onChange(value)} value={this.state.value2} />
             </div>
         );
     }
@@ -67,17 +73,19 @@ class TextInputHybrid extends Component {
     }
 
     componentWillMount() {
-        this._setValue(this.props);
+        this._setValue(this.props, true);
     }
 
     componentWillReceiveProps(nextProps) {
         this._setValue(nextProps);
     }
 
-    _setValue(theProps) {
-        if (theProps.value && theProps.value !== this.state.value) {
+    _setValue(nextProps, forceUpdate) {
+        const valueChanged = nextProps.value !== this.props.value;
+
+        if (valueChanged || forceUpdate) {
             this.setState({
-                value: theProps.value,
+                value: nextProps.value || '',
             });
         }
     }
