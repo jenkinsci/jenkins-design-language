@@ -5,7 +5,6 @@ import { TextInput } from '../components/forms/TextInput';
 
 storiesOf('TextInput', module)
     .add('general', () => <General />)
-    // .add('testing', () => <Testing />)
     .add('icons', () => <Icons />)
     .add('callbacks', () => <Callbacks />)
     .add('sizes', () => <Sizes />)
@@ -45,39 +44,6 @@ function General() {
             </div>
         </div>
     );
-}
-
-function Testing() {
-    return (
-        <div>
-            <TestHelper />
-        </div>
-    );
-}
-
-class TestHelper extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            text: '',
-        };
-    }
-    _updateText(value) {
-        this.setState({
-            text: value,
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <TextInput onChange={t => this._updateText(t)} />
-
-                <TextInput defaultValue={this.state.text}/>
-            </div>
-        );
-    }
 }
 
 function Icons() {
