@@ -1,14 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 
 
+const DEFAULT_VALUE = 'value passed before mounting';
+
+
 export default class TextInputHybridStory extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            value1: 'value passed before mounting',
-            value2: 'value passed before mounting',
+            value1: DEFAULT_VALUE,
+            value2: DEFAULT_VALUE,
         };
     }
 
@@ -48,6 +51,11 @@ export default class TextInputHybridStory extends Component {
                 <span>
                     <button onClick={() => this._setValue('')}>Clear 'value' prop</button>
                     &nbsp; Works fine, since parent has full control over text's state
+                </span>
+
+                <span style={{ background: '#FF9999'}}>
+                    <button onClick={() => this._setValue(DEFAULT_VALUE)}>Reset 'value' prop</button>
+                    &nbsp; Doesn't work after typing, since the value of prop 'value' didn't change
                 </span>
 
                 <TextInputHybrid onChange={value => this._onChange(value)} value={this.state.value2} />
