@@ -32,7 +32,7 @@ function General() {
             </div>
 
             <div style={style}>
-                <p>Placeholder</p>
+                <p>Default Value</p>
 
                 <TextArea defaultValue="I have a default value." />
             </div>
