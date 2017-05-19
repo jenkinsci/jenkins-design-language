@@ -1,13 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
 
+const DEFAULT_VALUE = 'default value passed before mounting';
+
+
 export default class TextInputClassicStory extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            defaultValue: 'default value passed before mounting',
+            defaultValue: DEFAULT_VALUE,
         };
 
         this.textRef = null;
@@ -55,6 +58,11 @@ export default class TextInputClassicStory extends Component {
 
                 <span>
                     <button onClick={() => this._setValue('')}>Clear w/ setValue</button>
+                    &nbsp; Will work, but requires a ref, and is less "reactive"
+                </span>
+
+                <span>
+                    <button onClick={() => this._setValue(DEFAULT_VALUE)}>Reset w/ setValue</button>
                     &nbsp; Will work, but requires a ref, and is less "reactive"
                 </span>
 
