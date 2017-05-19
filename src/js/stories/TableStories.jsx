@@ -17,6 +17,7 @@ storiesOf('Table', module)
     .add('No Divider', scenario1NoDivider)
     .add('No Default Padding', scenario1NoPadding)
     .add('Long Text', longText)
+    .add('Custom Header', customHeader)
     .add('Table class', scenario2)
     .add('Header class', scenario3)
     .add('Fluid columns', scenario4)
@@ -139,6 +140,24 @@ function longText() {
                 {tbody}
             </Table>
         </div>
+    );
+}
+
+function customHeader() {
+    const customHeaders = detailedHeaders.slice();
+    customHeaders[4] = {
+        label: 'Blood Type',
+        content: (
+            <div>
+                Blood Type: <input type="text" style={{width: 50}} />
+            </div>
+        )
+    };
+
+    return (
+        <Table headers={customHeaders}>
+            { detailedData.map(renderRow) }
+        </Table>
     );
 }
 
