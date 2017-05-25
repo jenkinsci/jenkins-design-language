@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+require('./form-experiment/FormExperimentStories');
 require('./ButtonStories');
 require('./IconButtonStories');
 require('./CheckboxStories');

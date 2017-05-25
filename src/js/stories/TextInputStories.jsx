@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { PasswordInput } from '../components/forms/PasswordInput';
 import { TextInput } from '../components/forms/TextInput';
@@ -33,7 +33,7 @@ function General() {
                 <TextInput placeholder="This is a placeholder." />
             </div>
             <div style={style}>
-                <p>Placeholder</p>
+                <p>Default Value</p>
 
                 <TextInput defaultValue="I have a default value." />
             </div>
