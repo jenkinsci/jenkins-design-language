@@ -25,7 +25,7 @@ export class TableCell extends Component {
         }
 
         const outerProps = {
-            ...restProps,
+            ...restProps,  // TODO: WHY THE FUCK IS CLASSNAME GETTING OVERWRITTEN BY RESTPROPS HERE!?
             className: classNames.join(' '),
             style,
             title,
