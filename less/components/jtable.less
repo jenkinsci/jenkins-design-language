@@ -91,10 +91,15 @@ a.JTable-row--href {
 }
 
 .TableCell--actions {
-    justify-content: flex-end;
+    .JTable-cell-contents {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+    }
 }
 
 .JTable-cell-contents {
+    width:100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

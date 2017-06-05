@@ -90,12 +90,20 @@ function cellClicked(e) {
 
 function renderRow(rowData) {
     const key = rowData[1] + rowData[0];
+
+    const boxStyle = {
+        width: '24px',
+        height: '24px',
+        background: '#ccc',
+        overflow: 'hidden'
+    };
+
     return (
         <TableRow onClick={rowClicked} key={key} data-tag={ 'row-' + key }>
             { rowData.map(renderCell) }
             <TableCell className="TableCell--actions">
                 <Icon size={24} icon="history"/>
-                <Icon size={24} icon="grade"/>
+                <div style={boxStyle}/>
                 <Icon size={24} icon="delete"/>
             </TableCell>
         </TableRow>
