@@ -63,7 +63,7 @@ function container(...children) {
 
     const ctx = {
         router: {
-            createHref: x => "/createdHref" + x
+            createHref: x => "/context-url-base" + x
         }
     };
 
@@ -262,7 +262,7 @@ function manual() {
                 <TableHeader>NAND</TableHeader>
                 <TableHeader>Comment</TableHeader>
             </TableRow>
-            <TableRow href="http://www.example.org/alpha/">
+            <TableRow linkTo="/app-link">
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
                 <TableCell>True</TableCell>
@@ -290,13 +290,13 @@ function manual() {
                 <TableCell>No link</TableCell>
             </TableRow>
             <TableRow useRollover>
-                <TableCell>False</TableCell>
-                <TableCell>False</TableCell>
-                <TableCell>False</TableCell>
-                <TableCell>False</TableCell>
-                <TableCell>False</TableCell>
-                <TableCell>True</TableCell>
-                <TableCell>No link, useRollover=true</TableCell>
+                <TableCell href="http://example.org/a">False</TableCell>
+                <TableCell href="http://example.org/a">False</TableCell>
+                <TableCell href="http://example.org/a">False</TableCell>
+                <TableCell linkTo="/app-link">False</TableCell>
+                <TableCell linkTo="/app-link">False</TableCell>
+                <TableCell linkTo="/app-link">True</TableCell>
+                <TableCell>Cell links only, useRollover=true</TableCell>
             </TableRow>
         </JTable>
     );

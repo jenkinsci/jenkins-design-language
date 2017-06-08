@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component, PropTypes } from 'react';
+import { generateLink } from './TableRow';
 
 /**
  * Takes the place of a <TD>
@@ -10,11 +11,11 @@ export class TableCell extends Component {
     render() {
 
         const {
-            style,
+            href,
+            linkTo,
             title,
             className,
             children,
-            onClick, // TODO: remove anything from here that we're not inspecting / molesting
             ...restProps
         } = this.props;
 
@@ -24,34 +25,40 @@ export class TableCell extends Component {
             classNames.push(className);
         }
 
+        const {
+            linkProps,
+            tagOrComponent
+        } = generateLink('div', href, linkTo);
+
         const outerProps = {
-            ...restProps,  // TODO: WHY THE FUCK IS CLASSNAME GETTING OVERWRITTEN BY RESTPROPS HERE!?
+            ...restProps,
+            ...linkProps,
             className: classNames.join(' '),
-            style,
             title,
-            onClick
         };
 
         if (typeof title === 'undefined' && typeof children === 'string') {
             outerProps.title = children;
         }
 
-        return (
-            <div {...outerProps}>
-                <div className="JTable-cell-contents">
-                    {children}
-                </div>
+        const wrappedChildren = (
+            <div className="JTable-cell-contents">
+                {children}
             </div>
         );
+
+        return React.createElement(tagOrComponent, outerProps, wrappedChildren);
     }
 }
 
 TableCell.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    href: PropTypes.string,
+    linkTo: PropTypes.string,
     onClick: PropTypes.func,
     style: PropTypes.object,
-    title: PropTypes.string,
-    className: PropTypes.string,
-    children: PropTypes.node
+    title: PropTypes.string
 };
 
 /**
