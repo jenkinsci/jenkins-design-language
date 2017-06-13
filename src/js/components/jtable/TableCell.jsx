@@ -3,10 +3,22 @@
 import React, { Component, PropTypes } from 'react';
 import { generateLink } from './TableRow';
 
+type Props = {
+    children ?: ReactChildren,
+    className ?: string,
+    href ?: string,
+    linkTo ?: string,
+    onClick ?: Function,
+    style ?: Object,
+    title ?: string
+};
+
 /**
  * Takes the place of a <TD>
  */
 export class TableCell extends Component {
+
+    props: Props;
 
     render() {
 

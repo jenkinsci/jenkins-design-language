@@ -21,13 +21,15 @@ type Props = {
     useRollover?: boolean
 };
 
+type TagOrComponent = string | Class<*> | Function;
+
 /**
  * Generate the props and optionally override the element tag / component required to implement a link on a row or cell.
  */
-export function generateLink(defaultTagOrComponent, href, linkTo) {
+export function generateLink(defaultTagOrComponent: TagOrComponent, href ?: string, linkTo ?: string) {
     let isLink = false;
     let linkProps = undefined;
-    let tagOrComponent = defaultTagOrComponent;
+    let tagOrComponent: TagOrComponent = defaultTagOrComponent;
 
     if (typeof href === 'string' && href.length > 0) {
         isLink = true;
