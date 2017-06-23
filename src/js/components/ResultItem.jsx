@@ -58,7 +58,7 @@ export class ResultItem extends Component {
     }
 
     toggleExpanded: Function = (e) => {
-        const selection = getSelection();
+        const selection = window.getSelection ? window.getSelection() : false;
         const selected = selection && selection.toString();
         if (this.props.children && !selected) {
             const expanded = !this.state.expanded;
