@@ -54,6 +54,10 @@ export class Checkbox extends Component {
         }
     }
 
+    clicked = e => {
+        e.currentTarget.blur();
+    };
+
     render() {
         const extraClass = this.props.className || '';
 
@@ -67,6 +71,7 @@ export class Checkbox extends Component {
                            onChange={this._toggle.bind(this)}
                            checked={this.state.checked}
                            disabled={this.props.disabled}
+                           onClick={this.clicked}
                     />
 
                     <div className="Checkbox-indicator">
