@@ -41,11 +41,6 @@ Favorite.propTypes = {
     onToggle: PropTypes.func
 };
 
-const selectedStroke = {
-    stroke: 'pink'
-};
-
-
 /* eslint-disable max-len */
 function FavoriteStarSvg() {
     return (
