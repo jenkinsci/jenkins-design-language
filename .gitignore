@@ -9,3 +9,7 @@ reports
 /website/storybook
 /website/component-docs/doc*
 /website-build
+/target/
+/.settings/
+/.classpath
+/node/
