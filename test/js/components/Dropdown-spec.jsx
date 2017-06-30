@@ -28,15 +28,16 @@ describe("Dropdown", () => {
         assert.equal(props.title, options[0]);
     });
     it('dropDown button title should be the same as the title attribute', () => {
+        const title = 'Works';
         const wrapper = mount(<Dropdown { ...{
             options,
+            title,
             defaultOption: options[0],
-            title: 'Works'
         }}
         />);
         assert.ok(wrapper);
         const props = wrapper.find('Dropdown').find('button').props();
-        assert.equal(props.title, 'Works');
+        assert.equal(props.title, title);
     });
 
 
