@@ -1,15 +1,3 @@
 # Jenkins Design Language (JDL)
 
-Reusable [React] components and design elements that adhere to the Jenkins Design Language (Blue Ocean edition).
-
-## Developing
-```
-npm install
-npm run gulp
-npm run build-storybook
-npm run site-server
-```
-
-> License is MIT. Other licenses in /licenses
-
-__[Docs Site](http://jenkinsci.github.io/jenkins-design-language/docs)__
+NOTE: this repository is no longer being used, it has been merged to the main `blueocean-plugin` repository, here: https://github.com/jenkinsci/blueocean-plugin
