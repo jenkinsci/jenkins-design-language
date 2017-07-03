@@ -27,7 +27,6 @@ describe("CommitId", () => {
 
     it("renders link when url prop is passed along", () => {
         const wrapper = shallow(<CommitId commitId="123" url="link" />);
-        assert.isTrue(wrapper.is('a'));
-        assert.equal(wrapper.html(), '<a href="link" target="_blank" title="Opens commit in a new window"><code class="hash">123</code></a>');
+        assert.isTrue(wrapper.is('a[href="link"]'));
     });
 });
