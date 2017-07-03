@@ -69,3 +69,6 @@ export {
     PlaceholderTextCell,
     PlaceholderIconCell,
 } from './Placeholder';
+export {
+    TruncatingLabel
+} from './TruncatingLabel';
