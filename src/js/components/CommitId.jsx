@@ -31,4 +31,5 @@ export class CommitId extends Component {
 
 CommitId.propTypes = {
     commitId: PropTypes.string,
+    url: PropTypes.string,
 };
