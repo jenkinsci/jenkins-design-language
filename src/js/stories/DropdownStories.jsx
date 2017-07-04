@@ -5,6 +5,7 @@ import Utils from './Utils';
 
 storiesOf('Dropdown', module)
     .add('general', () => <General />)
+    .add('footer', () => <Footer />)
     .add('In Dialog', () => <InDialog />)
     .add('labeling', () => <LabelOptions />)
     .add('keyboard & focus', () => <KeyboardFocus />)
@@ -97,6 +98,33 @@ function General() {
                 <Dropdown
                     placeholder="Truncated because the text is too long"
                     options={createOptions(a2z)}
+                />
+            </div>
+        </div>
+    );
+}
+function Footer() {
+    Utils.createCssRule(
+        '.Dropdown-Default .Dropdown-placeholder',
+        'font-style: italic', 'text-transform: uppercase'
+    );
+    const footerStyle = {
+        padding: '5px',
+        borderBottom: '1px solid rgba(73, 73, 73, 0.5)',
+        borderLeft: '1px solid rgba(73, 73, 73, 0.5)',
+        borderRight: '1px solid rgba(73, 73, 73, 0.5)',
+        borderColor: '#4A90E2'
+    };
+
+    return (
+        <div>
+            <div style={style}>
+                <p>With footer</p>
+
+                <Dropdown
+                    defaultOption="Option 3"
+                    footer={<div style={footerStyle}>This is a custom footer</div>}
+                    options={createOptions()}
                 />
             </div>
         </div>
