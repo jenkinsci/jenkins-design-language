@@ -1,3 +1,3 @@
 # Jenkins Design Language (JDL)
 
-NOTE: this repository is no longer being used, it has been merged to the main `blueocean-plugin` repository, here: https://github.com/jenkinsci/blueocean-plugin
+The Jenkins Design Language is a React component library and associated styles available to use with [Jenkins Blue Ocean](https://github.com/jenkinsci/blueocean-plugin) and extensions, as well as any other project you may choose to use this library with.
