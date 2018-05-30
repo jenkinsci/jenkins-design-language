@@ -4,11 +4,10 @@
 **Submitter checklist**
 - [ ] Link to JIRA ticket in description, if appropriate.
 - [ ] Change is code complete and matches issue description
-- [ ] Appropriate unit or acceptance tests or explanation to why this change has no tests
+- [ ] Storybook entries and tests have been added
+- [ ] Documentation has been added or updated
 
 **Reviewer checklist**
 - [ ] Run the changes and verified the change matches the issue description
 - [ ] Reviewed the code
-- [ ] Verified that the appropriate tests have been written or valid explanation given
-
-@reviewbybees
+- [ ] Verified the appropriate tests have been written
