@@ -1,0 +1,22 @@
+#
+# This file tells your IDE the formatting (etc) rules for your project.
+# See http://editorconfig.org/
+#
+# Subline Text: https://github.com/editorconfig/editorconfig-sublime
+# Emacs: https://github.com/editorconfig/editorconfig-emacs
+# Jetbrains (IntelliJ etc): https://github.com/editorconfig/editorconfig-jetbrains
+# Eclipse: ??
+#
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
