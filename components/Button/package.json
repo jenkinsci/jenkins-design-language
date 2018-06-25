@@ -3,7 +3,8 @@
     "version": "2.0.0",
     "main": "./src/Button",
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "test": "jest"
     },
     "files": [
         "*.js",
@@ -22,6 +23,6 @@
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
         "@types/react-transition-group": "*",
-        "typescript": "^2.7.2"
+        "typescript": "^2.9"
     }
 }
