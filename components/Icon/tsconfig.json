@@ -1,0 +1,6 @@
+{
+    "extends": "../../tsconfig.json",
+    "name": "@jdl2/button",
+    "version": "2.0.0",
+    "main": "./src/Button"
+}

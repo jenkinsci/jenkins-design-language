@@ -1,0 +1,13 @@
+{
+  "lerna": "2.11.0",
+  "packages": [
+    "components/*"
+  ],
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": ["--no-package-lock"]
+    },
+    "clean": true
+  },
+  "version": "0.0.0"
+}

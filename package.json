@@ -6,7 +6,10 @@
         "precommit": "pretty-quick --staged",
         "prettier": "prettier --write 'src/**/*.{ts,tsx,scss}'",
         "test": "jest",
-        "getstorybook": "getstorybook -f"
+        "getstorybook": "getstorybook -f",
+        "lerna-bootstrap": "lerna bootstrap",
+        "lerna-clean": "lerna clean",
+        "lerna-exec": "lerna exec"
     },
     "dependencies": {
         "prop-types": "*",
@@ -37,6 +40,7 @@
         "husky": "^0.14.3",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^22.4.2",
+        "lerna": "^2.11.0",
         "less": "2.7.3",
         "less-loader": "4.0.5",
         "mock-require": "^3.0.1",

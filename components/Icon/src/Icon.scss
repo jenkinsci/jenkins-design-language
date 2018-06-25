@@ -1,0 +1,10 @@
+.btn {
+    padding: 3px 10px;
+    background: white;
+    color: #555;
+
+    &-primary {
+        background: blue;
+        color: #fff;
+    }
+}
