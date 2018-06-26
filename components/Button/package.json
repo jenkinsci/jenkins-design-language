@@ -1,7 +1,7 @@
 {
     "name": "@jdl2/button",
     "version": "0.0.1",
-    "main": "./src/Button",
+    "main": "./Button",
     "scripts": {
         "build": "tsc",
         "test": "jest"

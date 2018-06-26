@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Button } from '../components/Button';
+import { Button } from './Button';
 
-import '../components/Button/src/Button.scss';
+import './Button.scss';
 
 const stories = storiesOf('Button', module);
 
