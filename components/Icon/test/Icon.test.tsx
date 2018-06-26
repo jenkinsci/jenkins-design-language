@@ -4,7 +4,7 @@ import '../Button.scss';
 import { Icon } from '../Icon';
 
 describe('<Icon />', () => {
-    it('should create and render a button with text.', () => {
+    it('should render an icon component.', () => {
         const element = <Icon />;
         const tree = renderer.create(element).toJSON();
         expect(tree).toMatchSnapshot();
