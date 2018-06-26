@@ -20,15 +20,5 @@
         "baseUrl": ".",
         "experimentalDecorators": true
     },
-    "exclude": [
-        "node_modules",
-        "build",
-        "scripts",
-        "acceptance-tests",
-        "webpack",
-        "jest",
-        "src/setupTests.ts",
-        "*.stories.tsx",
-        "*.tests.tsx"
-    ]
+    "exclude": ["**/node_modules/**/*", "**/*.stories.tsx", "**/*.tests.tsx"]
 }
