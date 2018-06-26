@@ -9,7 +9,9 @@
         "bootstrap": "lerna bootstrap --hoist",
         "clean": "lerna clean --yes && lerna exec --bail=false 'rm *.d.ts' && lerna exec --bail=false 'rm *.js' && lerna exec --bail=false 'rm *.map'",
         "build": "lerna run build",
-        "exec": "lerna exec"
+        "exec": "lerna exec",
+        "styleguidist": "styleguidist server",
+        "styleguidist-build": "styleguidist build"
     },
     "dependencies": {
         "prop-types": "*",
@@ -48,7 +50,9 @@
         "pretty-quick": "^1.4.1",
         "raw-loader": "^0.5.1",
         "react-addons-test-utils": "^15.6.2",
+        "react-docgen-typescript": "^1.6.1",
         "react-scripts-ts": "^2.13.0",
+        "react-styleguidist": "^7.0.19",
         "sass-loader": "^6.0.6",
         "storybook-addon-specifications": "^2.1.1",
         "ts-loader": "^3.5.0",
