@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-export function Button() {
-    const blah = React;
-    console.log(blah);
+export interface ButtonProps {
+    children: React.ReactNode;
+}
 
-    return <button>Hello, world!</button>;
+export function Button({ children }: ButtonProps) {
+    return <button className="btn">{children}</button>;
 }

@@ -3,13 +3,13 @@
     "version": "2.0.0",
     "scripts": {
         "start": "start-storybook -p 9001 -c .storybook",
+        "test": "jest",
         "precommit": "pretty-quick --staged",
         "prettier": "prettier --write 'src/**/*.{ts,tsx,scss}'",
-        "test": "jest",
-        "getstorybook": "getstorybook -f",
-        "lerna-bootstrap": "lerna bootstrap",
-        "lerna-clean": "lerna clean && lerna exec rm src/*.d.ts && lerna exec rm src/*.js && lerna exec rm src/*.map",
-        "lerna-exec": "lerna exec"
+        "bootstrap": "lerna bootstrap --hoist",
+        "clean": "lerna clean && lerna exec rm src/*.d.ts && lerna exec rm src/*.js && lerna exec rm src/*.map",
+        "build": "lerna exec npm build",
+        "exec": "lerna exec"
     },
     "dependencies": {
         "prop-types": "*",
