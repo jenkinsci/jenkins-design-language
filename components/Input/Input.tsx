@@ -7,7 +7,7 @@ export interface InputProps {
 export function Input({ onChange }: InputProps) {
     return (
         <input
-            className="input input-primary"
+            className="input input-error"
             type="text"
             onChange={e => onChange(e.target.value)}
         />

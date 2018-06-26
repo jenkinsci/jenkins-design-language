@@ -22,6 +22,7 @@
         "@types/react": "*",
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
+        "@types/react-test-renderer": "^16.0.1",
         "@types/react-transition-group": "*",
         "typescript": "*"
     }

@@ -1,4 +1,4 @@
-An icon is used to display an icon.
+Used to display an input field.
 
 ```js
 <Input size="large">Push Me</Input>

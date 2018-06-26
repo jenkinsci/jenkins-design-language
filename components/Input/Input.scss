@@ -2,9 +2,11 @@
     padding: 3px 10px;
     background: white;
     color: #555;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
 
-    &-primary {
-        background: blue;
-        color: #fff;
+    &-error {
+        border: 1px solid red;
     }
 }

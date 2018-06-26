@@ -23,7 +23,12 @@ $('.thing .nested').each(i => {
 ```
 
 ```jsx
-<Button>This is a basic button</Button>
+const something = {
+    thing: {
+        hello: 'hello',
+    },
+};
+<Button>This is a basic button</Button>;
 ```
 
 ```jsx
