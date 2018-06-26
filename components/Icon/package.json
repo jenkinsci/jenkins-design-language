@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/icon",
-    "version": "2.0.0",
+    "version": "0.0.1",
     "main": "./Icon",
     "scripts": {
         "build": "tsc",
@@ -9,6 +9,7 @@
     "files": [
         "*.js",
         "*.d.ts",
+        "*.d.map",
         "*.scss"
     ],
     "dependencies": {
@@ -22,6 +23,6 @@
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
         "@types/react-transition-group": "*",
-        "typescript": "^2.9"
+        "typescript": "*"
     }
 }
