@@ -4,7 +4,8 @@
 node_modules
 
 # testing
-/coverage
+coverage/
+test/__snapshots__
 
 # production
 /build
