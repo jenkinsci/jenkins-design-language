@@ -1,3 +1,4 @@
+import 'jest-storybook-facade/storybook-facade.js';
 const { configure } = require('@storybook/react');
 
 // automatically import all files ending in *.stories.js

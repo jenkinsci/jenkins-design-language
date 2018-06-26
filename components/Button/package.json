@@ -28,6 +28,8 @@
         "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.1",
         "jest": "^22.4.2",
+        "jest-storybook-facade": "0.0.8",
+        "react-test-renderer": "^16.4.1",
         "storybook-addon-specifications": "^2.1.2",
         "typescript": "*"
     }
