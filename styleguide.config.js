@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     components: 'components/**/*.tsx',
-    ignore: ['**/*.stories.tsx', '**/*.tests.tsx'],
+    ignore: ['**/*.stories.tsx', '**/*.tests.tsx', '**/*.test.tsx'],
     webpackConfig: Object.assign(
         {},
         {},
