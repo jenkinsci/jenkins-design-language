@@ -19,17 +19,18 @@
         "react-dom": "*"
     },
     "devDependencies": {
+        "@types/enzyme": "^3.1.9",
+        "@types/enzyme-adapter-react-16": "^1.0.2",
         "@types/react": "*",
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
         "@types/react-transition-group": "*",
-        "@types/enzyme": "^3.1.9",
-        "@types/enzyme-adapter-react-16": "^1.0.2",
         "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.1",
-        "storybook-addon-specifications": "^2.1.2",
-
         "jest": "^22.4.2",
+        "jest-storybook-facade": "0.0.8",
+        "react-test-renderer": "^16.4.1",
+        "storybook-addon-specifications": "^2.1.2",
         "typescript": "*"
     }
 }

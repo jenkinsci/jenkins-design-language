@@ -18,3 +18,19 @@ npm start
 ```
 
 Then go to: http://localhost:9001/
+
+## Testing Components
+
+Navigate to the components directory and enter the component you would like to test. E.g. (components/Button)
+
+Test:
+
+```
+npm run test
+```
+
+Debug in the browser::
+
+```
+node --inspect-brk node_modules/.bin/jest --runInBand
+```
