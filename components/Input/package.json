@@ -19,6 +19,7 @@
         "react-dom": "*"
     },
     "devDependencies": {
+        "@storybook/addon-jest": "^3.4.8",
         "@types/react": "*",
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",

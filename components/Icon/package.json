@@ -19,6 +19,7 @@
         "react-dom": "*"
     },
     "devDependencies": {
+        "@storybook/addon-jest": "^3.4.8",
         "@types/enzyme": "^3.1.9",
         "@types/enzyme-adapter-react-16": "^1.0.2",
         "@types/react": "*",
