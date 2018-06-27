@@ -8,7 +8,6 @@ describe('<Icon />', () => {
         const element = <Icon />;
         const tree = renderer.create(element).toJSON();
         expect(tree).toMatchSnapshot();
-        debugger;
         return element;
     });
 });
