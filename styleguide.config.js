@@ -53,5 +53,6 @@ module.exports = {
         return componentPath.replace(/\.tsx?$/, '.md');
     },
     require: [path.join(__dirname, 'css/index.scss')],
+    styleguideDir: './docs/docs',
     propsParser: require('react-docgen-typescript').withDefaultConfig([]).parse,
 };
