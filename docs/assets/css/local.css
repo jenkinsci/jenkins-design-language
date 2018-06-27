@@ -1,0 +1,144 @@
+.intro-message {
+    margin-left: 29px;
+}
+.intro-message > h1 {
+    font-family: -apple-system-subheadline, 'HelveticaNeue-UltraLight',
+        'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 5em;
+}
+.navbar {
+    background-color: #4a90e2;
+    border-color: #e7e7e7;
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #fff;
+}
+
+.navbar.navbar.navbar-default a,
+.navbar.navbar.navbar-default a:focus,
+.navbar.navbar.navbar-default a:active {
+    color: #fff;
+}
+
+.intro-image {
+    margin-top: 66px;
+}
+.navbar.navbar.navbar-default a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: normal;
+}
+.navbar.navbar.navbar-default a:hover:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    width: 4px;
+    background: #fff;
+}
+@media (min-width: 768px) {
+    .navbar.navbar.navbar-default a:hover {
+        position: relative;
+    }
+
+    .navbar.navbar.navbar-default a:hover:before {
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: 0;
+        height: 4px;
+        width: auto;
+    }
+}
+@media print, screen and (max-width: 960px) {
+    section {
+        border: 0;
+        padding: 0 50px - 0;
+        margin: 0;
+    }
+}
+.content-section-a,
+footer {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.navbar a:hover,
+.navbar-default .navbar-nav > li > a:hover {
+    color: rgb(51, 51, 51);
+}
+
+.content-section-b {
+    background-color: white;
+    color: #333;
+}
+
+body {
+    color: rgb(51, 51, 51);
+}
+
+.header-container h1,
+.header-container h2,
+.header-container h3,
+.header-container h4 {
+    color: rgb(51, 51, 51);
+}
+section {
+    width: auto;
+    float: none;
+    padding-bottom: 50px;
+}
+section#intro {
+    width: auto;
+    float: left;
+    padding-bottom: 50px;
+    clear: both;
+}
+footer {
+    display: none;
+}
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid rgb(248, 248, 248);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 4em auto;
+    clear: both;
+}
+.navbar-default .navbar-collapse {
+    clear: both;
+}
+.navbar-toggle {
+    float: left;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background: #fff;
+}
+@media (min-width: 768px) {
+    .navbar-default .navbar-collapse {
+        clear: none;
+    }
+    .nav.navbar-nav.navbar-right {
+        margin-right: 53px;
+    }
+}
+
+/* FOR STYLEGUIDIST DOCS */
+#rsg-root .rsg--sidebar-4 {
+    min-width: 25%;
+}
+
+#rsg-root .rsg--sidebar-4 li > a {
+    display: block;
+}
+
+#rsg-root .rsg--hasSidebar-2 {
+    padding-left: 0;
+    margin-left: 25%;
+}

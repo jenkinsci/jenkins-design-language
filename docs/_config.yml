@@ -8,3 +8,4 @@ is_project_page: true
 github:
   repository_url: https://github.com/jenkinsci/jenkins-design-language
   description: React components for Jenkins Blue Ocean
+  project_tagline: React library for Jenkins Blue Ocean
