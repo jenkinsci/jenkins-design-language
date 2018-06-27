@@ -1,11 +1,10 @@
 theme: jekyll-theme-minimal
 kramdown:
   parse_block_html: true
-site:
-  logo: img/blueocean-swoosh.svg
-  show_downloads: false
-  is_user_page: false
-  is_project_page: true
-  github:
-    repository_url: https://github.com/jenkinsci/jenkins-design-language
-    project_tagline: React components for Jenkins Blue Ocean
+logo: assets/img/blueocean-swoosh.svg
+show_downloads: false
+is_user_page: false
+is_project_page: true
+github:
+  repository_url: https://github.com/jenkinsci/jenkins-design-language
+  description: React components for Jenkins Blue Ocean
