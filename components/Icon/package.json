@@ -4,6 +4,7 @@
     "main": "./Icon",
     "scripts": {
         "build": "tsc",
+        "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
         "test": "jest"
     },
     "files": [

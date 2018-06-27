@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as renderer from 'react-test-renderer';
-import '../Button.scss';
-import { Button } from '../Button';
+// import * as React from 'react';
+// import * as renderer from 'react-test-renderer';
+// import '../Button.scss';
+// import { Button } from '../Button';
 
 describe('Description: ', () => {
     it('should contain 3 items', () => {
@@ -13,7 +13,7 @@ describe('Description: ', () => {
     });
 });
 
-test('Failing test',() => {
+test('Failing test', () => {
     expect(['foo', 'bar', 'baz']).toEqual(['foo', 'bar']);
 });
 
