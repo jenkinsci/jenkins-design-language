@@ -23,13 +23,27 @@ Then go to: http://localhost:9001/
 
 Navigate to the components directory and enter the component you would like to test. E.g. (components/Button)
 
-Test:
+##### Testing options:
+
+To view test data in the browser you must first generate test data.
+
+```
+npm run test:generate-output
+```
+
+During development execute in watch-mode
+
+```
+npm run test:generate-output -- --watch
+```
+
+For tests via command line
 
 ```
 npm run test
 ```
 
-Debug in the browser::
+Debugging in the browser :
 
 ```
 node --inspect-brk node_modules/.bin/jest --runInBand
