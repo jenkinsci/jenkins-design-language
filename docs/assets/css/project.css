@@ -1753,7 +1753,8 @@ p.copyright {
     height: 100%;
     min-height: 380px;
     margin-top: 20px;
-    background: url('../img/intro-bg.svg') center center / 280px no-repeat;
+    background: url('../img/blueocean-swoosh.svg') center center / 280px
+        no-repeat;
 }
 .github-btn {
     margin-top: 10px;

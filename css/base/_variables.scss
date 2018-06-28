@@ -1,0 +1,88 @@
+$unit: 8px;
+
+// Colors
+$white: #fff;
+$blue: #1d7dcf;
+$red: #bd000a;
+$gray: #969c9e;
+$yellow: #9d750d;
+$green: #3a7911;
+$black: #343a3c;
+$light-gray: #d9dede;
+$dark-gray: #777f82;
+$silver: #e9ebec;
+$brand-blue: #2cbfd8;
+
+// Indicator colors
+$indicator-pending: adjust-color($yellow, $lightness: 20%, $saturation: 10%);
+$indicator-ready: adjust-color($green, $lightness: 10%, $saturation: 20%);
+$indicator-succeeded: adjust-color($green, $lightness: 7%, $saturation: 20%);
+$indicator-failed: adjust-color($red, $lightness: 10%, $saturation: 10%);
+
+// Typography colors
+$placeholder: #b4bdcf;
+$disabled: rgba($black, 20%);
+$accent: $blue;
+$success: $green;
+$error: $red;
+$warning: $yellow;
+$info: #1866a8;
+
+$selected-color: #2ca8d8;
+
+// Nav component colors
+$nav-hover-color: #f0f7ff;
+$nav-active-color: #f1f3f5;
+
+// Team icon colors
+$team-green: #78af37;
+$team-blue: #6fa8dc;
+$team-orange: #e6913a;
+$team-red: #e06666;
+
+// Colors map that is consumed by background and colors utilities
+$colors: (
+    white: $white,
+    gray: $gray,
+    blue: $blue,
+    red: $red,
+    yellow: $yellow,
+    green: $green,
+    black: $black,
+    light-gray: $light-gray,
+    info: $info,
+    error: $error,
+    warning: $warning,
+    success: $success,
+    team-green: $team-green,
+    team-blue: $team-blue,
+    team-orange: $team-orange,
+    team-red: $team-red,
+);
+
+$loud-color: $black;
+$quiet-color: rgba($loud-color, 0.5);
+$text-color: rgba($loud-color, 0.8);
+
+$reversed-loud-color: white;
+$reversed-quiet-color: rgba($reversed-loud-color, 0.5);
+$reversed-text-color: rgba($reversed-loud-color, 0.8);
+
+$border-radius: 4px;
+$border-color: $light-gray;
+
+// Typography
+$base-font-size: 14px;
+$base-line-height: 1.4;
+$system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$base-font-family: $system;
+
+// Weight
+$thin: 200;
+$light: 300;
+$normal: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$ultrabold: 900;

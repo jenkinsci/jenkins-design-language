@@ -1,36 +1,17 @@
-Buttons are one of the most basic types of controls.
+Buttons are one of the most basic types of controls for interacting with an application.
 
-```scss
-.thing {
-    .nested {
-        color: red;
-    }
-}
-```
-
-```html
-<div class="thing">
-    <div class="nested">
-        This is some text
-    </div>
-</div>
-```
-
-```js static
-$('.thing .nested').each(i => {
-    console.log('thing: ' + i.text());
-});
-```
+#### Button Types
 
 ```jsx
-const something = {
-    thing: {
-        hello: 'hello',
-    },
-};
-<Button>This is a basic button</Button>;
+<Button>Default</Button>
+<Button primary>Primary</Button>
+<Button destructive>Destructive</Button>
 ```
 
+#### Button Sizes
+
 ```jsx
-<Button primary={true}>This is a primary button</Button>
+<Button small>Small</Button>
+<Button>Normal</Button>
+<Button large>Large</Button>
 ```
