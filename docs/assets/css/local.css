@@ -21,6 +21,7 @@
 .navbar.navbar.navbar-default a:focus,
 .navbar.navbar.navbar-default a:active {
     color: #fff;
+    font-weight: normal;
 }
 
 .intro-image {
@@ -141,4 +142,22 @@ footer {
 #rsg-root .rsg--hasSidebar-2 {
     padding-left: 0;
     margin-left: 25%;
+}
+
+#rsg-root a[title='Open isolated'] {
+    display: none !important;
+}
+
+#rsg-root p code {
+    display: inline-block !important;
+    padding: 1px 4px !important;
+    background-color: #f5f5f5 !important;
+    border: 1px #e8e8e8 solid !important;
+    font: 100 13px Consolas, 'Liberation Mono', Menlo, monospace !important;
+    color: #c82829 !important;
+}
+
+#rsg-root h3,
+#rsg-root h4 {
+    color: #767676 !important;
 }
