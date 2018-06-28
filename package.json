@@ -78,7 +78,7 @@
         ],
         "setupFiles": [
             "typewebjest/polyfills",
-            "<rootDir>/.jest/jest.globals.js"
+            "<rootDir>/.jest/jest.global.setup.js"
         ],
         "reporters": [
             "default",
