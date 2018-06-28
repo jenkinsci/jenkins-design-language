@@ -3,16 +3,16 @@ title: Jenkins Design Language
 layout: index
 ---
 
-Jenkins Design Language is a UI library to build interfaces for plugins.
+Jenkins Design Language is a UI library to build interfaces for plugins. The goals are to have a consistent experience for developers, while providing the easiest way to build a UI.
 
-## Components
+## Example
 
 {% highlight jsx %}
-<Button>This is a button</Button>
+<Page>
+<Navigation>
+<Group>
+<Item><Link to="/docs">Docs</Link></Item>
+</Group>
+</Navigation>
+</Page>
 {% endhighlight %}
-
-{% highlight typescript %}
-<Button>This is a button</Button>
-{% endhighlight %}
-
-[Button](../components/Button/README.md)

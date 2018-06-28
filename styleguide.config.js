@@ -1,5 +1,6 @@
 const path = require('path');
 module.exports = {
+    title: 'Jenkins Design Language',
     components: 'components/**/*.tsx',
     ignore: ['**/*.stories.tsx', '**/*.tests.tsx', '**/*.test.tsx'],
     webpackConfig: Object.assign(
@@ -52,7 +53,10 @@ module.exports = {
     getExampleFilename(componentPath) {
         return componentPath.replace(/\.tsx?$/, '.md');
     },
-    require: [path.join(__dirname, 'css/index.scss')],
+    require: [
+        path.join(__dirname, 'css/index.scss'),
+        path.join(__dirname, 'docs/assets/css/local.css'),
+    ],
     styleguideDir: './docs/docs',
     propsParser: require('react-docgen-typescript').withDefaultConfig([]).parse,
 };

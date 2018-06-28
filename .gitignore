@@ -36,3 +36,5 @@ components/**/*.js
 components/**/*.map
 
 *.tgz
+
+**/.sass-cache/**
