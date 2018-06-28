@@ -38,3 +38,6 @@ components/**/*.map
 *.tgz
 
 **/.sass-cache/**
+
+# from jest:
+junit.xml

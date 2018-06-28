@@ -44,6 +44,7 @@
         "husky": "^0.14.3",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^22.4.2",
+        "jest-junit": "^5.1.0",
         "lerna": "^2.11.0",
         "less": "2.7.3",
         "less-loader": "4.0.5",
@@ -70,22 +71,43 @@
             "!components/**/*.{d,stories,test}.{ts,tsx}"
         ],
         "collectCoverage": true,
-        "coverageReporters": ["lcov", "text", "html"],
-        "setupFiles": ["typewebjest/polyfills", "<rootDir>/.jest/jest.globals.js"],
-        "testMatch": ["<rootDir>/components/**/*.test.ts?(x)"],
+        "coverageReporters": [
+            "lcov",
+            "text",
+            "html"
+        ],
+        "setupFiles": [
+            "typewebjest/polyfills",
+            "<rootDir>/.jest/jest.globals.js"
+        ],
+        "reporters": [
+            "default",
+            "jest-junit"
+        ],
+        "testMatch": [
+            "<rootDir>/components/**/*.test.ts?(x)"
+        ],
         "testURL": "http://localhost",
         "transform": {
             "^.+\\.(js|jsx|ts|tsx)$": "typewebjest/transforms/ts",
             "^.+\\.css$": "typewebjest/transforms/css",
             "^(?!.*\\.(js|jsx|mjs|css|json)$)": "typewebjest/transforms/file"
         },
-        "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"],
+        "transformIgnorePatterns": [
+            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
+        ],
         "moduleNameMapper": {
             "^react-native$": "react-native-web",
             "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy",
             "\\.(css|less|scss)$": "identity-obj-proxy"
         },
-        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json"
+        ],
         "automock": false
     }
 }
