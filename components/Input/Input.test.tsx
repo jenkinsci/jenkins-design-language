@@ -8,6 +8,6 @@ describe('Description: ', () => {
     });
 });
 
-test('Passing test', () => {
-    expect(['foo', 'bar', 'baz']).toEqual(['foo', 'bar', 'baz']);
+test('Failing test', () => {
+    expect(['foo', 'bar', 'baz']).toEqual(['bar', 'baz']);
 });
