@@ -38,6 +38,7 @@ components/**/*.map
 *.tgz
 
 **/.sass-cache/**
+docs/docs/**/*.d.ts
 
 # from jest:
 junit.xml
