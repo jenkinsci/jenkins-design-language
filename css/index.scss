@@ -1,3 +1,8 @@
+@import 'base/index';
 @import './components/Button/Button.scss';
 @import './components/Icon/Icon.scss';
 @import './components/Input/Input.scss';
+
+.clickable {
+    cursor: pointer;
+}

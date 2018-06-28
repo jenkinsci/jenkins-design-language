@@ -1,0 +1,30 @@
+// https://css-tricks.com/snippets/sass/tint-shade-functions/
+// by Hugo Giraudel
+
+// Slightly lighten a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+// Slightly darken a color
+// @access public
+// @param {Color} $color - color to shade
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
+
+// Removes unit
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+// Calculates rem value
+@function calculate-rem($numerator) {
+    @return #{($numerator/strip-unit($base-font-size))}rem;
+}

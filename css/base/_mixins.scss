@@ -1,0 +1,5 @@
+@mixin nav-transition($transition-property...) {
+    transition-duration: 0.5s;
+    transition-property: $transition-property;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
