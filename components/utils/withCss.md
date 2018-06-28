@@ -10,11 +10,13 @@ export const SomeComponent = withCss(({css, children}) =>
 And usage like this:
 
 ```jsx static
-<SomeComponent primary small>Hello!</div>;
+<SomeComponent primary small>
+    Hello!
+</SomeComponent>
 ```
 
 Outputs:
 
 ```html
-    <div class="SomeComponent is-primary is-small">Hello!</div>;
+<div class="SomeComponent is-primary is-small">Hello!</div>;
 ```
