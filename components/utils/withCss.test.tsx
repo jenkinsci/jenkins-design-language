@@ -8,8 +8,14 @@ describe('utils/withCss', () => {
             <div className={css('Comp')}>{children}</div>
         ));
         const c = Enzyme.render(<Comp primary>yolo</Comp>);
-        console.log(c);
         expect('' + c).toEqual('<div class="Comp is-primary">yolo</div>');
-        return c;
+    });
+
+    it("doesn't crash without a base class", () => {
+        const Comp = withCss(({ css, children }) => (
+            <div className={css()}>{children}</div>
+        ));
+        const c = Enzyme.render(<Comp primary>yolo</Comp>);
+        expect('' + c).toEqual('<div class=" is-primary">yolo</div>');
     });
 });

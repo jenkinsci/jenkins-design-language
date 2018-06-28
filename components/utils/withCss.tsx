@@ -32,14 +32,14 @@ export interface CssProp {
     /**
      * Built style classes
      */
-    css: (styles: string) => string;
+    css: (styles?: string) => string;
 }
 
 const cssClasses = {
-    primary: 'primary',
-    small: 'small',
-    large: 'large',
-    destructive: 'destructive',
+    primary: 'is-primary',
+    small: 'is-small',
+    large: 'is-large',
+    destructive: 'is-destructive',
     disabled: 'is-disabled',
 };
 

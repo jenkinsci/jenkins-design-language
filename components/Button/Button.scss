@@ -66,7 +66,7 @@ $button-font-family: $base-font-family;
         color: $button-secondary-color;
     }
 
-    &.primary {
+    &.is-primary {
         background: $button-color;
         box-shadow: 0 0 0 0 #fff, 0 0 0 0 rgba($button-color, 0.4);
         color: $button-text-color;
@@ -119,7 +119,7 @@ $button-font-family: $base-font-family;
         }
     }
 
-    &.destructive {
+    &.is-destructive {
         background: transparent;
         border-color: rgba($button-danger-color, 0.4);
         color: $button-danger-color;
@@ -165,12 +165,12 @@ $button-font-family: $base-font-family;
         }
     }
 
-    &.small {
+    &.is-small {
         font-size: 12px;
         padding: 3px $unit ($unit/2);
     }
 
-    &.large {
+    &.is-large {
         padding: 8px (($unit * 3) - $button-border-width);
         font-size: 18px;
     }
