@@ -21,6 +21,11 @@ pipeline {
             steps {
                 sh 'npm test'
             }
+            post {
+                always {
+                    junit 'junit.xml'
+                }
+            }
         }
     }
 }
