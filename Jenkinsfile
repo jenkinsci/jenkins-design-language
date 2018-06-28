@@ -2,6 +2,9 @@ pipeline {
     agent {
         docker { image 'node:carbon' }
     }
+    environment {
+        HOME = '.'
+    }
     stages {
         stage('Install') {
             steps {
