@@ -1,15 +1,17 @@
 pipeline {
-  agent docker 'node:carbon'
-  stages {
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
+    agent {
+        docker { image 'node:carbon' }
     }
-    stage('Test') {
-      steps {
-        sh 'npm test'
-      }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
     }
-  }
 }
