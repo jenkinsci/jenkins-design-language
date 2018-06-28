@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withCss, CssProps, CssProp } from '../utils/withCss';
+import { css, CssProps } from '../utils/css';
 
 export interface ButtonProps extends CssProps {
     /** Contents within the button */
@@ -14,15 +14,11 @@ export interface ButtonProps extends CssProps {
 /**
  * The basic button class to use in all contexts
  */
-export const Button = withCss<ButtonProps>(function Button({
-    css,
-    children,
-    onClick,
-    disabled,
-}: ButtonProps & CssProp) {
+export function Button(props: ButtonProps) {
+    const { children, onClick, disabled } = props;
     return (
         <button
-            className={css('Button')}
+            className={css(props, 'Button')}
             onClick={e => {
                 e.stopPropagation();
                 e.preventDefault();
@@ -35,4 +31,4 @@ export const Button = withCss<ButtonProps>(function Button({
             {children}
         </button>
     );
-});
+}
