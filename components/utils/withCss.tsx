@@ -7,24 +7,30 @@ export interface CssProps {
     css: (styles: string) => string;
 
     /**
-     * Indicates this item is primary
+     * Indicates this should be displayed with an idication it is
+     * a primary action
      */
     primary?: boolean;
 
     /**
-     * Indicates this item is primary
+     * Indicates this item should be rendered in a small form
      */
     small?: boolean;
 
     /**
-     * Indicates this item is primary
+     * Indicates this should be rendered in the large form
      */
     large?: boolean;
 
     /**
-     * Indicates this item is primary
+     * Indicates this item will result in a destructive action
      */
     destructive?: boolean;
+
+    /**
+     * indicates this item is disabled
+     */
+    disabled?: boolean;
 }
 
 const cssClasses = {
@@ -32,6 +38,7 @@ const cssClasses = {
     small: 'small',
     large: 'large',
     destructive: 'destructive',
+    disabled: 'is-disabled',
 };
 
 /**
