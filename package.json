@@ -65,7 +65,10 @@
         "webpack": "^3.11.0"
     },
     "jest": {
-        "collectCoverageFrom": ["components/**/*.{js,jsx,ts,tsx}"],
+        "collectCoverageFrom": [
+            "components/**/*.{ts,tsx}",
+            "!components/**/*.{d,stories,test}.{ts,tsx}"
+        ],
         "collectCoverage": true,
         "coverageReporters": ["lcov", "text", "html"],
         "setupFiles": ["typewebjest/polyfills", "<rootDir>/.jest/jest.globals.js"],
