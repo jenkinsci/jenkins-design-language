@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const inquirer = require('inquirer');
 const fs = require('fs');
+const path = require('path');
 
 const TEMPLATE_CHOICE_NAME = 'template-choice';
 const COMPONENT_NAME = 'component-name';
@@ -44,11 +45,17 @@ function createDirectoryContents(templatePath, componentChoice) {
 
             if (stats.isFile()) {
                 const contents = fs.readFileSync(originalFilePath);
-                const writePath = `${__dirname}/components/${componentChoice}/${file}`;
+                const fileName = renameFileBasedOnComponent(file, componentChoice);
+                const writePath = `${__dirname}/components/${componentChoice}/${fileName}`;
                 fs.writeFileSync(writePath, contents);
             }
         });
     } catch (e) {
-        console.log('Error in writing out ', e);
+        console.log('Error in creating directory contents: ', e);
     }
+}
+
+function renameFileBasedOnComponent(file, componentChoice) {
+    const extension = file.substring(file.indexOf('.') + 1);
+    return componentChoice + '.' + extension;
 }
