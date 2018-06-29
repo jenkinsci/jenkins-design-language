@@ -6,7 +6,8 @@
         "clean": "rm -f *.css"
     },
     "files": [
-        "*.css"
+        "*.css",
+        "**/*.scss"
     ],
     "publishConfig": {
         "access": "public"
