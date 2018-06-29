@@ -1,3 +1,3 @@
-# Button
+# Your component
 
-This is button documentation
+This is < component > documentation

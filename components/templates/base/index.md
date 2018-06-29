@@ -1,17 +1,13 @@
-Buttons are one of the most basic types of controls for interacting with an application.
+TODO - add description
 
-#### Button Types
+#### < Component > Types
 
 ```jsx
-<Button>Default</Button>
-<Button primary>Primary</Button>
-<Button destructive>Destructive</Button>
+TODO;
 ```
 
-#### Button Sizes
+#### < Component > Sizes
 
 ```jsx
-<Button small>Small</Button>
-<Button>Normal</Button>
-<Button large>Large</Button>
+TODO;
 ```
