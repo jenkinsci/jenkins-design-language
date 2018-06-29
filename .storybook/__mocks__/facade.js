@@ -1,4 +1,4 @@
-export const storiesOf = function storiesOf() {
+function storiesOf() {
     var api = {};
     api.add = (name, func) => {
         func();
@@ -9,14 +9,20 @@ export const storiesOf = function storiesOf() {
         return api;
     };
     return api;
-};
-export const action = () => {};
+}
 
-export const linkTo = () => {};
-
-export const specs = spec => {
+function action() {}
+function linkTo() {}
+function specs(spec) {
     spec();
-};
+}
+const { describe, it } = jasmine.currentEnv_;
 
-export const describe = jasmine.currentEnv_.describe;
-export const it = jasmine.currentEnv_.it;
+module.exports = {
+    storiesOf,
+    action,
+    linkTo,
+    specs,
+    describe,
+    it,
+};
