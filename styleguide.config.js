@@ -38,7 +38,6 @@ class BeautifyPlugin {
                     beautify(source, this.options)
                 );
             } else if (/.*\.html/.test(k) && asset.source) {
-                const suffix = '.js?t=' + new Date().getTime();
                 // for html, cache bust with a query string
                 let source = asset.source();
                 source = source.replace(/"([^"]+?\.js)"/g, (_, match) => {
@@ -98,10 +97,10 @@ module.exports = {
         });
         webpackConfig.plugins = webpackConfig.plugins.concat([
             new BeautifyPlugin(),
+            // new webpack.optimize.LimitChunkCountPlugin({
+            //     maxChunks: 1,
+            // }),
             // Extract all 3rd party modules into a separate 'vendor' chunk
-            new webpack.optimize.LimitChunkCountPlugin({
-                maxChunks: 1,
-            }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
                 minChunks: ({ resource }) => /node_modules/.test(resource),
@@ -109,7 +108,6 @@ module.exports = {
             new webpack.HashedModuleIdsPlugin(),
         ]);
         webpackConfig.entry.vendor = Object.keys(pkg.dependencies);
-
         return webpackConfig;
     },
     webpackConfig: Object.assign(
@@ -159,9 +157,17 @@ module.exports = {
             },
             resolve: {
                 extensions: ['.tsx', '.ts', '.jsx', '.js'],
-                // alias: {
-                //     'rsg-components/Section': path.join(__dirname, '.styleguide/Section'),
-                // }
+                alias: {
+                    // To prevent async bundle from being created
+                    'rsg-components/Editor/EditorLoader': path.join(
+                        __dirname,
+                        '.styleguide/EditorLoader'
+                    ),
+                    'rsg-components/Editor': path.join(
+                        __dirname,
+                        '.styleguide/EditorLoader'
+                    ),
+                },
             },
         }
     ),
