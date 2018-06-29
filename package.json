@@ -6,7 +6,7 @@
         "test": "jest",
         "precommit": "pretty-quick --staged",
         "prettier": "prettier --write '**/*.{ts,tsx,scss}'",
-        "bootstrap": "lerna bootstrap --hoist && lerna exec --bail=false npm run test:generate-output",
+        "bootstrap": "lerna bootstrap --hoist",
         "clean": "lerna clean --yes && lerna exec --bail=false 'rm *.d.ts' && lerna exec --bail=false 'rm *.js' && lerna exec --bail=false 'rm *.map'",
         "build": "lerna run build",
         "exec": "lerna exec",
