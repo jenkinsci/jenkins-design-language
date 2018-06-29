@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
 import { Button } from './Button';
-const describe = require('../../.storybook/facade').describe;
-const it = require('../../.storybook/facade').it;
+const { describe, it } = require('../../.storybook/facade');
 
 const name = 'Button';
 
