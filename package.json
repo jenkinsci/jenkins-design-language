@@ -10,8 +10,8 @@
         "clean": "lerna clean --yes && lerna run --bail=false clean && lerna exec --bail=false 'rm -f *.d.ts' && lerna exec --bail=false 'rm -f *.js' && lerna exec --bail=false 'rm -f *.map'",
         "build": "lerna run build",
         "exec": "lerna exec",
-        "styleguidist": "styleguidist server",
-        "styleguidist-build": "styleguidist build"
+        "styleguide": "styleguidist server",
+        "styleguide-build": "styleguidist build"
     },
     "dependencies": {
         "prop-types": "*",
