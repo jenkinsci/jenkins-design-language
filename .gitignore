@@ -13,7 +13,7 @@ test/__snapshots__
 /dist
 
 # generated files
-/src/css/*.css
+/css/*.css
 
 # misc
 .DS_Store
