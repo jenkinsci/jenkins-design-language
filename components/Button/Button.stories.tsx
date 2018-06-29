@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from './Button';
-import './Button.scss';
 
 const withTests = require('@storybook/addon-jest').withTests;
 const results = require('./.jest-test-results.json');
