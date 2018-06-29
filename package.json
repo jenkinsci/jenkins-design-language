@@ -1,9 +1,6 @@
 {
     "name": "@jenkins-cd/design-language",
     "version": "2.0.0",
-    "bin": {
-        "generate": "./jdl-component-creator.js"
-    },
     "scripts": {
         "start": "start-storybook -p 9001 -c .storybook",
         "test": "jest",
@@ -14,7 +11,8 @@
         "build": "lerna run build",
         "exec": "lerna exec",
         "styleguide": "styleguidist server",
-        "styleguide-build": "styleguidist build"
+        "styleguide-build": "styleguidist build",
+        "generate": "./jdl-component-creator.js"
     },
     "dependencies": {
         "prop-types": "*",
