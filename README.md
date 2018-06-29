@@ -1,5 +1,7 @@
 # Jenkins Design Language (JDL)
 
+For end-user documentation, visit: http://jenkinsci.github.io/jenkins-design-language/
+
 The Jenkins Design Language is a React component library with associated assets and styles available to use with [Jenkins Blue Ocean](https://github.com/jenkinsci/blueocean-plugin) and extensions, as well as any other project you may choose to use this library with.
 
 ## Building

@@ -1,6 +1,6 @@
 {
-    "name": "@jenkins-cd/design-language",
-    "version": "2.0.0",
+    "name": "@jdl2/parent",
+    "version": "2.0.0-alpha-1",
     "scripts": {
         "start": "start-storybook -p 9001 -c .storybook",
         "test": "jest",
@@ -10,6 +10,8 @@
         "clean": "lerna clean --yes && lerna run --bail=false clean && lerna exec --bail=false 'rm -f *.d.ts' && lerna exec --bail=false 'rm -f *.js' && lerna exec --bail=false 'rm -f *.map'",
         "build": "lerna run build",
         "exec": "lerna exec",
+        "publish": "lerna publish",
+        "publish-beta": "lerna publish --preid=alpha --cd-version prerelease",
         "styleguide": "styleguidist server",
         "styleguide-build": "styleguidist build",
         "generate": "./jdl-component-creator.js"

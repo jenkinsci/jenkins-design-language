@@ -1,7 +1,8 @@
 {
     "name": "@jdl2/button",
-    "version": "0.0.1",
+    "version": "2.0.0-alpha.5",
     "main": "./Button",
+    "types": "./Button.d.ts",
     "scripts": {
         "build": "tsc",
         "test": "jest"
@@ -12,6 +13,9 @@
         "*.d.map",
         "*.scss"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "dependencies": {
         "prop-types": "*",
         "react": "*",
