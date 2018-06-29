@@ -1,0 +1,28 @@
+{
+    "name": "@jdl2/css-util",
+    "version": "2.0.0-alpha.5",
+    "main": "./css",
+    "types": "./css.d.ts",
+    "scripts": {
+        "prepublish": "tsc",
+        "build": "tsc",
+        "test": "jest"
+    },
+    "files": [
+        "*.js",
+        "*.d.ts",
+        "*.d.map",
+        "*.scss"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "jest": "^22.4.2",
+        "typescript": "*"
+    },
+    "jest": {
+        "preset": "<rootDir>/../../.jest/jest-preset.json",
+        "automock": false
+    }
+}

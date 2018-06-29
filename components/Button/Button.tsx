@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { css, CssProps } from '../utils/css';
+import { css, CssProps } from '@jdl2/css-util';
 
 export interface ButtonProps extends CssProps {
     /** Contents within the button */

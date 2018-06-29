@@ -1,11 +1,17 @@
 {
-    "lerna": "2.11.0",
-    "packages": ["components/*", "css"],
-    "command": {
-        "bootstrap": {
-            "npmClientArgs": ["--no-package-lock"]
-        },
-        "clean": true
+  "lerna": "2.11.0",
+  "packages": [
+    "utils/*",
+    "components/*",
+    "css"
+  ],
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     },
-    "version": "2.0.0-alpha.5"
+    "clean": true
+  },
+  "version": "2.0.0-alpha.5"
 }

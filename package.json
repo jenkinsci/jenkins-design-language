@@ -10,6 +10,7 @@
         "clean": "lerna clean --yes && lerna run --bail=false clean && lerna exec --bail=false 'rm -f *.d.ts' && lerna exec --bail=false 'rm -f *.js' && lerna exec --bail=false 'rm -f *.map'",
         "build": "lerna run build",
         "exec": "lerna exec",
+        "add": "lerna add",
         "publish": "lerna publish",
         "publish-beta": "lerna publish --preid=alpha --cd-version prerelease",
         "styleguide": "styleguidist server",
@@ -68,14 +69,15 @@
         "svg-inline-loader": "^0.8.0",
         "ts-loader": "^3.5.0",
         "typescript": "*",
-        "typewebjest": "^0.5.3",
+        "typewebjest": "^0.5.7",
         "webpack": "^3.11.0",
         "webpack-sources": "^1.1.0"
     },
     "jest": {
         "collectCoverageFrom": [
+            "utils/**/*.{ts,tsx}",
             "components/**/*.{ts,tsx}",
-            "!components/**/*.{d,stories,test}.{ts,tsx}"
+            "!**/*.{d,stories,test}.{ts,tsx}"
         ],
         "collectCoverage": true,
         "coverageReporters": [
@@ -92,7 +94,7 @@
             "jest-junit"
         ],
         "testMatch": [
-            "<rootDir>/components/**/*.test.ts?(x)"
+            "<rootDir>/**/*.test.ts?(x)"
         ],
         "testURL": "http://localhost",
         "transform": {

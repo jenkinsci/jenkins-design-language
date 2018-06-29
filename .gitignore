@@ -35,6 +35,10 @@ components/**/*.d.ts
 components/**/*.js
 components/**/*.map
 
+utils/**/*.d.ts
+utils/**/*.js
+utils/**/*.map
+
 *.tgz
 
 **/.sass-cache/**

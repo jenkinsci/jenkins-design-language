@@ -82,7 +82,7 @@ module.exports = {
         },
         {
             name: 'Utilities',
-            components: 'components/**/[a-z]*.tsx',
+            components: 'utils/**/*.tsx',
         },
     ],
     // components: 'components/**/*.tsx',
