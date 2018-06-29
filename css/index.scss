@@ -1,7 +1,7 @@
 @import 'base/index';
-@import './components/Button/Button.scss';
-@import './components/DataTable/DataTable.scss';
-@import './components/Input/Input.scss';
+@import '../components/Button/Button.scss';
+@import '../components/DataTable/DataTable.scss';
+@import '../components/Input/Input.scss';
 
 .clickable {
     cursor: pointer;
