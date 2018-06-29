@@ -4,6 +4,7 @@
     "main": "./Input",
     "types": "./Input.d.ts",
     "scripts": {
+        "prepublish": "tsc",
         "build": "tsc",
         "test": "jest"
     },
@@ -25,14 +26,12 @@
     "devDependencies": {
         "@storybook/addon-jest": "^3.4.8",
         "@types/enzyme": "^3.1.9",
-        "@types/enzyme-adapter-react-16": "^1.0.2",
         "@types/react": "*",
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
         "@types/react-test-renderer": "^16.0.1",
         "@types/react-transition-group": "*",
         "enzyme": "^3.3.0",
-        "enzyme-adapter-react-16": "^1.1.1",
         "jest": "^22.4.2",
         "jest-storybook-facade": "0.0.8",
         "react-test-renderer": "^16.4.1",
@@ -40,7 +39,6 @@
         "typescript": "*"
     },
     "jest": {
-        "preset": "<rootDir>/../../.jest/jest-preset.json",
-        "automock": false
+        "preset": "typewebjest/jest-preset.json"
     }
 }

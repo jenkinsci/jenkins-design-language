@@ -87,7 +87,7 @@
         ],
         "setupFiles": [
             "typewebjest/polyfills",
-            "<rootDir>/.jest/jest.global.setup.js"
+            "typewebjest/enzyme-adapter-react-16"
         ],
         "reporters": [
             "default",

@@ -22,7 +22,6 @@
         "typescript": "*"
     },
     "jest": {
-        "preset": "<rootDir>/../../.jest/jest-preset.json",
-        "automock": false
+        "preset": "typewebjest/jest-preset.json"
     }
 }
