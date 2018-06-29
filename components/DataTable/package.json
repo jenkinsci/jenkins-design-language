@@ -1,7 +1,8 @@
 {
     "name": "@jdl2/data-table",
     "version": "2.0.0-alpha.3",
-    "main": "./Button",
+    "main": "./DataTable",
+    "types": "./DataTable.d.ts",
     "scripts": {
         "build": "tsc",
         "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
