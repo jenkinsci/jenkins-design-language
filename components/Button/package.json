@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/button",
-    "version": "2.0.0-alpha.7",
+    "version": "2.0.0-alpha.9",
     "main": "./Button",
     "types": "./Button.d.ts",
     "scripts": {
@@ -18,7 +18,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/css-util": "^2.0.0-alpha.7",
+        "@jdl2/css-util": "^2.0.0-alpha.9",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",

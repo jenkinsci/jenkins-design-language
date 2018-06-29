@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/input",
-    "version": "2.0.0-alpha.7",
+    "version": "2.0.0-alpha.9",
     "main": "./Input",
     "types": "./Input.d.ts",
     "scripts": {

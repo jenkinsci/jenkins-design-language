@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/data-table",
-    "version": "2.0.0-alpha.7",
+    "version": "2.0.0-alpha.9",
     "main": "./DataTable",
     "types": "./DataTable.d.ts",
     "scripts": {
