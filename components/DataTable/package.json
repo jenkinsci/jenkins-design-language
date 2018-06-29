@@ -1,7 +1,8 @@
 {
-    "name": "@jdl2/dataTable",
-    "version": "0.0.1",
-    "main": "./Button",
+    "name": "@jdl2/data-table",
+    "version": "2.0.0-alpha.5",
+    "main": "./DataTable",
+    "types": "./DataTable.d.ts",
     "scripts": {
         "build": "tsc",
         "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
@@ -13,6 +14,9 @@
         "*.d.map",
         "*.scss"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "dependencies": {
         "prop-types": "*",
         "react": "*",
