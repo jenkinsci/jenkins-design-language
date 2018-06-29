@@ -24849,6 +24849,14 @@
                     pathLine: "components/DataTable/DataTable.tsx",
                     module: n("eeK1"),
                     props: n("WE+v"),
+                    hasExamples: !0,
+                    metadata: {}
+                }, {
+                    filepath: "components/DataTable/DataTableColumn.tsx",
+                    slug: "datatablecolumn",
+                    pathLine: "components/DataTable/DataTableColumn.tsx",
+                    module: n("2F7K"),
+                    props: n("gU9k"),
                     hasExamples: !1,
                     metadata: {}
                 }, {
