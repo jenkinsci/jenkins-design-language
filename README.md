@@ -24,9 +24,7 @@ npm run clean
 This will provide options for generating a new component within the /components.
 
 ```
-$ generate
-$ Which template would you like to generate? base
-$ Name your component: Table
+$ npm run generate
 ```
 
 ## Storybook
