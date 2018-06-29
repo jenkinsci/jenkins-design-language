@@ -1,6 +1,9 @@
 {
     "name": "@jenkins-cd/design-language",
     "version": "2.0.0",
+    "bin": {
+        "generate": "./jdl-component-creator.js"
+    },
     "scripts": {
         "start": "start-storybook -p 9001 -c .storybook",
         "test": "jest",

@@ -1,0 +1,144 @@
+$button-text-color: $white;
+$button-color: $blue;
+$button-danger-color: $red;
+$button-border-width: 2px;
+$button-secondary-color: rgba($text-color, 0.7);
+$button-font-family: $base-font-family;
+
+.Button {
+    display: inline-block;
+    border: $button-border-width solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: $base-font-size;
+    font-weight: $semibold;
+    line-height: 1.15;
+    padding: 6px (($unit * 2) - $button-border-width);
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: rgba($button-secondary-color, 0.3);
+    color: rgba($button-secondary-color, 0.6);
+    transition: background-color 100ms ease-in-out, border-color 100ms ease-in-out,
+        box-shadow 100ms ease-in-out, color 100ms ease-in-out;
+
+    + .Button {
+        margin-left: $unit;
+    }
+
+    &:hover,
+    &.is-hovered {
+        background: transparent;
+        border-color: rgba($button-secondary-color, 0.5);
+        color: rgba($button-secondary-color, 0.9);
+    }
+
+    &:focus,
+    &.is-focused {
+        box-shadow: 0 0 0 1px rgba(#fff, 0.5), 0 0 0 3px rgba($button-color, 0.2);
+        background-color: transparent;
+        border-color: rgba($button-color, 0.8);
+        color: $button-color;
+    }
+
+    &:active,
+    &.is-active {
+        background-color: transparent;
+        border-color: adjust-color(rgba($button-color, 0.8), $lightness: -15%, $saturation: 10%);
+        color: adjust-color(rgba($button-color, 1), $lightness: -25%, $saturation: 10%);
+    }
+
+    &:disabled,
+    &.is-disabled {
+        color: $button-color;
+        background: transparent;
+        border-color: rgba($button-secondary-color, 0.2);
+        color: $button-secondary-color;
+    }
+
+    &.is-primary {
+        background: $button-color;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 0 rgba($button-color, 0.4);
+        color: $button-text-color;
+
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
+            color: $button-text-color;
+            background-color: adjust-color($button-color, $lightness: 7%, $saturation: 5%);
+            border-color: adjust-color($button-color, $lightness: 7%, $saturation: 5%);
+            text-decoration: none;
+        }
+
+        &:active,
+        &.is-active {
+            color: $button-text-color;
+            background-color: adjust-color($button-color, $lightness: -7%, $saturation: 5%);
+            border-color: adjust-color($button-color, $lightness: -7%, $saturation: 5%);
+        }
+
+        &:focus,
+        &.is-focused {
+            outline: 0;
+            box-shadow: 0 0 0 1px rgba(#fff, 0.5), 0 0 0 3px rgba($button-color, 0.3);
+        }
+
+        &:disabled,
+        &.is-disabled {
+            box-shadow: none;
+            cursor: default;
+            opacity: 0.4;
+        }
+    }
+
+    &.is-destructive {
+        background: transparent;
+        border-color: rgba($button-danger-color, 0.4);
+        color: $button-danger-color;
+        transition: background-color 300ms ease-in-out, border-color 150ms ease-in-out,
+            box-shadow 150ms ease-in, color 300ms ease-in-out;
+
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
+            color: $button-text-color;
+            background-color: $button-danger-color;
+            border-color: $button-danger-color;
+        }
+
+        &:active,
+        &.is-active {
+            color: $button-text-color;
+            background-color: adjust-color(
+                $button-danger-color,
+                $lightness: -15%,
+                $saturation: 10%
+            );
+            border-color: adjust-color($button-danger-color, $lightness: -15%, $saturation: 10%);
+        }
+
+        &:focus,
+        &.is-focused {
+            box-shadow: 0 0 0 1px rgba(#fff, 0.5), 0 0 0 3px rgba($button-danger-color, 0.3);
+        }
+
+        &:disabled,
+        &.is-disabled {
+            color: $button-danger-color;
+            background: transparent;
+            border-color: rgba($button-danger-color, 0.4);
+        }
+    }
+
+    &.is-small {
+        font-size: 12px;
+        padding: 3px $unit ($unit/2);
+    }
+
+    &.is-large {
+        padding: 8px (($unit * 3) - $button-border-width);
+        font-size: 18px;
+    }
+}
