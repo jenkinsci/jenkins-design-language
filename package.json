@@ -45,6 +45,7 @@
         "identity-obj-proxy": "^3.0.0",
         "jest": "^22.4.2",
         "jest-junit": "^5.1.0",
+        "js-beautify": "^1.7.5",
         "lerna": "^2.11.0",
         "less": "2.7.3",
         "less-loader": "4.0.5",
@@ -63,7 +64,8 @@
         "ts-loader": "^3.5.0",
         "typescript": "*",
         "typewebjest": "^0.5.3",
-        "webpack": "^3.11.0"
+        "webpack": "^3.11.0",
+        "webpack-sources": "^1.1.0"
     },
     "jest": {
         "collectCoverageFrom": [
