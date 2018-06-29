@@ -1,0 +1,50 @@
+.scrollbar {
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
+
+    // Margins so that the scroll bars are not rendered flush to the container
+    margin-right: $unit;
+    margin-bottom: $unit;
+
+    &::-webkit-scrollbar {
+        height: $unit;
+        width: $unit;
+    }
+
+    &::-webkit-scrollbar-button {
+        height: $unit * 4;
+        width: $unit * 4;
+        display: block;
+    }
+
+    &::-webkit-scrollbar-button:start:decrement,
+    &::-webkit-scrollbar-button:end:increment {
+        background: transparent;
+        display: none;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background: $silver;
+    }
+
+    &::-webkit-scrollbar-track-piece:vertical:start {
+        border-radius: 5px 5px 0 0;
+    }
+    &::-webkit-scrollbar-track-piece:vertical:end {
+        border-radius: 0 0 5px 5px;
+    }
+    &::-webkit-scrollbar-track-piece:horizontal:start {
+        border-radius: 5px 0 0 5px;
+    }
+    &::-webkit-scrollbar-track-piece:horizontal:end {
+        border-radius: 0 5px 5px 0;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical,
+    &::-webkit-scrollbar-thumb:horizontal {
+        background: $gray;
+        border-radius: 5px;
+        display: block;
+        height: 50px;
+    }
+}

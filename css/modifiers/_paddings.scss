@@ -1,0 +1,40 @@
+$start: 1;
+$end: 8;
+
+@for $i from $start through $end {
+    .p#{$i} {
+        padding: $unit * $i;
+    }
+}
+@for $i from $start through $end {
+    .py#{$i} {
+        padding-top: $unit * $i;
+        padding-bottom: $unit * $i;
+    }
+}
+@for $i from $start through $end {
+    .px#{$i} {
+        padding-left: $unit * $i;
+        padding-right: $unit * $i;
+    }
+}
+@for $i from $start through $end {
+    .pt#{$i} {
+        padding-top: $unit * $i;
+    }
+}
+@for $i from $start through $end {
+    .pr#{$i} {
+        padding-right: $unit * $i;
+    }
+}
+@for $i from $start through $end {
+    .pb#{$i} {
+        padding-bottom: $unit * $i;
+    }
+}
+@for $i from $start through $end {
+    .pl#{$i} {
+        padding-left: $unit * $i;
+    }
+}

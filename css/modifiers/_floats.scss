@@ -1,0 +1,27 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+// Taken from Nicolas Gallagher's micro clearfix solution
+// http://nicolasgallagher.com/micro-clearfix-hack/
+%clearfix {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.clearfix {
+    @extend %clearfix;
+}

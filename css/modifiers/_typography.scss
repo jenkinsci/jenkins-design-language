@@ -1,0 +1,135 @@
+$heading-font-weight: $semibold;
+$heading-color: rgba($loud-color, 0.9);
+$reversed-heading-color: rgba($reversed-loud-color, 1);
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+%h1,
+%h2,
+%h3,
+%h4,
+%h5,
+%h6 {
+    font-weight: $heading-font-weight;
+    color: $heading-color;
+    .reversed & {
+        color: $reversed-heading-color;
+    }
+}
+
+.h1,
+.h2,
+%h1,
+%h2 {
+    line-height: 0.7 * $base-line-height;
+}
+
+.h3,
+.h4,
+%h3,
+%h4 {
+    line-height: 0.8 * $base-line-height;
+}
+
+.h5,
+.h6,
+%h5,
+%h6 {
+    line-height: 0.9 * $base-line-height;
+}
+
+.h1,
+%h1 {
+    font-size: calculate-rem(32);
+    letter-spacing: 0;
+}
+
+.h2,
+%h2 {
+    font-size: calculate-rem(26);
+    letter-spacing: -1px;
+}
+
+.h3,
+%h3 {
+    font-size: calculate-rem(22);
+}
+
+.h4,
+%h4 {
+    font-size: calculate-rem(18);
+}
+
+.h5,
+%h5 {
+    font-size: 1rem;
+}
+
+.h6,
+%h6 {
+    font-size: calculate-rem(12);
+}
+
+.typeset {
+    h1,
+    .h1 {
+        @extend %h1;
+        margin: 1em 0 0.75em;
+    }
+    h2,
+    .h2 {
+        @extend %h2;
+        margin: 1.5em 0 1em;
+    }
+    h3,
+    .h3 {
+        @extend %h3;
+        margin: 1em 0 0.5em;
+    }
+    h4,
+    .h4 {
+        @extend %h4;
+        margin: 1em 0 0.5em;
+    }
+    h5,
+    .h5 {
+        @extend %h5;
+        margin: 1em 0 0.5em;
+    }
+    h6,
+    .h6 {
+        @extend %h6;
+        margin: 1em 0 0.5em;
+    }
+}
+
+// Font weight
+.text-thin {
+    font-weight: $thin;
+}
+.text-light {
+    font-weight: $light;
+}
+.text-normal {
+    font-weight: $normal;
+}
+.text-semibold {
+    font-weight: $semibold;
+}
+.text-bold {
+    font-weight: $bold;
+}
+.text-ultrabold {
+    font-weight: $ultrabold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+.lowercase {
+    text-transform: lowercase;
+}

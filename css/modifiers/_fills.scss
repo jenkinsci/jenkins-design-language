@@ -1,0 +1,5 @@
+@each $color, $value in $colors {
+    .fill-#{$color} {
+        fill: $value;
+    }
+}
