@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
 
 const TEMPLATE_CHOICE_NAME = 'template-choice';
 const COMPONENT_NAME = 'component-name';
+const filePrefixesToNotModify = ['README', 'package', 'tsconfig'];
 
 const templateChoices = fs.readdirSync(`${__dirname}/components/templates`);
 
@@ -55,7 +55,11 @@ function createDirectoryContents(templatePath, componentChoice) {
     }
 }
 
-function renameFileBasedOnComponent(file, componentChoice) {
-    const extension = file.substring(file.indexOf('.') + 1);
-    return componentChoice + '.' + extension;
+function renameFileBasedOnComponent(originalFile, componentChoice) {
+    const extension = originalFile.substring(originalFile.indexOf('.'), originalFile.length);
+    const prefix = originalFile.substring(0, originalFile.indexOf('.'));
+    if (filePrefixesToNotModify.includes(prefix)) {
+        return originalFile;
+    }
+    return componentChoice + extension;
 }
