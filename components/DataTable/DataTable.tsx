@@ -1,36 +1,26 @@
 import * as React from 'react';
+import { DataTableColumn } from './DataTableColumn';
 
-interface ColumnProps<T> {
-    header?: React.ReactNode;
-    footer?: React.ReactNode;
-    cell: (item: T) => React.ReactNode;
-    expand?: boolean;
-}
-
-class Column<T> extends React.Component<ColumnProps<T>> {
-    render() {
-        return null;
-    }
-}
-
-interface TableProps<T> {
+export interface TableProps<T> {
     items: T[];
     children: React.ReactNode[];
 }
 
 export class DataTable<T> extends React.Component<TableProps<T>> {
-    static Column = Column;
+    static Column = DataTableColumn;
     render() {
         let hasHeader = false;
         const header = (
             <thead>
                 <tr>
-                    {this.props.children.map((column: Column<T>, idx) => {
-                        if (column.props.header) {
-                            hasHeader = true;
+                    {this.props.children.map(
+                        (column: DataTableColumn<T>, idx) => {
+                            if (column.props.header) {
+                                hasHeader = true;
+                            }
+                            return <th key={idx}>{column.props.header}</th>;
                         }
-                        return <th key={idx}>{column.props.header}</th>;
-                    })}
+                    )}
                 </tr>
             </thead>
         );
@@ -39,12 +29,14 @@ export class DataTable<T> extends React.Component<TableProps<T>> {
         const footer = (
             <tfoot>
                 <tr>
-                    {this.props.children.map((column: Column<T>, idx) => {
-                        if (column.props.footer) {
-                            hasFooter = true;
+                    {this.props.children.map(
+                        (column: DataTableColumn<T>, idx) => {
+                            if (column.props.footer) {
+                                hasFooter = true;
+                            }
+                            return <td key={idx}>{column.props.footer}</td>;
                         }
-                        return <td key={idx}>{column.props.footer}</td>;
-                    })}
+                    )}
                 </tr>
             </tfoot>
         );
@@ -56,7 +48,7 @@ export class DataTable<T> extends React.Component<TableProps<T>> {
                     {this.props.items.map((item, itemIdx) => (
                         <tr key={itemIdx}>
                             {this.props.children.map(
-                                (column: Column<T>, idx) => (
+                                (column: DataTableColumn<T>, idx) => (
                                     <td
                                         key={idx}
                                         className={

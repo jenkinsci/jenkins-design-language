@@ -1,0 +1,86 @@
+$table-border-style: 1px solid $border-color;
+
+.Table {
+    border-collapse: separate; /* This is what allows for us to add rounded corners to the table body cells. */
+    width: 100%;
+
+    /*
+     * Styling table headings
+     */
+    th {
+        color: $gray;
+        font-size: 0.75rem;
+        padding: $unit * 2 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    th {
+        padding-right: $unit * 6;
+    }
+
+    th:last-child {
+        padding-right: $unit * 6;
+    }
+
+    tbody {
+        background: $white;
+
+        /*
+         * Every cell has a padding to the top, right and bottom. Also adds a top border to separate each row.
+         */
+        td {
+            border-top: $table-border-style;
+            padding-top: $unit * 2;
+            padding-bottom: $unit * 2;
+            padding-right: $unit * 2;
+        }
+
+        td.expand {
+            width: 100%;
+        }
+
+        /*
+         * In each row of the table body, the first cell has a left border and padding.
+         * Each of the last cells in each row also has a right border.
+         */
+        tr {
+            td:first-of-type {
+                border-left: $table-border-style;
+                padding-left: $unit * 2;
+            }
+
+            td:last-of-type {
+                border-right: $table-border-style;
+            }
+        }
+
+        /*
+         * Grabs the first row in the table body and adds rounded corners.
+         */
+        tr:first-of-type {
+            td:first-of-type {
+                border-top-left-radius: $border-radius;
+            }
+            td:last-of-type {
+                border-top-right-radius: $border-radius;
+            }
+        }
+
+        /*
+         * Grabs the last row in the table body and rounds the corners and adds a bottom border
+         * to each table cell.
+         */
+        tr:last-of-type {
+            td {
+                border-bottom: $table-border-style;
+            }
+            td:first-of-type {
+                border-bottom-left-radius: $border-radius;
+            }
+            td:last-of-type {
+                border-bottom-right-radius: $border-radius;
+            }
+        }
+    }
+}
