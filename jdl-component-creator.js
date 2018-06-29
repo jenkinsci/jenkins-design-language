@@ -22,9 +22,8 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then(answers => {
-    console.log('answers ', answers);
     const templateChoice = answers['template-choice'];
-    const componentChoice = answers['component-choice'];
+    const componentChoice = answers['component-name'];
     const templatePath = `${__dirname}/templates/${templateChoice}`;
 
     fs.mkdirSync(`${__dirname}/components/${componentChoice}`);
@@ -40,7 +39,7 @@ function createDirectoryContents(templatePath, componentChoice) {
 
         if (stats.isFile()) {
             const contents = fs.readdirSync(originalFilePath, 'utf8');
-            const writePath = `${CURR_DIR}/${componentChoice}/${file}`;
+            const writePath = `${__dirname}/${componentChoice}/${file}`;
             fs.writeFileSync(writePath, contents, 'utf8');
         }
     });
