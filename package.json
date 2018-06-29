@@ -13,7 +13,8 @@
         "publish": "lerna publish",
         "publish-beta": "lerna publish --preid=alpha --cd-version prerelease",
         "styleguide": "styleguidist server",
-        "styleguide-build": "styleguidist build"
+        "styleguide-build": "styleguidist build",
+        "generate": "./jdl-component-creator.js"
     },
     "dependencies": {
         "prop-types": "*",
@@ -45,6 +46,7 @@
         "html-webpack-plugin": "^2.30.1",
         "husky": "^0.14.3",
         "identity-obj-proxy": "^3.0.0",
+        "inquirer": "^6.0.0",
         "jest": "^22.4.2",
         "jest-junit": "^5.1.0",
         "js-beautify": "^1.7.5",
@@ -53,6 +55,7 @@
         "less-loader": "4.0.5",
         "mock-require": "^3.0.1",
         "node-sass": "^4.7.2",
+        "path": "^0.12.7",
         "prettier": "^1.10.2",
         "pretty-quick": "^1.4.1",
         "raw-loader": "^0.5.1",
