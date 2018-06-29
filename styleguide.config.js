@@ -171,9 +171,9 @@ module.exports = {
             },
         }
     ),
-    getExampleFilename(componentPath) {
-        return componentPath.replace(/\.tsx?$/, '.md');
-    },
+    // getExampleFilename(componentPath) {
+    //     return componentPath.replace(/\.tsx?$/, '.md');
+    // },
     require: [
         path.join(__dirname, 'css/index.scss'),
         path.join(__dirname, 'docs/assets/css/project.css'),
