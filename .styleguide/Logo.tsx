@@ -29,10 +29,7 @@ const styles = ({ fontFamily, color }: any) => ({
 export function LogoRenderer({ classes, children }: any) {
     return (
         <h1 className={classes.logo}>
-            <div
-                className={classes.image}
-                dangerouslySetInnerHTML={{ __html: logo }}
-            />
+            <div className={classes.image} dangerouslySetInnerHTML={{ __html: logo }} />
             {children}
         </h1>
     );

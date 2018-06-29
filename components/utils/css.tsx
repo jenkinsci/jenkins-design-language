@@ -47,12 +47,7 @@ const cssClasses = {
  * @param classes
  */
 export function css(props: CssProps, ...classes: string[]): string {
-    let css =
-        classes.length == 0
-            ? ''
-            : classes.length === 1
-                ? classes[0]
-                : classes.join(' ');
+    let css = classes.length == 0 ? '' : classes.length === 1 ? classes[0] : classes.join(' ');
     const keys = Object.keys(props);
     for (let i = 0; i < keys.length; i++) {
         const cls = cssClasses[keys[i]];

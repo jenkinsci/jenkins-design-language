@@ -7,9 +7,7 @@ export interface DataTableColumnProps<T> {
     expand?: boolean;
 }
 
-export class DataTableColumn<T> extends React.Component<
-    DataTableColumnProps<T>
-> {
+export class DataTableColumn<T> extends React.Component<DataTableColumnProps<T>> {
     render() {
         return null;
     }

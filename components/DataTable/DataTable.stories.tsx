@@ -28,19 +28,9 @@ const users = [user, user2, user3];
 stories.add('should display a data table', () => {
     return (
         <DataTable items={users}>
-            <DataTable.Column
-                header="Name"
-                cell={(user: User) => <div>{user.name}</div>}
-                expand
-            />
-            <DataTable.Column
-                header="Age"
-                cell={(user: User) => <div>{user.age}</div>}
-            />
-            <DataTable.Column
-                header="Weight"
-                cell={(user: User) => <div>{user.weight}</div>}
-            />
+            <DataTable.Column header="Name" cell={(user: User) => <div>{user.name}</div>} expand />
+            <DataTable.Column header="Age" cell={(user: User) => <div>{user.age}</div>} />
+            <DataTable.Column header="Weight" cell={(user: User) => <div>{user.weight}</div>} />
             <DataTable.Column
                 header="Location"
                 cell={(user: User) => <div>{user.location}</div>}

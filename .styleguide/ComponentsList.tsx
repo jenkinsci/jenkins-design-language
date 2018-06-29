@@ -94,22 +94,13 @@ export function ComponentsListRenderer({ classes, items }: any) {
                 <li
                     className={cx(
                         classes.item,
-                        (!content || !content.props.items.length) &&
-                            classes.isChild
+                        (!content || !content.props.items.length) && classes.isChild
                     )}
                     key={href}
                 >
-                    {heading && (
-                        <div className={cx(classes.heading)}>{name}</div>
-                    )}
+                    {heading && <div className={cx(classes.heading)}>{name}</div>}
                     {!heading && (
-                        <a
-                            className={cx(
-                                classes.itemLink,
-                                heading && classes.heading
-                            )}
-                            href={href}
-                        >
+                        <a className={cx(classes.itemLink, heading && classes.heading)} href={href}>
                             {name}
                         </a>
                     )}

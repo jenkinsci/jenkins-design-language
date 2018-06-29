@@ -19,9 +19,8 @@ $button-font-family: $base-font-family;
     background-color: transparent;
     border-color: rgba($button-secondary-color, 0.3);
     color: rgba($button-secondary-color, 0.6);
-    transition: background-color 100ms ease-in-out,
-        border-color 100ms ease-in-out, box-shadow 100ms ease-in-out,
-        color 100ms ease-in-out;
+    transition: background-color 100ms ease-in-out, border-color 100ms ease-in-out,
+        box-shadow 100ms ease-in-out, color 100ms ease-in-out;
 
     + .Button {
         margin-left: $unit;
@@ -36,8 +35,7 @@ $button-font-family: $base-font-family;
 
     &:focus,
     &.is-focused {
-        box-shadow: 0 0 0 1px rgba(#fff, 0.5),
-            0 0 0 3px rgba($button-color, 0.2);
+        box-shadow: 0 0 0 1px rgba(#fff, 0.5), 0 0 0 3px rgba($button-color, 0.2);
         background-color: transparent;
         border-color: rgba($button-color, 0.8);
         color: $button-color;
@@ -46,16 +44,8 @@ $button-font-family: $base-font-family;
     &:active,
     &.is-active {
         background-color: transparent;
-        border-color: adjust-color(
-            rgba($button-color, 0.8),
-            $lightness: -15%,
-            $saturation: 10%
-        );
-        color: adjust-color(
-            rgba($button-color, 1),
-            $lightness: -25%,
-            $saturation: 10%
-        );
+        border-color: adjust-color(rgba($button-color, 0.8), $lightness: -15%, $saturation: 10%);
+        color: adjust-color(rgba($button-color, 1), $lightness: -25%, $saturation: 10%);
     }
 
     &:disabled,
@@ -76,39 +66,22 @@ $button-font-family: $base-font-family;
         &:focus,
         &.is-focused {
             color: $button-text-color;
-            background-color: adjust-color(
-                $button-color,
-                $lightness: 7%,
-                $saturation: 5%
-            );
-            border-color: adjust-color(
-                $button-color,
-                $lightness: 7%,
-                $saturation: 5%
-            );
+            background-color: adjust-color($button-color, $lightness: 7%, $saturation: 5%);
+            border-color: adjust-color($button-color, $lightness: 7%, $saturation: 5%);
             text-decoration: none;
         }
 
         &:active,
         &.is-active {
             color: $button-text-color;
-            background-color: adjust-color(
-                $button-color,
-                $lightness: -7%,
-                $saturation: 5%
-            );
-            border-color: adjust-color(
-                $button-color,
-                $lightness: -7%,
-                $saturation: 5%
-            );
+            background-color: adjust-color($button-color, $lightness: -7%, $saturation: 5%);
+            border-color: adjust-color($button-color, $lightness: -7%, $saturation: 5%);
         }
 
         &:focus,
         &.is-focused {
             outline: 0;
-            box-shadow: 0 0 0 1px rgba(#fff, 0.5),
-                0 0 0 3px rgba($button-color, 0.3);
+            box-shadow: 0 0 0 1px rgba(#fff, 0.5), 0 0 0 3px rgba($button-color, 0.3);
         }
 
         &:disabled,
@@ -123,9 +96,8 @@ $button-font-family: $base-font-family;
         background: transparent;
         border-color: rgba($button-danger-color, 0.4);
         color: $button-danger-color;
-        transition: background-color 300ms ease-in-out,
-            border-color 150ms ease-in-out, box-shadow 150ms ease-in,
-            color 300ms ease-in-out;
+        transition: background-color 300ms ease-in-out, border-color 150ms ease-in-out,
+            box-shadow 150ms ease-in, color 300ms ease-in-out;
 
         &:hover,
         &.is-hovered,
@@ -144,17 +116,12 @@ $button-font-family: $base-font-family;
                 $lightness: -15%,
                 $saturation: 10%
             );
-            border-color: adjust-color(
-                $button-danger-color,
-                $lightness: -15%,
-                $saturation: 10%
-            );
+            border-color: adjust-color($button-danger-color, $lightness: -15%, $saturation: 10%);
         }
 
         &:focus,
         &.is-focused {
-            box-shadow: 0 0 0 1px rgba(#fff, 0.5),
-                0 0 0 3px rgba($button-danger-color, 0.3);
+            box-shadow: 0 0 0 1px rgba(#fff, 0.5), 0 0 0 3px rgba($button-danger-color, 0.3);
         }
 
         &:disabled,

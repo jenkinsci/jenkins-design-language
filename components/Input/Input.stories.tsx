@@ -8,8 +8,6 @@ const results = require('./.jest-test-results.json');
 const stories = storiesOf('Input', module);
 const iconTestFile = 'Input.test.tsx';
 
-stories
-    .addDecorator(withTests({ results })(iconTestFile))
-    .add('should display an input', () => {
-        return <Input onChange={() => console.log('')} />;
-    });
+stories.addDecorator(withTests({ results })(iconTestFile)).add('should display an input', () => {
+    return <Input onChange={() => console.log('')} />;
+});

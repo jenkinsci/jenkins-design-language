@@ -11,9 +11,7 @@ export default class EditorLoader extends React.Component {
     componentDidMount() {
         (module => {
             this.setState({ editor: module.default });
-        })(
-            require('../node_modules/react-styleguidist/lib/rsg-components/Editor/Editor')
-        );
+        })(require('../node_modules/react-styleguidist/lib/rsg-components/Editor/Editor'));
     }
 
     render() {

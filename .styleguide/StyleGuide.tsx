@@ -128,10 +128,7 @@ export function StyleGuideRenderer({
     sidebarWidth,
 }: any) {
     return (
-        <div
-            className={classes.root}
-            style={{ paddingLeft: hasSidebar ? sidebarWidth : 0 }}
-        >
+        <div className={classes.root} style={{ paddingLeft: hasSidebar ? sidebarWidth : 0 }}>
             {hasHeader && (
                 <header className={classes.header}>
                     <div
@@ -167,10 +164,7 @@ export function StyleGuideRenderer({
             <main className={classes.content}>
                 {hasSidebar && (
                     <section id="intro">
-                        <div
-                            className="intro-header"
-                            style={{ paddingTop: 0, marginTop: -40 }}
-                        >
+                        <div className="intro-header" style={{ paddingTop: 0, marginTop: -40 }}>
                             <div className="container header-container">
                                 <div className="row">
                                     <div
@@ -184,9 +178,7 @@ export function StyleGuideRenderer({
                                     />
                                     <div className="intro-message col-md-6">
                                         <h1>Jenkins Design Language</h1>
-                                        <h3>
-                                            React library for Jenkins Blue Ocean
-                                        </h3>
+                                        <h3>React library for Jenkins Blue Ocean</h3>
                                         <iframe
                                             className="github-btn"
                                             src="https://ghbtns.com/github-btn.html?user=jenkinsci&amp;repo=jenkins-design-language&amp;type=star&amp;count=true&amp;size=large"
@@ -206,19 +198,14 @@ export function StyleGuideRenderer({
                 {children}
 
                 {hasSidebar && (
-                    <div
-                        className="intro-header"
-                        style={{ paddingTop: 0, marginTop: -40 }}
-                    >
+                    <div className="intro-header" style={{ paddingTop: 0, marginTop: -40 }}>
                         <div className="container header-container">
                             <div className="row">
                                 <div
                                     className="intro-image"
                                     style={{
                                         backgroundImage:
-                                            'url("data:image/svg+xml;base64,' +
-                                            btoa(logo) +
-                                            '")',
+                                            'url("data:image/svg+xml;base64,' + btoa(logo) + '")',
                                         backgroundSize: 180,
                                         opacity: 0.1,
                                     }}
@@ -229,9 +216,7 @@ export function StyleGuideRenderer({
                 )}
                 {hasFooter && (
                     <footer className={classes.footer}>
-                        <Markdown
-                            text={`Generated with [React Styleguidist](${homepageUrl}) ❤️`}
-                        />
+                        <Markdown text={`Generated with [React Styleguidist](${homepageUrl}) ❤️`} />
                     </footer>
                 )}
             </main>
@@ -239,10 +224,7 @@ export function StyleGuideRenderer({
                 <div className={classes.sidebar}>
                     <div className={classes.logo}>
                         <Logo>
-                            {title}{' '}
-                            <div className={classes.version}>
-                                v {pkg.version}
-                            </div>
+                            {title} <div className={classes.version}>v {pkg.version}</div>
                         </Logo>
                     </div>
                     {toc}
