@@ -37,6 +37,7 @@
         "typescript": "*"
     },
     "jest": {
-        "preset": "<rootDir>/../../.jest/jest-preset.json"
+        "preset": "<rootDir>/../../.jest/jest-preset.json",
+        "automock": false
     }
 }
