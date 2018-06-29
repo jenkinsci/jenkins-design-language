@@ -5,7 +5,7 @@ const fs = require('fs');
 const templateChoices = fs.readdirSync(`${__dirname}/components/templates`);
 const questions = [
     {
-        name: 'component-choice',
+        name: 'template-choice',
         type: 'list',
         message: 'Which template would you like to generate?',
         choices: templateChoices,
@@ -23,4 +23,25 @@ const questions = [
 
 inquirer.prompt(questions).then(answers => {
     console.log('answers ', answers);
+    const templateChoice = answers['template-choice'];
+    const componentChoice = answers['component-choice'];
+    const templatePath = `${__dirname}/templates/${templateChoice}`;
+
+    fs.mkdirSync(`${__dirname}/components/${componentChoice}`);
+
+    createDirectoryContents(templatePath, componentChoice);
 });
+
+function createDirectoryContents(templatePath, componentChoice) {
+    const filesToCreate = fs.readdirSync(templatePath);
+    filesToCreate.forEach(file => {
+        const originalFilePath = `${templatePath}/${file}`;
+        const stats = fs.statSync(originalFilePath);
+
+        if (stats.isFile()) {
+            const contents = fs.readdirSync(originalFilePath, 'utf8');
+            const writePath = `${CURR_DIR}/${componentChoice}/${file}`;
+            fs.writeFileSync(writePath, contents, 'utf8');
+        }
+    });
+}
