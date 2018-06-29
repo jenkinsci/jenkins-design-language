@@ -81,7 +81,11 @@ module.exports = {
     sections: [
         {
             name: 'Components',
-            components: 'components/**/[A-Z]*.tsx',
+            components: [
+                'components/Button/Button.tsx',
+                'components/DataTable/DataTable.tsx',
+                'components/Input/Input.tsx',
+            ],
         },
         {
             name: 'Utilities',
