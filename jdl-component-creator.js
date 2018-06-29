@@ -2,16 +2,20 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const TEMPLATE_CHOICE_NAME = 'template-choice';
+const COMPONENT_NAME = 'component-name';
+
 const templateChoices = fs.readdirSync(`${__dirname}/components/templates`);
+
 const questions = [
     {
-        name: 'template-choice',
+        name: TEMPLATE_CHOICE_NAME,
         type: 'list',
         message: 'Which template would you like to generate?',
         choices: templateChoices,
     },
     {
-        name: 'component-name',
+        name: COMPONENT_NAME,
         type: 'input',
         message: 'Name your component',
         validate: function(input) {
@@ -22,9 +26,9 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then(answers => {
-    const templateChoice = answers['template-choice'];
-    const componentChoice = answers['component-name'];
-    const templatePath = `${__dirname}/templates/${templateChoice}`;
+    const templateChoice = answers[TEMPLATE_CHOICE_NAME];
+    const componentChoice = answers[COMPONENT_NAME];
+    const templatePath = `${__dirname}/components/templates/${templateChoice}`;
 
     fs.mkdirSync(`${__dirname}/components/${componentChoice}`);
 
@@ -32,15 +36,19 @@ inquirer.prompt(questions).then(answers => {
 });
 
 function createDirectoryContents(templatePath, componentChoice) {
-    const filesToCreate = fs.readdirSync(templatePath);
-    filesToCreate.forEach(file => {
-        const originalFilePath = `${templatePath}/${file}`;
-        const stats = fs.statSync(originalFilePath);
+    try {
+        const filesToCreate = fs.readdirSync(templatePath);
+        filesToCreate.forEach(file => {
+            const originalFilePath = `${templatePath}/${file}`;
+            const stats = fs.statSync(originalFilePath);
 
-        if (stats.isFile()) {
-            const contents = fs.readdirSync(originalFilePath, 'utf8');
-            const writePath = `${__dirname}/${componentChoice}/${file}`;
-            fs.writeFileSync(writePath, contents, 'utf8');
-        }
-    });
+            if (stats.isFile()) {
+                const contents = fs.readFileSync(originalFilePath);
+                const writePath = `${__dirname}/components/${componentChoice}/${file}`;
+                fs.writeFileSync(writePath, contents);
+            }
+        });
+    } catch (e) {
+        console.log('Error in writing out ', e);
+    }
 }
