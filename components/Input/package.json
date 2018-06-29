@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/input",
-    "version": "0.0.1",
+    "version": "0.0.0-beta.0",
     "main": "./Input",
     "scripts": {
         "build": "tsc",
