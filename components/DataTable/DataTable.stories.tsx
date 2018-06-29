@@ -30,7 +30,6 @@ const users = [user, user2, user3];
 stories
     .addDecorator(withTests({ results })(dataTableTestFile))
     .add('should display a data table', () => {
-        debugger;
         return (
             <DataTable items={users}>
                 <DataTable.Column
