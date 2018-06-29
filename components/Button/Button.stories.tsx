@@ -3,12 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { Button } from './Button';
 
 const stories = storiesOf('Button', module);
-const buttonTestFile = 'Button.test.tsx';
 
 const specs = require('../../.storybook/facade').specs;
 
 stories.add('should display text', () => {
     const story = <Button>some-text</Button>;
-    specs(() => require(buttonTestFile).default);
+    specs(() => require('./Button.test.tsx').default);
     return story;
 });
