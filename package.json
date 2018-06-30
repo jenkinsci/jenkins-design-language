@@ -68,6 +68,8 @@
         "storybook-addon-specifications": "^2.1.1",
         "svg-inline-loader": "^0.8.0",
         "ts-loader": "^3.5.0",
+        "tslint-config-airbnb": "^5.9.2",
+        "tslint-config-prettier": "^1.13.0",
         "typescript": "*",
         "typewebjest": "^0.5.7",
         "webpack": "^3.11.0",
