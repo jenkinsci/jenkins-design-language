@@ -65,7 +65,7 @@
         "react-scripts-ts": "^2.13.0",
         "react-styleguidist": "^7.0.19",
         "sass-loader": "^6.0.6",
-        "storybook-addon-specifications": "^2.1.1",
+        "storybook-addon-specifications": "^2.1.2",
         "svg-inline-loader": "^0.8.0",
         "ts-loader": "^3.5.0",
         "tslint-config-airbnb": "^5.9.2",

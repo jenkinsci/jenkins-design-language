@@ -1,8 +1,8 @@
 {
-    "name": "@jdl2/data-table",
+    "name": "@jdl2/table",
     "version": "2.0.0-alpha.9",
-    "main": "./DataTable",
-    "types": "./DataTable.d.ts",
+    "main": "./Table",
+    "types": "./Table.d.ts",
     "scripts": {
         "prepublish": "tsc",
         "build": "tsc",

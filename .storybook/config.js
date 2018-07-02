@@ -1,4 +1,3 @@
-import 'jest-storybook-facade/storybook-facade.js';
 import '../css/index.scss';
 import 'storybook-addon-specifications/register';
 

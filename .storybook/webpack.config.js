@@ -42,8 +42,8 @@ module.exports = (baseConfig, env) => {
         }
     );
     config.externals = Object.assign(config.externals || {}, {
-        jsdom: 'window',
-        cheerio: 'window',
+        // jsdom: 'window',
+        // cheerio: 'window',
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': 'window',
         'react/addons': true,

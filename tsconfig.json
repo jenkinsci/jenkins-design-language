@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
         "outDir": ".",
-        "module": "commonjs",
+        "module": "es6",
         "target": "es6",
         "lib": ["es6", "dom"],
         "sourceMap": true,
+        "esModuleInterop": false,
         "declaration": true,
         "allowJs": false,
         "jsx": "react",

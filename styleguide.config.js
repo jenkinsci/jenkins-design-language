@@ -76,7 +76,7 @@ module.exports = {
             name: 'Components',
             components: [
                 'components/Button/Button.tsx',
-                'components/DataTable/DataTable.tsx',
+                'components/Table/Table.tsx',
                 'components/Input/Input.tsx',
             ],
         },

@@ -1,19 +1,20 @@
 import * as React from 'react';
-import { DataTableColumn } from './DataTableColumn';
+import { TableColumn } from './TableColumn';
 
 export interface TableProps<T> {
     items: T[];
-    children: React.ReactNode[];
+    children: React.ReactNode;
 }
 
-export class DataTable<T> extends React.Component<TableProps<T>> {
-    static Column = DataTableColumn;
+export class Table<T> extends React.Component<TableProps<T>> {
+    static Col = TableColumn;
+
     render() {
         let hasHeader = false;
         const header = (
             <thead>
                 <tr>
-                    {this.props.children.map((column: DataTableColumn<T>, idx) => {
+                    {React.Children.map(this.props.children, (column: any, idx) => {
                         if (column.props.header) {
                             hasHeader = true;
                         }
@@ -27,7 +28,7 @@ export class DataTable<T> extends React.Component<TableProps<T>> {
         const footer = (
             <tfoot>
                 <tr>
-                    {this.props.children.map((column: DataTableColumn<T>, idx) => {
+                    {React.Children.map(this.props.children, (column: any, idx) => {
                         if (column.props.footer) {
                             hasFooter = true;
                         }
@@ -43,12 +44,12 @@ export class DataTable<T> extends React.Component<TableProps<T>> {
                 <tbody key={this.props.items.length}>
                     {this.props.items.map((item, itemIdx) => (
                         <tr key={itemIdx}>
-                            {this.props.children.map((column: DataTableColumn<T>, idx) => (
+                            {React.Children.map(this.props.children, (column: any, idx) => (
                                 <td
                                     key={idx}
                                     className={column.props.expand ? 'expand' : undefined}
                                 >
-                                    {column.props.cell(item)}
+                                    {column.props.children && column.props.children(item)}
                                 </td>
                             ))}
                         </tr>
