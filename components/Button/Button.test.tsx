@@ -10,7 +10,6 @@ describe('Button', () => {
         expect(rendered.find('button').text()).toEqual(text);
     });
 
-    // TODO figure out the issue with DONE
     it('handles click events', (done: any) => {
         const e = <Button onClick={() => done()}>asdf</Button>;
         Enzyme.mount(e).simulate('click');
