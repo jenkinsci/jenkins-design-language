@@ -11,16 +11,19 @@ export interface DialogProps {
 }
 
 export interface DialogState {
-    readonly showModal: boolean;
+    showModal: boolean;
 }
 
 export class Dialog extends React.Component<DialogProps, DialogState> {
     constructor(props: DialogProps) {
         super(props);
 
-        this.state = { showModal: true };
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
+
+    public readonly state: DialogState = {
+        showModal: true,
+    };
 
     handleCloseModal() {
         this.setState({
