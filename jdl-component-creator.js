@@ -6,7 +6,7 @@ const TEMPLATE_CHOICE_NAME = 'template-choice';
 const COMPONENT_NAME = 'component-name';
 const filePrefixesToNotModify = ['README', 'package', 'tsconfig'];
 
-const templateChoices = fs.readdirSync(`${__dirname}/components/templates`);
+const templateChoices = fs.readdirSync(`${__dirname}/templates`);
 
 const questions = [
     {
@@ -29,7 +29,7 @@ const questions = [
 inquirer.prompt(questions).then(answers => {
     const templateChoice = answers[TEMPLATE_CHOICE_NAME];
     const componentChoice = answers[COMPONENT_NAME];
-    const templatePath = `${__dirname}/components/templates/${templateChoice}`;
+    const templatePath = `${__dirname}/templates/${templateChoice}`;
 
     fs.mkdirSync(`${__dirname}/components/${componentChoice}`);
 
