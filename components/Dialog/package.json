@@ -1,7 +1,7 @@
 {
-    "name": "@jdl2/<component>",
+    "name": "@jdl2/dialog",
     "version": "0.0.1",
-    "main": "./<component>",
+    "main": "./Dialog",
     "scripts": {
         "build": "tsc",
         "test": "jest"

@@ -48,7 +48,7 @@ export class Dialog extends React.Component<DialogProps, DialogState> {
 
         return (
             <div>
-                <ReactModal {...defaultProps}>
+                <ReactModal {...defaultProps} ariaHideApp={false}>
                     {this.props.title && <DialogHeader title={this.props.title} />}
                     <DialogContent>{this.props.children}</DialogContent>
                     <DialogButtons>

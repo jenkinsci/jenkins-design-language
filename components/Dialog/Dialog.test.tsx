@@ -1,9 +1,15 @@
-// import * as React from 'react';
-// import * as Enzyme from 'enzyme';
+import * as React from 'react';
+import * as Enzyme from 'enzyme';
+import { Dialog } from './Dialog';
 
-// TODO rewrite for your component
-describe('Component', () => {
-    it('should create and render a button with text', () => {
-        expect(true).toBe(true);
+describe('Dialog', () => {
+    it('should render a dialog with content', () => {
+        const content = 'testing with some content';
+        const mounted = Enzyme.mount(
+            <Dialog>
+                <span>{content}</span>
+            </Dialog>
+        );
+        expect(mounted.find('span').get(0).props.children).toEqual(content);
     });
 });
