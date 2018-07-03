@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/dialog",
-    "version": "0.0.1",
+    "version": "2.0.0-alpha.11",
     "main": "./Dialog",
     "scripts": {
         "build": "tsc",
