@@ -1,15 +1,10 @@
-// TODO refactor based on component
+import * as React from 'react';
+import { storiesOf } from '@storybook/react';
+import { Dialog } from './Dialog';
 
-// import * as React from 'react';
-// import { storiesOf } from '@storybook/react';
-// import { Button } from './Button';
+const stories = storiesOf('Dialog', module);
 
-// declare var specs: any;
-
-// const stories = storiesOf('Button', module);
-//
-// stories.add('should display text', () => {
-//     const story = <Button>some-text</Button>;
-//     specs(() => require('./Button.test.tsx') && 'Button');
-//     return story;
-// });
+stories.add('should display a modal', () => {
+    let content = <span>Some modal content!</span>;
+    return <Dialog>{content}</Dialog>;
+});
