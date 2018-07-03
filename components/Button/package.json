@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/button",
-    "version": "2.0.0-alpha.11",
+    "version": "2.0.0-alpha.12",
     "main": "./Button",
     "types": "./Button.d.ts",
     "scripts": {
