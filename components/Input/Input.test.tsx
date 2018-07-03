@@ -8,4 +8,10 @@ describe('Input: ', () => {
         input.simulate('change', { target: { value: 'changed value.' } });
         expect(input.length).toBe(1);
     });
+
+    it('should display an input without onchange set', () => {
+        const input = Enzyme.mount(<Input />);
+        input.simulate('change', { target: { value: 'changed value.' } });
+        expect(input.length).toBe(1);
+    });
 });
