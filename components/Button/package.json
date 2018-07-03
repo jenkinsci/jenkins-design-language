@@ -9,6 +9,7 @@
         "test": "jest"
     },
     "files": [
+        "*.ts",
         "*.js",
         "*.d.ts",
         "*.d.map",
