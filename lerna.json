@@ -3,7 +3,8 @@
   "packages": [
     "utils/*",
     "components/*",
-    "css"
+    "css",
+    "icons"
   ],
   "command": {
     "bootstrap": {

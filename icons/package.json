@@ -1,0 +1,26 @@
+{
+    "name": "@jdl2/icons",
+    "version": "2.0.0-alpha.11",
+    "scripts": {
+        "prepublishOnly": "npm run build",
+        "build": "node ../static/bin/createComponentsFromSvgs.js && tsc",
+        "clean": "rm -f *.tsx",
+        "test": "jest"
+    },
+    "files": [
+        "*.js",
+        "*.d.ts",
+        "*.d.map",
+        "*.scss"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "react": "*"
+    },
+    "devDependencies": {
+        "@types/react": "*",
+        "typescript": "*"
+    }
+}
