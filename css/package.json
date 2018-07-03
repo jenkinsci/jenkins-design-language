@@ -3,7 +3,7 @@
     "version": "2.0.0-alpha.11",
     "scripts": {
         "prepublish": "npm run build",
-        "build": "node-sass index.scss jdl.css && node-sass index.scss | uglifycss > jdl.min.css",
+        "build": "node-sass index.scss | uglifycss > jdl2.min.css",
         "clean": "rm -f *.css"
     },
     "files": [
