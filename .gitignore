@@ -6,7 +6,7 @@ node_modules
 # testing
 coverage/
 test/__snapshots__
-.jest-test-results.json
+
 
 # production
 /build
@@ -34,6 +34,10 @@ package-lock.json
 components/**/*.d.ts
 components/**/*.js
 components/**/*.map
+
+templates/**/*.d.ts
+templates/**/*.js
+templates/**/*.map
 
 utils/**/*.d.ts
 utils/**/*.js
