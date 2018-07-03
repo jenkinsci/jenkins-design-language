@@ -1,0 +1,77 @@
+$dialog-spacing: 32px;
+$dialog-border-radius: 3px;
+$dialog-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+$dialog-background: rgb(255, 255, 255);
+$dialog-overlay-background: rgba(0, 0, 0, 0.25);
+$dialog-header-height: 80px;
+$dialog-header-border-radius: 3px;
+$dialog-header-background: #4a90e2;
+$dialog-header-color: #ffffff;
+$dialog-content-height: 564px;
+
+.Dialog {
+    position: absolute;
+    box-shadow: $dialog-box-shadow;
+    background: $dialog-background;
+    border-radius: $dialog-border-radius;
+    border: none;
+    max-width: 95%;
+    max-height: 90%;
+}
+
+.Dialog-Overlay {
+    position: fixed;
+    background: $dialog-overlay-background;
+    z-index: $zindex-dialog;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Dialog-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: $dialog-header-height;
+    flex-shrink: 0;
+    color: $dialog-header-color;
+    background: $dialog-header-background;
+    border-top-left-radius: $dialog-header-border-radius;
+    border-top-right-radius: $dialog-header-border-radius;
+    padding: 0 $dialog-spacing;
+
+    > h3 {
+        font-size: 24px;
+    }
+}
+
+.Dialog-content-scroll {
+    overflow: auto;
+    flex-shrink: 1;
+
+    .Dialog--medium-size & {
+        max-width: $dialog-content-height;
+    }
+}
+
+.Dialog-content-margin {
+    margin: $dialog-spacing;
+    margin-bottom: $dialog-spacing / 2;
+}
+
+.Dialog-button-bar {
+    padding: 0 $dialog-spacing;
+    margin: $dialog-spacing / 2 0 $dialog-spacing;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-shrink: 0;
+
+    & > button + button {
+        margin-left: 0.5em;
+    }
+}

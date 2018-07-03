@@ -1,10 +1,8 @@
 {
-    "name": "@jdl2/input",
-    "version": "2.0.0-alpha.10",
-    "main": "./Input",
-    "types": "./Input.d.ts",
+    "name": "@jdl2/dialog",
+    "version": "0.0.1",
+    "main": "./Dialog",
     "scripts": {
-        "prepublish": "tsc",
         "build": "tsc",
         "test": "jest"
     },
@@ -14,11 +12,7 @@
         "*.d.map",
         "*.scss"
     ],
-    "publishConfig": {
-        "access": "public"
-    },
     "dependencies": {
-        "@jdl2/css-util": "^2.0.0-alpha.9",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
@@ -26,15 +20,19 @@
     },
     "devDependencies": {
         "@storybook/addon-jest": "^3.4.8",
+        "@types/classnames": "^2.2.4",
         "@types/enzyme": "^3.1.9",
         "@types/react": "*",
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
+        "@types/react-modal": "^3.1.2",
         "@types/react-test-renderer": "^16.0.1",
         "@types/react-transition-group": "*",
+        "classnames": "^2.2.6",
         "enzyme": "^3.3.0",
         "jest": "^22.4.2",
         "jest-storybook-facade": "0.0.8",
+        "react-modal": "^3.4.5",
         "react-test-renderer": "^16.4.1",
         "storybook-addon-specifications": "^2.1.2",
         "typescript": "*"
