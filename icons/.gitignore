@@ -1,1 +1,4 @@
 *.tsx
+*.js
+*.d.ts
+*.map
