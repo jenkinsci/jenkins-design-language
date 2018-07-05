@@ -3,7 +3,8 @@
   "packages": [
     "utils/*",
     "components/*",
-    "css"
+    "css",
+    "icons"
   ],
   "command": {
     "bootstrap": {
@@ -13,5 +14,5 @@
     },
     "clean": true
   },
-  "version": "2.0.0-alpha.11"
+  "version": "2.0.0-alpha.15"
 }

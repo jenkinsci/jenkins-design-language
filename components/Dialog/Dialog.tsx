@@ -1,66 +1,52 @@
 import * as React from 'react';
 import * as ReactModal from 'react-modal';
 import * as classNames from 'classnames';
+import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 
-export interface DialogProps {
-    readonly title?: string;
-    readonly className?: string;
-    readonly onDismiss?: () => void;
-    readonly shouldCloseOnEsc?: boolean;
+export type Props = ButtonActionProps & ButtonComponentProps;
+
+export type ButtonActionProps = Partial<{
+    readonly shouldCloseOnEsc: boolean;
+    store: any;
+}>;
+
+export type ButtonComponentProps = Partial<{
+    readonly title: string;
     children: JSX.Element;
-}
+}>;
 
-export interface DialogState {
-    showModal: boolean;
-}
-
-export class Dialog extends React.Component<DialogProps, DialogState> {
-    constructor(props: DialogProps) {
-        super(props);
-
-        this.handleCloseModal = this.handleCloseModal.bind(this);
-    }
-
-    public readonly state: DialogState = {
-        showModal: true,
-    };
-
-    handleCloseModal() {
-        this.setState({
-            ...this.state,
-            showModal: false,
-        });
-
-        if (this.props.onDismiss) {
-            this.props.onDismiss();
-        }
-    }
-
+@observer
+export class Dialog extends React.Component<Props> {
     render() {
-        const shouldCloseOnEsc = this.props.hasOwnProperty('shouldCloseOnEsc')
-            ? this.props.shouldCloseOnEsc
-            : true;
-
+        const store = this.props.store;
+        const shouldCloseOnEsc = this.props.hasOwnProperty('shouldCloseOnEsc') ? this.props.shouldCloseOnEsc : true;
         const defaultProps = {
-            className: classNames('Dialog', this.props.className),
             overlayClassName: 'Dialog-Overlay',
-            onRequestClose: this.handleCloseModal,
-            isOpen: this.state.showModal,
-            shouldCloseOnEsc,
+            shouldCloseOnEsc
         };
-
         return (
-            <div>
-                <ReactModal {...defaultProps} ariaHideApp={false}>
-                    {this.props.title && <DialogHeader title={this.props.title} />}
-                    <DialogContent>{this.props.children}</DialogContent>
-                    <DialogButtons>
-                        <div className="Button" onClick={this.handleCloseModal}>
-                            Close
-                        </div>
-                    </DialogButtons>
-                </ReactModal>
-            </div>
+            <>
+                {store.dialogs.map((dialog: any, idx: number) => (
+                    <ReactModal
+                        {...defaultProps}
+                        className={classNames('Dialog', dialog.className)}
+                        onRequestClose={() => store.closeDialog(idx)}
+                        isOpen={store.getCurrentDialogState(idx)}
+                        key={idx}
+                        ariaHideApp={false}
+                        shouldCloseOnEsc
+                    >
+                        {dialog.title && <DialogHeader title={dialog.title}/>}
+                        <DialogContent>{dialog.children}</DialogContent>
+                        <DialogButtons>
+                            <div className="Button" onClick={() => store.closeDialog(idx)}>
+                                Close
+                            </div>
+                        </DialogButtons>
+                    </ReactModal>
+                ))}
+            </>
         );
     }
 }
@@ -78,7 +64,7 @@ export function DialogHeader(props: DialogHeaderProps) {
 }
 
 export interface DialogContentProps {
-    children: JSX.Element;
+    children?: JSX.Element;
 }
 
 export function DialogContent(props: DialogContentProps) {
@@ -90,9 +76,44 @@ export function DialogContent(props: DialogContentProps) {
 }
 
 export interface DialogButtonsProps {
-    children: JSX.Element;
+    children?: JSX.Element;
 }
 
 export function DialogButtons(props: DialogButtonsProps) {
     return <div className="Dialog-button-bar">{props.children}</div>;
 }
+
+export class DialogActions {
+    render() {
+        return <Dialog store={dialogs}/>;
+    }
+}
+
+export class DialogManager extends DialogActions {
+    @observable showDialog = true;
+
+    @observable dialogs: any[] = [];
+
+    closeDialog(idx: number) {
+        this.dialogs[idx].showDialog = false;
+        if (this.dialogs[idx].onDismiss) {
+            this.dialogs[idx].onDismiss();
+        }
+    }
+
+    getCurrentDialogState(idx: number): boolean {
+        return this.dialogs[idx].showDialog;
+    }
+
+    addDialog(title: string, className: string, children: JSX.Element, onDismiss?: () => void) {
+        this.dialogs.push({
+            title: title,
+            className: className,
+            children: children,
+            showDialog: this.showDialog,
+            onDismiss: onDismiss,
+        });
+    }
+}
+
+export const dialogs = new DialogManager();
