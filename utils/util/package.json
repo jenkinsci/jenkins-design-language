@@ -1,0 +1,26 @@
+{
+    "name": "@jdl2/util",
+    "version": "2.0.0-alpha.15",
+    "main": "./util",
+    "scripts": {
+        "prepublish": "tsc",
+        "build": "tsc",
+        "test": "jest"
+    },
+    "files": [
+        "*.js",
+        "*.d.ts",
+        "*.d.map",
+        "*.scss"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "jest": "^22.4.2",
+        "typescript": "*"
+    },
+    "jest": {
+        "preset": "typewebjest/jest-preset.json"
+    }
+}
