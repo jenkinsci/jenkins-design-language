@@ -1,10 +1,17 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Dialog } from './Dialog';
+import { dialogs } from './Dialog';
 
 const stories = storiesOf('Dialog', module);
 
-stories.add('should display a modal', () => {
+stories.add('should display a dialog', () => {
     let content = <span>Some modal content!</span>;
-    return <Dialog>{content}</Dialog>;
+    dialogs.addDialog('My first dialog', '', content);
+    dialogs.addDialog('My second dialog', 'great-class', content);
+
+    setTimeout(() => {
+        dialogs.addDialog('My third dialog', '', content);
+    }, 5000);
+
+    return dialogs.render();
 });
