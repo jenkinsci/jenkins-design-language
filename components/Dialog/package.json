@@ -32,6 +32,8 @@
         "enzyme": "^3.3.0",
         "jest": "^22.4.2",
         "jest-storybook-facade": "0.0.8",
+        "mobx": "^5.0.3",
+        "mobx-react": "^5.2.3",
         "react-modal": "^3.4.5",
         "react-test-renderer": "^16.4.1",
         "storybook-addon-specifications": "^2.1.2",
