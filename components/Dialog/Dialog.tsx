@@ -23,9 +23,7 @@ export class Dialog extends React.Component<Props> {
     render() {
         const store = this.props.store;
         // TODO - shouldCloseOnEsc: should close one esc is not working as intended.
-        // TODO - onDismiss: needs work as well
         const defaultProps = {
-            className: classNames('Dialog', this.props.className),
             overlayClassName: 'Dialog-Overlay',
             onRequestClose: store.closeDialog,
         };
@@ -34,8 +32,10 @@ export class Dialog extends React.Component<Props> {
                 {store.dialogs.map((dialog: any, idx: number) => (
                     <ReactModal
                         {...defaultProps}
+                        className={classNames('Dialog', dialog.className)}
                         isOpen={store.getCurrentDialogState(idx)}
                         key={idx}
+                        ariaHideApp={false}
                     >
                         {dialog.title && <DialogHeader title={dialog.title} />}
                         <DialogContent>{dialog.children}</DialogContent>
@@ -64,18 +64,22 @@ export class DialogManager extends DialogActions {
 
     closeDialog(idx: number) {
         this.dialogs[idx].showDialog = false;
+        if (this.dialogs[idx].onDismiss) {
+            this.dialogs[idx].onDismiss();
+        }
     }
 
     getCurrentDialogState(idx: number): boolean {
         return this.dialogs[idx].showDialog;
     }
 
-    addDialog(title: string, className: string, children: JSX.Element) {
+    addDialog(title: string, className: string, children: JSX.Element, onDismiss?: () => void) {
         this.dialogs.push({
             title: title,
             className: className,
             children: children,
             showDialog: this.showDialog,
+            onDismiss: onDismiss,
         });
     }
 }
