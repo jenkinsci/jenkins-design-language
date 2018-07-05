@@ -1,0 +1,45 @@
+.InputText {
+    background: $white;
+    color: $black;
+    display: input-block;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: $unit/2 $unit;
+    outline: none;
+    &::placeholder {
+        color: $placeholder;
+    }
+    &:focus,
+    &.is-focused {
+        border-color: $blue;
+        box-shadow: 0px 0px 0px 1px rgba($white, 0.5), 0px 0px 0px 3px rgba($blue, 0.3);
+    }
+    &:disabled,
+    &.is-disabled {
+        border-color: rgba($border-color, 0.4);
+        color: rgba($black, 0.3);
+    }
+    &:focus.is-errored {
+        border-color: $red;
+        box-shadow: 0px 0px 0px 1px rgba($white, 0.5), 0px 0px 0px 3px rgba($red, 0.3);
+    }
+    &.is-succeeded {
+        background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/33381/check-circle-solid.svg)
+            no-repeat right ($unit - 2) center;
+        padding-right: $unit * 4;
+    }
+    &:focus.is-succeeded {
+        border-color: $green;
+        box-shadow: 0px 0px 0px 1px rgba($white, 0.5), 0px 0px 0px 3px rgba($green, 0.3);
+    }
+}
+
+.LargeInputText {
+    font-size: 18px;
+    padding: $unit * 1.5;
+}
+
+.SmallInputText {
+    font-size: 12px;
+    padding: $unit;
+}
