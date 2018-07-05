@@ -9,7 +9,7 @@ export function Input(props: InputProps) {
     const { onChange } = props;
     return (
         <input
-            className={css(props, 'input input-error')}
+            className={css(props, 'InputText input-error')}
             type="text"
             onChange={e => {
                 if (onChange) {
