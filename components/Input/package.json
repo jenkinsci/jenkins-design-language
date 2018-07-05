@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/input",
-    "version": "2.0.0-alpha.11",
+    "version": "2.0.0-alpha.15",
     "main": "./Input",
     "types": "./Input.d.ts",
     "scripts": {
@@ -18,7 +18,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/css-util": "^2.0.0-alpha.9",
+        "@jdl2/css-util": "^2.0.0-alpha.15",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
