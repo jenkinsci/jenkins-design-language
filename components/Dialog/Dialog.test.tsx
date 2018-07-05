@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
 import * as ReactModal from 'react-modal';
-import { DialogContent, DialogButtons, dialogs } from './Dialog';
+import { DialogContent, DialogButtons, dialogs, DialogHeader } from './Dialog';
 
 describe('Dialog', () => {
     let content = <span>Modal content</span>;
@@ -38,6 +38,19 @@ describe('Dialog', () => {
         expect(dialogContent.find('span').getElement()).toEqual(content);
     });
 
+    it('should render dialog header', () => {
+        const title = 'My Dialog!';
+        const dialogHeader = Enzyme.shallow(<DialogHeader title={title} />);
+        expect(dialogHeader.find('h3').text()).toEqual(title);
+    });
+
+    it('should render dialog button', () => {
+        const buttonText = 'another button';
+        const button = <button className="test-button">{buttonText}</button>;
+        const dialogButtons = Enzyme.shallow(<DialogButtons>{button}</DialogButtons>);
+        expect(dialogButtons.find('button').text()).toEqual(buttonText);
+    });
+
     it('should be able to dismiss a dialog', () => {
         const dialog = dialogShallow.find(ReactModal).at(0);
         expect(dialog.props().isOpen).toBe(true);
@@ -45,7 +58,6 @@ describe('Dialog', () => {
             .find(DialogButtons)
             .find('.Button')
             .simulate('click');
-
         expect(onDismiss).toBeCalled();
     });
 });
