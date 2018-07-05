@@ -1,10 +1,8 @@
 {
     "name": "@jdl2/util",
     "version": "2.0.0-alpha.15",
-    "main": "./util",
     "scripts": {
         "prepublish": "tsc",
-        "build": "tsc",
         "test": "jest"
     },
     "files": [
