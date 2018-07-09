@@ -1,10 +1,9 @@
 {
-    "name": "@jdl2/icons",
+    "name": "@jdl2/elementset",
     "version": "2.0.0-alpha.15",
+    "main": "./ElementSet",
     "scripts": {
-        "prepublish": "npm run build",
-        "build": "node ../static/bin/createComponentsFromSvgs.js && tsc",
-        "clean": "rm -f *.tsx",
+        "prepublish": "tsc",
         "test": "jest"
     },
     "files": [
@@ -16,11 +15,11 @@
     "publishConfig": {
         "access": "public"
     },
-    "dependencies": {
-        "react": "*"
-    },
     "devDependencies": {
-        "@types/react": "*",
+        "jest": "*",
         "typescript": "*"
+    },
+    "jest": {
+        "preset": "typewebjest/jest-preset.json"
     }
 }

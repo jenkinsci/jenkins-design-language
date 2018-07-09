@@ -1,0 +1,370 @@
+.Nav {
+    background: $white;
+    position: relative;
+    width: $unit * 34; // 8px * 34 = 272px
+    height: 100vh;
+    box-shadow: 1px 0 0 rgba(#343a3c, 0.1);
+    user-select: none;
+    z-index: 8;
+    &.is-released {
+        @include nav-transition(width);
+    }
+}
+
+.NavExpander {
+    height: 100vh;
+    cursor: ew-resize;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: $unit * 3;
+    border-left: 3px solid;
+    border-color: transparent;
+    @include nav-transition(border-color);
+    transition-delay: 250ms;
+    &:hover {
+        border-color: $brand-blue;
+    }
+}
+
+.is-released .NavExpander {
+    @include nav-transition(left);
+    transition-delay: 0s;
+}
+
+.NavLink {
+    border: 2px solid transparent;
+    border-radius: $border-radius;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin-left: $unit * 1.5;
+    margin-right: $unit * 1.5;
+    @include nav-transition(border-color, background);
+    &:hover {
+        border-color: $nav-hover-color;
+        background: $nav-hover-color;
+    }
+    &.is-active {
+        border-color: $nav-active-color;
+        background: $nav-active-color;
+    }
+}
+
+.Nav-Group {
+    margin-top: $unit * 3;
+}
+
+.Nav-Bound {
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    padding: $unit * 0.75;
+    flex: none;
+    position: relative;
+}
+
+.Nav-Icon {
+    display: inline-block;
+    flex-shrink: 0;
+    margin-right: $unit * 1.5;
+    width: 24px;
+    height: 24px;
+}
+
+.NavAppSwitcher-Icon {
+    width: 32px;
+    height: 32px;
+    margin-right: $unit;
+}
+
+.NavLink-Title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1 1 auto;
+}
+
+.Nav-Chevron {
+    margin-left: auto;
+    flex-shrink: 0;
+    path {
+        stroke: $gray;
+    }
+}
+
+.Nav-GroupedItem {
+    border-color: $nav-hover-color;
+    &:hover {
+        background: none;
+    }
+}
+
+.NavHeader {
+    padding: $unit * 1.5;
+}
+
+.NavHoverIcon {
+    background: transparent;
+    border-radius: $border-radius;
+    cursor: pointer;
+    padding: $unit;
+    bottom: 0;
+    &:hover {
+        background: $nav-hover-color;
+    }
+}
+
+.NavAccountSwitcher {
+    @include nav-transition(background, bottom);
+
+    .is-collapsed & {
+        position: absolute;
+        left: 0;
+        bottom: $unit * 6.25;
+        z-index: 0;
+    }
+}
+
+.NavFooter {
+    margin-bottom: $unit * 1.5;
+    margin-left: $unit * 1.5;
+    margin-right: $unit * 1.5;
+    margin-top: auto;
+}
+
+.NavFooter-Bound {
+    display: flex;
+    overflow: visible;
+    height: $unit * 6.5;
+}
+
+.NavFooter-Avatar {
+    position: relative;
+    z-index: 9;
+}
+
+.NavExpander-Handle {
+    cursor: pointer;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    @include nav-transition(opacity);
+    transition-delay: 250ms;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        height: 8px;
+        width: 2px;
+        display: block;
+        background: $brand-blue;
+        left: 7px;
+        @include nav-transition(transform, height);
+    }
+    &:before {
+        transform-origin: top center;
+    }
+    &:after {
+        bottom: 0px;
+        transform-origin: bottom center;
+    }
+}
+
+.NavExpander:hover .NavExpander-Handle {
+    opacity: 1;
+    &:before,
+    &:after {
+        height: 9.766px;
+    }
+    &:before {
+        transform: rotate(35deg);
+    }
+    &:after {
+        transform: rotate(-35deg);
+    }
+    .is-collapsed & {
+        &:before {
+            transform: rotate(-35deg);
+        }
+        &:after {
+            transform: rotate(35deg);
+        }
+    }
+}
+
+.NavAppSwitcher {
+    cursor: pointer;
+    @include nav-transition(background);
+    &:hover {
+        background: $nav-hover-color;
+    }
+}
+
+.NavSubtitle {
+    font-size: 10px;
+}
+
+.NavTitle {
+    font-size: 18px;
+    font-weight: $bold;
+    line-height: 1;
+}
+
+.NavAppSwitcher-Icon {
+    path {
+        fill: $brand-blue;
+    }
+}
+
+.Nav-Base {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    @include nav-transition(right);
+}
+
+.Nav-Sheet {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.is-dragging {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: ew-resize;
+}
+
+.NavSheet-Container {
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.Nav.is-collapsed {
+    @include nav-transition(width);
+    .Nav-Base {
+        right: auto;
+    }
+}
+
+.Nav-Filter {
+    width: 100%;
+    .Filter-Input {
+        width: 100%;
+    }
+}
+
+.NavOption {
+    background: transparent;
+    border-radius: $border-radius;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: $unit * 2;
+    margin-right: $unit * 2;
+    padding: $unit;
+    &:hover {
+        background: $nav-hover-color;
+    }
+}
+
+.NavOption-Check {
+    opacity: 0;
+    margin-right: $unit;
+}
+
+.NavOption.is-selected .NavOption-Check {
+    opacity: 1;
+}
+
+.NavSlider {
+    position: fixed;
+    z-index: 7;
+}
+
+.NavSliderContainer {
+    background: $white;
+    position: absolute;
+    left: -300px;
+    top: 0;
+    height: 100vh;
+    width: 300px;
+    z-index: 1;
+    @include nav-transition(left);
+    .is-showing-nav-overlay & {
+        left: 0;
+    }
+}
+
+.NavSlider-Overlay {
+    background: rgba($dark-gray, 0);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    @include nav-transition(background);
+    .is-showing-nav-overlay & {
+        background: rgba($dark-gray, 0.6);
+        pointer-events: auto;
+    }
+}
+
+.Nav {
+    .Nav-Sheet.is-showing {
+        display: block;
+    }
+
+    &.is-collapsed .Nav-Sheet {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 300px; // FIXME
+        transform: translate(-100%, 0);
+        @include nav-transition(transform);
+    }
+
+    &.is-expanded .Nav-Sheet {
+        left: 100%;
+        background: #fff;
+        @include nav-transition(left);
+    }
+}
+
+.Nav.is-showing-sheet {
+    &.is-collapsed {
+        .Nav-Sheet.is-showing {
+            transform: translate(0, 0);
+        }
+    }
+
+    &.is-expanded {
+        .Nav-Base {
+            right: 100%;
+        }
+
+        .Nav-Sheet.is-showing {
+            left: 0;
+        }
+    }
+}

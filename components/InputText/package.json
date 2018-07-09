@@ -1,5 +1,5 @@
 {
-    "name": "@jdl2/inputText",
+    "name": "@jdl2/input-text",
     "version": "2.0.0-alpha.15",
     "main": "./InputText",
     "types": "./InputText.d.ts",

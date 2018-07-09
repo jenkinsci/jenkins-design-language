@@ -5,3 +5,13 @@
 .clickable {
     cursor: pointer;
 }
+
+.SvgIcon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.SvgIcon svg {
+    width: 100%;
+    height: 100%;
+}
