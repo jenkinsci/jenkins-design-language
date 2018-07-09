@@ -2,9 +2,9 @@
   "lerna": "2.11.0",
   "packages": [
     "utils/*",
+    "icons",
     "components/*",
-    "css",
-    "icons"
+    "css"
   ],
   "command": {
     "bootstrap": {

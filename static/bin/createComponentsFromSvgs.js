@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { JSDOM } = require("jsdom");
+const { JSDOM } = require('jsdom');
 
 function walkDir(dir, eachFile) {
     fs.readdirSync(dir).forEach(file => {
@@ -90,12 +90,12 @@ function fixDashedAttributes(document) {
 function createComponentsFromSvgs() {
     const outDir = path.join(__dirname, '..', '..', 'icons');
 
-    fs.writeFileSync(path.join(outDir, "IconProps.tsx"), `/**
+    fs.writeFileSync(path.join(outDir, 'IconProps.tsx'), `/**
  * All Icons share a common set of properties
  */
 export interface IconProps {
     className?: string;
-    size: number;
+    size?: number;
 }
 `);
 
@@ -105,7 +105,7 @@ export interface IconProps {
         const dirParts = dir.substring(imagesDir.length).split(path.sep);
         // console.log('dir:', dir, 'file:', file, 'dirParts:', dirParts);
         if (file.endsWith('.svg')) {
-            const svgText = fs.readFileSync(path.join(dir, file), "utf8");
+            const svgText = fs.readFileSync(path.join(dir, file), 'utf8');
 
             // console.log('svg: ', svgText);
 
@@ -119,15 +119,12 @@ export interface IconProps {
 
             // finally, replace the actual SVG size
             const svgElement = document.querySelector('svg'); // only want the first
-            svgElement.setAttribute("className", "REACT_className_REACT");
-            forEachAttribute(svgElement, attr => {
-                if ("width" == attr.name || "height" == attr.name) {
-                    svgElement.setAttribute(attr.name, "REACT_size_REACT");
-                }
-            });
-
-            const newSvg = document.body.innerHTML.replace(/[\n]/g, '');
-            // console.log('original svg:\n', svgText, '\ntransformed svg:\n', newSvg);
+            svgElement.setAttribute('className', 'REACT_className_REACT');
+            // forEachAttribute(svgElement, attr => {
+            //     if ('width' == attr.name || 'height' == attr.name) {
+            //         svgElement.setAttribute(attr.name, 'REACT_size_REACT');
+            //     }
+            // });
 
             let defaultSize = 16;
             const simpleComponentName = file.replace('.svg','').split('-').map(part => {
@@ -144,10 +141,24 @@ export interface IconProps {
 
             const componentName = upperFirst(toCamelCase(simpleComponentName));
 
+            // Set up a viewBox attribute so the icon will auto-scale to the container
+            if (!svgElement.getAttribute('viewBox')) {
+                const width = svgElement.getAttribute('width') || defaultSize;
+                const height = svgElement.getAttribute('height') || height;
+                svgElement.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            }
+
+            const newSvg = document.body.innerHTML.replace(/[\n]/g, '');
+            // console.log('original svg:\n', svgText, '\ntransformed svg:\n', newSvg);
+
             let contents = `import * as React from 'react';
 import { IconProps } from './IconProps';
 export function ${componentName}({className, size = ${defaultSize}}: IconProps) {
-    return ${newSvg.replace(/"REACT_([a-zA-Z0-9]+)_REACT"/g,'{$1}')};
+    return (
+        <div className="SvgIcon" style={{width: size, height: size}}>
+            ${newSvg.replace(/"REACT_([a-zA-Z0-9]+)_REACT"/g,'{$1}')}
+        </div>
+    );
 }
 `;
             const fileName = componentName + '.tsx';

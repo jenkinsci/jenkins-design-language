@@ -2,8 +2,8 @@ import * as React from 'react';
 import { TableColumn } from './TableColumn';
 
 export interface TableProps<T> {
-    items: T[];
-    children: React.ReactNode;
+    values: T[];
+    getKey?: (value: T) => string;
 }
 
 export class Table<T> extends React.Component<TableProps<T>> {
@@ -38,22 +38,34 @@ export class Table<T> extends React.Component<TableProps<T>> {
             </tfoot>
         );
 
+        const rows = this.props.values.map((item, itemIdx) => {
+            let rowKey = this.props.getKey ? this.props.getKey(item) : itemIdx;
+            const cols = React.Children.map(this.props.children, (column: any, idx) => {
+                const col = React.cloneElement(column, {...column.props, value: item});
+                if (idx === 0 && col.key) {
+                    rowKey = col.key;
+                }
+                return (
+                    <td
+                        key={idx}
+                        className={column.props.expand ? 'expand' : undefined}
+                    >
+                        {col}
+                    </td>
+                );
+            });
+            return (
+                <tr key={rowKey}>
+                    {cols}
+                </tr>
+            );
+        });
+
         return (
             <table className="Table">
                 {hasHeader && header}
-                <tbody key={this.props.items.length}>
-                    {this.props.items.map((item, itemIdx) => (
-                        <tr key={itemIdx}>
-                            {React.Children.map(this.props.children, (column: any, idx) => (
-                                <td
-                                    key={idx}
-                                    className={column.props.expand ? 'expand' : undefined}
-                                >
-                                    {column.props.children && column.props.children(item)}
-                                </td>
-                            ))}
-                        </tr>
-                    ))}
+                <tbody>
+                    {rows}
                 </tbody>
                 {hasFooter && footer}
             </table>
