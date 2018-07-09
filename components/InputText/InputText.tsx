@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { css, CssProps } from '@jdl2/css-util';
 
-export interface InputProps extends CssProps {
+export interface InputTextProps extends CssProps {
     onChange?: (value: string) => void;
 }
 
-export function Input(props: InputProps) {
+export function InputText(props: InputTextProps) {
     const { onChange } = props;
     return (
         <input
-            className={css(props, 'input input-error')}
+            className={css(props, 'InputText')}
             type="text"
             onChange={e => {
                 if (onChange) {
