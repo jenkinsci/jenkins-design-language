@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
-import { sheets, SheetChildProps, SheetContainer } from './Sheets';
+import { sheets, SheetChildProps, SheetContainer, SheetManager } from './Sheets';
 
 export function StoryContainerDetail({ title }: SheetChildProps) {
     return (
@@ -12,6 +12,14 @@ export function StoryContainerDetail({ title }: SheetChildProps) {
 }
 
 describe('Sheets', () => {
+    let sheet = (
+        <StoryContainerDetail
+            title="My Story Title"
+            onClose={() => {
+                console.log('closing sheet...');
+            }}
+        />
+    );
     let onDismiss = jest.fn();
 
     it('should fail with message', () => {
@@ -22,8 +30,20 @@ describe('Sheets', () => {
     });
 
     it('should render a sheet', () => {
-        expect(sheets.size).toEqual(0);
-        Enzyme.shallow(<SheetContainer />);
-        sheets.push(<StoryContainerDetail title="My Story Title" onClose={onDismiss} />);
+        const addSheet = () => {
+            sheets.push(sheet);
+        };
+
+        const content = (
+            <div>
+                <SheetContainer />
+                <button onClick={addSheet}>Add Sheet</button>
+            </div>
+        );
+        const wrapper = Enzyme.render(content);
+        const sheetContainer = wrapper.find('.SheetContainer');
+        const button = wrapper.find('button');
+        expect(sheetContainer).toHaveLength(1);
+        expect(button.text()).toEqual('Add Sheet');
     });
 });
