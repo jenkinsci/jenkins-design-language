@@ -4,16 +4,11 @@ import { sheets, SheetChildProps, SheetContainer } from './Sheets';
 
 const stories = storiesOf('Sheets', module);
 
-export interface StoryContainerProps extends SheetChildProps {
-    title: string;
-}
-
-export function StoryContainerDetail({ title }: StoryContainerProps) {
+export function StoryContainerDetail({ title }: SheetChildProps) {
     return (
         <>
             <h1>{title}</h1>
             <p>Some content here..</p>
-            <SheetContainer />
         </>
     );
 }
