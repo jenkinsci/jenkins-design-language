@@ -1,0 +1,127 @@
+$brand-color: #4a90e2;
+$hr-color: #ddd;
+
+// FIXME had to add this hack to align the sheet header with the close icon in the app...
+.Sheet .h5,
+.Sheet-Close {
+    align-self: flex-start;
+    line-height: 1.4em;
+}
+
+.ApplicationSheet {
+    .ApplicationSheet-EnvironmentLabel {
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: 100;
+        line-height: 12px;
+        padding: 4px;
+        border-radius: 3px;
+        background-color: #46aef2;
+        display: inline-block;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    .ApplicationSheet-ApplicationLabel {
+        color: #343a3c;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 24px;
+        margin: 0;
+    }
+
+    .ApplicationSheet-VersionsLabel {
+        color: #95a2a6;
+        font-size: 13px;
+        font-weight: 100;
+        line-height: 16px;
+        text-transform: uppercase;
+        margin-top: 32px;
+        margin-bottom: 8px;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #e6eaea;
+        margin: 36px 0 26px 0;
+    }
+}
+
+.sheet-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+
+    .sheet {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        padding: 32px;
+        overflow: auto;
+        display: flex;
+        flex-flow: column;
+
+        box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
+
+        .sheet-header {
+            position: relative;
+            margin-bottom: 22px;
+
+            h4,
+            input {
+                border-bottom: 1px solid #cdd7e3;
+                padding: 8px 30px 8px 1px;
+            }
+
+            input {
+                font-size: 18px;
+                background: transparent;
+                border: 0;
+                border-bottom: 1px solid #cdd7e3;
+                color: #4a4a4a;
+                width: 100%;
+
+                &:focus {
+                    outline: none;
+                    border-bottom-color: $brand-color;
+                }
+            }
+
+            input[type='text'],
+            .Dropdown-button {
+                border-color: $hr-color;
+            }
+        }
+
+        .sheet-body {
+            flex: 1;
+            position: relative;
+        }
+
+        .back-from-sheet {
+            position: absolute;
+            left: 0;
+            top: 7px;
+            cursor: pointer;
+
+            svg {
+                display: block;
+                fill: #c3cfd7;
+            }
+
+            &:hover svg {
+                fill: #4a4a4a;
+            }
+
+            + h4,
+            + div > input {
+                padding: 8px 30px 8px 31px;
+            }
+        }
+    }
+}

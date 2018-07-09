@@ -19,6 +19,7 @@
         "react-dom": "*"
     },
     "devDependencies": {
+        "@jdl2/icons": "^2.0.0-alpha.12",
         "@jdl2/util": "^2.0.0-alpha.15",
         "@storybook/addon-jest": "^3.4.8",
         "@types/enzyme": "^3.1.9",
