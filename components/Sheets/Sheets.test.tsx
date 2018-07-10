@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
-import { sheets, SheetChildProps, SheetContainer, SheetManager } from './Sheets';
+import { sheets, SheetChildProps, SheetContainer } from './Sheets';
 
 export function StoryContainerDetail({ title }: SheetChildProps) {
     return (
@@ -12,38 +12,46 @@ export function StoryContainerDetail({ title }: SheetChildProps) {
 }
 
 describe('Sheets', () => {
-    let sheet = (
-        <StoryContainerDetail
-            title="My Story Title"
-            onClose={() => {
-                console.log('closing sheet...');
-            }}
-        />
-    );
     let onDismiss = jest.fn();
+    let sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
+    const addSheet = () => {
+        sheets.push(sheet);
+    };
+    const content = (
+        <div>
+            <SheetContainer />
+            <button onClick={addSheet}>Add Sheet</button>
+        </div>
+    );
 
     it('should fail with message', () => {
         const errorMessage = 'A SheetContainer must be added to the React Component tree';
+        expect(sheets.size).toEqual(0);
         expect(() => {
             sheets.push(<div>Something here...</div>);
         }).toThrowError(errorMessage);
     });
 
     it('should render a sheet', () => {
-        const addSheet = () => {
-            sheets.push(sheet);
-        };
-
-        const content = (
-            <div>
-                <SheetContainer />
-                <button onClick={addSheet}>Add Sheet</button>
-            </div>
-        );
-        const wrapper = Enzyme.render(content);
-        const sheetContainer = wrapper.find('.SheetContainer');
+        const wrapper = Enzyme.mount(content);
         const button = wrapper.find('button');
-        expect(sheetContainer).toHaveLength(1);
-        expect(button.text()).toEqual('Add Sheet');
+        button.simulate('click');
+        wrapper.update();
+        const currentSheet = wrapper.find('.Sheet');
+        expect(currentSheet.find('h5').text()).toEqual('My Story Title');
+        wrapper.update();
+        const sheetCloseBtn = wrapper.find('.Sheet-Close');
+        sheetCloseBtn.simulate('click');
+        expect(onDismiss).toBeCalled();
+    });
+
+    it('should test a sheet container', () => {
+        const sheetContainer = new SheetContainer({ transitionClass: 'som' });
+        sheetContainer.componentDidMount();
+        sheetContainer.popTopSheet();
+        sheetContainer.popAllSheets();
+        sheetContainer.componentWillUnmount();
+        const title = sheetContainer.getSheetTitle(sheet);
+        expect(title).toEqual('My Story Title');
     });
 });
