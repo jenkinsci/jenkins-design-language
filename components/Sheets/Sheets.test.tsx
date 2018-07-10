@@ -12,15 +12,8 @@ export function StoryContainerDetail({ title }: SheetChildProps) {
 }
 
 describe('Sheets', () => {
-    let sheet = (
-        <StoryContainerDetail
-            title="My Story Title"
-            onClose={() => {
-                console.log('closing sheet...');
-            }}
-        />
-    );
     let onDismiss = jest.fn();
+    let sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
 
     it('should fail with message', () => {
         const errorMessage = 'A SheetContainer must be added to the React Component tree';
@@ -40,10 +33,16 @@ describe('Sheets', () => {
                 <button onClick={addSheet}>Add Sheet</button>
             </div>
         );
-        const wrapper = Enzyme.render(content);
-        const sheetContainer = wrapper.find('.SheetContainer');
+
+        const wrapper = Enzyme.mount(content);
         const button = wrapper.find('button');
-        expect(sheetContainer).toHaveLength(1);
-        expect(button.text()).toEqual('Add Sheet');
+        button.simulate('click');
+        wrapper.update();
+        const currentSheet = wrapper.find('.Sheet');
+        expect(currentSheet.find('h5').text()).toEqual('My Story Title');
+        wrapper.update();
+        const sheetCloseBtn = wrapper.find('.Sheet-Close');
+        sheetCloseBtn.simulate('click');
+        expect(onDismiss).toBeCalled();
     });
 });
