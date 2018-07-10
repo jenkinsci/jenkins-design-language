@@ -98,6 +98,8 @@ function createComponentsFromSvgs() {
 export interface IconProps {
     className?: string;
     size?: number;
+    width?: number;
+    height?: number;
 }
 `
     );
@@ -120,14 +122,7 @@ export interface IconProps {
             fixIds(dir, file, document);
             fixDashedAttributes(document);
 
-            // finally, replace the actual SVG size
             const svgElement = document.querySelector('svg'); // only want the first
-            svgElement.setAttribute('className', 'REACT_className_REACT');
-            // forEachAttribute(svgElement, attr => {
-            //     if ('width' == attr.name || 'height' == attr.name) {
-            //         svgElement.setAttribute(attr.name, 'REACT_size_REACT');
-            //     }
-            // });
 
             let defaultSize = 16;
             const simpleComponentName = file
@@ -152,20 +147,26 @@ export interface IconProps {
             // Set up a viewBox attribute so the icon will auto-scale to the container
             if (!svgElement.getAttribute('viewBox')) {
                 const width = svgElement.getAttribute('width') || defaultSize;
-                const height = svgElement.getAttribute('height') || height;
+                const height = svgElement.getAttribute('height') || width;
                 svgElement.setAttribute('viewBox', `0 0 ${width} ${height}`);
             }
+
+            // finally, replace the actual SVG size
+            svgElement.setAttribute('className', 'REACT_className_REACT');
+            forEachAttribute(svgElement, attr => {
+                if ('width' == attr.name || 'height' == attr.name) {
+                    svgElement.setAttribute(attr.name, 'REACT_' + attr.name + '_REACT');
+                }
+            });
 
             const newSvg = document.body.innerHTML.replace(/[\n]/g, '');
             // console.log('original svg:\n', svgText, '\ntransformed svg:\n', newSvg);
 
             let contents = `import * as React from 'react';
 import { IconProps } from './IconProps';
-export function ${componentName}({className, size = ${defaultSize}}: IconProps) {
+export function ${componentName}({className, size = ${defaultSize}, width = size, height = size}: IconProps) {
     return (
-        <div className="SvgIcon" style={{width: size, height: size}}>
-            ${newSvg.replace(/"REACT_([a-zA-Z0-9]+)_REACT"/g, '{$1}')}
-        </div>
+        ${newSvg.replace(/"REACT_([a-zA-Z0-9]+)_REACT"/g, '{$1}')}
     );
 }
 `;
