@@ -70,13 +70,13 @@ export const sheets = new SheetManager() as {
     size: number;
 };
 
-interface SheetContainerProps {
+export interface SheetContainerProps {
     transitionDuration?: number;
     transitionClass?: string;
     single?: boolean;
 }
 
-interface SheetContainerState {
+export interface SheetContainerState {
     _sheets: SheetChild[];
 }
 
