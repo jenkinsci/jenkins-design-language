@@ -7,10 +7,14 @@ export interface TableColumnProps<T> {
     footer?: React.ReactNode;
     expand?: boolean;
     children?: void; // children not allowed, use render function
+    id?: boolean | ((value: T) => string);
 }
 
 export class TableColumn<T> extends React.Component<TableColumnProps<T>> {
     render() {
-        return this.props.value && this.props.render(this.props.value);
+        if (!this.props.value) {
+            return null;
+        }
+        return this.props.render(this.props.value);
     }
 }

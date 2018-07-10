@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
 import { Table } from './Table';
+import { TableColumn } from './TableColumn';
 
 export class User {
     name: string;
@@ -73,18 +74,58 @@ describe('Table: ', () => {
         expect(rendered.find('th').length).toBe(4);
     });
 
-    it('column renders', () => {
-        const rendered = Enzyme.render(<Table.Col render={(u: User) => null} />);
+    it('column returns null without value', () => {
+        const rendered = Enzyme.render(<TableColumn render={(u: User) => u.name} />);
         expect(rendered.text()).toBe('');
     });
 
-    it('custom keys work', () => {
-        const getKey = Enzyme.mount(
-            <Table values={users} getKey={u => u.name}>
+    it('column renders non-null with a value', () => {
+        const rendered = Enzyme.render(<TableColumn value={users[0]} render={(u: User) => <div>{u.name}</div>} />);
+        expect(rendered.html()).toBe(users[0].name);
+    });
+
+    it('id column works', () => {
+        const table = Enzyme.mount(
+            <Table values={users}>
+                <Table.Col id header="C1" render={(u: User) => u.name} />
+                <Table.Col header="C2" render={(u: User) => u.name} />
+            </Table>
+        );
+
+        const tbdy = table.find('tbody');
+        const trs = tbdy.find('tr');
+        expect(trs.at(0).key()).toBe(users[0].name);
+        expect(trs.at(1).key()).toBe(users[1].name);
+        expect(trs.at(2).key()).toBe(users[2].name);
+    });
+
+    it('custom id for key', () => {
+        const table = Enzyme.mount(
+            <Table values={users}>
+                <Table.Col id={u => u.name} header="C1" render={(u: User) => u.name} />
+                <Table.Col header="C2" render={(u: User) => u.name} />
+            </Table>
+        );
+
+        const tbdy = table.find('tbody');
+        const trs = tbdy.find('tr');
+        expect(trs.at(0).key()).toBe(users[0].name);
+        expect(trs.at(1).key()).toBe(users[1].name);
+        expect(trs.at(2).key()).toBe(users[2].name);
+    });
+
+    it('auto key', () => {
+        const table = Enzyme.mount(
+            <Table values={users}>
                 <Table.Col header="C1" render={(u: User) => u.name} />
                 <Table.Col header="C2" render={(u: User) => u.name} />
             </Table>
         );
-        expect(getKey.find(Table.Col)[0].key).toBe(users[0].name);
+
+        const tbdy = table.find('tbody');
+        const trs = tbdy.find('tr');
+        expect(JSON.parse(trs.at(0).key()).name).toBe(users[0].name);
+        expect(JSON.parse(trs.at(1).key()).name).toBe(users[1].name);
+        expect(JSON.parse(trs.at(2).key()).name).toBe(users[2].name);
     });
 });

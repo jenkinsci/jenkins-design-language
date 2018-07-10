@@ -38,20 +38,24 @@ export class Table<T> extends React.Component<TableProps<T>> {
             </tfoot>
         );
 
+        let rowKeyFn: (item: T) => string = item => JSON.stringify(item);
+        React.Children.map(this.props.children, (col: any, idx) => {
+            if (col.props.id === true) {
+                rowKeyFn = (item: T) => getKeyFromColumn(item, col);
+            } else if(col.props.id) {
+                rowKeyFn = col.props.id;
+            }
+        });
+
         const rows = this.props.values.map((item, itemIdx) => {
-            let rowKey = this.props.getKey ? this.props.getKey(item) : itemIdx;
-            const cols = React.Children.map(this.props.children, (column: any, idx) => {
-                const col = React.cloneElement(column, { ...column.props, value: item });
-                if (idx === 0 && col.key) {
-                    rowKey = col.key;
-                }
+            const cols = React.Children.map(this.props.children, (col: any, idx) => {
                 return (
-                    <td key={idx} className={column.props.expand ? 'expand' : undefined}>
-                        {col}
+                    <td key={col.key || idx} className={col.props.expand ? 'expand' : undefined}>
+                        {col.props.render(item)}
                     </td>
                 );
             });
-            return <tr key={rowKey}>{cols}</tr>;
+            return <tr key={rowKeyFn(item)}>{cols}</tr>;
         });
 
         return (
@@ -62,4 +66,31 @@ export class Table<T> extends React.Component<TableProps<T>> {
             </table>
         );
     }
+}
+
+function getKeyFromColumn(item: any, col: React.ReactElement<any>): string {
+    if (col.key) {
+        return col.key.toString();
+    }
+    const out = collectText(col.props.render(item));
+    if (!out || out === '') {
+        console.warn('column defined as id, but no text found');
+        return JSON.stringify(item);
+    }
+    return out;
+}
+
+function collectText(col: any): string {
+    let out = '';
+    if (typeof col === 'string') {
+        return col;
+    }
+
+    if (col.props && col.props.children) {
+        React.Children.map(col.props.children, child => {
+            out += collectText(child);
+        });
+    }
+
+    return out;
 }
