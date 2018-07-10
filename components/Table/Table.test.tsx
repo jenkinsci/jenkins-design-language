@@ -74,10 +74,8 @@ describe('Table: ', () => {
     });
 
     it('column renders', () => {
-        const rendered = Enzyme.render(
-            <Table.Col render={(u: User) => null} />
-        );
-        expect(rendered.text()).toBe('')
+        const rendered = Enzyme.render(<Table.Col render={(u: User) => null} />);
+        expect(rendered.text()).toBe('');
     });
 
     it('custom keys work', () => {
@@ -87,6 +85,6 @@ describe('Table: ', () => {
                 <Table.Col header="C2" render={(u: User) => u.name} />
             </Table>
         );
-        expect(getKey.find(Table.Col)[0].key).toBe(users[0].name)
+        expect(getKey.find(Table.Col)[0].key).toBe(users[0].name);
     });
 });

@@ -11,9 +11,7 @@ export function SidebarItem({ children, icon, onClick }: SidebarItemProps) {
         <div className="NavLink mt3" onClick={onClick}>
             <div className="Nav-Bound">
                 {icon}
-                <div className="NavLink-Title">
-                    {children}
-                </div>
+                <div className="NavLink-Title">{children}</div>
             </div>
         </div>
     );

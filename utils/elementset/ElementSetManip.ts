@@ -15,10 +15,10 @@ export interface ElementSetManip {
     rm: {
         c(name: string): ElementSet;
         attr(name: string): ElementSet;
-    }
+    };
 }
 
-declare module "./ElementSet" {
+declare module './ElementSet' {
     interface ElementSet {
         get: {
             attr(name: string): string;
@@ -34,7 +34,7 @@ declare module "./ElementSet" {
         rm: {
             c(name: string): ElementSet;
             attr(name: string): ElementSet;
-        }
+        };
     }
 }
 
@@ -52,9 +52,9 @@ Object.defineProperties(ElementSet.prototype, {
                 },
                 height() {
                     return s.height();
-                }
-            }
-        }
+                },
+            };
+        },
     },
     add: {
         get() {
@@ -65,9 +65,9 @@ Object.defineProperties(ElementSet.prototype, {
                         e.classList.add(name);
                     });
                     return s;
-                }
-            }
-        }
+                },
+            };
+        },
     },
     rm: {
         get() {
@@ -84,9 +84,9 @@ Object.defineProperties(ElementSet.prototype, {
                         e.removeAttribute(name);
                     });
                     return s;
-                }
-            }
-        }
+                },
+            };
+        },
     },
     set: {
         get() {
@@ -97,8 +97,8 @@ Object.defineProperties(ElementSet.prototype, {
                         e.setAttribute(name, v);
                     });
                     return s;
-                }
-            }
-        }
-    }
+                },
+            };
+        },
+    },
 });

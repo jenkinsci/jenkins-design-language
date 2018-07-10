@@ -1,7 +1,6 @@
 import { $ } from './ElementSet';
 import './ElementSetManip';
 
-
 describe('ElementSetManip', () => {
     beforeEach(() => {
         document.documentElement.innerHTML = `

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
 import * as ReactModal from 'react-modal';
-import { DialogContent, DialogButtons, dialogs, DialogHeader } from './Dialog';
+import { DialogContent, DialogButtons, dialogs, DialogHeader, DialogManager } from './Dialog';
 
 describe('Dialog', () => {
     let content = <span>Modal content</span>;
@@ -59,5 +59,13 @@ describe('Dialog', () => {
             .find('.Button')
             .simulate('click');
         expect(onDismiss).toBeCalled();
+    });
+
+    it('should close change state for dialog to close', () => {
+        const dialogManager = new DialogManager();
+        dialogManager.dialogs.push(dialogs);
+        expect(dialogManager.getCurrentDialogState(0)).toBe(true);
+        dialogManager.closeDialog(0);
+        expect(dialogManager.getCurrentDialogState(0)).toBe(false);
     });
 });

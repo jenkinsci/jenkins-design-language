@@ -7,7 +7,6 @@ function walkDir(dir, eachFile) {
         fs.statSync(path.join(dir, file)).isDirectory()
             ? walkDir(path.join(dir, file), eachFile)
             : eachFile(dir, file);
-
     });
 }
 
@@ -19,9 +18,10 @@ function upperFirst(str) {
 }
 
 function toCamelCase(str) {
-    return str.split('-').map((part, idx) =>
-        idx === 0 ? part : upperFirst(part)
-    ).join('');
+    return str
+        .split('-')
+        .map((part, idx) => (idx === 0 ? part : upperFirst(part)))
+        .join('');
 }
 
 function fileId(file, id) {
@@ -90,14 +90,17 @@ function fixDashedAttributes(document) {
 function createComponentsFromSvgs() {
     const outDir = path.join(__dirname, '..', '..', 'icons');
 
-    fs.writeFileSync(path.join(outDir, 'IconProps.tsx'), `/**
+    fs.writeFileSync(
+        path.join(outDir, 'IconProps.tsx'),
+        `/**
  * All Icons share a common set of properties
  */
 export interface IconProps {
     className?: string;
     size?: number;
 }
-`);
+`
+    );
 
     const imagesDir = path.join(__dirname, '..', 'images');
     // console.log('__dirname:', __dirname, 'imagesDir:', imagesDir);
@@ -127,17 +130,22 @@ export interface IconProps {
             // });
 
             let defaultSize = 16;
-            const simpleComponentName = file.replace('.svg','').split('-').map(part => {
-                if (part === 'icon' || part === 'color') {
-                    return null;
-                }
-                const val = parseInt(part, 10);
-                if (val) {
-                    defaultSize = val;
-                    return null;
-                }
-                return part;
-            }).filter(s => s).join('-');
+            const simpleComponentName = file
+                .replace('.svg', '')
+                .split('-')
+                .map(part => {
+                    if (part === 'icon' || part === 'color') {
+                        return null;
+                    }
+                    const val = parseInt(part, 10);
+                    if (val) {
+                        defaultSize = val;
+                        return null;
+                    }
+                    return part;
+                })
+                .filter(s => s)
+                .join('-');
 
             const componentName = upperFirst(toCamelCase(simpleComponentName));
 
@@ -156,7 +164,7 @@ import { IconProps } from './IconProps';
 export function ${componentName}({className, size = ${defaultSize}}: IconProps) {
     return (
         <div className="SvgIcon" style={{width: size, height: size}}>
-            ${newSvg.replace(/"REACT_([a-zA-Z0-9]+)_REACT"/g,'{$1}')}
+            ${newSvg.replace(/"REACT_([a-zA-Z0-9]+)_REACT"/g, '{$1}')}
         </div>
     );
 }

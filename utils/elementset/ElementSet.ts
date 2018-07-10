@@ -155,7 +155,10 @@ export class ElementSet {
      * @param {string | HTMLElement | ElementSet} v
      * @returns {ElementSet}
      */
-    private insertAdjacent(location: InsertPosition, v: string | HTMLElement | ElementSet): ElementSet {
+    private insertAdjacent(
+        location: InsertPosition,
+        v: string | HTMLElement | ElementSet
+    ): ElementSet {
         if (v instanceof ElementSet) {
             return this.insertAdjacent(location, v.first);
         }

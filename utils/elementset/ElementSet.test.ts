@@ -5,7 +5,7 @@ function perform(event: string, e: Element | null) {
     if (!htmlElement) {
         throw new Error('Invalid element to trigger an event: ' + e);
     }
-    const evt = document.createEvent("HTMLEvents");
+    const evt = document.createEvent('HTMLEvents');
     evt.initEvent(event, true, true);
     htmlElement.dispatchEvent(evt);
 }
@@ -46,7 +46,6 @@ describe('ElementSet', () => {
         expect($e1.is('.elem1')).toBeTruthy();
         expect($e1.is('.elem2')).toBeFalsy();
         expect($('.elem2').is('.elem1')).toBeFalsy();
-
 
         // test IE9+ support and not
         if (HTMLElement.prototype.msMatchesSelector) {
@@ -100,7 +99,9 @@ describe('ElementSet', () => {
 
     it('.on', () => {
         let clicked = false;
-        $('.elem2').on('click', e => { clicked = true });
+        $('.elem2').on('click', e => {
+            clicked = true;
+        });
         const el = document.querySelector('.child2')!;
         perform('click', el);
         expect(clicked).toBeTruthy();
@@ -131,7 +132,7 @@ describe('ElementSet', () => {
                 writable: true,
                 value(where: string, e: HTMLElement) {
                     this.insertAdjacentHTML(where, e.outerHTML);
-                }
+                },
             });
         }
 
@@ -187,16 +188,15 @@ describe('ElementSet', () => {
         $e1.height(11);
 
         const e = $e1.first;
-        expect(e.style.width).toBe('22px')
-        expect(e.style.height).toBe('11px')
+        expect(e.style.width).toBe('22px');
+        expect(e.style.height).toBe('11px');
     });
 
     it('only allows object and string', () => {
         try {
             ($ as any)(123);
             expect(true).toBe('should not be here');
-        } catch(e) {
-        }
+        } catch (e) {}
 
         const c1 = document.querySelector('.child1') as Element;
         $(c1).attr('title', 'should be set');

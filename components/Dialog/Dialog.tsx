@@ -7,7 +7,6 @@ import { observable } from 'mobx';
 export type Props = ButtonActionProps & ButtonComponentProps;
 
 export type ButtonActionProps = Partial<{
-    readonly shouldCloseOnEsc: boolean;
     store: any;
 }>;
 
@@ -20,10 +19,8 @@ export type ButtonComponentProps = Partial<{
 export class Dialog extends React.Component<Props> {
     render() {
         const store = this.props.store;
-        const shouldCloseOnEsc = this.props.hasOwnProperty('shouldCloseOnEsc') ? this.props.shouldCloseOnEsc : true;
         const defaultProps = {
             overlayClassName: 'Dialog-Overlay',
-            shouldCloseOnEsc
         };
         return (
             <>
@@ -35,9 +32,8 @@ export class Dialog extends React.Component<Props> {
                         isOpen={store.getCurrentDialogState(idx)}
                         key={idx}
                         ariaHideApp={false}
-                        shouldCloseOnEsc
                     >
-                        {dialog.title && <DialogHeader title={dialog.title}/>}
+                        {dialog.title && <DialogHeader title={dialog.title} />}
                         <DialogContent>{dialog.children}</DialogContent>
                         <DialogButtons>
                             <div className="Button" onClick={() => store.closeDialog(idx)}>
@@ -85,7 +81,7 @@ export function DialogButtons(props: DialogButtonsProps) {
 
 export class DialogActions {
     render() {
-        return <Dialog store={dialogs}/>;
+        return <Dialog store={dialogs} />;
     }
 }
 

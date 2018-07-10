@@ -41,32 +41,23 @@ export class Table<T> extends React.Component<TableProps<T>> {
         const rows = this.props.values.map((item, itemIdx) => {
             let rowKey = this.props.getKey ? this.props.getKey(item) : itemIdx;
             const cols = React.Children.map(this.props.children, (column: any, idx) => {
-                const col = React.cloneElement(column, {...column.props, value: item});
+                const col = React.cloneElement(column, { ...column.props, value: item });
                 if (idx === 0 && col.key) {
                     rowKey = col.key;
                 }
                 return (
-                    <td
-                        key={idx}
-                        className={column.props.expand ? 'expand' : undefined}
-                    >
+                    <td key={idx} className={column.props.expand ? 'expand' : undefined}>
                         {col}
                     </td>
                 );
             });
-            return (
-                <tr key={rowKey}>
-                    {cols}
-                </tr>
-            );
+            return <tr key={rowKey}>{cols}</tr>;
         });
 
         return (
             <table className="Table">
                 {hasHeader && header}
-                <tbody>
-                    {rows}
-                </tbody>
+                <tbody>{rows}</tbody>
                 {hasFooter && footer}
             </table>
         );

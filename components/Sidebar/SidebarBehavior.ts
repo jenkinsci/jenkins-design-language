@@ -54,7 +54,12 @@ export class SidebarBehavior {
         this.navHandle.on('mouseup', this.toggleNav);
     }
 
-    delayRemoveClass = (element: ElementSet, className: string, time: number, cb?: NavigationCallback) => {
+    delayRemoveClass = (
+        element: ElementSet,
+        className: string,
+        time: number,
+        cb?: NavigationCallback
+    ) => {
         setTimeout(() => {
             element.removeClass(className);
             if (cb) {

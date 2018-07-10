@@ -71,7 +71,8 @@ export class Sidebar extends React.Component<SidebarProps> {
                                         <div className="Nav-Bound">
                                             <div
                                                 className="NavHoverIcon NavHeader-Back mr1"
-                                                onClick={() => this.closeSheet()}>
+                                                onClick={() => this.closeSheet()}
+                                            >
                                                 <ArrowLeft className="Icon x24" />
                                             </div>
                                             <div className="NavLink-Title">
@@ -82,7 +83,11 @@ export class Sidebar extends React.Component<SidebarProps> {
                                     <div className="mx2 mt1">
                                         <div className="Filter Nav-Filter">
                                             <Search className="Filter-Icon" />
-                                            <input type="text" className="Filter-Input" placeholder="Filter" />
+                                            <input
+                                                type="text"
+                                                className="Filter-Input"
+                                                placeholder="Filter"
+                                            />
                                         </div>
                                     </div>
                                     <div className="mt4">{sheet}</div>
