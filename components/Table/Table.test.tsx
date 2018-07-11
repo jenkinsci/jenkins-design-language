@@ -80,7 +80,9 @@ describe('Table: ', () => {
     });
 
     it('column renders non-null with a value', () => {
-        const rendered = Enzyme.render(<TableColumn value={users[0]} render={(u: User) => <div>{u.name}</div>} />);
+        const rendered = Enzyme.render(
+            <TableColumn value={users[0]} render={(u: User) => <div>{u.name}</div>} />
+        );
         expect(rendered.html()).toBe(users[0].name);
     });
 

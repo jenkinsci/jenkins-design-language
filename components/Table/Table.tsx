@@ -42,7 +42,7 @@ export class Table<T> extends React.Component<TableProps<T>> {
         React.Children.map(this.props.children, (col: any, idx) => {
             if (col.props.id === true) {
                 rowKeyFn = (item: T) => getKeyFromColumn(item, col);
-            } else if(col.props.id) {
+            } else if (col.props.id) {
                 rowKeyFn = col.props.id;
             }
         });
