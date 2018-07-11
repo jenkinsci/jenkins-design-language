@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { WindowClose } from '@jdl2/icons/WindowClose';
-import { ClickListener } from '@jdl2/util/ClickListener';
+import { ClickListener } from '@jdl2/onclick';
 import { EscapeListener } from '@jdl2/util/EscapeListener';
 
 export interface SheetChildProps {

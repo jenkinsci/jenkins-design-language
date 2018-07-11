@@ -4,7 +4,7 @@
     "main": "./Table",
     "types": "./Table.d.ts",
     "scripts": {
-        "prepublish": "tsc",
+        "prepublishOnly": "tsc",
         "build": "tsc",
         "test": "jest"
     },

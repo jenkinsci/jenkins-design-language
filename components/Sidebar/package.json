@@ -4,7 +4,7 @@
     "main": "./Sidebar",
     "types": "./Sidebar.d.ts",
     "scripts": {
-        "prepublish": "tsc",
+        "prepublishOnly": "tsc",
         "build": "tsc",
         "test": "jest"
     },
@@ -20,6 +20,7 @@
     "dependencies": {
         "@jdl2/elementset": "^2.0.0-alpha.16",
         "@jdl2/icons": "^2.0.0-alpha.16",
+        "@jdl2/onclick": "^2.0.0-alpha.15",
         "@jdl2/util": "^2.0.0-alpha.16",
         "prop-types": "*",
         "react": "*",

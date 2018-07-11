@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ClickListener } from '@jdl2/util/ClickListener';
+import { ClickListener } from '@jdl2/onclick';
 import { EscapeListener } from '@jdl2/util/EscapeListener';
 import { SidebarBehavior } from './SidebarBehavior';
 import { ArrowLeft } from '@jdl2/icons/ArrowLeft';
