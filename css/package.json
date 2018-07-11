@@ -19,7 +19,9 @@
         "@jdl2/input-text": "^2.0.0-alpha.16",
         "@jdl2/sheets": "^2.0.0-alpha.16",
         "@jdl2/sidebar": "^2.0.0-alpha.16",
-        "@jdl2/table": "^2.0.0-alpha.16"
+        "@jdl2/table": "^2.0.0-alpha.16",
+        "@jdl2/dropdown": "^2.0.0-alpha.16",
+        "@jdl2/toast": "^2.0.0-alpha.16"
     },
     "devDependencies": {
         "node-sass": "^4.7.2",
