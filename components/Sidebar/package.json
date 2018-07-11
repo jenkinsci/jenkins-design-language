@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/sidebar",
-    "version": "2.0.0-alpha.15",
+    "version": "2.0.0-alpha.16",
     "main": "./Sidebar",
     "types": "./Sidebar.d.ts",
     "scripts": {
@@ -18,9 +18,9 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/elementset": "^2.0.0-alpha.15",
-        "@jdl2/icons": "^2.0.0-alpha.15",
-        "@jdl2/util": "^2.0.0-alpha.15",
+        "@jdl2/elementset": "^2.0.0-alpha.16",
+        "@jdl2/icons": "^2.0.0-alpha.16",
+        "@jdl2/util": "^2.0.0-alpha.16",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",

@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/util",
-    "version": "2.0.0-alpha.15",
+    "version": "2.0.0-alpha.16",
     "scripts": {
         "prepublish": "tsc",
         "test": "jest"

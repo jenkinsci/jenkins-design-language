@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/css",
-    "version": "2.0.0-alpha.12",
+    "version": "2.0.0-alpha.16",
     "scripts": {
         "prepublish": "npm run build",
         "build": "node-sass index.scss | uglifycss > jdl2.min.css",
@@ -15,11 +15,11 @@
     },
     "dependencies": {
         "@jdl2/button": "2.0.0-alpha.15",
-        "@jdl2/dialog": "2.0.0-alpha.13",
-        "@jdl2/input-text": "2.0.0-alpha.15",
-        "@jdl2/sheets": "2.0.0-alpha.15",
-        "@jdl2/sidebar": "2.0.0-alpha.15",
-        "@jdl2/table": "2.0.0-alpha.15"
+        "@jdl2/dialog": "^2.0.0-alpha.16",
+        "@jdl2/input-text": "^2.0.0-alpha.16",
+        "@jdl2/sheets": "^2.0.0-alpha.16",
+        "@jdl2/sidebar": "^2.0.0-alpha.16",
+        "@jdl2/table": "^2.0.0-alpha.16"
     },
     "devDependencies": {
         "node-sass": "^4.7.2",
