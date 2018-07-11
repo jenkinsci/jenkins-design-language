@@ -26,5 +26,6 @@ describe('Dropdown', () => {
 
         expect(onChange).toBeCalledWith(options[1]);
         expect(dropdown.find(Creatable).props().value).toBe(options[1].value);
+        expect(dropdown.state().selectedOption).toEqual(options[1].value);
     });
 });

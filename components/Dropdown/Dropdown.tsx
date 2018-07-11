@@ -15,7 +15,6 @@ export interface DropdownState {
 export class Dropdown extends React.Component<DropdownProps, DropdownState> {
     constructor(props: DropdownProps) {
         super(props);
-
         this.state = {
             selectedOption: this.props.value || '',
         };
@@ -35,7 +34,6 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
     render() {
         const defaults = {
             className: 'Dropdown',
-            isValidNewOption: () => false,
             clearable: false,
         };
 
