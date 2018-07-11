@@ -1,8 +1,8 @@
 {
-    "name": "@jdl2/sheets",
+    "name": "@jdl2/keypress",
     "version": "2.0.0-alpha.16",
-    "main": "./Sheets",
-    "types": "./Sheets.d.ts",
+    "main": "./KeyListener",
+    "types": "./KeyListener.d.ts",
     "scripts": {
         "prepublishOnly": "tsc",
         "build": "tsc",
@@ -18,27 +18,17 @@
         "access": "public"
     },
     "dependencies": {
-        "prop-types": "*",
         "react": "*",
-        "react-addons-css-transition-group": "*",
         "react-dom": "*"
     },
     "devDependencies": {
-        "@jdl2/icons": "^2.0.0-alpha.16",
-        "@jdl2/onclick": "^2.0.0-alpha.15",
-        "@jdl2/keypress": "^2.0.0-alpha.16",
-        "@storybook/addon-jest": "^3.4.8",
         "@types/enzyme": "^3.1.9",
         "@types/react": "*",
-        "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
         "@types/react-test-renderer": "^16.0.1",
-        "@types/react-transition-group": "*",
         "enzyme": "^3.3.0",
         "jest": "^22.4.2",
-        "jest-storybook-facade": "0.0.8",
         "react-test-renderer": "^16.4.1",
-        "storybook-addon-specifications": "^2.1.2",
         "typescript": "*"
     },
     "jest": {

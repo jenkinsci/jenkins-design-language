@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { WindowClose } from '@jdl2/icons/WindowClose';
 import { ClickListener } from '@jdl2/onclick';
-import { EscapeListener } from '@jdl2/util/EscapeListener';
+import { KeyListener } from '@jdl2/keypress';
 
 export interface SheetChildProps {
     // return false to prevent the sheet from being popped
@@ -123,7 +123,7 @@ export class SheetContainer extends React.Component<SheetContainerProps, SheetCo
         const { _sheets } = this.state;
         const { transitionDuration = 400, transitionClass = 'sheet' } = this.props;
         return (
-            <EscapeListener onEscapePressed={() => this.popTopSheet()}>
+            <KeyListener onEscapePressed={() => this.popTopSheet()}>
                 <div className="SheetContainer">
                     <ClickListener onClickOutside={() => this.popAllSheets()}>
                         <ReactCSSTransitionGroup
@@ -155,7 +155,7 @@ export class SheetContainer extends React.Component<SheetContainerProps, SheetCo
                         </ReactCSSTransitionGroup>
                     </ClickListener>
                 </div>
-            </EscapeListener>
+            </KeyListener>
         );
     }
 }

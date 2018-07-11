@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ClickListener } from './ClickListener';
+import { KeyListener } from './KeyListener';
 
 const { domSymbolTree } = require("jsdom/lib/jsdom/living/helpers/internal-constants")
 
@@ -15,10 +15,9 @@ class RenderOrNot extends React.Component<{me: (inst: any) => void}, {render: bo
     }
 }
 
-describe('ClickListener: ', () => {
+describe('KeyListener: ', () => {
     it('correctly handles inside and outside clicks', () => {
-        let clickedInside = false;
-        let clickedOutside = false;
+        let escPressed = false;
 
         const addEventListener = document.addEventListener;
         const removeEventListener = document.removeEventListener;
@@ -41,42 +40,45 @@ describe('ClickListener: ', () => {
             ReactDOM.render(<div>
                 <button className="outside">asdf</button>
                 <RenderOrNot me={e => { renderElem1 = e }}>
-                    <ClickListener onClick={() => { clickedInside = true }} onClickOutside={() => { clickedOutside = true }}>
-                        <button className="inside">asdf</button>
-                    </ClickListener>
+                    <KeyListener onEscapePressed={() => { escPressed = true }}>
+                        <button className="inside1">asdf</button>
+                    </KeyListener>
                 </RenderOrNot>
                 <RenderOrNot me={e => { renderElem2 = e }}>
-                    <ClickListener>
+                    <KeyListener>
                         <button className="inside2">asdf</button>
-                    </ClickListener>
+                    </KeyListener>
                 </RenderOrNot>
             </div>, document.getElementById('root'));
 
             expect(listenerCount).toBe(2);
 
-            const makeClick = () => new MouseEvent('mousedown', { bubbles: true });
+            const keyPress = (code: number) => new KeyboardEvent('keydown', { keyCode: code, bubbles: true } as any);
 
-            document.querySelector('.outside').dispatchEvent(makeClick());
-            expect(clickedInside).toBeFalsy();
-            expect(clickedOutside).toBeTruthy();
+            const ESC = 27;
+            document.dispatchEvent(keyPress(ESC));
+            expect(escPressed).toBeTruthy();
 
-            clickedInside = false;
-            clickedOutside = false;
+            escPressed = false;
 
-            document.querySelector('.inside').dispatchEvent(makeClick());
-            expect(clickedInside).toBeTruthy();
-            expect(clickedOutside).toBeFalsy();
+            document.querySelector('.inside1').dispatchEvent(keyPress(ESC));
+            expect(escPressed).toBeTruthy();
+
+            escPressed = false;
+
+            document.querySelector('.inside1').dispatchEvent(keyPress(26));
+            expect(escPressed).toBeFalsy();
 
             renderElem1.setState({ render: false });
             expect(listenerCount).toBe(1);
 
-            clickedInside = false;
-            clickedOutside = false;
+            escPressed = false;
 
-            document.querySelector('.outside').dispatchEvent(makeClick());
-            document.querySelector('.inside2').dispatchEvent(makeClick());
-            expect(clickedInside).toBeFalsy();
-            expect(clickedOutside).toBeFalsy();
+            document.dispatchEvent(keyPress(ESC));
+            expect(escPressed).toBeFalsy();
+
+            document.querySelector('.inside2').dispatchEvent(keyPress(ESC));
+            expect(escPressed).toBeFalsy();
 
             renderElem2.setState({ render: false });
             expect(listenerCount).toBe(0);

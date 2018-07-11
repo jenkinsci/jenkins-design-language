@@ -2,15 +2,14 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 interface Props {
-    onClick?: () => void;
-    onClickOutside?: () => void;
+    onClick?: (e: MouseEvent) => void;
+    onClickOutside?: (e: MouseEvent) => void;
 }
 
 export class ClickListener extends React.Component<Props> {
     private clickListener: React.EventHandler<any>; // tslint:disable-line
 
     componentDidMount() {
-        const { onClick, onClickOutside } = this.props;
         document.addEventListener(
             'mousedown',
             (this.clickListener = (e: MouseEvent) => {
@@ -18,15 +17,15 @@ export class ClickListener extends React.Component<Props> {
                 let parent = e.target as Element | null;
                 while (parent) {
                     if (parent === element) {
-                        if (onClick) {
-                            onClick();
+                        if (this.props.onClick) {
+                            this.props.onClick(e);
                         }
                         return;
                     }
                     parent = parent.parentElement;
                 }
-                if (onClickOutside) {
-                    onClickOutside();
+                if (this.props.onClickOutside) {
+                    this.props.onClickOutside(e);
                 }
             })
         );
