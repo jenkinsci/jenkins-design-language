@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { ClickListener } from '@jdl2/util/ClickListener';
-import { EscapeListener } from '@jdl2/util/EscapeListener';
+import { ClickListener } from '@jdl2/onclick';
+import { KeyListener } from '@jdl2/keypress';
 import { SidebarBehavior } from './SidebarBehavior';
 import { ArrowLeft } from '@jdl2/icons/ArrowLeft';
 import { Search } from '@jdl2/icons/Search';
@@ -46,7 +46,7 @@ export class Sidebar extends React.Component<SidebarProps> {
     render() {
         const { main, sheet, footer } = this.props;
         return (
-            <EscapeListener onEscapePressed={() => this.closeSheet()}>
+            <KeyListener onEscapePressed={() => this.closeSheet()}>
                 <div className="NavSlider">
                     <div className="NavSliderContainer" />
                     <div className="NavSlider-Overlay" />
@@ -96,7 +96,7 @@ export class Sidebar extends React.Component<SidebarProps> {
                         </div>
                     </div>
                 </ClickListener>
-            </EscapeListener>
+            </KeyListener>
         );
     }
 }

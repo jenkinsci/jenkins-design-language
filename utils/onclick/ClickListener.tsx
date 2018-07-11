@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 interface Props {
-    onClickOutside: () => void;
+    onClick?: (e: MouseEvent) => void;
+    onClickOutside?: (e: MouseEvent) => void;
 }
 
 export class ClickListener extends React.Component<Props> {
@@ -16,12 +17,16 @@ export class ClickListener extends React.Component<Props> {
                 let parent = e.target as Element | null;
                 while (parent) {
                     if (parent === element) {
-                        // don't do anything if clicked within the element
+                        if (this.props.onClick) {
+                            this.props.onClick(e);
+                        }
                         return;
                     }
                     parent = parent.parentElement;
                 }
-                this.props.onClickOutside();
+                if (this.props.onClickOutside) {
+                    this.props.onClickOutside(e);
+                }
             })
         );
     }

@@ -4,7 +4,7 @@
     "main": "./InputText",
     "types": "./InputText.d.ts",
     "scripts": {
-        "prepublish": "tsc",
+        "prepublishOnly": "tsc",
         "build": "tsc",
         "test": "jest"
     },
