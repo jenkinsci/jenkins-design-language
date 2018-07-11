@@ -86,3 +86,31 @@ $medium: 500;
 $semibold: 600;
 $bold: 700;
 $ultrabold: 900;
+
+// Brand colors
+$brand-primary: #4a90e2;
+$brand-success: #78b037;
+$brand-success-lite: #8cc04f;
+$brand-info: #3a70b0;
+$brand-info-lite: #4c9bd5;
+$brand-warning: #f5a623;
+$brand-warning-lite: #f6b44b;
+$brand-danger: #d54c53;
+$brand-danger-lite: #d54c53;
+$brand-paused: #24b0d5;
+$brand-paused-lite: #24b0d5;
+$brand-unknown: #bd0fe1;
+$brand-unknown-lite: #d54cc4;
+$brand-grey: #4a4a4a;
+$brand-grey-lite: #949393;
+$brand-selection: lighten($brand-primary, 20%);
+$brand-input-required: #24b0d5;
+
+$font-family-ss-light: 'LatoLatinWebLight', 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-ss-medium: 'LatoLatinWebMedium', 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-ss-semibold: 'LatoLatinWebSemibold', 'Lato', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+
+$border-radius-base: 4px;
+$border-radius-large: 6px;
+$border-radius-small: 3px;
