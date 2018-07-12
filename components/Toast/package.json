@@ -12,6 +12,9 @@
         "*.d.map",
         "*.scss"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "dependencies": {
         "prop-types": "*",
         "react": "*",
