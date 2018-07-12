@@ -1,0 +1,43 @@
+.Indicator {
+    background: $gray;
+    border-radius: 50%;
+    display: inline-block;
+    height: $unit;
+    width: $unit;
+    &.is-pending {
+        background: $indicator-pending;
+    }
+    &.is-running {
+        background: rgba($indicator-ready, 0.2);
+        animation: indicator-running 1.5s ease-out;
+        animation-iteration-count: infinite;
+    }
+    &.is-ready {
+        background: $indicator-ready;
+    }
+    &.is-succeeded {
+        background: $indicator-succeeded;
+    }
+    &.is-failed {
+        background: $indicator-failed;
+    }
+}
+
+.OutlineIndicator {
+    background: transparent;
+    border: 1px solid $gray;
+}
+
+@keyframes indicator-running {
+    0% {
+        background: rgba($blue, 0.2);
+    }
+
+    50% {
+        background: rgba($blue, 1);
+    }
+
+    100% {
+        background: rgba($blue, 0.2);
+    }
+}

@@ -1,0 +1,9 @@
+.ChromeHeader {
+    background: $chrome-header-background-color;
+
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    padding: ($unit * 3) ($unit * 5);
+}

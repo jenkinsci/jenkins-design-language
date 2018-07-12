@@ -1,0 +1,67 @@
+.Menu {
+    line-height: 0;
+    position: relative;
+}
+
+.Menu-Icon {
+    border-radius: $border-radius;
+    display: inline-block;
+    cursor: pointer;
+    fill: $dark-gray;
+    line-height: 1;
+    user-select: none;
+
+    height: 24px;
+    width: 24px;
+}
+
+.Menu-Dropdown {
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    display: none;
+
+    width: $unit * 18; // 8px * 18 = 144px
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 1px;
+    z-index: 1;
+    line-height: 1.4;
+
+    font-weight: initial;
+}
+
+.Menu.is-showing {
+    .Menu-Icon {
+        background: $light-gray;
+    }
+    .Menu-Dropdown {
+        display: block;
+    }
+}
+
+.Menu-Section {
+    border-top: 1px solid $border-color;
+    padding-top: $unit;
+    padding-right: $unit;
+    padding-bottom: $unit;
+    margin-left: $unit;
+    &:first-of-type {
+        border-top: none;
+    }
+}
+
+.Menu-Item {
+    border-radius: 3px;
+    display: block;
+    margin-top: $unit / 2;
+    padding: $unit;
+    &:hover {
+        background: lighten($light-gray, 5%);
+        text-decoration: none;
+    }
+    &:first-of-type {
+        margin-top: 0;
+    }
+}

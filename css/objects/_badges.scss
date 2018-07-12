@@ -1,0 +1,11 @@
+.Badge {
+    display: inline-block;
+    border-radius: $border-radius;
+    border: 1px solid $gray;
+    color: $gray;
+    font-size: 0.71rem;
+    font-weight: $medium;
+    line-height: 1;
+    padding: $unit/6 $unit/3;
+    text-transform: uppercase;
+}
