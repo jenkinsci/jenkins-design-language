@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/icons",
-    "version": "2.0.0-alpha.16",
+    "version": "2.0.0-alpha.17",
     "scripts": {
         "prepublish": "npm run build",
         "build": "node ../static/bin/createComponentsFromSvgs.js && tsc",

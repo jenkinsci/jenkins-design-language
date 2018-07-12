@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/keypress",
-    "version": "2.0.0-alpha.16",
+    "version": "2.0.0-alpha.17",
     "main": "./KeyListener",
     "types": "./KeyListener.d.ts",
     "scripts": {
