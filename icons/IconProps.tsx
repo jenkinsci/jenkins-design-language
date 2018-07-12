@@ -3,7 +3,7 @@
  */
 export interface IconProps {
     className?: string;
-    size?: number;
+    size?: number | '100%';
     width?: number;
     height?: number;
 }

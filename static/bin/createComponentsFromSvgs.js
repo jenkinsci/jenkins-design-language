@@ -97,7 +97,7 @@ function createComponentsFromSvgs() {
  */
 export interface IconProps {
     className?: string;
-    size?: number;
+    size?: number | '100%';
     width?: number;
     height?: number;
 }
@@ -164,7 +164,7 @@ export interface IconProps {
 
             let contents = `import * as React from 'react';
 import { IconProps } from './IconProps';
-export function ${componentName}({className, size = ${defaultSize}, width = size, height = size}: IconProps) {
+export function ${componentName}({ className, size = ${defaultSize}, width = size, height = size }: IconProps) {
     return (
         ${newSvg.replace(/"REACT_([a-zA-Z0-9]+)_REACT"/g, '{$1}')}
     );
