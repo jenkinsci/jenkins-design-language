@@ -1,0 +1,25 @@
+{
+    "name": "@jdl2/util",
+    "version": "2.0.0-alpha.18",
+    "main": "./index",
+    "scripts": {
+        "prepublish": "tsc",
+        "test": "jest"
+    },
+    "files": [
+        "*.js",
+        "*.d.ts",
+        "*.d.map",
+        "*.scss"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "jest": "*",
+        "typescript": "*"
+    },
+    "jest": {
+        "preset": "typewebjest/jest-preset.json"
+    }
+}
