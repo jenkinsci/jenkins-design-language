@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/dropdown",
-    "version": "2.0.0-alpha.17",
+    "version": "2.0.0-alpha.18",
     "main": "./Dropdown",
     "scripts": {
         "build": "tsc",

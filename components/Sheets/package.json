@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/sheets",
-    "version": "2.0.0-alpha.17",
+    "version": "2.0.0-alpha.18",
     "main": "./Sheets",
     "types": "./Sheets.d.ts",
     "scripts": {
@@ -24,9 +24,9 @@
         "react-dom": "*"
     },
     "devDependencies": {
-        "@jdl2/icons": "^2.0.0-alpha.17",
-        "@jdl2/keypress": "^2.0.0-alpha.17",
-        "@jdl2/onclick": "^2.0.0-alpha.17",
+        "@jdl2/icons": "^2.0.0-alpha.18",
+        "@jdl2/keypress": "^2.0.0-alpha.18",
+        "@jdl2/onclick": "^2.0.0-alpha.18",
         "@storybook/addon-jest": "^3.4.8",
         "@types/enzyme": "^3.1.9",
         "@types/react": "*",

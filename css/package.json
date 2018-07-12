@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/css",
-    "version": "2.0.0-alpha.17",
+    "version": "2.0.0-alpha.18",
     "scripts": {
         "prepublish": "npm run build",
         "build": "node-sass index.scss | uglifycss > jdl2.min.css",
@@ -14,14 +14,14 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/button": "2.0.0-alpha.15",
-        "@jdl2/dialog": "^2.0.0-alpha.17",
-        "@jdl2/dropdown": "^2.0.0-alpha.17",
-        "@jdl2/input-text": "^2.0.0-alpha.17",
-        "@jdl2/sheets": "^2.0.0-alpha.17",
-        "@jdl2/sidebar": "^2.0.0-alpha.17",
-        "@jdl2/table": "^2.0.0-alpha.17",
-        "@jdl2/toast": "^2.0.0-alpha.17"
+        "@jdl2/button": "^2.0.0-alpha.18",
+        "@jdl2/dialog": "^2.0.0-alpha.18",
+        "@jdl2/dropdown": "^2.0.0-alpha.18",
+        "@jdl2/input-text": "^2.0.0-alpha.18",
+        "@jdl2/sheets": "^2.0.0-alpha.18",
+        "@jdl2/sidebar": "^2.0.0-alpha.18",
+        "@jdl2/table": "^2.0.0-alpha.18",
+        "@jdl2/toast": "^2.0.0-alpha.18"
     },
     "devDependencies": {
         "node-sass": "^4.7.2",
