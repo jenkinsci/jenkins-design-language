@@ -11,9 +11,7 @@ export class KeyListener extends React.Component<Props> {
         document.addEventListener(
             'keydown',
             (this.keyDownListener = (e: KeyboardEvent) => {
-                /* istanbul ignore next */
-                const ev = e || window.event;
-                if (ev.keyCode === 27) {
+                if (e.keyCode === 27) {
                     if (this.props.onEscapePressed) {
                         this.props.onEscapePressed(e)
                     }
