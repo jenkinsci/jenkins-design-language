@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-interface ChildProps {
-    children: React.ReactNode | string;
+export interface ChildProps {
+    children: any;
 }
 
 const CardHeader: React.SFC<ChildProps> = ({ children }) => (
@@ -11,7 +11,9 @@ const CardHeader: React.SFC<ChildProps> = ({ children }) => (
     </div>
 );
 
-const CardSection: React.SFC<ChildProps> = ({ children }) => <>{children ? children : null}</>;
+export const CardSection: React.SFC<ChildProps> = ({ children }) => (
+    <div className="Card-Section">{children}</div>
+);
 
 const initialState = { focused: false };
 type State = Readonly<typeof initialState>;
