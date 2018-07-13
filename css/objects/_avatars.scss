@@ -1,0 +1,21 @@
+.Avatar {
+    background: $gray;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+
+    &.x24 {
+        width: $unit * 3;
+        height: $unit * 3;
+    }
+
+    &.x32 {
+        width: $unit * 4;
+        height: $unit * 4;
+    }
+}

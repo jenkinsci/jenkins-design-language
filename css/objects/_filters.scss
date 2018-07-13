@@ -1,0 +1,20 @@
+.Filter {
+    display: inline-block;
+    position: relative;
+}
+
+.Filter-Input {
+    display: block;
+    background: $silver;
+    border-radius: $border-radius;
+    padding: $unit $unit $unit ($unit * 4);
+    &:placeholder {
+        color: #969c9e;
+    }
+}
+
+.Filter-Icon {
+    top: $unit + 2;
+    left: $unit;
+    position: absolute;
+}

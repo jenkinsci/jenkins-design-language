@@ -1,0 +1,25 @@
+$chip-background-color: #eee;
+$chip-border-radius: 8px;
+$chip-spacing: 8px;
+
+.Chip {
+    display: inline-block;
+    background-color: $chip-background-color;
+    border-radius: $chip-border-radius;
+    max-width: 100%;
+    vertical-align: bottom;
+    padding: $chip-spacing;
+    padding-top: $chip-spacing / 4;
+    padding-bottom: $chip-spacing / 4;
+    margin-top: $chip-spacing / 4;
+    margin-right: $chip-spacing;
+
+    span {
+        &:first-child {
+            padding-right: $chip-spacing / 2;
+            &:after {
+                content: ':';
+            }
+        }
+    }
+}

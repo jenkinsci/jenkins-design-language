@@ -1,0 +1,74 @@
+$alert-radius: 4px;
+
+.Alert {
+    border-radius: $alert-radius;
+    padding: ($unit * 1.5) ($unit * 2);
+}
+
+.Alert-Body {
+    font-size: 0.85rem;
+    margin-top: $unit;
+}
+
+.AlertIcon {
+    margin-right: $unit;
+}
+
+.SmallAlertIcon {
+    height: 16px;
+    width: 16px;
+}
+
+.MediumAlertIcon {
+    height: 24px;
+    width: 24px;
+    margin-right: $unit * 1.25;
+}
+
+.LargeAlertIcon {
+    height: 24px;
+    width: 24px;
+    margin-right: $unit * 1.5;
+}
+
+.SmallAlert {
+    font-size: 12px;
+    padding: $unit ($unit * 1.5);
+}
+
+.LargeAlert {
+    padding: ($unit * 2) ($unit * 2.5);
+}
+
+.InfoAlert {
+    background: rgba($blue, 0.1);
+    color: $info;
+
+    .AlertIcon {
+        vertical-align: middle;
+        > svg > path {
+            fill: $info;
+        }
+    }
+}
+
+.ErrorAlert {
+    background: rgba(#f2aeb2, 0.5);
+    color: $error;
+}
+
+.SuccessAlert {
+    background: rgba(#8cc04f, 0.2);
+    color: $success;
+}
+
+.WarningAlert {
+    background: rgba(#fceeca, 0.8);
+    color: $warning;
+}
+
+.Alert-Link {
+    color: inherit;
+    text-decoration: underline;
+    margin-left: auto;
+}

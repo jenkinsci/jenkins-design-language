@@ -1,0 +1,32 @@
+.Tabs {
+    margin-bottom: $unit * 3;
+}
+
+.Tabs-Tab {
+    border-bottom: 2px solid transparent;
+    color: $gray;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: $unit * 2;
+    text-decoration: none;
+    text-transform: uppercase;
+    user-select: none;
+    &:hover {
+        border-bottom-color: $gray;
+        text-decoration: none;
+    }
+    &.is-active {
+        border-bottom-color: $blue;
+        color: $black;
+    }
+    &:first-of-type {
+        margin-left: 0;
+    }
+}
+
+.Tabs-Content {
+    display: none;
+    &.is-active {
+        display: block;
+    }
+}

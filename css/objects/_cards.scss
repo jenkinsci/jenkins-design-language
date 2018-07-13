@@ -1,0 +1,50 @@
+.Card {
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: none;
+    padding: $unit * 2;
+    transition: box-shadow 0.2s ease-in;
+}
+
+.ShadowedCard {
+    border: none;
+    box-shadow: 0px 1px 3px rgba($black, 0.15);
+    &:hover {
+        box-shadow: 0px 4px 10px rgba($black, 0.25);
+    }
+}
+
+.Card-Header {
+    display: block;
+    padding-bottom: $unit * 2;
+}
+
+.Card-ListItem {
+    border-top: 1px solid $silver;
+
+    padding-top: $unit;
+    padding-bottom: $unit;
+    padding-right: $unit;
+
+    margin-right: -$unit * 2;
+
+    &:only-child {
+        border-top: none;
+    }
+
+    &:first-of-type {
+        margin-top: -$unit * 2;
+        border-top: none;
+    }
+
+    &:last-of-type {
+        margin-bottom: -$unit * 2;
+    }
+}
+
+.Card-Alert {
+    margin-bottom: -$unit * 1.5;
+    margin-right: -$unit * 1.5;
+    margin-left: -$unit * 1.5;
+}

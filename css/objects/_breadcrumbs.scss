@@ -1,0 +1,15 @@
+.BreadCrumb {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+}
+
+.BreadCrumb-Item {
+    @extend %h5;
+    font-weight: $semibold;
+}
+
+.BreadCrumb-Separator {
+    margin-right: $unit/2;
+    margin-left: $unit/2;
+}

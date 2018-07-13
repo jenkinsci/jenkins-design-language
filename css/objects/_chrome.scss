@@ -1,0 +1,83 @@
+.ChromeContainer {
+    background: #f4f7f8;
+    height: 100vh;
+    display: flex;
+}
+
+.ChromeNav {
+    background: $white;
+    padding: $unit * 1.5;
+    width: $unit * 8; // 8px * 8 = 64px
+    box-shadow: 1px 0 0 rgba($black, 0.1);
+    &.is-expanded {
+        width: $unit * 34; // 8px * 34 = 272px
+    }
+}
+
+.ChromeNav-Item {
+    border: 2px solid transparent;
+    border-radius: $border-radius;
+    cursor: pointer;
+    display: block;
+    margin-top: $unit;
+    overflow: hidden;
+    position: relative;
+    &:first-of-type {
+        margin-top: 0;
+    }
+
+    &:hover,
+    &.is-active {
+        border-color: $border-color;
+        background: $light-gray;
+    }
+}
+
+.ChromeNav-Bound {
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    padding: $unit * 0.75;
+    width: $unit * 32; // 8px * 32 = 256px
+}
+
+.ChromeNav-Icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.ChromeNav-Title {
+    margin-left: $unit * 1.5;
+}
+
+.ChromeNav-Chevron {
+    opacity: 0;
+    margin-left: auto;
+    margin-right: $unit * 1.25;
+    transition: 0.2s ease-in opacity;
+    fill: $gray;
+}
+
+.ChromeNav-GroupedItem {
+    border-color: $border-color;
+    &:hover {
+        background: none;
+    }
+}
+
+.ChromeNav-GroupedItem:hover .ChromeNav-Chevron {
+    opacity: 1;
+}
+
+.ChromeHeader {
+    background: #eaedef;
+}
+
+.ChromeContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

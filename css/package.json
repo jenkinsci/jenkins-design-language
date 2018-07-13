@@ -1,9 +1,9 @@
 {
     "name": "@jdl2/css",
-    "version": "2.0.0-alpha.18",
+    "version": "2.0.0-alpha.19",
     "scripts": {
-        "prepublish": "npm run build",
-        "build": "node-sass index.scss | uglifycss > jdl2.min.css",
+        "prepublishOnly": "node-sass --follow --output-style compressed index.scss jdl.min.css",
+        "build": "node-sass --follow --output-style compressed index.scss jdl.min.css",
         "clean": "rm -f *.css"
     },
     "files": [
@@ -25,7 +25,7 @@
         "@jdl2/card": "^2.0.0-alpha.18"
     },
     "devDependencies": {
-        "node-sass": "^4.7.2",
+        "node-sass": "^4.9.2",
         "uglifycss": "0.0.29"
     }
 }
