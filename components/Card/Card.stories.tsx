@@ -10,5 +10,11 @@ const children = (
 );
 
 storiesOf('Card', module).add('should display a card', () => {
-    return <Card title={title} children={children} />;
+    return (
+        <>
+            <Card title={title} children={children} />
+            <br />
+            <Card title={title} children={children} />
+        </>
+    );
 });

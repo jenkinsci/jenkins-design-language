@@ -1,8 +1,8 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
+import * as Util from '@jdl2/util';
 
-export declare type Constructor<T = {}> = new (...args: any[]) => T;
-
-const initialState = { focused: false }; // TODO implement being focused on component
+const initialState = { focused: false };
 const defaultProps: DefaultProps = { props: {} };
 
 type State = Readonly<typeof initialState>;
@@ -16,11 +16,12 @@ type DefaultProps<P extends object = object> = { props: P };
 type RenderCallback = (args: CardComponentProps) => JSX.Element;
 export type CardComponentProps<P extends object = object> = {
     focused: State['focused'];
+    focusComponent: CardContainer['focusComponent'];
 } & P;
 
-class CardComponent<T extends object = object> extends React.Component<Props<T>, State> {
+class CardContainer<T extends object = object> extends React.Component<Props<T>, State> {
     static ofType<T extends object>() {
-        return CardComponent as Constructor<CardComponent<T>>;
+        return CardContainer as Util.Constructor<CardContainer<T>>;
     }
 
     static readonly defaultProps: Props = defaultProps;
@@ -28,19 +29,35 @@ class CardComponent<T extends object = object> extends React.Component<Props<T>,
 
     render() {
         const { props, children, component: InjectedComponent } = this.props;
-        const renderProps = { focused: this.state.focused };
+        const renderProps = { focused: this.state.focused, focusComponent: this.focusComponent };
         return InjectedComponent ? (
             <InjectedComponent {...props} {...renderProps}>
                 {children}
             </InjectedComponent>
         ) : null;
     }
+
+    private focusComponent = (event: React.MouseEvent<HTMLElement>) => {
+        this.setState(updateFocusState);
+    };
 }
 
+const updateFocusState = (prevState: State) => ({
+    focused: !prevState.focused,
+});
+
 type CardInfoProps = { title: string };
-const CardInfo: React.SFC<CardInfoProps & CardComponentProps> = ({ title, children }) => (
+const CardInfo: React.SFC<CardInfoProps & CardComponentProps> = ({
+    title,
+    children,
+    focusComponent,
+    focused,
+}) => (
     <>
-        <div className="Card ShadowedCard">
+        <div
+            onClick={focusComponent}
+            className={classNames('Card ShadowedCard', { 'Card-Focus': focused })}
+        >
             <div className="Card-Header">
                 <h6>{title}</h6>
             </div>
@@ -49,12 +66,9 @@ const CardInfo: React.SFC<CardInfoProps & CardComponentProps> = ({ title, childr
     </>
 );
 
-const CardWithTitle = CardComponent.ofType<CardInfoProps>();
-type CardFinalProps = CardInfoProps;
-export const Card: React.SFC<CardFinalProps> = ({ title, children }) => (
+const CardWithTitle = CardContainer.ofType<CardInfoProps>();
+export const Card: React.SFC<CardInfoProps> = ({ title, children }) => (
     <CardWithTitle component={CardInfo} props={{ title }}>
         {children}
     </CardWithTitle>
 );
-
-// TODO: make className configurable
