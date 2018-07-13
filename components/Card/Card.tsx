@@ -1,5 +1,6 @@
 import * as React from 'react';
-import * as Util from '@jdl2/util';
+
+export declare type Constructor<T = {}> = new (...args: any[]) => T;
 
 const initialState = { focused: false }; // TODO implement being focused on component
 const defaultProps: DefaultProps = { props: {} };

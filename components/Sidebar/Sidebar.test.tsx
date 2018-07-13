@@ -2,7 +2,7 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { Sidebar } from './Sidebar';
 
-describe('Dialog', () => {
+describe('Sidebar', () => {
     it('should render', () => {
         const nav = mount(
             <Sidebar
