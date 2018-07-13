@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Card } from './Card';
 
 const title = 'My Card';
-const children = (
+const section = (
     <div>
         <h5>Sub header</h5>Some content below..
     </div>
@@ -12,9 +12,10 @@ const children = (
 storiesOf('Card', module).add('should display a card', () => {
     return (
         <>
-            <Card title={title} children={children} />
-            <br />
-            <Card title={title} children={children} />
+            <Card>
+                <Card.Header>{title}</Card.Header>
+                <Card.Section>{section}</Card.Section>
+            </Card>
         </>
     );
 });

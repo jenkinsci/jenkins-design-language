@@ -1,3 +1,3 @@
 # Card
 
-TODO..
+Displays content similar to a playing card.
