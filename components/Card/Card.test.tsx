@@ -42,7 +42,7 @@ describe('Card', () => {
 
     it('should contain an empty section', () => {
         let card: ShallowWrapper<ChildProps>;
-        card = shallow(<CardSection />);
+        card = shallow(<CardSection children="" />);
         expect(card.text()).toHaveLength(0);
     });
 });
