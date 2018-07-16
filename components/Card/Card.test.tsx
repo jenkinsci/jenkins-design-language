@@ -40,7 +40,7 @@ describe('Card', () => {
         expect(card.find('.child-item')).toHaveLength(0);
     });
 
-    it('should', () => {
+    it('should contain an empty section', () => {
         let card: ShallowWrapper<ChildProps>;
         card = shallow(<CardSection />);
         expect(card.text()).toHaveLength(0);
