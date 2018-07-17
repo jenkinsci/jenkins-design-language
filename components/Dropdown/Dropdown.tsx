@@ -9,18 +9,13 @@ export interface DropdownProps {
 }
 
 export interface DropdownState {
-    selectedOption: OptionValues;
+    readonly selectedOption: OptionValues;
 }
 
-
-
 export class Dropdown extends React.Component<DropdownProps, DropdownState> {
-    constructor(props: DropdownProps) {
-        super(props);
-        this.state = {
-            selectedOption: this.props.value || '',
-        };
-    }
+    readonly state: DropdownState = {
+        selectedOption: this.props.value || '',
+    };
 
     handleChange = (selectedOption: Option<OptionValues>) => {
         this.setState({
