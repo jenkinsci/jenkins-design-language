@@ -2,7 +2,7 @@
     "name": "@jdl2/dropdown",
     "version": "2.0.0-alpha.18",
     "main": "./Dropdown",
-    "main": "./Dropdown.d.ts",
+    "types": "./Dropdown.d.ts",
     "scripts": {
         "prepublishOnly": "tsc",
         "build": "tsc",
