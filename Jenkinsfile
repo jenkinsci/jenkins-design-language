@@ -6,6 +6,11 @@ pipeline {
         }
     }
     stages {
+        stage('Clean') {
+            steps {
+                sh 'npm run clean'
+            }
+        }
         stage('Install') {
             steps {
                 sh 'npm install'
