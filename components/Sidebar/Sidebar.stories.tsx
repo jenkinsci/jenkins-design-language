@@ -11,7 +11,7 @@ storiesOf('Sidebar', module).add('example', () => {
             main={
                 <>
                     <Sidebar.AppLogo
-                        icon={<UserIcon size={24} />}
+                        icon={<UserIcon size={32} />}
                         brand={'Jenkins'}
                         name={'Design Language'}
                     />

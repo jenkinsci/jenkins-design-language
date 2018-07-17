@@ -21,7 +21,9 @@ stories.add('should display a sheet', () => {
                 onClose={() => {
                     console.log('closing sheet...');
                 }}
-            />
+            >
+                Some content
+            </StoryContainerDetail>
         );
     };
 

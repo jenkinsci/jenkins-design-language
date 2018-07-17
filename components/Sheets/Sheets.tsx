@@ -5,9 +5,16 @@ import { ClickListener } from '@jdl2/onclick';
 import { KeyListener } from '@jdl2/keypress';
 
 export interface SheetChildProps {
+    children: React.ReactNode;
     // return false to prevent the sheet from being popped
     onClose?: () => void | boolean;
     title: JSX.Element | string;
+}
+
+export class Sheet extends React.Component<SheetChildProps> {
+    render() {
+        return this.props.children;
+    }
 }
 
 export interface SheetChild extends React.ReactElement<SheetChildProps> {

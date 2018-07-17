@@ -68,7 +68,7 @@ $dialog-content-height: 564px;
     margin: $dialog-spacing / 2 0 $dialog-spacing;
     display: flex;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: flex-end;
     flex-shrink: 0;
 
     & > button + button {
