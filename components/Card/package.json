@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/card",
-    "version": "2.0.0-alpha.18",
+    "version": "2.0.0-alpha.20",
     "main": "./Card",
     "types": "./Card.d.ts",
     "scripts": {
@@ -18,7 +18,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/util": "^2.0.0-alpha.18",
+        "@jdl2/util": "^2.0.0-alpha.20",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",

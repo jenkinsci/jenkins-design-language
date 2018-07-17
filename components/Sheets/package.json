@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/sheets",
-    "version": "2.0.0-alpha.18",
+    "version": "2.0.0-alpha.20",
     "main": "./Sheets",
     "types": "./Sheets.d.ts",
     "scripts": {
