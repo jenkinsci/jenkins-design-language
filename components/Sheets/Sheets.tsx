@@ -88,10 +88,8 @@ export interface SheetContainerState {
 }
 
 export class SheetContainer extends React.Component<SheetContainerProps, SheetContainerState> {
-    constructor(props: SheetContainerProps) {
-        super(props);
-        this.state = { _sheets: [] };
-    }
+    state = { _sheets: [] };
+
     componentDidMount() {
         (sheets as SheetManager)._pushContainer(this);
     }
