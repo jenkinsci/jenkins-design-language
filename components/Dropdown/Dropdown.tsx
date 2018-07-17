@@ -9,7 +9,7 @@ export interface DropdownProps {
 }
 
 export interface DropdownState {
-    readonly selectedOption?: OptionValues;
+    selectedOption: OptionValues;
 }
 
 export class Dropdown extends React.Component<DropdownProps, DropdownState> {
