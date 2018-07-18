@@ -13,17 +13,8 @@ export function StoryContainerDetail({ title }: SheetChildProps) {
 
 describe('Sheets', () => {
     it('should fail with message', () => {
-        let onDismiss = jest.fn();
-        let sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
-        const addSheet = () => {
-            sheets.push(sheet);
-        };
-        const content = (
-            <div>
-                <SheetContainer />
-                <button onClick={addSheet}>Add Sheet</button>
-            </div>
-        );
+        const onDismiss: any = jest.fn();
+        const sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
 
         const errorMessage = 'A SheetContainer must be added to the React Component tree';
         expect(sheets.size).toEqual(0);
@@ -33,8 +24,8 @@ describe('Sheets', () => {
     });
 
     it('should render a sheet', () => {
-        let onDismiss = jest.fn();
-        let sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
+        const onDismiss = jest.fn();
+        const sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
         const addSheet = () => {
             sheets.push(sheet);
         };

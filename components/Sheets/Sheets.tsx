@@ -66,7 +66,11 @@ export class SheetManager {
     }
 
     get size(): number {
-        return this.top.state._sheets.length;
+        const top = this._containers[this._containers.length - 1];
+        if (!top) {
+            return 0;
+        }
+        return top.state._sheets.length;
     }
 }
 
