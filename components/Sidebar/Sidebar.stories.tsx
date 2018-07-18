@@ -14,7 +14,9 @@ storiesOf('Sidebar', module).add('example', () => {
                         icon={<UserIcon size={32} />}
                         brand={'Jenkins'}
                         name={'Design Language'}
+                        chevron
                     />
+                    <Sidebar.Item icon={<GitBranch />} chevron>Teams</Sidebar.Item>
                     <Sidebar.Item icon={<GitBranch />}>Branches</Sidebar.Item>
                     <Sidebar.Item icon={<GitCommit />}>Commits</Sidebar.Item>
                 </>

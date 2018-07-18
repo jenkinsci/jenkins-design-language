@@ -21,7 +21,7 @@ export function AppLogo({ icon, brand, name, onClick, checked, chevron }: Props)
                     <div className="NavSubtitle">{brand}</div>
                     {name && <div className="NavTitle">{name}</div>}
                 </div>
-                {chevron && <ChevronRight />}
+                {chevron && <ChevronRight className="mr1" />}
             </div>
         </div>
     );

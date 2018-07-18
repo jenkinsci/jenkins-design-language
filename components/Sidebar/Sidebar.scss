@@ -33,7 +33,6 @@
 }
 
 .NavLink {
-    border: 2px solid transparent;
     border-radius: $border-radius;
     cursor: pointer;
     display: block;
@@ -41,14 +40,20 @@
     position: relative;
     margin-left: $unit * 1.5;
     margin-right: $unit * 1.5;
+    padding: $unit;
     @include nav-transition(border-color, background);
+
     &:hover {
-        border-color: $nav-hover-color;
         background: $nav-hover-color;
     }
+
     &.is-active {
-        border-color: $nav-active-color;
         background: $nav-active-color;
+    }
+
+    &-SheetOpener {
+        border: 1px solid $nav-hover-color;
+        padding: $unit - 1;
     }
 }
 
@@ -85,6 +90,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     flex: 1 1 auto;
+    margin-top: -2px;
 }
 
 .Nav-Chevron {
