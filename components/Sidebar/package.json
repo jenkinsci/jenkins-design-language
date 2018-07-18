@@ -1,10 +1,11 @@
 {
     "name": "@jdl2/sidebar",
-    "version": "2.0.0-alpha.23",
+    "version": "2.0.0-alpha.21",
     "main": "./Sidebar",
     "types": "./Sidebar.d.ts",
     "scripts": {
-        "prepublishOnly": "tsc",
+        "prepublish": "tsc",
+        "postpublish": "rm *.js *.d.ts *.d.map",
         "build": "tsc",
         "test": "jest"
     },
