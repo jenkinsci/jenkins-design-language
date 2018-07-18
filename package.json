@@ -11,8 +11,8 @@
         "build": "lerna run build",
         "exec": "lerna exec",
         "add": "lerna add",
-        "publish": "lerna publish",
-        "publish-beta": "lerna publish --preid=alpha --cd-version prerelease",
+        "publish": "npm run clean && npm run bootstrap && npm test && lerna publish",
+        "publish-beta": "npm run clean && npm run bootstrap && npm test && lerna publish --preid=alpha --cd-version prerelease",
         "styleguide": "styleguidist server",
         "styleguide-build": "styleguidist build",
         "generate": "./jdl-component-creator.js"
