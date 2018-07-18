@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/toast",
-    "version": "2.0.0-alpha.18",
+    "version": "2.0.0-alpha.24",
     "main": "./Toast",
     "scripts": {
         "prepublishOnly": "tsc",
