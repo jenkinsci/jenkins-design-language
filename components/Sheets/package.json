@@ -5,6 +5,7 @@
     "types": "./Sheets.d.ts",
     "scripts": {
         "prepublishOnly": "tsc",
+        "postpublish": "rm -f *.js *.d.ts *.d.map",
         "build": "tsc",
         "test": "jest"
     },

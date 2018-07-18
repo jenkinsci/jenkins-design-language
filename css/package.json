@@ -20,7 +20,7 @@
         "@jdl2/dropdown": "^2.0.0-alpha.21",
         "@jdl2/input-text": "^2.0.0-alpha.18",
         "@jdl2/sheets": "^2.0.0-alpha.21",
-        "@jdl2/sidebar": "^2.0.0-alpha.23",
+        "@jdl2/sidebar": "^2.0.0-alpha.22",
         "@jdl2/table": "^2.0.0-alpha.18",
         "@jdl2/toast": "^2.0.0-alpha.18"
     },

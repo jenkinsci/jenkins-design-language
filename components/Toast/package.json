@@ -3,6 +3,8 @@
     "version": "2.0.0-alpha.18",
     "main": "./Toast",
     "scripts": {
+        "prepublishOnly": "tsc",
+        "postpublish": "rm -f *.js *.d.ts *.d.map",
         "build": "tsc",
         "test": "jest"
     },

@@ -4,7 +4,8 @@
     "main": "./Button",
     "types": "./Button.d.ts",
     "scripts": {
-        "prepublish": "tsc",
+        "prepublishOnly": "tsc",
+        "postpublish": "rm -f *.js *.d.ts *.d.map",
         "build": "tsc",
         "test": "jest"
     },
