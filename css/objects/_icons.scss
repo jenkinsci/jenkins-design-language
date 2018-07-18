@@ -3,21 +3,25 @@
     &.x8 {
         height: 8px;
         width: 8px;
+        min-width: 8px;
         vertical-align: 2%;
     }
     &.x16 {
         height: 16px;
         width: 16px;
+        min-width: 16px;
         vertical-align: -16%;
     }
     &.x24 {
         height: 24px;
         width: 24px;
+        min-width: 24px;
         vertical-align: -34%;
     }
     &.x32 {
         height: 32px;
         width: 32px;
+        min-width: 32px;
         vertical-align: -48%;
     }
 }
