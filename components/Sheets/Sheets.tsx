@@ -34,7 +34,7 @@ export class SheetManager {
         this._containers = [...this._containers.slice(0, idx), ...this._containers.slice(idx + 1)];
     }
 
-    get top() {
+    get top(): SheetContainer {
         const top = this._containers[this._containers.length - 1];
         if (!top) {
             throw new Error('A SheetContainer must be added to the React Component tree');
@@ -50,41 +50,40 @@ export class SheetManager {
 
     pop(view?: SheetChild) {
         const { top } = this;
-        const { _sheets } = top.state;
+        const _sheets: SheetChild[] = top.state._sheets;
 
         let selectedView = view;
 
         if (!selectedView) {
             selectedView = _sheets[_sheets.length - 1];
-            if (!selectedView) {
-                return;
-            }
         }
-        const idx = _sheets.indexOf(selectedView);
-        top.setState({
-            _sheets: [..._sheets.slice(0, idx), ..._sheets.slice(idx + 1)],
-        });
+        if (selectedView) {
+            const idx = _sheets.indexOf(selectedView);
+            top.setState({
+                _sheets: [..._sheets.slice(0, idx), ..._sheets.slice(idx + 1)],
+            });
+        }
     }
 
     get size(): number {
-        return top.length;
+        return this.top.state._sheets.length;
     }
 }
 
 export const sheets = new SheetManager() as {
-    push: (view: SheetChild) => void;
-    pop: (view?: SheetChild) => void;
-    size: number;
+    readonly push: (view: SheetChild) => void;
+    readonly pop: (view?: SheetChild) => void;
+    readonly size: number;
 };
 
 export interface SheetContainerProps {
-    transitionDuration?: number;
-    transitionClass?: string;
-    single?: boolean;
+    readonly transitionDuration?: number;
+    readonly transitionClass?: string;
+    readonly single?: boolean;
 }
 
 export interface SheetContainerState {
-    _sheets: SheetChild[];
+    readonly _sheets: SheetChild[];
 }
 
 export class SheetContainer extends React.Component<SheetContainerProps, SheetContainerState> {
