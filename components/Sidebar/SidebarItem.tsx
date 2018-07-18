@@ -8,9 +8,9 @@ export interface SidebarItemProps {
 
 export function SidebarItem({ children, icon, onClick }: SidebarItemProps) {
     return (
-        <div className="NavLink mt3" onClick={onClick}>
+        <div className="NavLink" onClick={onClick}>
             <div className="Nav-Bound">
-                {icon}
+                {icon && <div className="NavHoverIcon">{icon}</div>}
                 <div className="NavLink-Title">{children}</div>
             </div>
         </div>

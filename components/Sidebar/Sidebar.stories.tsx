@@ -19,7 +19,7 @@ storiesOf('Sidebar', module).add('example', () => {
                     <Sidebar.Item icon={<GitCommit />}>Commits</Sidebar.Item>
                 </>
             }
-            footer={<Sidebar.Item icon={<GitCommit />}>Commits</Sidebar.Item>}
+            footer={<Sidebar.Item icon={<UserIcon size={32} />}>Footer</Sidebar.Item>}
         />
     );
 });

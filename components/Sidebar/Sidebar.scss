@@ -108,10 +108,14 @@
 
 .NavHoverIcon {
     background: transparent;
-    border-radius: $border-radius;
+    border-radius: 4px;
     cursor: pointer;
-    padding: $unit;
+    width: 32px;
+    margin-right: 8px;
     bottom: 0;
+    align-items: center;
+    display: flex;
+
     &:hover {
         background: $nav-hover-color;
     }

@@ -76,8 +76,13 @@ module.exports = {
             name: 'Components',
             components: [
                 'components/Button/Button.tsx',
+                // 'components/Card/Card.tsx',
+                // 'components/Dialog/Dialog.tsx',
+                'components/InputText/InputText.tsx',
+                'components/Sheets/Sheets.tsx',
+                'components/Sidebar/Sidebar.tsx',
                 'components/Table/Table.tsx',
-                'components/Input/Input.tsx',
+                'components/Toast/Toast.tsx',
             ],
         },
         {

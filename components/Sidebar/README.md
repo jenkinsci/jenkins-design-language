@@ -1,17 +1,22 @@
-Buttons are one of the most basic types of controls for interacting with an application.
+A sidebar goes by many different names (Material UI refers to "Drawer")
 
-#### Button Types
-
-```jsx
-<Button>Default</Button>
-<Button primary>Primary</Button>
-<Button destructive>Destructive</Button>
-```
-
-#### Button Sizes
+#### Example
 
 ```jsx
-<Button small>Small</Button>
-<Button>Normal</Button>
-<Button large>Large</Button>
+    <div style={{position:'relative',height:'40px'}}>
+        <Sidebar
+            main={
+                <>
+                    <Sidebar.AppLogo
+                        icon={'U'}
+                        brand={'Jenkins'}
+                        name={'Design Language'}
+                    />
+                    <Sidebar.Item icon={'B'}>Branches</Sidebar.Item>
+                    <Sidebar.Item icon={'C'}>Commits</Sidebar.Item>
+                </>
+            }
+            footer={<Sidebar.Item icon={'F'}>Footer</Sidebar.Item>}
+        />
+    </div>
 ```

@@ -21,3 +21,7 @@ To publish updated styleguidist docs, run:
 ```
 npm run styleguide-build
 ```
+
+## Randon Notes
+
+Is this any good? http://typedoc.org/
