@@ -40,7 +40,7 @@ export class SidebarBehavior {
         this.isCollapsed = collapse;
 
         // Interaction variables
-        this.isCollapsedSidebar();
+        this.isCollapsed = collapse;
         this.storedWidth = parseInt(getStored('jdl.navbar.width') || '0', 10) || DEFAULT_SIZE;
 
         // Initialize the nav based on open/closed and default/stored size
@@ -54,12 +54,6 @@ export class SidebarBehavior {
         this.navHandle.on('mousedown', this.startResize);
         this.navHandle.on('mouseup', this.toggleNav);
     }
-
-    isCollapsedSidebar = () => {
-        if (!this.isCollapsed) {
-            this.isCollapsed = 'true' === getStored('jdl.navbar.collapsed');
-        }
-    };
 
     delayRemoveClass = (
         element: ElementSet,
@@ -88,7 +82,6 @@ export class SidebarBehavior {
         this.nav.width(COLLAPSED_SIZE);
         if (!this.isCollapsed) {
             // Remember collapsed state
-            setStored('jdl.navbar.collapsed', 'true');
             this.isCollapsed = true;
             this.showMain();
             if (this.onResize) {
@@ -103,7 +96,6 @@ export class SidebarBehavior {
         this.nav.width(width);
         if (this.isCollapsed) {
             // Remember collapsed state
-            window.localStorage.removeItem('jdl.navbar.collapsed');
             this.isCollapsed = false;
             if (this.onResize) {
                 this.onResize(!this.isCollapsed, this.storedWidth);
