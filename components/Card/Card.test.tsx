@@ -31,10 +31,11 @@ describe('Card', () => {
         expect(card.state()['focused']).toBeTruthy();
     });
 
-    it('should render without children', () => {
+    it('should render without a section', () => {
         let card: ReactWrapper = mount(
             <Card>
                 <Card.Header>{title}</Card.Header>
+                <Card.ListItem>Some list item...</Card.ListItem>
             </Card>
         );
         expect(card.find('.child-item')).toHaveLength(0);
