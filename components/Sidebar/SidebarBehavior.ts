@@ -32,14 +32,15 @@ export class SidebarBehavior {
 
     onResize?: NavigationResized;
 
-    constructor(onResize?: NavigationResized) {
+    constructor(collapse: boolean, onResize?: NavigationResized) {
         // Needed elements:
         this.body = $('body');
         this.nav = $('.Nav');
         this.navHandle = $('.NavExpander');
 
         // Interaction variables
-        this.isCollapsed = 'true' === getStored('jdl.navbar.collapsed');
+        this.isCollapsed =
+            collapse !== undefined ? collapse : 'true' === getStored('jdl.navbar.collapsed');
         this.storedWidth = parseInt(getStored('jdl.navbar.width') || '0', 10) || DEFAULT_SIZE;
 
         // Initialize the nav based on open/closed and default/stored size
