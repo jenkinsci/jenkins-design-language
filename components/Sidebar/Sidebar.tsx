@@ -20,17 +20,13 @@ interface SidebarProps {
 }
 
 export class Sidebar extends React.Component<SidebarProps> {
-    public static defaultProps: Partial<SidebarProps> = {
-        collapse: false,
-    };
-
     static AppLogo = AppLogo;
     static Item = SidebarItem;
 
     nav: SidebarBehavior;
 
     componentDidMount() {
-        this.nav = new SidebarBehavior(this.props.collapse || false);
+        this.nav = new SidebarBehavior(this.props.collapse!);
     }
 
     componentDidUpdate() {

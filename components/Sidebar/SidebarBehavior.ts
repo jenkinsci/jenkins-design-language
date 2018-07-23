@@ -37,10 +37,10 @@ export class SidebarBehavior {
         this.body = $('body');
         this.nav = $('.Nav');
         this.navHandle = $('.NavExpander');
-        this.isCollapsed = collapse;
 
         // Interaction variables
-        this.isCollapsed = collapse;
+        this.isCollapsed =
+            collapse !== undefined ? collapse : 'true' === getStored('jdl.navbar.collapsed');
         this.storedWidth = parseInt(getStored('jdl.navbar.width') || '0', 10) || DEFAULT_SIZE;
 
         // Initialize the nav based on open/closed and default/stored size
