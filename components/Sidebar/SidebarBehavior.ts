@@ -32,14 +32,15 @@ export class SidebarBehavior {
 
     onResize?: NavigationResized;
 
-    constructor(onResize?: NavigationResized) {
+    constructor(collapse: boolean, onResize?: NavigationResized) {
         // Needed elements:
         this.body = $('body');
         this.nav = $('.Nav');
         this.navHandle = $('.NavExpander');
+        this.isCollapsed = collapse;
 
         // Interaction variables
-        this.isCollapsed = 'true' === getStored('jdl.navbar.collapsed');
+        this.isCollapsedSidebar();
         this.storedWidth = parseInt(getStored('jdl.navbar.width') || '0', 10) || DEFAULT_SIZE;
 
         // Initialize the nav based on open/closed and default/stored size
@@ -53,6 +54,12 @@ export class SidebarBehavior {
         this.navHandle.on('mousedown', this.startResize);
         this.navHandle.on('mouseup', this.toggleNav);
     }
+
+    isCollapsedSidebar = () => {
+        if (!this.isCollapsed) {
+            this.isCollapsed = 'true' === getStored('jdl.navbar.collapsed');
+        }
+    };
 
     delayRemoveClass = (
         element: ElementSet,
