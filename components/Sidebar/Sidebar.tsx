@@ -16,18 +16,21 @@ interface SidebarProps {
     main: React.ReactNode;
     sheet?: React.ReactNode & { props: SidebarSheetProps };
     footer?: React.ReactNode;
-    collapse: boolean;
+    collapse?: boolean;
 }
 
 export class Sidebar extends React.Component<SidebarProps> {
+    public static defaultProps: Partial<SidebarProps> = {
+        collapse: false,
+    };
+
     static AppLogo = AppLogo;
     static Item = SidebarItem;
 
     nav: SidebarBehavior;
 
     componentDidMount() {
-        const { collapse } = this.props;
-        this.nav = new SidebarBehavior(collapse);
+        this.nav = new SidebarBehavior(this.props.collapse || false);
     }
 
     componentDidUpdate() {
