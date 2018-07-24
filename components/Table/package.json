@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/table",
-    "version": "2.0.0-alpha.25",
+    "version": "2.0.0-alpha.27",
     "main": "./Table",
     "types": "./Table.d.ts",
     "scripts": {
