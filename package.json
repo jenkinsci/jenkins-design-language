@@ -13,14 +13,13 @@
         "add": "lerna add",
         "prepublish": "npm run clean && npm run bootstrap && lerna run prepublishOnly && npm test",
         "publish": "npm run prepublish && lerna publish",
-        "publish-beta": "npm run prepublish && lerna publish --preid=alpha --cd-version prerelease",
+        "publish-beta": "npm run prepublish && lerna publish --preid=alpha --force-publish --cd-version prerelease",
         "styleguide": "styleguidist server",
         "styleguide-build": "styleguidist build",
         "generate": "./jdl-component-creator.js",
         "glyder": "glyder serve"
     },
     "dependencies": {
-        "glyder": "file:../glyder",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
