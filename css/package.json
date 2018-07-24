@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/css",
-    "version": "2.0.0-alpha.25",
+    "version": "2.0.0-alpha.26",
     "scripts": {
         "prepublishOnly": "node-sass --follow --output-style compressed index.scss jdl.min.css",
         "build": "node-sass --follow --output-style compressed index.scss jdl.min.css",
@@ -15,12 +15,12 @@
     },
     "dependencies": {
         "@jdl2/button": "^2.0.0-alpha.25",
-        "@jdl2/card": "^2.0.0-alpha.25",
+        "@jdl2/card": "^2.0.0-alpha.26",
         "@jdl2/dialog": "^2.0.0-alpha.25",
         "@jdl2/dropdown": "^2.0.0-alpha.25",
         "@jdl2/input-text": "^2.0.0-alpha.25",
         "@jdl2/sheets": "^2.0.0-alpha.25",
-        "@jdl2/sidebar": "^2.0.0-alpha.25",
+        "@jdl2/sidebar": "^2.0.0-alpha.26",
         "@jdl2/table": "^2.0.0-alpha.25",
         "@jdl2/toast": "^2.0.0-alpha.25"
     },
