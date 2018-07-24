@@ -16,9 +16,11 @@
         "publish-beta": "npm run prepublish && lerna publish --preid=alpha --cd-version prerelease",
         "styleguide": "styleguidist server",
         "styleguide-build": "styleguidist build",
-        "generate": "./jdl-component-creator.js"
+        "generate": "./jdl-component-creator.js",
+        "glyder": "glyder serve"
     },
     "dependencies": {
+        "glyder": "file:../glyder",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
@@ -121,5 +123,8 @@
             "json"
         ],
         "automock": false
+    },
+    "glyder": {
+        "copyright": "© %Y Kohsuke Kawaguchi, Sun Microsystems, Inc., and a number of other of contributors"
     }
 }
