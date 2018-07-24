@@ -10,13 +10,15 @@ storiesOf('Sidebar', module)
     .add('expanded example', () => {
         class TeamList extends React.Component {
             render() {
-                return teams.map(team => (
+                return (
                     <>
-                        <Sidebar.Item>
-                            {team.url} - {team.label}
-                        </Sidebar.Item>
+                        {teams.map(team => (
+                            <Sidebar.Item>
+                                {team.url} - {team.label}
+                            </Sidebar.Item>
+                        ))}
                     </>
-                ));
+                );
             }
         }
 
