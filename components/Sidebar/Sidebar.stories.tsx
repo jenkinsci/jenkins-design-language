@@ -4,9 +4,22 @@ import { Sidebar } from './Sidebar';
 import { User as UserIcon } from '@jdl2/icons/User';
 import { GitBranch } from '@jdl2/icons/GitBranch';
 import { GitCommit } from '@jdl2/icons/GitCommit';
+import { teams } from './Sidebar.test';
 
 storiesOf('Sidebar', module)
     .add('expanded example', () => {
+        class TeamList extends React.Component {
+            render() {
+                return teams.map(team => (
+                    <>
+                        <Sidebar.Item>
+                            {team.url} - {team.label}
+                        </Sidebar.Item>
+                    </>
+                ));
+            }
+        }
+
         return (
             <Sidebar
                 collapse={false}
@@ -25,6 +38,7 @@ storiesOf('Sidebar', module)
                         <Sidebar.Item icon={<GitCommit />}>Commits</Sidebar.Item>
                     </>
                 }
+                sheet={<TeamList />}
                 footer={<Sidebar.Item icon={<UserIcon size={32} />}>Footer</Sidebar.Item>}
             />
         );
