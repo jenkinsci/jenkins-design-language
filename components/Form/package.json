@@ -1,10 +1,8 @@
 {
-    "name": "@jdl2/<component>",
+    "name": "@jdl2/form",
     "version": "0.0.1",
-    "main": "./<component>",
+    "main": "./Form",
     "scripts": {
-        "prepublishOnly": "tsc",
-        "postpublish": "rm -f *.js *.d.ts *.d.map",
         "build": "tsc",
         "test": "jest"
     },
