@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Card } from './Card';
+import { Card, CardType } from './Card';
 
 const cardValues = [
     {
@@ -33,9 +33,9 @@ const cardValues = [
 const cardItems = cardValues.map(value => {
     return (
         <>
-            <Card>
+            <Card width="300" type={CardType.Shadowed}>
                 <Card.Header>{value.header}</Card.Header>
-                <Card.Section>{value.section}</Card.Section>
+                <Card.Description>{value.section}</Card.Description>
                 {value.listItem.map(item => {
                     return <Card.ListItem>{item}</Card.ListItem>;
                 })}
@@ -45,6 +45,21 @@ const cardItems = cardValues.map(value => {
     );
 });
 
-storiesOf('Card', module).add('should display a card', () => {
-    return <>{cardItems}</>;
-});
+storiesOf('Card', module)
+    .add('should display basic Card', () => {
+        const value = cardValues[0];
+        return (
+            <>
+                <Card width="340">
+                    <Card.Header>{value.header}</Card.Header>
+                    <Card.Description>{value.section}</Card.Description>
+                    {value.listItem.map(item => {
+                        return <Card.ListItem>{item}</Card.ListItem>;
+                    })}
+                </Card>
+            </>
+        );
+    })
+    .add('should display Shadowed Cards', () => {
+        return <>{cardItems}</>;
+    });
