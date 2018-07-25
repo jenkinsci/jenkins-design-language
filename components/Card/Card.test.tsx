@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mount, shallow, ReactWrapper, ShallowWrapper } from 'enzyme';
-import { Card, CardSection, ChildProps } from './Card';
+import { Card, CardDescription, ChildProps } from './Card';
 
 describe('Card', () => {
     const title = 'My Card';
@@ -12,7 +12,7 @@ describe('Card', () => {
     let card: ReactWrapper = mount(
         <Card>
             <Card.Header>{title}</Card.Header>
-            <Card.Section>{section}</Card.Section>
+            <Card.Description>{section}</Card.Description>
         </Card>
     );
 
@@ -43,7 +43,7 @@ describe('Card', () => {
 
     it('should contain an empty section', () => {
         let card: ShallowWrapper<ChildProps>;
-        card = shallow(<CardSection children="" />);
+        card = shallow(<CardDescription children="" />);
         expect(card.text()).toHaveLength(0);
     });
 });

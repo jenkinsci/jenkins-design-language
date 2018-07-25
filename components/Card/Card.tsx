@@ -11,26 +11,35 @@ const CardHeader: React.SFC<ChildProps> = ({ children }) => (
     </div>
 );
 
-export const CardSection: React.SFC<ChildProps> = ({ children }) => (
-    <div className="Card-Section">{children}</div>
+export const CardDescription: React.SFC<ChildProps> = ({ children }) => (
+    <div className="Card-Description">{children}</div>
 );
 
 export const CardListItem: React.SFC<ChildProps> = ({ children }) => (
     <div className="Card-ListItem">{children}</div>
 );
 
-// TODO implement card alerts
-// export const CardAlert: React.SFC<ChildProps> = ({ children }) => (
-//     <div className="Card-Alert">{children}</div>
-// );
+export const CardAlert: React.SFC<ChildProps> = ({ children }) => (
+    <div className="Card-Alert">{children}</div>
+);
+
+export enum CardType {
+    Shadowed,
+}
 
 const initialState = { focused: false };
 type State = Readonly<typeof initialState>;
 
-export class Card extends React.Component<{}, State> {
+type CardProps = Partial<{
+    width: string;
+    type: CardType;
+}>;
+
+export class Card<T extends object = object> extends React.Component<CardProps, State> {
     static Header = CardHeader;
-    static Section = CardSection;
+    static Description = CardDescription;
     static ListItem = CardListItem;
+    static Alert = CardAlert;
 
     readonly state: State = initialState;
 
@@ -43,7 +52,11 @@ export class Card extends React.Component<{}, State> {
         return (
             <div
                 onClick={this.handleFocus}
-                className={classNames('Card ShadowedCard', { 'is-focused': this.state.focused })}
+                style={{ width: this.props.width + 'px' }}
+                className={classNames('Card', {
+                    ShadowedCard: this.props.type === CardType.Shadowed,
+                    'is-focused': this.state.focused,
+                })}
             >
                 {React.Children.map(children, (child, idx) =>
                     React.cloneElement(child as React.ReactElement<any>, { key: idx })

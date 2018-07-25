@@ -28,6 +28,13 @@
     }
 }
 
+.Card-Description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 42px;
+}
+
 .Card-Header {
     display: block;
     padding-bottom: $unit * 2;
