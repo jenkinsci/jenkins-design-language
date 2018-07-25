@@ -5,6 +5,10 @@
     box-shadow: none;
     padding: $unit * 2;
     transition: box-shadow 0.2s ease-in;
+    &.is-focused {
+        border: 1px solid #2ca8d8;
+        box-shadow: 0px 0px 0px 1px #2ca8d8;
+    }
 }
 
 .ShadowedCard {
@@ -12,6 +16,15 @@
     box-shadow: 0px 1px 3px rgba($black, 0.15);
     &:hover {
         box-shadow: 0px 4px 10px rgba($black, 0.25);
+    }
+    &.is-focused {
+        border: none;
+        box-shadow: 0px 0px 10px $selected-color, 0px 0px 1px $selected-color,
+            0px 0px 1px $selected-color;
+        &:hover {
+            box-shadow: 0px 2px 14px $selected-color, 0px 0px 10px $selected-color,
+                0px 0px 1px $selected-color, 0px 0px 1px $selected-color;
+        }
     }
 }
 
@@ -47,13 +60,4 @@
     margin-bottom: -$unit * 1.5;
     margin-right: -$unit * 1.5;
     margin-left: -$unit * 1.5;
-}
-
-.Card-Focus {
-    box-shadow: 0px 0px 10px $selected-color, 0px 0px 1px $selected-color,
-        0px 0px 1px $selected-color;
-    &:hover {
-        box-shadow: 0px 2px 14px $selected-color, 0px 0px 10px $selected-color,
-            0px 0px 1px $selected-color, 0px 0px 1px $selected-color;
-    }
 }

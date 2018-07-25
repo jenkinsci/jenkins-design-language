@@ -43,7 +43,7 @@ export class Card extends React.Component<{}, State> {
         return (
             <div
                 onClick={this.handleFocus}
-                className={classNames('Card ShadowedCard', { 'Card-Focus': this.state.focused })}
+                className={classNames('Card ShadowedCard', { 'is-focused': this.state.focused })}
             >
                 {React.Children.map(children, (child, idx) =>
                     React.cloneElement(child as React.ReactElement<any>, { key: idx })
