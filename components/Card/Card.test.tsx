@@ -18,7 +18,7 @@ describe('Card', () => {
 
     it('should render', () => {
         const cardHeader = card.find('.Card-Header').text();
-        const cardSection = card.find('.Card-Section').text();
+        const cardSection = card.find('.Card-Description').text();
         expect(cardHeader).toEqual(title);
         const cardChild = card.find('.child-item h5').text();
         expect(cardChild).toEqual('Sub header');
