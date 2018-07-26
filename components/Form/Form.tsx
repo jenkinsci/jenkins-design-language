@@ -15,11 +15,16 @@ export class Form extends React.Component<{}, State> {
     public static Input = FormParts.Input;
 
     render() {
+        const { children } = this.props;
+
+        if (!children) {
+            throw new Error('Please provide form fields!');
+        }
+
         const header = (
             <>
-                {React.Children.map(this.props.children, (child: any, idx) => {
-                    // TODO handle better
-                    return !child.props.part
+                {React.Children.map(children, (child: any, idx) => {
+                    return child.props.header
                         ? React.cloneElement(child as React.ReactElement<any>, { key: idx })
                         : '';
                 })}
@@ -28,13 +33,14 @@ export class Form extends React.Component<{}, State> {
 
         const formParts = (
             <>
-                {React.Children.map(this.props.children, (child: any, idx) => {
-                    return child.props.part
+                {React.Children.map(children, (child: any, idx) => {
+                    return child.props.formPart
                         ? React.cloneElement(child as React.ReactElement<any>, { key: idx })
                         : '';
                 })}
             </>
         );
+
         return (
             <form>
                 {header}

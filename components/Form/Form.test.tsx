@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
+import { Form } from './Form';
 
 describe('Form', () => {
     it('should render an input', () => {

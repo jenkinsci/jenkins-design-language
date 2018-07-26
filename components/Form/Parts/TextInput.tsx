@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FormPart } from '../FormParts';
 
 type Props = {
     children: {
@@ -12,8 +11,8 @@ type Props = {
 
 type DefaultProps = Readonly<typeof defaultProps>;
 
-const defaultProps = {
-    part: FormPart.TEXT_INPUT,
+export const defaultProps = {
+    formPart: true,
 };
 
 export class TextInput extends React.Component<Props> {
