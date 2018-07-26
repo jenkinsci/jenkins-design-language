@@ -16,6 +16,14 @@ describe('Form', () => {
                 </Form.Input>
             </Form>
         );
-        expect(rendered.find('label').text()).toBe('First Name');
+        const label = rendered.find('label');
+        const input = rendered.find('input');
+        expect(label.text()).toBe('First Name');
+        const name = input.attr('name');
+        expect(name).toBe('first-name');
+    });
+
+    it('should throw error when rendering form', () => {
+        expect(() => Enzyme.render(<Form />)).toThrowError();
     });
 });
