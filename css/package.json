@@ -22,7 +22,8 @@
         "@jdl2/sheets": "^2.0.0-alpha.27",
         "@jdl2/sidebar": "^2.0.0-alpha.27",
         "@jdl2/table": "^2.0.0-alpha.27",
-        "@jdl2/toast": "^2.0.0-alpha.27"
+        "@jdl2/toast": "^2.0.0-alpha.27",
+        "@jdl2/form": "^2.0.0-alpha.27"
     },
     "devDependencies": {
         "node-sass": "^4.9.2",

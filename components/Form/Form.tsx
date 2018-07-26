@@ -13,6 +13,7 @@ type State = Readonly<typeof initialState>;
 export class Form extends React.Component<{}, State> {
     public static Header = FormHeader;
     public static Input = FormParts.Input;
+    public static Checkbox = FormParts.Checkbox;
 
     render() {
         const { children } = this.props;
@@ -42,7 +43,7 @@ export class Form extends React.Component<{}, State> {
         );
 
         return (
-            <form>
+            <form className="Form">
                 {header}
                 {formParts}
             </form>

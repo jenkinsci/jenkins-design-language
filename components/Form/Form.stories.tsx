@@ -15,12 +15,15 @@ storiesOf('Form', module).add('should display text', () => {
                         htmlFor: 'first-name',
                     }}
                 </Form.Input>
-                <Form.Input>
+                <Form.Input>{{ label: 'Last Name:', name: 'last-name' }}</Form.Input>
+                <Form.Checkbox>
                     {{
-                        label: 'Last Name:',
-                        name: 'last-name',
+                        name: 'employee1',
+                        description: 'are you a CloudBees Employee?',
+                        value: 'Employee',
+                        isChecked: true,
                     }}
-                </Form.Input>
+                </Form.Checkbox>
             </Form>
         </>
     );
