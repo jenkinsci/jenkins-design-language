@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FormPart } from '../FormParts';
 
 type Props = {
     children: {
@@ -12,11 +13,11 @@ type Props = {
 type DefaultProps = Readonly<typeof defaultProps>;
 
 const defaultProps = {
-    part: 'TextInput',
+    part: FormPart.TEXT_INPUT,
 };
 
 export class TextInput extends React.Component<Props> {
-    static defaultProps = { part: 'TextInput' };
+    static defaultProps = defaultProps;
 
     render() {
         const { children } = this.props;
