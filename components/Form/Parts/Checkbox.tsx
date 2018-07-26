@@ -29,9 +29,10 @@ export class Checkbox extends React.Component<Props> {
         const { name, value, description, isChecked } = children;
         return (
             <>
-                <input type="checkbox" name={name} value={value} checked={isChecked} />{' '}
-                {description}
-                <br />
+                <input type="checkbox" name={name} value={value} checked={isChecked} id="option" />
+                <label htmlFor="option">
+                    <span /> {description}
+                </label>
             </>
         );
     }
