@@ -23,19 +23,11 @@
 
     input[type='checkbox'] {
         display: none;
-        //background: #FFFFFF;
-        //border: 1px solid rgba(74, 74, 74, 0.25);
-        //box-sizing: border-box;
-        //border-radius: 3px;
     }
 
     input[type='checkbox'] + label span {
-        display: inline-block;
-        vertical-align: middle;
-        width: 20px;
-        height: 20px;
-        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzFEN0RDRiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTUuMDAwMDkgMEM0LjQ0Nzc0IDcuNTUyNzJlLTA1IDQuMDAwMSAwLjQ0NzcxNCA0LjAwMDAzIDEuMDAwMDdMMy45OTk5OSAxMC4wMDAxTDEuMDAwMDcgMTBDMC40NDc3MTQgMTAuMDAwMSA3LjU1MjcyZS0wNSAxMC40NDc3IDAgMTEuMDAwMUMxLjA3ODk2ZS0wNSAxMS41NTI0IDAuNDQ3NzI1IDEyLjAwMDEgMSAxMi4wMDAxTDUuMDAwMDQgMTJDNS4wNjkwOCAxMiA1LjEzNjQ5IDExLjk5MyA1LjIwMTU3IDExLjk3OTdDNS42NTY3MiAxMS44ODY2IDUuOTk5MzQgMTEuNDg0MSA2LjAwMDA1IDExLjAwMTdDNi4wMDAwNCAxMS4wMDExIDYuMDAwMDMgMTEuMDAwNiA2LjAwMDAyIDExLjAwMDFNNi4wMDAwMyAxMC45OTU0TDYuMDAwMDkgMUM2LjAwMDA3IDAuNDQ3NzI1IDUuNTUyMzYgMS4wNzg5NmUtMDUgNS4wMDAwOSAwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMi4xNSAyLjI1KSByb3RhdGUoNDUpIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K)
-            0px center no-repeat;
+        position: relative;
+        top: 4px;
     }
 
     input[type='submit']:hover {

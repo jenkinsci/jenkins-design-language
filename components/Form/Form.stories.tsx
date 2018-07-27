@@ -21,7 +21,6 @@ storiesOf('Form', module).add('should display text', () => {
                         name: 'employee1',
                         description: 'are you a CloudBees Employee?',
                         value: 'Employee',
-                        isChecked: true,
                     }}
                 </Form.Checkbox>
             </Form>

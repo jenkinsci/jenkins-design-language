@@ -19,6 +19,7 @@
         "access": "public"
     },
     "dependencies": {
+        "@jdl2/icons": "^2.0.0-alpha.27",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
