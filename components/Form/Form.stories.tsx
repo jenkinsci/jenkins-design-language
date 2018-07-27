@@ -23,6 +23,16 @@ storiesOf('Form', module).add('should display text', () => {
                         value: 'Employee',
                     }}
                 </Form.Checkbox>
+                <Form.Checkbox>
+                    {{
+                        name: 'terms',
+                        description: 'do you agree to the terms?',
+                        value: 'Terms',
+                    }}
+                </Form.Checkbox>
+                <Form.Input>
+                    {{ label: 'Description:', name: 'describe', placeholder: 'Description:' }}
+                </Form.Input>
             </Form>
         </>
     );
