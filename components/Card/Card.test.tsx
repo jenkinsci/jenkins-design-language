@@ -21,7 +21,7 @@ describe('Card', () => {
         const cardSection = card.find('.Card-Description').text();
         expect(cardHeader).toEqual(title);
         const cardChild = card.find('.child-item h5').text();
-        expect(cardChild).toEqual('Sub title');
+        expect(cardChild).toEqual('Sub header');
         expect(cardSection).toMatchSnapshot();
     });
 
