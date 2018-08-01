@@ -6,11 +6,9 @@ const initialState = { isChecked: false };
 type State = Readonly<typeof initialState>;
 
 type Props = {
-    children: {
-        name?: string;
-        value?: string;
-        description?: React.ReactNode | string;
-    };
+    name?: string;
+    value?: string;
+    description?: React.ReactNode | string;
 } & Partial<DefaultProps>;
 
 type DefaultProps = Readonly<typeof defaultProps>;
@@ -24,13 +22,7 @@ export class Checkbox extends React.Component<Props, State> {
     readonly state: State = initialState;
 
     render() {
-        const { children } = this.props;
-
-        if (!children) {
-            throw new Error('Please provide children!');
-        }
-
-        const { name, value, description } = children;
+        const { name, value, description } = this.props;
         const renderCheckboxProps = {
             checked: this.state.isChecked,
             onChange: this.toggle,

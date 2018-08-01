@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { TextInput } from './Parts/TextInput';
 import { Checkbox } from './Parts/Checkbox';
+import { InputText } from './Parts/InputText';
+import { FormItem } from './Parts/FormItem';
 
 export class FormParts extends React.Component {
-    public static Input = TextInput;
     public static Checkbox = Checkbox;
+    public static InputText = InputText;
+    public static FormItem = FormItem;
 
     render() {
         return (
