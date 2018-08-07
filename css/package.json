@@ -17,7 +17,7 @@
         "@jdl2/button": "^2.0.0-alpha.27",
         "@jdl2/card": "^2.0.0-alpha.27",
         "@jdl2/dialog": "^2.0.0-alpha.27",
-        "@jdl2/dropdown": "^2.0.0-alpha.27",
+        "@jdl2/selectbox": "^2.0.0-alpha.27",
         "@jdl2/input-text": "^2.0.0-alpha.27",
         "@jdl2/sheets": "^2.0.0-alpha.27",
         "@jdl2/sidebar": "^2.0.0-alpha.27",
