@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Install') {
             steps {
+                sh 'npm run clean'
                 sh 'npm install'
                 sh 'npm run bootstrap'
             }
