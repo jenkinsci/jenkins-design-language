@@ -12,7 +12,7 @@ export interface DropdownState {
     readonly selectedOption: OptionValues;
 }
 
-export class Dropdown extends React.Component<DropdownProps, DropdownState> {
+export class Selectbox extends React.Component<DropdownProps, DropdownState> {
     readonly state: DropdownState = {
         selectedOption: this.props.value || '',
     };
