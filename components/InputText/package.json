@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/input-text",
-    "version": "2.0.0-alpha.27",
+    "version": "2.0.0-alpha.28",
     "main": "./InputText",
     "types": "./InputText.d.ts",
     "scripts": {
@@ -19,7 +19,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/css-util": "^2.0.0-alpha.27",
+        "@jdl2/css-util": "^2.0.0-alpha.28",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
