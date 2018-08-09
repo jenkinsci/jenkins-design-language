@@ -2,18 +2,18 @@ import * as React from 'react';
 import { Creatable, Options, Option, OptionValues } from 'react-select';
 import 'react-select/dist/react-select.css';
 
-export interface DropdownProps {
+export interface SelectboxProps {
     readonly options: Options<OptionValues>;
     readonly value?: OptionValues;
     readonly onChange?: (selectedOption: Option) => void;
 }
 
-export interface DropdownState {
+export interface SelectboxState {
     readonly selectedOption: OptionValues;
 }
 
-export class Selectbox extends React.Component<DropdownProps, DropdownState> {
-    readonly state: DropdownState = {
+export class Selectbox extends React.Component<SelectboxProps, SelectboxState> {
+    readonly state: SelectboxState = {
         selectedOption: this.props.value || '',
     };
 
@@ -30,7 +30,7 @@ export class Selectbox extends React.Component<DropdownProps, DropdownState> {
 
     render() {
         const defaults = {
-            className: 'Dropdown',
+            className: 'Selectbox',
             clearable: false,
         };
 

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
 import { Creatable } from 'react-select';
-import { Selectbox, DropdownProps, DropdownState } from './Selectbox';
+import { Selectbox, SelectboxProps, SelectboxState } from './Selectbox';
 
 describe('Selectbox', () => {
     let options = [{ value: 'A', label: 'A' }, { value: 'B', label: 'B' }];
-    let dropdown: Enzyme.ShallowWrapper<DropdownProps, DropdownState>;
+    let dropdown: Enzyme.ShallowWrapper<SelectboxProps, SelectboxState>;
     let onChange = jest.fn();
 
     beforeEach(() => {
