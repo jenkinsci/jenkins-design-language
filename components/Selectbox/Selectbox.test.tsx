@@ -5,27 +5,27 @@ import { Selectbox, SelectboxProps, SelectboxState } from './Selectbox';
 
 describe('Selectbox', () => {
     let options = [{ value: 'A', label: 'A' }, { value: 'B', label: 'B' }];
-    let dropdown: Enzyme.ShallowWrapper<SelectboxProps, SelectboxState>;
+    let selectbox: Enzyme.ShallowWrapper<SelectboxProps, SelectboxState>;
     let onChange = jest.fn();
 
     beforeEach(() => {
-        dropdown = Enzyme.shallow(
+        selectbox = Enzyme.shallow(
             <Selectbox options={options} value={options[0].value} onChange={onChange} />
         );
     });
 
     it('should render with options', () => {
-        expect(dropdown.find(Creatable)).toHaveLength(1);
-        expect(dropdown.find(Creatable).props().options).toBe(options);
-        expect(dropdown.find(Creatable).props().value).toBe(options[0].value);
-        expect(dropdown.state().selectedOption).toEqual(options[0].value);
+        expect(selectbox.find(Creatable)).toHaveLength(1);
+        expect(selectbox.find(Creatable).props().options).toBe(options);
+        expect(selectbox.find(Creatable).props().value).toBe(options[0].value);
+        expect(selectbox.state().selectedOption).toEqual(options[0].value);
     });
 
     it('should be able to change selected value', () => {
-        dropdown.simulate('change', options[1]);
+        selectbox.simulate('change', options[1]);
 
         expect(onChange).toBeCalledWith(options[1]);
-        expect(dropdown.find(Creatable).props().value).toBe(options[1].value);
-        expect(dropdown.state().selectedOption).toEqual(options[1].value);
+        expect(selectbox.find(Creatable).props().value).toBe(options[1].value);
+        expect(selectbox.state().selectedOption).toEqual(options[1].value);
     });
 });
