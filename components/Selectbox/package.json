@@ -1,8 +1,8 @@
 {
-    "name": "@jdl2/dropdown",
-    "version": "2.0.0-alpha.27",
-    "main": "./Dropdown",
-    "types": "./Dropdown.d.ts",
+    "name": "@jdl2/selectbox",
+    "version": "2.0.0-alpha.28",
+    "main": "./Selectbox",
+    "types": "./Selectbox.d.ts",
     "scripts": {
         "prepublishOnly": "tsc",
         "postpublish": "rm -f *.js *.d.ts *.d.map",

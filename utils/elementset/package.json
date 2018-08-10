@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/elementset",
-    "version": "2.0.0-alpha.27",
+    "version": "2.0.0-alpha.28",
     "main": "./ElementSet",
     "scripts": {
         "prepublish": "tsc",

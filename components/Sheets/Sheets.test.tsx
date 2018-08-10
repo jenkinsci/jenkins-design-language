@@ -49,8 +49,8 @@ describe('Sheets', () => {
     });
 
     it('should test a sheet container', () => {
-        let onDismiss = jest.fn();
-        let sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
+        const onDismiss = jest.fn();
+        const sheet = <StoryContainerDetail title="My Story Title" onClose={onDismiss} />;
         const addSheet = () => {
             sheets.push(sheet);
         };
