@@ -4,6 +4,6 @@
 export interface IconProps {
     className?: string;
     size?: number | '100%';
-    width?: number;
-    height?: number;
+    width?: number | '100%';
+    height?: number | '100%';
 }

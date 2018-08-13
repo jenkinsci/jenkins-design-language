@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Creatable, Options, Option, OptionValues } from 'react-select';
-import 'react-select/dist/react-select.css';
 
 export interface SelectboxProps {
     readonly options: Options<OptionValues>;
