@@ -22,6 +22,7 @@
         "@jdl2/sheets": "^2.0.0-alpha.28",
         "@jdl2/sidebar": "^2.0.0-alpha.28",
         "@jdl2/table": "^2.0.0-alpha.28",
+        "@jdl2/tabs": "^2.0.0-alpha.28",
         "@jdl2/toast": "^2.0.0-alpha.28"
     },
     "devDependencies": {
