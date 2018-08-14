@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/tabs",
-    "version": "2.0.0-alpha.28",
+    "version": "2.0.0-alpha.29",
     "main": "./Tabs",
     "scripts": {
         "build": "tsc",
