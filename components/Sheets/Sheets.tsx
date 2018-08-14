@@ -139,7 +139,7 @@ export class SheetContainer extends React.Component<SheetContainerProps, SheetCo
                                 <div className="Sheet" key={child.key || idx}>
                                     <div className="flex-row mb4">
                                         {child.props.onClose && (
-                                            <a
+                                            <a role="button"
                                                 className="Sheet-Close"
                                                 onClick={() => this.onClose(child)}
                                             >

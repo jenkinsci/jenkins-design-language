@@ -5,7 +5,7 @@ import { dialogs } from './Dialog';
 const stories = storiesOf('Dialog', module);
 
 stories.add('should display a dialog', () => {
-    let content = <span>Some modal content!</span>;
+    const content = <span>Some modal content!</span>;
     dialogs.addDialog('My first dialog', '', content);
     dialogs.addDialog('My second dialog', 'great-class', content);
 

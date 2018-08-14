@@ -4,9 +4,9 @@ import * as ReactModal from 'react-modal';
 import { DialogContent, DialogButtons, dialogs, DialogHeader, DialogManager } from './Dialog';
 
 describe('Dialog', () => {
-    let content = <span>Modal content</span>;
+    const content = <span>Modal content</span>;
     let dialogShallow: Enzyme.ShallowWrapper;
-    let onDismiss = jest.fn();
+    const onDismiss = jest.fn();
 
     beforeEach(() => {
         dialogs.addDialog('My first dialog', 'my-first-dialog', content, onDismiss);

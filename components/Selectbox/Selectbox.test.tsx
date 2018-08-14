@@ -4,9 +4,9 @@ import { Creatable } from 'react-select';
 import { Selectbox, SelectboxProps, SelectboxState } from './Selectbox';
 
 describe('Selectbox', () => {
-    let options = [{ value: 'A', label: 'A' }, { value: 'B', label: 'B' }];
+    const options = [{ value: 'A', label: 'A' }, { value: 'B', label: 'B' }];
     let selectbox: Enzyme.ShallowWrapper<SelectboxProps, SelectboxState>;
-    let onChange = jest.fn();
+    const onChange = jest.fn();
 
     beforeEach(() => {
         selectbox = Enzyme.shallow(

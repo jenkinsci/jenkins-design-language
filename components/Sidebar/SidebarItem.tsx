@@ -10,7 +10,7 @@ export interface SidebarItemProps {
 
 export function SidebarItem({ children, icon, onClick, chevron }: SidebarItemProps) {
     return (
-        <div className={`NavLink ${chevron && 'NavLink-SheetOpener'}`} onClick={onClick}>
+        <div role="button" className={`NavLink ${chevron && 'NavLink-SheetOpener'}`} onClick={onClick}>
             <div className="Nav-Bound">
                 {icon && <div className="NavHoverIcon">{icon}</div>}
                 <div className="NavLink-Title">{children}</div>

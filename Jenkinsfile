@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh 'npm install'
                 sh 'npm run bootstrap'
+                sh 'npm lint'
             }
         }
         stage('Build') {

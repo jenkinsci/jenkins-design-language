@@ -30,8 +30,7 @@ export class Tabs extends React.Component<any, TabState> {
                         tab: any, // tslint:disable-line
                         idx
                     ) => (
-                        <a
-                            href="#"
+                        <a role="button"
                             className={`Tabs-Tab ${idx === this.state.selectedTab && 'is-active'}`}
                             key={tab.props.title}
                             onClick={e => {

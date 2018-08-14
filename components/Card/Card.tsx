@@ -50,7 +50,7 @@ export class Card<T extends object = object> extends React.Component<CardProps, 
     render() {
         const { children } = this.props;
         return (
-            <div
+            <div role="gridcell"
                 onClick={this.handleFocus}
                 style={{ width: this.props.width + 'px' }}
                 className={classNames('Card', {

@@ -17,7 +17,8 @@
         "styleguide": "styleguidist server",
         "styleguide-build": "styleguidist build",
         "generate": "./jdl-component-creator.js",
-        "glyder": "glyder serve"
+        "glyder": "glyder serve",
+        "lint": "tslint components/*/*.tsx"
     },
     "dependencies": {
         "prop-types": "*",
@@ -42,6 +43,7 @@
         "@types/react-test-renderer": "^16.0.1",
         "@types/storybook__react": "^3.0.7",
         "@types/webpack": "^3.8.7",
+        "a11y": "^0.5.1",
         "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.1",
         "expect": "^22.3.0",
@@ -72,6 +74,7 @@
         "ts-loader": "^3.5.0",
         "tslint-config-airbnb": "^5.9.2",
         "tslint-config-prettier": "^1.13.0",
+        "tslint-react-a11y": "^1.0.0",
         "typescript": "*",
         "typewebjest": "^0.5.7",
         "webpack": "^3.11.0",
