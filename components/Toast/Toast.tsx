@@ -48,10 +48,10 @@ export class Toast extends React.Component<Props> {
                         <ToastCaption caption={caption} />
                         {text}
                     </span>
-                    <a className="action" onClick={() => this.onActionClick()}>
+                    <a role="button" className="action" onClick={() => this.onActionClick()}>
                         {action}
                     </a>
-                    <a className="dismiss" onClick={() => this.onDismissClick()}>
+                    <a role="button" className="dismiss" onClick={() => this.onDismissClick()}>
                         <Clear />
                     </a>
                 </div>

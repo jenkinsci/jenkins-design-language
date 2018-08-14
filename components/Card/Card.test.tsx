@@ -9,7 +9,7 @@ describe('Card', () => {
             <h5>Sub header</h5>Some content below..
         </div>
     );
-    let card: ReactWrapper = mount(
+    const card: ReactWrapper = mount(
         <Card>
             <Card.Header>{title}</Card.Header>
             <Card.Description>{section}</Card.Description>
@@ -32,7 +32,7 @@ describe('Card', () => {
     });
 
     it('should render without a section', () => {
-        let card: ReactWrapper = mount(
+        const card: ReactWrapper = mount(
             <Card>
                 <Card.Header>{title}</Card.Header>
                 <Card.ListItem>Some list item...</Card.ListItem>
