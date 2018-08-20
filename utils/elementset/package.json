@@ -16,7 +16,7 @@
         "access": "public"
     },
     "devDependencies": {
-        "jest": "*",
+        "jest": "^22.4.2",
         "typescript": "*"
     },
     "jest": {
