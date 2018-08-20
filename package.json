@@ -101,7 +101,7 @@
             "jest-junit"
         ],
         "testMatch": [
-            "<rootDir>/**/*.test.ts?(x)"
+            "<rootDir>/[^.]**/*.test.ts?(x)"
         ],
         "testURL": "http://localhost",
         "transform": {

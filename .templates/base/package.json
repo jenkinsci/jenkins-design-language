@@ -1,7 +1,7 @@
 {
-    "name": "@jdl2/<component>",
-    "version": "0.0.1",
-    "main": "./<component>",
+    "name": "@jdl2/[componentPath]",
+    "version": "[componentVersion]",
+    "main": "./[componentName]",
     "scripts": {
         "build": "tsc",
         "test": "jest"
@@ -10,12 +10,14 @@
         "*.js",
         "*.d.ts",
         "*.d.map",
+        "*.css",
         "*.scss"
     ],
     "publishConfig": {
         "access": "public"
     },
     "dependencies": {
+        "@jdl2/css-util": "[cssUtilVersion]",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
