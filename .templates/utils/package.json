@@ -1,0 +1,28 @@
+{
+    "name": "@jdl2/[classPath]",
+    "version": "[classVersion]",
+    "main": "./[className]",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest"
+    },
+    "files": [
+        "*.js",
+        "*.d.ts",
+        "*.d.map",
+        "*.css",
+        "*.scss"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+        "jest": "^22.4.2",
+        "typescript": "*"
+    },
+    "jest": {
+        "preset": "typewebjest/jest-preset.json"
+    }
+}
