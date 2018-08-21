@@ -6,7 +6,7 @@ export interface [componentName]Props extends CssProps {
 
 export function [componentName](props: [componentName]Props) {
     return (
-        <div className={css('[componentName]')}>
+        <div className={css(props, '[componentName]')}>
             [componentName]
         </div>
     );
