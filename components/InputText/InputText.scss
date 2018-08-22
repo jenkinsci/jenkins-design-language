@@ -32,14 +32,14 @@
         border-color: $green;
         box-shadow: 0px 0px 0px 1px rgba($white, 0.5), 0px 0px 0px 3px rgba($green, 0.3);
     }
-}
 
-.LargeInputText {
-    font-size: 18px;
-    padding: $unit * 1.5;
-}
+    &.is-large {
+        font-size: 18px;
+        padding: $unit * 1.5;
+    }
 
-.SmallInputText {
-    font-size: 12px;
-    padding: $unit;
+    &.is-small {
+        font-size: 12px;
+        padding: $unit;
+    }
 }

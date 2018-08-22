@@ -36,7 +36,11 @@ export class Dialog extends React.Component<Props> {
                         {dialog.title && <DialogHeader title={dialog.title} />}
                         <DialogContent>{dialog.children}</DialogContent>
                         <DialogButtons>
-                            <div className="Button" onClick={() => store.closeDialog(idx)}>
+                            <div
+                                className="Button"
+                                role="button"
+                                onClick={() => store.closeDialog(idx)}
+                            >
                                 Close
                             </div>
                         </DialogButtons>
@@ -103,11 +107,11 @@ export class DialogManager extends DialogActions {
 
     addDialog(title: string, className: string, children: JSX.Element, onDismiss?: () => void) {
         this.dialogs.push({
-            title: title,
-            className: className,
-            children: children,
+            title,
+            className,
+            children,
+            onDismiss,
             showDialog: this.showDialog,
-            onDismiss: onDismiss,
         });
     }
 }

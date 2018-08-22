@@ -1,0 +1,44 @@
+{
+    "name": "@jdl2/avatar",
+    "version": "2.0.0-alpha.29",
+    "main": "./Avatar",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest"
+    },
+    "files": [
+        "*.js",
+        "*.d.ts",
+        "*.d.map",
+        "*.css",
+        "*.scss"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@jdl2/css-util": "2.0.0-alpha.29",
+        "prop-types": "*",
+        "react": "*",
+        "react-addons-css-transition-group": "*",
+        "react-dom": "*"
+    },
+    "devDependencies": {
+        "@storybook/addon-jest": "^3.4.8",
+        "@types/enzyme": "^3.1.9",
+        "@types/react": "*",
+        "@types/react-addons-css-transition-group": "*",
+        "@types/react-dom": "*",
+        "@types/react-test-renderer": "^16.0.1",
+        "@types/react-transition-group": "*",
+        "enzyme": "^3.3.0",
+        "jest": "^22.4.2",
+        "jest-storybook-facade": "0.0.8",
+        "react-test-renderer": "^16.4.1",
+        "storybook-addon-specifications": "^2.1.2",
+        "typescript": "*"
+    },
+    "jest": {
+        "preset": "typewebjest/jest-preset.json"
+    }
+}

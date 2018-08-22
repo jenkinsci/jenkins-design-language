@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/card",
-    "version": "2.0.0-alpha.28",
+    "version": "2.0.0-alpha.29",
     "main": "./Card",
     "types": "./Card.d.ts",
     "scripts": {

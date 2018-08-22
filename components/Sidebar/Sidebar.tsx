@@ -71,6 +71,7 @@ export class Sidebar extends React.Component<SidebarProps> {
                                     <div className="NavHeader">
                                         <div className="Nav-Bound">
                                             <div
+                                                role="button"
                                                 className="NavHoverIcon NavHeader-Back mr1"
                                                 onClick={() => this.closeSheet()}
                                             >

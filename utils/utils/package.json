@@ -1,7 +1,6 @@
 {
-    "name": "@jdl2/<component>",
-    "version": "0.0.1",
-    "main": "./<component>",
+    "name": "@jdl2/utils",
+    "version": "2.0.0-alpha.29",
     "scripts": {
         "prepublishOnly": "tsc",
         "postpublish": "rm -f *.js *.d.ts *.d.map",

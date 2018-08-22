@@ -13,7 +13,7 @@ interface Props {
 
 export function AppLogo({ icon, brand, name, onClick, checked, chevron }: Props) {
     return (
-        <div className="NavHeader NavAppSwitcher" onClick={onClick}>
+        <div role="button" className="NavHeader NavAppSwitcher" onClick={onClick}>
             <div className="Nav-Bound">
                 {checked && <Check className="NavOption-Check" />}
                 <div className="NavHoverIcon">{icon}</div>

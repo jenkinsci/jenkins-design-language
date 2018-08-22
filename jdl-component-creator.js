@@ -4,9 +4,10 @@ const fs = require('fs');
 
 const TEMPLATE_CHOICE_NAME = 'template-choice';
 const COMPONENT_NAME = 'component-name';
-const filePrefixesToNotModify = ['README', 'package', 'tsconfig'];
+const configFiles = ['README', 'package', 'tsconfig'];
 
-const templateChoices = fs.readdirSync(`${__dirname}/templates`);
+const templateChoices = fs.readdirSync(`${__dirname}/.templates`);
+let outdir = 'components';
 
 const questions = [
     {
@@ -28,10 +29,11 @@ const questions = [
 
 inquirer.prompt(questions).then(answers => {
     const templateChoice = answers[TEMPLATE_CHOICE_NAME];
+    outdir = templateChoice;
     const componentChoice = answers[COMPONENT_NAME];
-    const templatePath = `${__dirname}/templates/${templateChoice}`;
+    const templatePath = `${__dirname}/.templates/${templateChoice}`;
 
-    fs.mkdirSync(`${__dirname}/components/${componentChoice}`);
+    fs.mkdirSync(`${__dirname}/${outdir}/${componentChoice}`);
 
     createDirectoryContents(templatePath, componentChoice);
 });
@@ -44,9 +46,17 @@ function createDirectoryContents(templatePath, componentChoice) {
             const stats = fs.statSync(originalFilePath);
 
             if (stats.isFile()) {
-                const contents = fs.readFileSync(originalFilePath);
+                let contents = fs.readFileSync(originalFilePath);
                 const fileName = renameFileBasedOnComponent(file, componentChoice);
-                const writePath = `${__dirname}/components/${componentChoice}/${fileName}`;
+                const writePath = `${__dirname}/${outdir}/${componentChoice}/${fileName}`;
+                contents = ('' + contents)
+                    .replace(/\[componentName\]/g, componentChoice)
+                    .replace(/\[componentVersion\]/g, require('./lerna').version)
+                    .replace(/\[componentPath\]/g, componentChoice.toLowerCase())
+                    .replace(/\[className\]/g, componentChoice)
+                    .replace(/\[classVersion\]/g, require('./lerna').version)
+                    .replace(/\[classPath\]/g, componentChoice.toLowerCase())
+                    .replace(/\[cssUtilVersion\]/g, require('./utils/css/package').version);
                 fs.writeFileSync(writePath, contents);
             }
         });
@@ -58,7 +68,7 @@ function createDirectoryContents(templatePath, componentChoice) {
 function renameFileBasedOnComponent(originalFile, componentChoice) {
     const extension = originalFile.substring(originalFile.indexOf('.'), originalFile.length);
     const prefix = originalFile.substring(0, originalFile.indexOf('.'));
-    if (filePrefixesToNotModify.includes(prefix)) {
+    if (configFiles.includes(prefix)) {
         return originalFile;
     }
     return componentChoice + extension;
