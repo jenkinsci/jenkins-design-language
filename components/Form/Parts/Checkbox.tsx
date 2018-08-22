@@ -6,7 +6,7 @@ const initialState = { isChecked: false };
 type State = Readonly<typeof initialState>;
 
 type Props = {
-    name?: string;
+    name: string;
     value?: string;
     description?: React.ReactNode | string;
 } & Partial<DefaultProps>;
@@ -31,8 +31,8 @@ export class Checkbox extends React.Component<Props, State> {
         };
         return (
             <>
-                <input type="checkbox" id="option" {...renderCheckboxProps} />
-                <label htmlFor="option">
+                <input type="checkbox" id={name} {...renderCheckboxProps} />
+                <label htmlFor={name}>
                     <span>{this.state.isChecked ? <Checked /> : <Unchecked />}</span> {description}
                 </label>
             </>

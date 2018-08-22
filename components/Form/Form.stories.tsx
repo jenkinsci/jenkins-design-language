@@ -42,10 +42,10 @@ storiesOf('Form', module).add('should display text', () => {
                     />
                 </Form.Item>
                 <Form.Item label="Application">
-                    <Form.Checkbox description="are you a CloudBees employee" />
+                    <Form.Checkbox name="application" description="are you a CloudBees employee" />
                 </Form.Item>
                 <Form.Item label="T&C">
-                    <Form.Checkbox description="do you agree to the terms?" />
+                    <Form.Checkbox name="terms" description="do you agree to the terms?" />
                 </Form.Item>
                 <Form.Submit>Submit Form.</Form.Submit>
             </Form.Vertical>
