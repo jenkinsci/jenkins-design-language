@@ -19,6 +19,7 @@ export class Form extends React.Component<{}, State> {
     public static InputText = FormParts.InputText;
     public static Item = FormParts.FormItem;
     public static Checkbox = FormParts.Checkbox;
+    public static Submit = FormParts.Submit;
 
     render() {
         return <form className="Form" />;
