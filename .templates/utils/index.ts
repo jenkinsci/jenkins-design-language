@@ -1,4 +1,4 @@
-// [className].ts
+// [componentName].ts
 
-export class [className] {
+export class [componentName] {
 }
