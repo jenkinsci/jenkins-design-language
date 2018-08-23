@@ -1,19 +1,9 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Form } from './Form';
+import { theUser } from './Form.test';
 
 storiesOf('Form', module).add('should display text', () => {
-    const theUser = {
-        zip: '27529',
-        firstName: 'Donald',
-        _lastName: 'Trump',
-        get lastName() {
-            return this._lastName;
-        },
-        set lastName(v: string) {
-            this._lastName = v;
-        },
-    };
     return (
         <>
             <Form.Vertical>

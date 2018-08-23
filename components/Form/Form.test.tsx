@@ -2,28 +2,34 @@ import * as React from 'react';
 import * as Enzyme from 'enzyme';
 import { Form } from './Form';
 
+export const theUser = {
+    zip: '27529',
+    firstName: 'Donald',
+    _lastName: 'Trump',
+    get lastName() {
+        return this._lastName;
+    },
+    set lastName(v: string) {
+        this._lastName = v;
+    },
+};
+
 describe('Form', () => {
     it('should render an input', () => {
         const rendered = Enzyme.render(
-            <Form>
-                <Form.Input>
-                    {{
-                        label: 'First Name',
-                        name: 'first-name',
-                        placeholder: 'Enter a first name',
-                        htmlFor: 'first-name',
-                    }}
-                </Form.Input>
-            </Form>
+            <Form.Vertical>
+                <Form.Item label="First Name">
+                    <Form.InputText
+                        placeholder="Enter your first name"
+                        value={theUser.firstName}
+                        validation={['required']}
+                        onChange={v => (theUser.firstName = v)}
+                    />
+                </Form.Item>
+            </Form.Vertical>
         );
-        const label = rendered.find('label');
         const input = rendered.find('input');
-        expect(label.text()).toBe('First Name');
-        const name = input.attr('name');
-        expect(name).toBe('first-name');
-    });
-
-    it('should throw error when rendering form', () => {
-        expect(() => Enzyme.render(<Form />)).toThrowError();
+        const value = input.attr('value');
+        expect(value).toBe(theUser.firstName);
     });
 });
