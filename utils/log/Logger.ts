@@ -229,7 +229,7 @@ export function processLoggingRules() {
 
 processLoggingRules();
 
-export default function createLogger(...channel: string[]) {
+export function createLogger(...channel: string[]) {
     if (process.env.PROD_LOGGER) {
         return new ProductionLogger(...channel);
     }

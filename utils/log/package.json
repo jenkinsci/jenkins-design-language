@@ -1,7 +1,7 @@
 {
     "name": "@jdl2/log",
     "version": "2.0.0-alpha.29",
-    "main": "./Logger",
+    "main": "./index",
     "scripts": {
         "build": "tsc",
         "test": "jest"
