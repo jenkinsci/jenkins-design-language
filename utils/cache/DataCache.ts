@@ -1,7 +1,4 @@
-// import { action, observable, ObservableMap } from 'mobx';
-// import { inject, newInstance, postConstruct, singleton } from '@jdl2/ioc';
 import { Timer } from './Timer';
-// import { Logger } from '@jdl2/log';
 
 export interface Logger {
     info: (...args: any[]) => void;
@@ -12,31 +9,13 @@ export interface ClassType<T> {
     new (): T;
 }
 
-// declare var inject: (typ: ClassType<any>) => (target: Object, propertyKey: string | symbol, parameterIndex: number) => any;
-
-// import "reflect-metadata";
-
-// const requiredMetadataKey = Symbol("required");
-
-// function required(target: Object, propertyKey: string | symbol, parameterIndex: number) {
-//     let existingRequiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyKey) || [];
-//     existingRequiredParameters.push(parameterIndex);
-//     Reflect.defineMetadata(requiredMetadataKey, existingRequiredParameters, target, propertyKey);
-// }
-
-// function inject(target: Object, propertyKey: string | symbol, parameterIndex: number) {
-//     let existingRequiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyKey) || [];
-//     existingRequiredParameters.push(parameterIndex);
-//     Reflect.defineMetadata(requiredMetadataKey, existingRequiredParameters, target, propertyKey);
-// }
-
-interface CacheEntry<V> {
+export interface CacheEntry<V> {
     key: string;
     value: V;
     modified: number;
 }
 
-interface CacheListener<V> {
+export interface CacheListener<V> {
     added?: (k: string, v: V | null) => void;
     retrieved?: (k: string, v: V | null) => void;
     removed?: (k: string, v: V | null) => void;
@@ -109,8 +88,6 @@ export class DataCacheManager {
 export class DataCache<V> {
     manager: DataCacheManager;
 
-    // @observable _entries = new ObservableMap<V>();
-    // store a copy so eviction isn't calling _entries.get():
     _entryIndexes: { [key: string]: number } = {};
     _entryList: CacheEntry<V>[] = [];
     lastEviction: number;
@@ -129,7 +106,6 @@ export class DataCache<V> {
     }
 
     get(key: string): V | null | undefined {
-        // return this._entries.get(key); // mobx tracking
         const entry = this._entryList[this._entryIndexes[key]];
         const value = entry && entry.value;
         if (this.listeners) {
@@ -151,7 +127,6 @@ export class DataCache<V> {
         };
         const idx = this._entryList.push(cacheEntry);
         this._entryIndexes[key] = idx;
-        // this._entries.set(key, value); // mobx updates
         if (this.listeners) {
             for (const l of this.listeners) {
                 if (l.added) {
@@ -161,14 +136,12 @@ export class DataCache<V> {
         }
     }
 
-    // @action
     remove(key: string): V | null | undefined {
         const idx = this._entryIndexes[key];
         const prev = this._entryList[idx];
         try {
             this._entryList.splice(idx, 1); // TODO immutable?
             delete this._entryIndexes[key];
-            // this._entries.delete(key); // trigger mobx updates
             return prev && prev.value;
         } finally {
             if (this.listeners) {
