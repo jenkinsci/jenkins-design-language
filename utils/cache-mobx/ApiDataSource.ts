@@ -1,4 +1,4 @@
-import { Logger } from '@ldj2/log';
+// import { Logger } from '@ldj2/log';
 import { DataCache } from '@jdl2/cache';
 import {FetchResult} from './FetchResult';
 const { DeDupeCallTracker } = require('@jenkins-cd/blueocean-core-js/dist/js/utils/dedupe-calls');

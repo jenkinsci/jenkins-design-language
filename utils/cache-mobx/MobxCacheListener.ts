@@ -1,15 +1,19 @@
 // MobxCacheListener.ts
 import { intercept, IObservable, action, observable, ObservableMap } from 'mobx';
 
-import {CacheListener} from '@jdl2/cache';
+import {DataCache, CacheListener} from '@jdl2/cache';
 
 export class MobxCacheListener<V> implements CacheListener<V> {
+    cache: DataCache<V>;
     @observable _entries = new ObservableMap<string, V>();
 
-    constructor() {
+    constructor(cache: DataCache<V>, evicted: (key: string) => void) {
+        this.cache = cache;
+        this.cache.addListener(this);
+
         intercept(this._entries, change => {
             if (change.type === 'delete') {
-                // skip cache deletes, as this will invalidate the react component tree
+                // skip certain cache deletes, as this will invalidate the react component tree
                 // instead initiate a re-fetch
 
                 // try to find out if there are observers
@@ -17,15 +21,14 @@ export class MobxCacheListener<V> implements CacheListener<V> {
                 // tslint:disable-next-line
                 const o = (observable as any)._data[change.name] as IObservable;
                 if (o.observers && o.observers.size) {
-                    // mark the entry as pending deletion
-                    const key = this.keys[change.name];
-                    if (key !== undefined) {
-                        this.loadData(key);
-                    }
                     const entryIdx = this.cache._entryIndexes[change.name];
                     const entry = this.cache._entryList[entryIdx];
+                    // mark the entry as pending deletion
+                    if (entry !== undefined) {
+                        evicted(entry.key); // this.loadData(key);
+                    }
                     if (entry) {
-                        // let this cache entry live during the fetch
+                        // let this cache entry live during a fetch
                         entry.modified += this.cache.maxAge;
                     }
                     // stop the reaction
