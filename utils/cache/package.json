@@ -1,7 +1,7 @@
 {
-    "name": "@jdl2/log",
+    "name": "@jdl2/cache",
     "version": "2.0.0-alpha.29",
-    "main": "./index",
+    "main": "./DataCache",
     "scripts": {
         "build": "tsc",
         "test": "jest"
@@ -17,6 +17,8 @@
         "access": "public"
     },
     "dependencies": {
+        "@jdl2/ioc": "2.0.0-alpha.29",
+        "@jdl2/log": "2.0.0-alpha.29"
     },
     "devDependencies": {
         "jest": "^22.4.2",

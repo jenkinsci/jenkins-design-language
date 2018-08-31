@@ -1,6 +1,6 @@
 import {DevelopmentLogger, processLoggingRules, ProductionLogger} from './Logger';
 
-const logKeys = ['debug', 'log', 'info', 'warn', 'error']
+const logKeys = ['debug', 'log', 'info', 'warn', 'error'];
 describe('Logger', () => {
     let logged: any[] = [];
     const logs: any = [];

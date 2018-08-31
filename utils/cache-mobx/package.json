@@ -1,7 +1,7 @@
 {
-    "name": "@jdl2/log",
+    "name": "@jdl2/cache-mobx",
     "version": "2.0.0-alpha.29",
-    "main": "./index",
+    "main": "./MobxCacheListener",
     "scripts": {
         "build": "tsc",
         "test": "jest"
@@ -17,6 +17,9 @@
         "access": "public"
     },
     "dependencies": {
+        "@jdl2/cache": "2.0.0-alpha.29",
+        "mobx": "^5",
+        "mobx-react": "^5"
     },
     "devDependencies": {
         "jest": "^22.4.2",
