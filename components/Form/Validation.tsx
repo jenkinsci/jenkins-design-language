@@ -25,17 +25,17 @@ const handleState = (
     isDisabled: boolean
 ) => {
     if (!isDisabled && currentValidator) {
-        let message = validators[currentValidator].message();
+        const message = validators[currentValidator].message();
         component.setState({
-            isValid: false,
-            message,
             value,
+            message,
+            isValid: false,
         });
     } else {
         component.setState({
-            isValid: true,
-            message: '',
             value,
+            message: '',
+            isValid: true,
         });
     }
 };
