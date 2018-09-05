@@ -36,7 +36,11 @@ export class Dialog extends React.Component<Props> {
                         {dialog.title && <DialogHeader title={dialog.title} />}
                         <DialogContent>{dialog.children}</DialogContent>
                         <DialogButtons>
-                            <div className="Button" role="button" onClick={() => store.closeDialog(idx)}>
+                            <div
+                                className="Button"
+                                role="button"
+                                onClick={() => store.closeDialog(idx)}
+                            >
                                 Close
                             </div>
                         </DialogButtons>

@@ -30,19 +30,23 @@ export class Tabs extends React.Component<any, TabState> {
                         tab: any, // tslint:disable-line
                         idx
                     ) => (
-                        <a role="button"
+                        <a
+                            role="button"
                             className={`Tabs-Tab ${idx === this.state.selectedTab && 'is-active'}`}
                             key={tab.props.title}
                             onClick={e => {
                                 e.preventDefault();
                                 this.setSelectedTab(idx);
-                            }}>
+                            }}
+                        >
                             {tab.props.title}
                         </a>
                     ))}
                 </div>
 
-                {activeChildren.map((child: JSX.Element, idx) => (this.state.selectedTab === idx ? child : null))}
+                {activeChildren.map(
+                    (child: JSX.Element, idx) => (this.state.selectedTab === idx ? child : null)
+                )}
             </>
         );
     }

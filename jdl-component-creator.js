@@ -56,8 +56,7 @@ function createDirectoryContents(templatePath, componentChoice) {
                     .replace(/\[className\]/g, componentChoice)
                     .replace(/\[classVersion\]/g, require('./lerna').version)
                     .replace(/\[classPath\]/g, componentChoice.toLowerCase())
-                    .replace(/\[cssUtilVersion\]/g, require('./utils/css/package').version)
-                ;
+                    .replace(/\[cssUtilVersion\]/g, require('./utils/css/package').version);
                 fs.writeFileSync(writePath, contents);
             }
         });
