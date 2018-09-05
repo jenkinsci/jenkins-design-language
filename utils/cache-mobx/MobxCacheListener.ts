@@ -1,60 +1,49 @@
 // MobxCacheListener.ts
-import { intercept, IObservable, action, observable, ObservableMap } from 'mobx';
+import { DataCache, CacheListener } from '@jdl2/cache';
+import { IObservable, action, observable, ObservableMap } from 'mobx';
 
-import {DataCache, CacheListener} from '@jdl2/cache';
+/**
+ * Basic callback when eviction is called on an actively viewed entry
+ */
+export type EvictionCallback = (key: string) => void;
 
+/**
+ * Creates a new CacheListener that prevents actively viewed data from being
+ * evicted by the cache and will call back to the listener when eviction is called
+ */
 export class MobxCacheListener<V> implements CacheListener<V> {
     cache: DataCache<V>;
     @observable _entries = new ObservableMap<string, V>();
+    onActiveDataEviction: EvictionCallback;
 
-    constructor(cache: DataCache<V>, evicted: (key: string) => void) {
+    constructor(cache: DataCache<V>, onActiveDataEviction: EvictionCallback) {
         this.cache = cache;
+        this.onActiveDataEviction = onActiveDataEviction;
         this.cache.addListener(this);
-
-        intercept(this._entries, change => {
-            if (change.type === 'delete') {
-                // skip certain cache deletes, as this will invalidate the react component tree
-                // instead initiate a re-fetch
-
-                // try to find out if there are observers
-                const observable = change.object;
-                // tslint:disable-next-line
-                const o = (observable as any)._data[change.name] as IObservable;
-                if (o.observers && o.observers.size) {
-                    const entryIdx = this.cache._entryIndexes[change.name];
-                    const entry = this.cache._entryList[entryIdx];
-                    // mark the entry as pending deletion
-                    if (entry !== undefined) {
-                        evicted(entry.key); // this.loadData(key);
-                    }
-                    if (entry) {
-                        // let this cache entry live during a fetch
-                        entry.modified += this.cache.maxAge;
-                    }
-                    // stop the reaction
-                    return null;
-                }
-            }
-
-            // If the change
-            return change;
-        });
-
     }
 
     retrieved(key: string, value: V) {
         return this._entries.get(key); // mobx tracking
     }
 
+    @action
     added(key: string, value: V) {
         this._entries.set(key, value); // mobx updates
     }
 
     @action
     removed(key: string, value: V) {
-        this._entries.delete(key); // trigger mobx updates
+        this._entries.delete(key); // mobx, forceful re-render
     }
 
+    @action
     evicted(key: string, value: V) {
+        const o = (this._entries as any)._data.get(key) as IObservable;
+        if (o && o.isBeingObserved) {
+            this.onActiveDataEviction(key);
+            return true; // keep the entry
+        }
+        this._entries.delete(key); // update mobx
+        return false;
     }
 }

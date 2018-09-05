@@ -9,6 +9,6 @@ storiesOf('Selectbox', module)
         return <Selectbox options={options} value={options[0].value} />;
     })
     .add('should alert on change', () => {
-        const handleChange = (e: HTMLInputElement) => alert('changed to value: ' + e.value);
+        const handleChange = (e: HTMLInputElement) => alert(`changed to value: ${e.value}`);
         return <Selectbox options={options} value={options[0].value} onChange={handleChange} />;
     });
