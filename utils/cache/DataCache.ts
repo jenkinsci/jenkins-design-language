@@ -17,7 +17,7 @@ export interface CacheEntry<V> {
 
 export interface CacheListener<V> {
     added?: (k: string, v: V | null) => void;
-    retrieved?: (k: string, v: V | null) => void;
+    retrieved?: (k: string, v: V | null) => V | null | undefined;
     removed?: (k: string, v: V | null) => void;
     evicted?: (k: string, v: V | null) => void;
 }
@@ -64,18 +64,26 @@ export class DataCacheManager {
                 continue;
             }
             cache.lastEviction = now;
-            for (let i = 0; i < cache._entryList.length; i++) {
-                const val = cache._entryList[i];
+            for (const key of Object.keys(cache._data)) {
+                const val = cache._data[key];
                 if (val && now - val.modified >= cache.maxAge) {
                     evictCount++;
-                    cache._entryList.splice(i, 1);
-                    // cache._entries.delete(val.key);
+                    let remove = true;
                     if (cache.listeners) {
                         for (const l of cache.listeners) {
                             if (l.evicted) {
-                                l.evicted(val.key, val.value);
+                                if (l.evicted(val.key, val.value)) {
+                                    remove = false;
+                                }
                             }
                         }
+                    }
+                    if (remove) {
+                        // only remove entries listeners don't indicate to keep
+                        delete cache._data[key];
+                    } else {
+                        // Let the entry live through the next eviction cycle
+                        val.modified += cache.maxAge;
                     }
                 }
             }
@@ -88,8 +96,7 @@ export class DataCacheManager {
 export class DataCache<V> {
     manager: DataCacheManager;
 
-    _entryIndexes: { [key: string]: number } = {};
-    _entryList: CacheEntry<V>[] = [];
+    _data: { [key: string]: CacheEntry<V> } = {};
     lastEviction: number;
     maxAge: number;
     listeners: CacheListener<V>[];
@@ -106,27 +113,28 @@ export class DataCache<V> {
     }
 
     get(key: string): V | null | undefined {
-        const entry = this._entryList[this._entryIndexes[key]];
-        const value = entry && entry.value;
+        const entry = this._data[key];
+        let value: V | null = entry && entry.value;
         if (this.listeners) {
             for (const l of this.listeners) {
                 if (l.retrieved) {
-                    l.retrieved(key, value);
+                    const v = l.retrieved(key, value);
+                    if (v !== undefined) {
+                        value = v;
+                    }
                 }
             }
         }
         return value;
     }
 
-    // @action
     set(key: string, value: V) {
         const cacheEntry = {
             key,
             value,
             modified: this.manager.getTime(),
         };
-        const idx = this._entryList.push(cacheEntry);
-        this._entryIndexes[key] = idx;
+        this._data[key] = cacheEntry;
         if (this.listeners) {
             for (const l of this.listeners) {
                 if (l.added) {
@@ -137,11 +145,9 @@ export class DataCache<V> {
     }
 
     remove(key: string): V | null | undefined {
-        const idx = this._entryIndexes[key];
-        const prev = this._entryList[idx];
+        const prev = this._data[key];
         try {
-            this._entryList.splice(idx, 1); // TODO immutable?
-            delete this._entryIndexes[key];
+            delete this._data[key];
             return prev && prev.value;
         } finally {
             if (this.listeners) {
@@ -157,6 +163,6 @@ export class DataCache<V> {
     }
 
     get size() {
-        return this._entryList.length;
+        return Object.keys(this._data).length;
     }
 }

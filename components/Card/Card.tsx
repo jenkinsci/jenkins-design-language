@@ -53,7 +53,7 @@ export class Card<T extends object = object> extends React.Component<CardProps, 
             <div
                 role="gridcell"
                 onClick={this.handleFocus}
-                style={{ width: this.props.width + 'px' }}
+                style={{ width: `${this.props.width}px` }}
                 className={classNames('Card', {
                     ShadowedCard: this.props.type === CardType.Shadowed,
                     'is-focused': this.state.focused,
