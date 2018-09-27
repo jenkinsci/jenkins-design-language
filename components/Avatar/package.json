@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/avatar",
-    "version": "2.0.0-alpha.29",
+    "version": "2.0.0-alpha.30",
     "main": "./Avatar",
     "scripts": {
         "build": "tsc",
@@ -17,7 +17,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/css-util": "2.0.0-alpha.29",
+        "@jdl2/css-util": "^2.0.0-alpha.30",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",

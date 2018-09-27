@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/cache-mobx",
-    "version": "2.0.0-alpha.29",
+    "version": "2.0.0-alpha.30",
     "main": "./MobxCacheListener",
     "scripts": {
         "build": "tsc",
@@ -17,7 +17,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/cache": "2.0.0-alpha.29",
+        "@jdl2/cache": "^2.0.0-alpha.30",
         "mobx": "^5",
         "mobx-react": "^5"
     },

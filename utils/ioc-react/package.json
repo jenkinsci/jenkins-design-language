@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/ioc-react",
-    "version": "2.0.0-alpha.29",
+    "version": "2.0.0-alpha.30",
     "main": "./InjectorContext",
     "scripts": {
         "build": "tsc",
@@ -17,8 +17,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/ioc": "2.0.0-alpha.29",
-        "@jdl2/log": "2.0.0-alpha.29"
+        "@jdl2/ioc": "^2.0.0-alpha.30",
+        "@jdl2/log": "^2.0.0-alpha.30"
     },
     "devDependencies": {
         "jest": "^22.4.2",

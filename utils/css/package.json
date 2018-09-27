@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/css-util",
-    "version": "2.0.0-alpha.29",
+    "version": "2.0.0-alpha.30",
     "main": "./css",
     "types": "./css.d.ts",
     "scripts": {

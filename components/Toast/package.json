@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/toast",
-    "version": "2.0.0-alpha.29",
+    "version": "2.0.0-alpha.30",
     "main": "./Toast",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -24,7 +24,7 @@
         "react-dom": "*"
     },
     "devDependencies": {
-        "@jdl2/icons": "^2.0.0-alpha.29",
+        "@jdl2/icons": "^2.0.0-alpha.30",
         "@storybook/addon-jest": "^3.4.8",
         "@types/enzyme": "^3.1.9",
         "@types/react": "*",

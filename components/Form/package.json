@@ -1,6 +1,6 @@
 {
     "name": "@jdl2/form",
-    "version": "2.0.0-alpha.29",
+    "version": "2.0.0-alpha.30",
     "main": "./Form",
     "types": "./Form.d.ts",
     "scripts": {
@@ -19,7 +19,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/icons": "^2.0.0-alpha.27",
+        "@jdl2/icons": "^2.0.0-alpha.30",
         "prop-types": "*",
         "react": "*",
         "react-addons-css-transition-group": "*",
@@ -31,16 +31,16 @@
         "@types/react": "*",
         "@types/react-addons-css-transition-group": "*",
         "@types/react-dom": "*",
-        "@types/validator": "^9.4.1",
         "@types/react-test-renderer": "^16.0.1",
         "@types/react-transition-group": "*",
+        "@types/validator": "^9.4.1",
         "enzyme": "^3.3.0",
         "jest": "^22.4.2",
-        "validator": "^10.5.0",
         "jest-storybook-facade": "0.0.8",
         "react-test-renderer": "^16.4.1",
         "storybook-addon-specifications": "^2.1.2",
-        "typescript": "*"
+        "typescript": "*",
+        "validator": "^10.5.0"
     },
     "jest": {
         "preset": "typewebjest/jest-preset.json"
