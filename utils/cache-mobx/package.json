@@ -3,6 +3,7 @@
     "version": "2.0.0-alpha.30",
     "main": "./MobxCacheListener",
     "scripts": {
+        "prepublishOnly": "tsc",
         "build": "tsc",
         "test": "jest"
     },

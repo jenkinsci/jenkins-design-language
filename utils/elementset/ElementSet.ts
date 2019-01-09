@@ -77,9 +77,6 @@ export class ElementSet {
     is(s: string) {
         const n = this.q()[0];
         if (n) {
-            if (n.msMatchesSelector) {
-                return n.msMatchesSelector(s);
-            }
             return n.matches(s);
         }
         return false;
@@ -240,4 +237,11 @@ export class ElementSet {
  */
 export function $(selector: string | object) {
     return new ElementSet(selector);
+}
+
+/**
+ * Polyfill IE 9-11
+ */
+if (!Element.prototype.matches) {
+    Element.prototype.matches = (Element.prototype as any).msMatchesSelector;
 }

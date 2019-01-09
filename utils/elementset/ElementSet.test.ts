@@ -46,24 +46,6 @@ describe('ElementSet', () => {
         expect($e1.is('.elem1')).toBeTruthy();
         expect($e1.is('.elem2')).toBeFalsy();
         expect($('.elem2').is('.elem1')).toBeFalsy();
-
-        // test IE9+ support and not
-        if (HTMLElement.prototype.msMatchesSelector) {
-            const existing = HTMLElement.prototype.msMatchesSelector;
-            expect($e1.is('.elem1')).toBeTruthy();
-            expect($e1.is('.elem2')).toBeFalsy();
-            delete HTMLElement.prototype.msMatchesSelector;
-            expect($e1.is('.elem1')).toBeTruthy();
-            expect($e1.is('.elem2')).toBeFalsy();
-            HTMLElement.prototype.msMatchesSelector = existing;
-        } else {
-            HTMLElement.prototype.msMatchesSelector = HTMLElement.prototype.matches;
-            expect($e1.is('.elem1')).toBeTruthy();
-            expect($e1.is('.elem2')).toBeFalsy();
-            delete HTMLElement.prototype.msMatchesSelector;
-            expect($e1.is('.elem1')).toBeTruthy();
-            expect($e1.is('.elem2')).toBeFalsy();
-        }
     });
 
     it('.attr, .removeAttr', () => {

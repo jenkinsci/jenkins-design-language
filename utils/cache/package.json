@@ -3,6 +3,7 @@
     "version": "2.0.0-alpha.30",
     "main": "./DataCache",
     "scripts": {
+        "prepublishOnly": "tsc",
         "build": "tsc",
         "test": "jest"
     },
@@ -17,7 +18,6 @@
         "access": "public"
     },
     "dependencies": {
-        "@jdl2/ioc": "^2.0.0-alpha.30",
         "@jdl2/log": "^2.0.0-alpha.30"
     },
     "devDependencies": {
