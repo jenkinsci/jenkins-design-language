@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { MobxCacheListener } from './MobxCacheListener';
-import {DataCache, DataCacheManager} from '../cache/DataCache';
+import { DataCache, DataCacheManager } from '../cache/DataCache';
 import * as Enzyme from 'enzyme';
-
 
 class ExplicitTimeManager extends DataCacheManager {
     time = 0;
@@ -45,17 +44,18 @@ describe('MobxCacheListener', () => {
         let evictCount = 0;
 
         const manager = new ExplicitTimeManager();
+        manager.time = 0;
         const cache = new DataCache<User>(1, manager);
 
         new MobxCacheListener(cache, () => evictCount++);
 
         const usr1 = {
             id: '1',
-            name: 'User 1'
+            name: 'User 1',
         };
         const usr2 = {
             id: '2',
-            name: 'User 2'
+            name: 'User 2',
         };
 
         const uc1 = <UserComponent cache={cache} id={usr1.id} rendered={() => renderCount++} />;
@@ -83,7 +83,7 @@ describe('MobxCacheListener', () => {
         usr1.name = 'User 1';
         cache.set(usr1.id, usr1);
 
-        manager.time++;
+        manager.time = 1;
         manager.runCacheEviction();
 
         expect(evictCount).toBe(1);
@@ -100,7 +100,7 @@ describe('MobxCacheListener', () => {
 
         uc1m.unmount();
 
-        manager.time++;
+        manager.time = 2;
         manager.runCacheEviction();
 
         // was unmounted, eviction just removes it
@@ -110,7 +110,7 @@ describe('MobxCacheListener', () => {
 
         expect(cache.get(usr1.id)).toBeUndefined();
 
-        manager.time++;
+        manager.time = 3;
         manager.runCacheEviction();
 
         uc1m.mount();
@@ -120,7 +120,7 @@ describe('MobxCacheListener', () => {
 
         cache.set(usr1.id, usr1);
 
-        manager.time++;
+        manager.time = 4;
         manager.runCacheEviction();
 
         expect(evictCount).toBe(2);

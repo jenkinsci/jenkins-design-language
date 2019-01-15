@@ -57,7 +57,7 @@ export class DataCacheManager {
 
     runCacheEviction() {
         const now = this.getTime();
-        let evictCount = 0;
+        // let evictCount = 0;
         for (let cacheIdx = 0; cacheIdx < this.caches.length; cacheIdx++) {
             const cache = this.caches[cacheIdx];
             if (now - cache.lastEviction < cache.maxAge) {
@@ -67,29 +67,20 @@ export class DataCacheManager {
             for (const key of Object.keys(cache._data)) {
                 const val = cache._data[key];
                 if (val && now - val.modified >= cache.maxAge) {
-                    evictCount++;
-                    let remove = true;
+                    delete cache._data[key];
+                    // evictCount++;
                     if (cache.listeners) {
                         for (const l of cache.listeners) {
                             if (l.evicted) {
-                                if (l.evicted(val.key, val.value)) {
-                                    remove = false;
-                                }
+                                l.evicted(val.key, val.value);
                             }
                         }
-                    }
-                    if (remove) {
-                        // only remove entries listeners don't indicate to keep
-                        delete cache._data[key];
-                    } else {
-                        // Let the entry live through the next eviction cycle
-                        val.modified += cache.maxAge;
                     }
                 }
             }
         }
 
-        this.log.info('Eviction completed in', this.getTime() - now, 'ms, for', evictCount, 'items');
+        // this.log.info('Eviction completed in', this.getTime() - now, 'ms, for', evictCount, 'items');
     }
 }
 
@@ -101,7 +92,10 @@ export class DataCache<V> {
     maxAge: number;
     listeners: CacheListener<V>[];
 
-    constructor(maxAge: number = DataCacheManager.defaultMaxAge, manager: DataCacheManager = new DataCacheManager(console)) {
+    constructor(
+        maxAge: number = DataCacheManager.defaultMaxAge,
+        manager: DataCacheManager = new DataCacheManager(console)
+    ) {
         this.maxAge = maxAge;
         this.manager = manager;
         this.manager.register(this);
@@ -129,12 +123,7 @@ export class DataCache<V> {
     }
 
     set(key: string, value: V) {
-        const cacheEntry = {
-            key,
-            value,
-            modified: this.manager.getTime(),
-        };
-        this._data[key] = cacheEntry;
+        this._set(key, value);
         if (this.listeners) {
             for (const l of this.listeners) {
                 if (l.added) {
@@ -142,6 +131,15 @@ export class DataCache<V> {
                 }
             }
         }
+    }
+
+    _set(key: string, value: V) {
+        const cacheEntry = {
+            key,
+            value,
+            modified: this.manager.getTime(),
+        };
+        this._data[key] = cacheEntry;
     }
 
     remove(key: string): V | null | undefined {

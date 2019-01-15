@@ -41,9 +41,10 @@ export class MobxCacheListener<V> implements CacheListener<V> {
         const o = (this._entries as any)._data.get(key) as IObservable;
         if (o && o.isBeingObserved) {
             this.onActiveDataEviction(key);
-            return true; // keep the entry
+            // keep the entry for the UI
+            this.cache._set(key, value);
+            return;
         }
-        this._entries.delete(key); // update mobx
-        return false;
+        this._entries.delete(key); // otherwise update mobx
     }
 }
